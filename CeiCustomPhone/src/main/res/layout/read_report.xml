@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+	<LinearLayout
+		android:id="@+id/top"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:background="@drawable/top_bar"
+		android:gravity="center"
+		android:layout_alignParentTop="true">
+		<TextView
+			android:id="@+id/yjbg_read_report_title"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="20dip"
+			android:textSize="28px"
+			android:textStyle="bold"
+			android:textColor="#ffffff"
+			android:text="......pdf" 
+			android:singleLine="true"/>
+	</LinearLayout>
+	<RelativeLayout
+		android:id="@+id/bottom"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true">
+		<ImageView
+			android:id="@+id/yjbg_read_report_menu_is"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:background="@drawable/read_report_bottom" />
+		<FrameLayout
+		 android:visibility="gone"
+			android:id="@+id/yjbg_read_report_menu"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content">
+			<ImageView
+				android:id="@+id/yjbg_read_report_bottom_gone"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:background="@drawable/read_report_bottom1" />
+			<HorizontalScrollView
+			    android:id="@+id/ScrollView"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content">
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:paddingTop="11dip"
+					android:gravity="center_horizontal">
+					<ImageView
+						android:id="@+id/yjbg_read_report_over"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:background="@drawable/read_report_over" />
+					<ImageView
+						android:id="@+id/yjbg_read_report_home"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:background="@drawable/read_report_home" />
+					<ImageView
+						android:id="@+id/yjbg_read_report_mulu"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:background="@drawable/read_report_mulu" />
+					<ImageView
+						android:id="@+id/yjbg_read_report_fontsize"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:background="@drawable/read_report_fontsize" />
+					<ImageView
+						android:id="@+id/yjbg_read_report_light"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:background="@drawable/read_report_light" />
+					<ImageView
+						android:id="@+id/yjbg_read_report_addshuqian"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:background="@drawable/read_report_add_shuqian" />
+					<ImageView
+						android:id="@+id/yjbg_read_report_shuqian"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:background="@drawable/read_report_shuqian" />
+                    <ImageView
+						android:id="@+id/yjbg_read_report_over1"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:background="@drawable/read_report_over" />
+				</LinearLayout>
+			</HorizontalScrollView>
+		</FrameLayout>
+	</RelativeLayout>
+	<FrameLayout
+	android:background="#ffffff"
+		android:id="@+id/yjbg_read_report_pdfview"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_above="@id/bottom"
+		android:layout_below="@id/top"></FrameLayout>
+</RelativeLayout>

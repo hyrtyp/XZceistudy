@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:background="@drawable/collect_bg">
+
+	<LinearLayout android:layout_height="wrap_content"
+		android:id="@+id/top_ll" android:background="@drawable/collect_centerbg"
+		android:layout_width="wrap_content" android:layout_centerInParent="true"
+		android:orientation="vertical">
+		<ImageView android:layout_width="wrap_content"
+			android:layout_marginLeft="221dip" android:layout_height="wrap_content"
+			android:src="@drawable/close_icon" android:padding="10dip"
+			android:id="@+id/close_icon" />
+		<LinearLayout android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
+			<ImageView android:layout_width="132dip" android:id="@+id/business_icon"
+				android:scaleType="fitXY" android:layout_height="99dip"
+				android:layout_marginLeft="10dip"
+				android:src="@drawable/witsea_default_icon" />
+			<LinearLayout android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_marginLeft="5dip"
+				android:orientation="vertical" android:layout_marginTop="8dip">
+				<TextView android:text="移动学习" android:id="@+id/business_name"
+					android:textColor="#000099" android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:textSize="18sp" />
+				<TextView android:layout_width="wrap_content" android:visibility="gone"
+					android:layout_height="wrap_content" android:textSize="12sp"
+					android:text="类型 ： 视频" android:textColor="#000000"
+					android:textStyle="bold" android:layout_marginTop="6dip" />
+				<LinearLayout android:layout_height="wrap_content"
+					android:layout_width="fill_parent" android:orientation="horizontal">
+					<TextView android:layout_width="wrap_content"
+						android:layout_height="wrap_content" android:textColor="#000000"
+						android:textSize="12sp" android:text="单价 ： " android:textStyle="bold"
+						android:layout_marginTop="6dip" />
+					<TextView android:layout_width="wrap_content"
+						android:layout_height="wrap_content" android:id="@+id/business_price"
+						android:textColor="#CC0000" android:textSize="12sp" android:text="160元 "
+						android:textStyle="bold" android:layout_marginTop="6dip" />
+				</LinearLayout>
+			</LinearLayout>
+		</LinearLayout>
+		<TextView android:layout_height="wrap_content"
+			android:layout_width="wrap_content" android:padding="10dip"
+			android:id="@+id/business_intro" android:textStyle="bold"
+			android:paddingLeft="56dip" android:textColor="#000000"
+			android:paddingRight="56dip"/>
+	</LinearLayout>
+
+</RelativeLayout>

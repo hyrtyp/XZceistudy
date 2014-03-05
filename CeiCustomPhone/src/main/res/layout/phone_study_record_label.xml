@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/phone_study_labelParentParent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:scrollbars="none" >
+
+    <LinearLayout
+        android:id="@+id/phone_study_labelParent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dip" >
+
+        <Button
+            style="@style/phone_study_Tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dip"
+            android:text="全  部"
+            android:background="@drawable/phone_study_tab_bg"
+            android:textColor="@color/phone_study_color_black"
+            />
+
+        <Button
+            style="@style/phone_study_Tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dip"
+            android:text="未学完"
+            />
+
+        <Button
+            style="@style/phone_study_Tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dip"
+            android:text="未上传"
+             />
+
+        <Button
+            style="@style/phone_study_Tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dip"
+            android:text="已上传"
+            />
+
+        <Button
+            style="@style/phone_study_Tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="2dip"
+            android:text="已学完"
+            />
+    </LinearLayout>
+
+</HorizontalScrollView>

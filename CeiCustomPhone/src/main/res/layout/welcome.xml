@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	android:id="@+id/welcome"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@drawable/welcome_background"
+>
+	<ImageView
+		android:layout_marginLeft="5dip"
+		android:layout_marginTop="10dip"
+		android:id="@+id/imageView1"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@drawable/wecome_logo"
+		android:layout_alignParentTop="true"
+		android:layout_alignParentLeft="true"
+	></ImageView>
+	<RelativeLayout
+		android:layout_centerInParent="true"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+	>
+		<ImageView
+			android:layout_alignParentTop="true"
+			android:background="@drawable/welcome_word_1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:id="@+id/welcome_img_min"
+		></ImageView>
+		<RelativeLayout
+			android:layout_marginTop="30dip"
+			android:layout_centerHorizontal="true"
+			android:layout_below="@+id/welcome_img_min"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+		>
+			<ImageView
+				android:id="@+id/welcome_iv"
+				android:background="@anim/welcome_loading_anim"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
+			<TextView
+				android:id="@+id/welcome_text_min"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_below="@+id/welcome_img_min"
+				android:layout_centerInParent="true"
+				android:text="0%"
+				android:textSize="10sp"
+				android:textColor="#ffffff" />
+		</RelativeLayout>
+	</RelativeLayout>
+
+	<ImageView
+		android:layout_marginBottom="30dip"
+		android:layout_alignParentBottom="true"
+		android:layout_height="wrap_content"
+		android:id="@+id/imageView2"
+		android:layout_width="wrap_content"
+		android:background="@drawable/welcome_word_2"
+		android:layout_centerHorizontal="true"
+	></ImageView>
+</RelativeLayout>

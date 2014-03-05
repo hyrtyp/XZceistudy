@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="100dip"
+    style="@style/phone_study_listview"
+   >
+
+    <ImageView
+        android:id="@+id/phone_study_listviewitem_icon"
+        android:src="@drawable/courseware_default_icon"
+        android:layout_gravity="center_vertical"
+        android:contentDescription="@string/hello"
+        android:scaleType="fitXY"
+        style="@style/phone_study_image_list"
+        android:layout_alignParentLeft="true"
+        />
+        <Button
+            android:id="@+id/phone_study_listviewitem_say"
+            style="@style/phone_study_bt"
+            android:text="参与讨论"
+            android:layout_width="75dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentRight="true"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+         android:paddingLeft="8dip"
+        android:paddingTop="3dip"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@id/phone_study_listviewitem_icon"
+        android:layout_toLeftOf="@id/phone_study_listviewitem_say">
+
+        <TextView
+            android:id="@+id/phone_study_listviewitem_title"
+            style="@style/phone_study_h1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/phone_study_title" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="10dip"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/phone_study_listviewitem_teachername"
+                style="@style/phone_study_h1_small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/phone_study_teachername" />
+
+            <TextView
+                android:id="@+id/phone_study_listviewitem_protime"
+                style="@style/phone_study_h1_small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:text=""
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

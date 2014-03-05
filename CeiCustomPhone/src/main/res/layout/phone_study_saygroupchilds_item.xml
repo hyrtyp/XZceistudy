@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent"
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_height="wrap_content">
+
+<LinearLayout android:layout_width="fill_parent" android:layout_marginTop="12dip"
+	android:background="@drawable/phone_study_saygroup_childsitemborder"
+	android:layout_height="wrap_content" android:orientation="vertical"
+	android:padding="10dip">
+	<TextView android:layout_width="wrap_content"
+		android:id="@+id/phone_study_saygroup_childitem_tv1"
+		android:layout_height="wrap_content" android:text="叶鹏说：" />
+	<TextView android:layout_width="wrap_content"
+		android:id="@+id/phone_study_saygroup_childitem_tv2" 
+		android:layout_height="wrap_content" android:layout_marginTop="10dip"
+		android:text="主要用于造纸、纺织、塑料等领域。2011年3月" android:textColor="#50000000" />
+</LinearLayout>
+</LinearLayout>

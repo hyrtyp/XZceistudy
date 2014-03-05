@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/full_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/phone_study_top" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#f0f4f6"
+        android:paddingTop="1.0px"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4dip"
+                android:paddingLeft="2dip"
+                android:paddingRight="8dip"
+                android:paddingTop="4dip" >
+
+                <ImageView
+                    android:id="@+id/phone_study_detail_icon"
+                    android:layout_width="110dip"
+                    android:layout_height="100dip"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/courseware_default_icon" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="5dip"
+                    android:layout_marginTop="2dip"
+                    android:orientation="vertical" >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" >
+
+                        <com.hyrt.cei.ui.phonestudy.view.AlwaysMarqueeTextView
+                            android:id="@+id/phone_study_detail_title"
+                            android:layout_width="274px"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="marquee"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:marqueeRepeatLimit="marquee_forever"
+                            android:scrollHorizontally="true"
+                            android:singleLine="true"
+                            android:text="主题 ：美国决定对中国输美荧光增白剂征收高额反倾销关税"
+                            android:textColor="#054b93"
+                            android:textSize="28px" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dip" >
+
+                        <RelativeLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:orientation="horizontal" >
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="fill_parent"
+                                android:orientation="vertical" >
+
+                                <TextView
+                                    android:id="@+id/phone_study_detail_author"
+                                    style="@style/yangshi_2"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="主讲人 ：范先生/张先生" />
+
+                                <TextView
+                                    android:id="@+id/phone_study_detail_protime"
+                                    style="@style/yangshi_2"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dip"
+                                    android:text="发布时间 ：2012-12-31 15:23:50" />
+
+                                <TextView
+                                    android:id="@+id/phone_study_detail_timelength"
+                                    style="@style/yangshi_2"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dip"
+                                    android:text="课件时长 ：1500" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="60dp"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:orientation="vertical"
+                                android:layout_centerHorizontal="true">
+
+                                <Button
+                                    android:id="@+id/phone_study_detail_preload"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="下载"
+                                    android:background="@drawable/phone_study_bt_bg"
+                                    android:layout_weight="1"
+                                    android:layout_marginBottom="5dp"
+                                    />
+
+                                <Button
+                                    android:id="@+id/phone_study_detail_play"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:text="播放"
+                                    android:background="@drawable/phone_study_bt_bg"
+                                    android:layout_weight="1"/>
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <ImageView
+                            android:id="@+id/phone_study_detail_addcourse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/phone_study_addcourse_btn"
+                            android:visibility="gone" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="2dip"
+                android:background="#d6e1e5" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:orientation="vertical"
+                android:paddingLeft="5dip" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dip"
+                    android:maxLines="1"
+                    android:text="课件详情 ："
+                    android:textColor="#003380"
+                    android:textSize="24px"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/phone_study_detail_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dip"
+                    android:minHeight="90dip"
+                    android:text="课件内容"
+                    android:textColor="#000000"
+                    android:textSize="20px"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="2dip"
+                android:background="#d6e1e5" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dip"
+                android:orientation="vertical"
+                android:paddingLeft="8dip" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dip" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/phone_study_aboutclass" />
+                </RelativeLayout>
+
+                <HorizontalScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="80dip"
+                    android:scrollbars="none" >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+
+                        <com.hyrt.cei.ui.phonestudy.view.GGridView
+                            android:id="@+id/phone_study_gridview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:listSelector="@drawable/nodrawable" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="2dip"
+                android:background="#d6e1e5" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dip"
+                android:orientation="vertical"
+                android:paddingLeft="10dip"
+                android:paddingRight="10dip" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dip"
+                    android:text="用户评价 ："
+                    android:textColor="#000000"
+                    android:textSize="24px"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/phone_study_detail_say_inputEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dip"
+                    android:background="@drawable/phone_study_detail_say_border"
+                    android:minHeight="50dip" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dip" >
+
+                    <ImageView
+                        android:id="@+id/phone_study_submit"
+                        android:layout_width="50dip"
+                        android:layout_height="25dip"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dip"
+                        android:src="@drawable/phone_study_detail_say_save" />
+
+                    <ProgressBar
+                        android:id="@+id/phone_study_submit_progress"
+                        android:layout_width="20dip"
+                        android:layout_height="20dip"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dip"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/phone_study_give"
+                        android:visibility="invisible"
+                        android:layout_width="50dip"
+                        android:layout_height="25dip"
+                        android:layout_marginRight="15dip"
+                        android:layout_toLeftOf="@+id/phone_study_submit"
+                        android:src="@drawable/phone_study_detail_say_share" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

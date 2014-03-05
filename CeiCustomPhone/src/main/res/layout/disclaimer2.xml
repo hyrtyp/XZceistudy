@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	android:id="@+id/welcome"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="#ffffff"
+>
+	<RelativeLayout
+		android:layout_alignParentTop="true"
+		android:id="@+id/top"
+		android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+		android:background="@color/phone_bottomandtop_bg"
+	>
+        <ImageView
+                android:id="@+id/phone_study_icon"
+                android:padding="4dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon"
+            android:visibility="gone"/>
+
+		<TextView
+		    android:text="关于我们"
+			android:layout_marginLeft="20dip"
+			android:layout_centerInParent="true"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+            style="@style/phone_study_top_tv"
+            />
+	</RelativeLayout>
+
+	<RelativeLayout android:layout_alignParentBottom="true"
+		android:layout_width="fill_parent" android:layout_height="wrap_content">
+		<ImageView android:id="@+id/main_botton_left"
+			android:layout_alignParentLeft="true" android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true" android:background="@drawable/botton_left" />
+		<ImageView android:id="@+id/main_botton_right"
+			android:layout_alignParentRight="true"
+			android:layout_alignParentBottom="true" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:background="@drawable/botton_right" />
+		<ImageView android:layout_alignParentBottom="true"
+			android:layout_toLeftOf="@+id/main_botton_right"
+			android:layout_toRightOf="@+id/main_botton_left"
+			android:layout_centerHorizontal="true" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:background="@drawable/botton_middle" />
+	</RelativeLayout>
+	<LinearLayout android:id="@+id/bottoms_Ll"
+		 android:weightSum="4"
+		android:layout_alignParentBottom="true"
+		android:layout_centerHorizontal="true" android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+        <include layout="@layout/phone_study_bottom_other2" />
+	</LinearLayout>
+	<LinearLayout
+		android:paddingTop="5dip"
+		android:background="#3c71ba"
+		android:id="@+id/select"
+		android:paddingLeft="15dip"
+		android:paddingRight="15dip"
+		android:weightSum="3"
+		android:layout_below="@+id/top"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+	>
+		<Button
+			android:id="@+id/abouts_us"
+			android:layout_weight="1"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+            style="@style/phone_study_Tab"
+            android:text="关于我们"
+            android:background="@drawable/phone_study_tab_bg"
+            android:textColor="@color/phone_study_color_black"
+            />
+		<Button
+			android:id="@+id/usesinfo"
+			android:layout_weight="1"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+            style="@style/phone_study_Tab"
+            android:text="使用说明"/>
+		<Button
+			android:background="@color/phone_study_color1"
+			android:id="@+id/mazminfo"
+			android:layout_weight="1"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+            style="@style/phone_study_Tab"
+            android:text="免责说明"
+            />
+	</LinearLayout>
+	<WebView
+		android:layout_below="@+id/select"
+		android:layout_above="@+id/bottoms_Ll"
+		android:id="@+id/disclaimer_web"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+	></WebView>
+</RelativeLayout>

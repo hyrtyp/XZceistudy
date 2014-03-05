@@ -1,0 +1,200 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.7.+'
+    }
+}
+apply plugin: 'android'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+
+group  = 'com.hyrt.ceicustom'
+version  = '1'
+def artifact = 'cei-phonestudy-custom'
+project.ext.set('artifact', artifact)
+def isReleaseVersion = !version.endsWith('SNAPSHOT')
+archivesBaseName = 'ydxxaphone_'+version
+
+repositories {
+    mavenCentral()
+}
+
+android {
+
+    compileSdkVersion 19
+    buildToolsVersion "19.0.0"
+
+    defaultConfig {
+        minSdkVersion 8
+        targetSdkVersion 8
+    }
+
+    signingConfigs {
+
+        myConfig {
+            storeFile file("C:\\Users\\GYH\\.ssh\\hyrt.store")
+            storePassword "hyrt.store"
+            keyAlias "hyrt.store"
+            keyPassword "hyrt.store"
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.myConfig
+        }
+    }
+
+    productFlavors {
+        flavor1 {
+            packageName "com.example.flavorxzphone1"
+            versionCode 20
+        }
+
+        flavor2 {
+            packageName "com.example.flavorxzphone2"
+            minSdkVersion 14
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+    productFlavors {
+        flavor1 {
+            packageName "com.example.flavor1"
+            versionCode 20
+        }
+        flavor2 {
+            packageName "com.example.flavor2"
+            minSdkVersion 14
+        }
+    }
+
+
+}
+
+dependencies {
+    compile fileTree(dir: "$buildDir/native-libs", include: 'native-libs.jar')
+    compile fileTree(dir: 'libs', include: '*.jar')
+    compile project(":Weibo")
+    compile project(":WeiboApi")
+}
+
+task nativeLibsToJar(type: Zip, description: 'create a jar archive of the native libs') {
+    destinationDir file("$buildDir/native-libs")
+    baseName 'native-libs'
+    extension 'jar'
+    from fileTree(dir: 'libs', include: '**/*.so')
+    into 'lib/'
+}
+
+tasks.withType(Compile) {
+    compileTask -> compileTask.dependsOn(nativeLibsToJar)
+    options.encoding="UTF-8"
+}
+
+/*configurations {
+    sshDeploy
+}
+
+dependencies {
+    sshDeploy 'org.apache.maven.wagon:wagon-ssh:1.0-beta-7'
+}
+
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { deployment ->
+                signing.signPom(deployment)
+            }
+
+            //configuration = configurations.sshDeploy
+            //repository(url: "scp://jvoegele@chilco.textdrive.com/web/public/maven2")
+            //repository(url: "file:///tmp/maven2")
+
+            def repositoryUsername = project.hasProperty('sonatypeUsername') ? sonatypeUsername : 'admin'
+            def repositoryPassword = project.hasProperty('sonatypePassword') ? sonatypePassword : 'admin123'
+
+            if (isReleaseVersion) {
+                repository(url: 'http://192.168.10.128:8081/nexus/content/repositories/releases/') {
+                    authentication(userName: repositoryUsername, password: repositoryPassword)
+                }
+            } else {
+                repository(url: 'http://192.168.10.128:8081/nexus/content/repositories/snapshots/') {
+                    authentication(userName: repositoryUsername, password: repositoryPassword)
+                }
+            }
+
+            pom.project(pomConfiguration)
+        }
+    }
+}
+
+artifacts {
+    archives file('build/apk/ydxxaphone_1-release.apk')
+}
+
+uploadArchives.dependsOn 'build'
+
+signing {
+    if (isReleaseVersion) {
+        sign configurations.archives
+    }
+}
+
+task generatePom << {
+    def generatedPomFileName = 'pom.xml'
+    pom {
+        project(pomConfiguration)
+    }.writeTo("$buildDir/$generatedPomFileName")
+}
+
+
+def getPomConfiguration() {
+    return {
+        groupId project.group
+        artifactId project.artifact
+        version project.version
+        packaging 'jar'
+        name 'Cei Phone Project'
+        description 'Cei Phone Project for Simple PhoneStudy'
+        url 'https://github.com/hyrtyp/hyrtproject'
+        licenses {
+            license {
+                name 'The Apache Software License, Version 2.0'
+                url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                distribution 'repo'
+            }
+        }
+        scm {
+            url 'https://github.com/hyrtyp/hyrtproject.git'
+            connection 'scm:git://github.com/hyrtyp/hyrtproject.git'
+            developerConnection 'scm:git@github.com/hyrtyp/hyrtproject.git'
+        }
+        developers {
+            developer {
+                id 'hyrtyp'
+                name 'yepeng'
+                email '13718868826@163.com'
+            }
+            developer {
+                id 'gyh'
+                name 'guoyuehua'
+                email '790005156@qq.com'
+            }
+        }
+    }
+}*/
+

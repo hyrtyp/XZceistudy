@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottoms_Ll"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:orientation="vertical" >
+
+    <include layout="@layout/phone_study_listview_bottom" />
+
+    <HorizontalScrollView
+        android:scrollbars="none"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/bottoms_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/phone_study_bottombg"
+            android:baselineAligned="false"
+        >
+
+            <RelativeLayout
+                android:id="@+id/phone_study_free"
+                android:layout_width="80dip"
+                android:layout_height="fill_parent"
+                android:visibility="gone"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/phone_study_free"
+                    android:layout_alignParentEnd="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/phone_study_nominate"
+                android:layout_width="80dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/phone_study_nominate" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/phone_study_kind"
+                android:layout_width="80dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/phone_study_kind" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/phone_study_mymore"
+                android:layout_width="80dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/phone_study_mymore" />
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:id="@+id/phone_study_self"
+                android:layout_width="80dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/phone_study_self" />
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:id="@+id/phone_study_say"
+                android:layout_width="80dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/phone_study_say" />
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:id="@+id/phone_study_down"
+                android:layout_width="80dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/phone_study_preload" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:layout_width="80dip"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/phone_study_notice"
+                    android:layout_weight="1" >
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+
+                        android:src="@drawable/dzb_announcement" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:layout_width="80dip"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/phone_study_personcenter"
+                    android:layout_weight="1" >
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+
+                        android:src="@drawable/dzb_person" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:layout_width="80dip"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/phone_study_about"
+                    android:layout_weight="1" >
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/phone_study_about" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+</LinearLayout>

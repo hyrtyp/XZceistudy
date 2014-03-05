@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+  <RelativeLayout 
+        android:id="@+id/econ_szkx_datail_top"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:background="#003399" android:layout_alignParentTop="true">
+		<ImageView 
+		    android:id="@+id/econ_zj_num_top_text1"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:layout_centerVertical="true" 
+			android:layout_alignParentLeft="true"
+			android:layout_margin="10dp"
+			android:src="@drawable/econ_data_imgjj"
+			 />
+		<ImageView 
+		    android:id="@+id/econ_main_top_img"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:layout_centerVertical="true" 
+			android:layout_centerInParent="true"
+			android:layout_margin="10dp"
+			android:src="@drawable/econ_data_falsh" />
+		<ImageView android:id="@+id/econ_main_top_tv2"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:layout_margin="10dp" 
+			android:layout_centerVertical="true"
+			android:src="@drawable/econ_data_img_sousuo"
+			android:layout_alignParentRight="true" 
+			android:textSize="10dp" />
+	</RelativeLayout>
+		<LinearLayout 
+	        android:id="@+id/econ_szkx_datail_bottom" 
+	        android:layout_width="fill_parent" 
+	        android:layout_height="wrap_content" 
+	        android:weightSum="4.0" 
+	        android:background="@drawable/phone_econ_data_bottombg"
+	        android:layout_alignParentBottom="true">
+	   <RelativeLayout 
+	        android:layout_width="wrap_content"
+	        android:layout_height="fill_parent"
+	        android:layout_weight="1.0"
+	        >
+	      <ImageView 
+	        android:id="@+id/econ_szkx_datail_botton_1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:src="@drawable/econ_data_kx"/>
+	        </RelativeLayout>
+	   <RelativeLayout 
+	        android:layout_width="wrap_content"
+	        android:layout_height="fill_parent"
+	        android:layout_weight="1.0"
+	        >
+	      <ImageView 
+	        android:id="@+id/econ_szkx_datail_botton_2"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:src="@drawable/econ_data_zs"/>
+	        </RelativeLayout>
+	    <RelativeLayout 
+	        android:layout_width="wrap_content"
+	        android:layout_height="fill_parent"
+	        android:layout_weight="1.0"
+	        >
+	      <ImageView 
+	        android:id="@+id/econ_szkx_detail_botton_3"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:src="@drawable/econ_data_fx1"/>
+	        </RelativeLayout>
+	      <RelativeLayout 
+	        android:layout_width="wrap_content"
+	        android:layout_height="fill_parent"
+	        android:layout_weight="1.0"
+	        >
+	      <ImageView 
+	        android:id="@+id/econ_szkx_detail_botton_4"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:src="@drawable/econ_data_zb"/>
+	        </RelativeLayout>
+	</LinearLayout>
+	<LinearLayout 
+	       android:id="@+id/econ_szkx_detail_lin_content"
+	       android:layout_width="fill_parent"
+	       android:layout_height="fill_parent"
+	       android:layout_below="@id/econ_szkx_datail_top"
+	       android:layout_above="@id/econ_szkx_datail_bottom"
+	       >
+	       <WebView 
+	            android:id="@+id/econ_szkx_detail_list_content"
+	            android:layout_width="fill_parent"
+	            android:layout_height="fill_parent"
+	        >
+	       </WebView>
+	</LinearLayout>
+	
+	
+    
+</RelativeLayout>

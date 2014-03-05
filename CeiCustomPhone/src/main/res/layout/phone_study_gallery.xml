@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/read_report_midtop"
+    android:layout_width="fill_parent"
+    android:layout_height="150dp"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="2dp">
+
+    <com.hyrt.readreport.view.DetialGallery
+        android:id="@+id/read_report_main_ga"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="35dip"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        android:background="#90ffffff" >
+
+        <TextView
+            android:id="@+id/read_report_title"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:paddingLeft="20dp"
+            android:textColor="#000000"
+            android:gravity="center_vertical"
+            style="@style/yangshi_4"
+            android:text="西藏党校综合楼"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:visibility="invisible">
+
+            <ImageView
+                android:id="@+id/read_report_point1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/home_img_ratio" />
+
+            <ImageView
+                android:id="@+id/read_report_point2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dip"
+                android:src="@drawable/home_img_ratio" />
+             <ImageView
+                android:id="@+id/read_report_point3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dip"
+                android:src="@drawable/home_img_ratio" />
+              <ImageView
+                android:id="@+id/read_report_point4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dip"
+                android:src="@drawable/home_img_ratio" />
+              <ImageView
+                android:id="@+id/read_report_point5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dip"
+                android:src="@drawable/home_img_ratio" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

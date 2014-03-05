@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	android:id="@+id/layout"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="#f0f4f6"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+>
+	<RelativeLayout
+		android:id="@+id/top"
+		android:background="@drawable/phone_study_topbg"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+	>
+		<TextView
+		    style="@style/yangshi_phone_title_small"
+			android:layout_marginLeft="15dip"
+			android:layout_centerVertical="true"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true"
+			android:id="@+id/back" />
+		<TextView
+		    android:text="资讯阅读"
+		    style="@style/yangshi_phone_title_big"
+			android:layout_centerVertical="true"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerInParent="true" />
+		<ImageButton
+			android:id="@+id/zjzx_shoucang"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:background="@drawable/zjzx_shoucang"
+			android:layout_centerVertical="true"
+			android:layout_alignParentRight="true"
+			android:layout_marginRight="15dip" />
+	</RelativeLayout>
+	<WebView
+		android:layout_alignParentBottom="true"
+		android:id="@+id/inf_web"
+		android:cacheColorHint="@null"
+		android:layout_below="@+id/top"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+	>
+	</WebView>
+</RelativeLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:gravity="center_horizontal">
+	<ImageView
+		android:id="@+id/yjbg_book_item_iv"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@drawable/read_report_report1" />
+	<ProgressBar
+		style="?android:attr/progressBarStyleHorizontal"
+		android:layout_width="75dp"
+		android:layout_height="10dip"
+		android:layout_marginTop="-25dip"
+		android:progressDrawable="@drawable/progressbar"
+		android:id="@+id/yjbg_book_item_pro">
+	</ProgressBar>
+	<TextView
+		android:id="@+id/yjbg_book_item_tv"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:gravity="right"
+		android:text="0%"
+		android:background="@drawable/book_self_tv_bg"
+		android:layout_marginLeft="20dip"
+		android:textColor="#ffffff"
+		android:layout_marginTop="-35dip" />
+</LinearLayout>

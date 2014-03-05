@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/phone_study_gridviewparent"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/menu_scrollviewbg"
+    android:scrollbars="none" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center" >
+
+        <com.hyrt.cei.ui.phonestudy.view.MenuGridView
+            android:id="@+id/phone_study_gridview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:listSelector="@drawable/nodrawable" />
+    </LinearLayout>
+
+</HorizontalScrollView>

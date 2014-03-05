@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<color name="phone_study_listviewselect">#5489bf</color>
+	<color name="phone_study_listviewnormal">#00000000</color>
+	<color name="phone_study_menuselect">#0000FF</color>
+	<color name="phone_study_menunormal">#ffffff</color>
+	<color name="econ_data_content_normal">#0d2a78</color>
+	<color name="econ_data_content_select">#FFFFFF</color>
+    <color name="phone_bottomandtop_bg">#0c53ff</color>
+    <color name="phone_listview_bg">#f6f4e7</color>
+    <color name="phone_study_bt_bg_normal">#0c53ff</color>
+    <color name="phone_study_bt_bg_pressed">#346efa</color>
+    <color name="phone_study_bt_bg_fouced">#346efa</color>
+    <color name="phone_study_h2_bg">#0972bb</color>
+    <color name="phone_study_color1">#4eb4f3</color>
+    <color name="phone_study_color_black">#000000</color>
+    <color name="phone_study_color_White">#ffffff</color>
+</resources>

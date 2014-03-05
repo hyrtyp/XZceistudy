@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="wrap_content"
+	android:paddingTop="10dip">
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:background="@drawable/phone_study_saygroup_itemborder"
+		android:paddingTop="5dip">
+
+		<LinearLayout android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_marginLeft="10dip"
+			android:orientation="vertical">
+
+			<ImageView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:src="@drawable/phone_study_saygroup_item_icon" />
+
+			<TextView android:id="@+id/phone_study_saygroup_item_name"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:gravity="center_horizontal" android:text=" 张小贤  "
+				android:textSize="13sp" />
+		</LinearLayout>
+
+		<LinearLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_marginLeft="30dip"
+			android:orientation="vertical">
+
+			<TextView android:id="@+id/phone_study_saygroup_item_time"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:text="发表于2012.05.01 :" android:textColor="#000000"
+				android:textSize="10sp" android:textStyle="bold" />
+
+			<TextView android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:layout_marginTop="5dip"
+				android:id="@+id/phone_study_saygroup_item_content"
+				android:text="     荧光增白剂系化工产品，主要用于造纸、纺织、塑料等领域。2011年3月，美国一家制造商向美国国际贸易委
+员会和美国商务部提出申诉，要求对中国输美荧光增白剂进行反倾销调查。"
+				android:textColor="#50000000" />
+
+			<ImageView android:layout_width="fill_parent"
+				android:layout_height="1dip" android:layout_marginRight="20dip"
+				android:layout_marginTop="5dip" android:background="#30000000" />
+			<LinearLayout android:layout_width="fill_parent"
+				android:id="@+id/phone_study_saygroup_childitem_parent"
+				android:layout_height="wrap_content" android:layout_marginRight="10dip"
+				android:orientation="vertical">
+				<LinearLayout android:layout_width="fill_parent"
+					android:background="@drawable/phone_study_saygroup_childsitemborder"
+					android:layout_height="wrap_content" android:layout_marginTop="12dip"
+					android:orientation="vertical" android:padding="6dip">
+					<TextView android:layout_width="wrap_content"
+						android:id="@+id/phone_study_saygroup_childitem_tv1"
+						android:layout_height="wrap_content" android:text="叶鹏说：" />
+					<TextView android:layout_width="wrap_content"
+						android:id="@+id/phone_study_saygroup_childitem_tv2"
+						android:layout_height="wrap_content" android:layout_marginTop="10dip"
+						android:text="主要用于造纸、纺织、塑料等领域。2011年3月" android:textColor="#50000000" />
+				</LinearLayout>
+			</LinearLayout>
+
+			<RelativeLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content">
+				<ImageView android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentRight="true"
+					android:layout_alignParentTop="true" android:layout_marginRight="10dip"
+					android:layout_marginTop="5dip" android:id="@+id/phone_study_saygroup_item_reply"
+					android:src="@drawable/phone_study_saygroup_item_reply" />
+			</RelativeLayout>
+		</LinearLayout>
+
+	</LinearLayout>
+</LinearLayout>
