@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+	<!-- 登陆注册-->
+	<item type="id" name="ui_login_regist">false</item>
+	<item type="id" name="ui_login_login">false</item>
+	<item type="id" name="ui_login_username">false</item>
+	<item type="id" name="ui_login_password">false</item>
+	<item type="id" name="ui_login_progress">false</item>
+	<item type="id" name="ui_regist_login">false</item>
+	<item type="id" name="ui_regist_regist">false</item>
+	<item type="id" name="ui_regist_progress">false</item>
+	<item type="id" name="ui_regist_etparent">false</item>
+	<!-- 登陆注册-->
+	
+	
+	<!-- 移动学习 -->
+
+    <item type="id" name="phone_study_about">false</item>
+    <item type="id" name="phone_study_login">false</item>
+    <item type="id" name="phone_study_login_text">false</item>
+    <item type="id" name="phone_study_personcenter">false</item>
+	<item type="id" name="phone_study_notice">false</item>
+	<item type="id" name="phone_study_new">false</item>
+	<item type="id" name="phone_study_nominate">false</item>
+	<item type="id" name="phone_study_free">false</item>
+	<item type="id" name="phone_study_kind">false</item>
+	<item type="id" name="phone_study_self">false</item>
+	<item type="id" name="phone_study_study">false</item>
+	<item type="id" name="phone_study_say">false</item>
+	<item type="id" name="phone_study_leftoperation">false</item>
+	<item type="id" name="phone_study_rightoperation">false</item>
+	
+	<item type="id" name="phone_study_refresh">false</item>
+	<item type="id" name="phone_study_downmanager">false</item>
+	<item type="id" name="phone_study_course_icon">false</item>
+	<item type="id" name="phone_study_top_ivparent">false</item>
+	<item type="id" name="phone_study_top_1">false</item>
+	<item type="id" name="phone_study_top_2">false</item>
+	<item type="id" name="phone_study_top_3">false</item>
+	<item type="id" name="phone_study_top_4">false</item>
+	<item type="id" name="phone_study_top_5">false</item>
+	
+	<item type="id" name="phone_study_scrollview">false</item>
+	<item type="id" name="phone_study_progressLl">false</item>
+	<item type="id" name="phone_study_gridview">false</item>
+	<item type="id" name="phone_study_top">false</item>
+	<item type="id" name="back_btn">false</item>
+	<item type="id" name="phone_study_listview">false</item>
+	<item type="id" name="phone_study_morebtn">false</item>
+	<item type="id" name="phone_study_downloadBtn">false</item>
+	<item type="id" name="phone_study_playBtn">false</item>
+	<item type="id" name="phone_study_controllcourse">false</item>
+	<item type="id" name="phone_study_courseIcon">false</item>
+	<item type="id" name="phone_study_indexParent">false</item>
+	<item type="id" name="phone_study_labelParent">false</item>
+	
+	<item type="id" name="phone_study_gird_item_pic">false</item>
+	<item type="id" name="phone_study_gird_item_tv1">false</item>
+	<item type="id" name="phone_study_gird_item_tv2">false</item>
+	<item type="id" name="phone_study_gird_item_tv3">false</item>
+	<item type="id" name="phone_study_detail_icon">false</item>
+	<item type="id" name="phone_study_detail_title">false</item>
+	<item type="id" name="phone_study_detail_author">false</item>
+	<item type="id" name="phone_study_detail_protime">false</item>
+	<item type="id" name="phone_study_detail_content">false</item>
+	<item type="id" name="phone_study_detail_level_parent">false</item>
+	<item type="id" name="phone_study_detail_play">false</item>
+	<item type="id" name="phone_study_detail_preload">false</item>
+	<item type="id" name="phone_study_detail_say_share">false</item>
+	<item type="id" name="phone_study_detail_say_save">false</item>
+	<item type="id" name="phone_study_detail_say_inputEdit">false</item>
+	<item type="id" name="phone_study_detail_level_root">false</item>
+	<item type="id" name="phone_study_preload_itemParent">false</item>
+	<item type="id" name="phone_study_preload_alreLoadBtn">false</item>
+	<item type="id" name="phone_study_preload_scrollView">false</item>
+	<item type="id" name="phone_study_preload_loadingBtn">false</item>
+	<item type="id" name="phone_study_preload_item_titleRl">false</item>
+	<item type="id" name="phone_study_preload_item_title">false</item>
+	<item type="id" name="phone_study_preload_item_content">false</item>	
+	<item type="id" name="phone_study_preload_item_process">false</item>
+	<item type="id" name="phone_study_preload_item_progressBarDown">false</item>
+	<item type="id" name="phone_study_preload_item_control">false</item>
+	<item type="id" name="phone_study_preload_item_btnDelete">false</item>
+	<item type="id" name="phone_study_preload_item_btnControl">false</item>
+	<item type="id" name="phone_study_preload_item_btnPlay">false</item>
+	<item type="id" name="phone_study_preload_item_lblPercent">false</item>	
+	<item type="id" name="phone_study_preload_item_processStatus">false</item>
+	
+	<item type="id" name="phone_study_kinds_first_menu">false</item>
+	<item type="id" name="phone_study_kinds_second_menu">false</item>
+	<item type="id" name="phone_study_kinds_third_menu">false</item>
+	<item type="id" name="phone_study_kinds_download_btn">false</item>
+	<item type="id" name="phone_study_kinds_play_btn">false</item>
+	<item type="id" name="phone_study_kinds_addcourse">false</item>
+	<item type="id" name="phone_study_kinds_course_icon">false</item>
+	<item type="id" name="phone_study_kinds_listview">false</item>
+	<item type="id" name="phone_study_kinds_progress">false</item>
+	<item type="id" name="phone_study_selfcourse_download_btn">false</item>
+	<item type="id" name="phone_study_selfcourse_play_btn">false</item>
+	<item type="id" name="phone_study_selfcourse_addcourse">false</item>
+	<item type="id" name="phone_study_selfcourse_course_icon">false</item>
+	<item type="id" name="phone_study_selfcourse_listview">false</item>
+	
+	<item type="id" name="phone_study_playrecord_download_btn">false</item>
+	<item type="id" name="phone_study_playrecord_play_btn">false</item>
+	<item type="id" name="phone_study_playrecord_addcourse">false</item>
+	<item type="id" name="phone_study_playrecord_course_icon">false</item>
+	<item type="id" name="phone_study_playrecord_listview">false</item>
+	<item type="id" name="phone_study_playrecord_author_ll">false</item>
+	<item type="id" name="phone_study_playrecord_alstudytime">false</item>
+	<item type="id" name="phone_study_playrecord_studystatus">false</item>
+	<item type="id" name="phone_study_playrecord_totaltime">false</item>
+	
+	<item type="id" name="phone_study_search_ss">false</item>
+	<item type="id" name="phone_study_search_edit">false</item>
+	<item type="id" name="phone_study_searchcourse_download_btn">false</item>
+	<item type="id" name="phone_study_searchcourse_play_btn">false</item>
+	<item type="id" name="phone_study_searchcourse_addcourse">false</item>
+	<item type="id" name="phone_study_searchcourse_course_icon">false</item>
+	<item type="id" name="phone_study_searchcourse_listview">false</item>
+	<item type="id" name="phone_study_searchcourse_progress">false</item>
+	<item type="id" name="phone_study_search_btn">false</item>
+	<item type="id" name="phone_study_detail_addcourse">false</item>
+	<item type="id" name="phone_study_preload_item_addcourse">false</item>
+	<item type="id" name="phone_study_saygroup_num">false</item>
+	<item type="id" name="phone_study_saygroup_listview">false</item>
+	<item type="id" name="phone_study_saygroup_item_reply">false</item>
+	<item type="id" name="phone_study_saygroup_item_content">false</item>
+	<item type="id" name="phone_study_saygroup_item_name">false</item>
+	<item type="id" name="phone_study_saygroup_item_time">false</item>
+	<item type="id" name="phone_study_saygroup_childitem_parent">false</item>
+	<item type="id" name="phone_study_saygroup_childitem_tv1">false</item>
+	<item type="id" name="phone_study_saygroup_childitem_tv2">false</item>
+	<item type="id" name="phone_study_saygroup_item_content_etRL">false</item>
+	<item type="id" name="phone_study_saygroup_item_content_et">false</item>
+	<item type="id" name="phone_study_saygroup_item_contentsubmit">false</item>
+	<item type="id" name="phone_study_issure_sure_btn">false</item>
+	<item type="id" name="phone_study_issure_cancel_btn">false</item>
+	<item type="id" name="phone_study_playpage_Ll">false</item>
+	<!-- 移动学习结尾 -->
+	
+	<!-- 公用弹出框的id-->
+	<item type="id" name="common_listpop_listview">false</item>
+	<item type="id" name="common_listpop_edit">false</item>
+	<item type="id" name="common_listpop_clear">false</item>
+	<item type="id" name="common_listpop_listviewitem_mark">false</item>
+	<!-- 公用弹出框的id-->
+
+</resources>

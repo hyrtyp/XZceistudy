@@ -1,0 +1,91 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.7.+'
+    }
+}
+
+apply plugin: 'android'
+
+group  = 'com.hyrt.ceicustom'
+version  = '1'
+def artifact = 'cei-phonestudy-custom'
+project.ext.set('artifact', artifact)
+def isReleaseVersion = !version.endsWith('SNAPSHOT')
+archivesBaseName = 'ydxxapad_'+version
+
+repositories {
+    mavenCentral()
+}
+
+android {
+
+    compileSdkVersion 19
+    buildToolsVersion "19.0.0"
+
+    defaultConfig {
+        minSdkVersion 8
+        targetSdkVersion 8
+    }
+
+    signingConfigs {
+
+        myConfig {
+            storeFile file("C:\\Users\\GYH\\.ssh\\hyrt.store")
+            storePassword "hyrt.store"
+            keyAlias "hyrt.store"
+            keyPassword "hyrt.store"
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.myConfig
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+    productFlavors {
+        flavor1 {
+            packageName "com.example.flavorxzpad1"
+            versionCode 20
+        }
+
+        flavor2 {
+            packageName "com.example.flavorxzpad2"
+            minSdkVersion 14
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: "$buildDir/native-libs", include: 'native-libs.jar')
+    compile fileTree(dir: 'libs', include: '*.jar')
+    compile project(":Weibo")
+    compile project(":WeiboApi")
+
+}
+
+task nativeLibsToJar(type: Zip, description: 'create a jar archive of the native libs') {
+    destinationDir file("$buildDir/native-libs")
+    baseName 'native-libs'
+    extension 'jar'
+    from fileTree(dir: 'libs', include: '**/*.so')
+    into 'lib/'
+}
+
+tasks.withType(Compile) {
+    compileTask -> compileTask.dependsOn(nativeLibsToJar)
+    options.encoding="UTF-8"
+}

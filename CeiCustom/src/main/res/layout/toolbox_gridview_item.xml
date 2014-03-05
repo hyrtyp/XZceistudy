@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:paddingBottom="4.0dip" >
+
+    <ImageView
+        android:id="@+id/app_icon"
+        android:layout_width="@dimen/grid_icon_width_size"
+        android:layout_height="@dimen/grid_icon_height_size"
+        android:layout_marginTop="2.0dip"
+        android:scaleType="fitCenter"
+        android:src="@drawable/witsea_default_icon" />
+
+    <ProgressBar
+        android:id="@+id/toolbox_item_progressbar"
+        android:layout_width="fill_parent"
+        android:layout_height="16.0dip"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/app_icon"
+        android:indeterminateOnly="false"
+        android:paddingLeft="2.0dip"
+        android:paddingRight="2.0dip"
+        android:progressDrawable="@drawable/toolbox_item_progressbar"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_toRightOf="@+id/app_icon"
+        android:orientation="vertical" >
+
+        <TextView
+            android:text="政经学院"
+            android:id="@+id/toolbox_item_textview_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="30.0dip"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:paddingLeft="10.0dip"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/download_icon"
+            android:paddingTop="15dip"
+            android:src="@drawable/wit_sea_item_install"
+            android:layout_width="75dip"
+            android:layout_height="45dip"/>
+    </LinearLayout>
+
+</RelativeLayout>

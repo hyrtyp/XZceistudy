@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/background"
+        android:weightSum="10">
+
+
+    <RelativeLayout
+            android:id="@+id/top"
+            android:background="@drawable/top"
+            android:fadingEdge="none"
+            android:fadingEdgeLength="0.0dip"
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+        <ImageButton
+                android:id="@+id/home"
+                android:background="@drawable/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:visibility="gone"/>
+
+        <ImageView
+                android:id="@+id/phone_study_icon"
+                android:padding="2dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon"/>
+
+        <TextView
+                style="@style/yangshi_pad_title"
+                android:text="关于我们"
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="50.0dip"
+                android:layout_toRightOf="@+id/home"/>
+    </RelativeLayout>
+
+    <LinearLayout
+            android:layout_below="@+id/top"
+            android:layout_width="fill_parent"
+            android:background="@drawable/phone_studynm_bg"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:layout_marginBottom="78px">
+
+        <RelativeLayout
+                android:id="@+id/select"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+            <ImageView
+                    android:id="@+id/abouts_us"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/about_no"
+                    android:layout_marginLeft="80dp"
+                    android:scaleType="centerInside"
+                    android:adjustViewBounds="true"/>
+
+            <ImageView
+                    android:id="@+id/usesinfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/useinfo_select"
+                    android:layout_marginLeft="50dp"
+                    android:layout_toRightOf="@+id/abouts_us"
+                    android:scaleType="centerInside"
+                    android:adjustViewBounds="true"/>
+
+            <ImageView
+                    android:id="@+id/mazminfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/mzsm_select"
+                    android:layout_marginLeft="50dp"
+                    android:layout_toRightOf="@+id/usesinfo"
+                    android:scaleType="centerInside"
+                    android:adjustViewBounds="true"/>
+        </RelativeLayout>
+
+        <WebView
+                android:id="@+id/disclaimer_web"
+                android:background="@drawable/mzsm_mid_background"
+                android:scrollbars="none"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+                  android:layout_width="fill_parent"
+                  android:layout_height="78px"
+                  android:layout_alignParentBottom="true"
+                  android:background="@drawable/bottom_bg"
+                  android:gravity="center"
+                  android:weightSum="9"
+                  android:paddingLeft="20dip"
+                  android:paddingRight="30dip">
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@id/phone_study_new"
+                    android:src="@drawable/phone_study_new_selector" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@id/phone_study_nominate"
+                    android:src="@drawable/phone_study_nominate_selector" />
+            />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@id/phone_study_free"
+                    android:src="@drawable/phone_study_free_selector" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@id/phone_study_kind"
+                    android:src="@drawable/phone_study_kind_selector" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@id/phone_study_self"
+                    android:src="@drawable/phone_study_self_selector" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@id/phone_study_study"
+                    android:contentDescription="study_page_iv"
+                    android:src="@drawable/phone_study_study_selector" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@id/phone_study_say"
+                    android:src="@drawable/phone_study_say_selector" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@id/phone_study_notice"
+                    android:src="@drawable/notice_selector" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@id/phone_study_personcenter"
+                    android:src="@drawable/personcenter_selector" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@id/phone_study_about"
+                    android:src="@drawable/aboutus_selector" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

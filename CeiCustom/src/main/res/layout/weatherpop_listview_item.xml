@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="wrap_content"
+	android:paddingTop="20dip">
+
+	<RelativeLayout android:layout_width="309dip"
+		android:layout_height="40dip" android:background="@drawable/common_listpop_listviewitem_bg"
+		android:padding="5dip">
+		<TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="黑龙江省" android:id="@+id/weather_areaname"
+			android:textStyle="bold" android:textSize="20sp" android:layout_centerInParent="true" android:textColor="#000000"/>
+		
+	</RelativeLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent" android:background="#FFFFFF">
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:background="@drawable/phone_study_top_bg"
+		android:layout_width="fill_parent" android:layout_height="wrap_content" >
+		<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/back_btn"
+			android:id="@id/back_btn"/>
+		<TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="视频播放" android:textSize="20sp" android:gravity="center"
+		   android:id="@id/phone_study_playpage_Ll"/>
+	</LinearLayout>
+	  <ProgressBar
+        android:id="@+id/webview_progress"
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:layout_centerInParent="true"
+        android:background="#50000000"
+        android:visibility="gone"
+         />
+	<WebView android:layout_width="fill_parent" android:scrollbars="none"
+		android:layout_height="fill_parent" android:id="@+id/web_view" />
+</LinearLayout>

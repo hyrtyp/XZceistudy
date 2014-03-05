@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:id="@+id/full_view">
+
+    <RelativeLayout android:id="@id/phone_study_top"
+                    android:layout_width="fill_parent" android:layout_height="48dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:background="@drawable/phone_study_top_bg">
+
+        <ImageView android:id="@id/back_btn" android:layout_width="wrap_content"
+                   android:layout_height="wrap_content" android:layout_marginLeft="10dip"
+                   android:gravity="center" android:src="@drawable/back_btn" android:visibility="gone"/>
+
+        <ImageView
+                android:id="@+id/phone_study_icon"
+                android:padding="2dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon"/>
+
+		<TextView android:layout_width="wrap_content" android:layout_toRightOf="@id/back_btn"
+			android:layout_height="wrap_content" android:layout_marginLeft="50dip"
+			style="@style/yangshi_pad_title"
+			android:text="课件讨论组" android:layout_centerVertical="true"/>
+
+		<ImageView android:id="@id/phone_study_downmanager"
+			android:layout_centerVertical="true" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:src="@drawable/phone_study_downmanager"
+			android:layout_toLeftOf="@id/phone_study_search_btn" android:layout_marginRight="25dip" />	
+			
+		<ImageView android:id="@id/phone_study_search_btn"
+			android:layout_centerVertical="true" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:src="@drawable/phone_study_search"
+			android:layout_toLeftOf="@id/phone_study_refresh" android:layout_marginRight="20dip" />
+			
+		<ImageView android:id="@id/phone_study_refresh"
+			android:layout_centerVertical="true" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:src="@drawable/phone_study_refresh"
+			android:layout_alignParentRight="true" android:layout_marginRight="50dip" />
+	</RelativeLayout>
+	
+	<LinearLayout android:layout_width="fill_parent"
+		android:background="@drawable/phone_studynm_bg" android:layout_height="fill_parent"
+		android:id="@id/phone_study_progressLl" android:gravity="center"
+		android:visibility="gone">
+		<ProgressBar android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:gravity="center" />
+	</LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="fill_parent" android:layout_height="fill_parent"
+        android:layout_weight="5" android:background="@drawable/phone_studynm_bg">
+            <ListView
+                android:id="@id/phone_study_selfcourse_listview"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:divider="#00000000" android:cacheColorHint="#00000000"/>
+    </LinearLayout>
+
+    <include layout="@layout/phone_study_bottom_bar" />
+
+</LinearLayout>

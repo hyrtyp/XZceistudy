@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent" android:id="@+id/report_intro_main"
+	android:layout_height="match_parent" android:background="@drawable/report_intro_bg"
+	android:orientation="vertical">
+
+	<RelativeLayout android:id="@+id/top"
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:background="@drawable/top" android:fadingEdge="none"
+		android:fadingEdgeLength="0.0dip">
+
+		<ImageButton android:id="@+id/ib_bg_back"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true" android:layout_centerVertical="true"
+			android:layout_marginLeft="10.0dip" android:background="@drawable/back" />
+
+		<ImageButton android:id="@+id/report_intro_bookshelf"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_alignParentRight="true" android:layout_centerVertical="true"
+			android:layout_marginRight="10.0dip" android:background="@drawable/bookshelf" />
+
+		<ImageView android:id="@+id/imageView1"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_centerVertical="true" android:layout_marginLeft="50.0dip"
+			android:layout_toRightOf="@+id/ib_bg_back" android:src="@drawable/yjbg_jianj" />
+	</RelativeLayout>
+	<ScrollView android:layout_width="fill_parent"
+			android:layout_height="fill_parent" android:layout_alignParentBottom="true"
+			android:layout_below="@+id/top">
+
+		<LinearLayout android:layout_width="fill_parent"
+			android:layout_height="fill_parent" android:layout_alignParentBottom="true"
+			android:layout_below="@+id/top" android:orientation="vertical"
+			android:weightSum="11">
+
+			<RelativeLayout android:layout_width="fill_parent"
+				android:layout_height="fill_parent" android:layout_weight="4"
+				android:padding="20dip">
+
+				<ImageView android:id="@+id/report_intro_book"
+					android:layout_width="100dip" android:layout_height="130dip"
+					android:layout_alignParentBottom="true"
+					android:layout_alignParentLeft="true" android:layout_marginLeft="30dip"
+					android:background="@drawable/report1" />
+
+				<LinearLayout android:layout_width="fill_parent"
+					android:layout_height="fill_parent"
+					android:layout_alignParentBottom="true" android:layout_toRightOf="@+id/report_intro_book"
+					android:gravity="center_vertical" android:orientation="vertical"
+					android:paddingLeft="30dip" android:paddingRight="30dip"
+					android:paddingTop="10dip">
+
+					<TextView android:id="@+id/report_intro_content"
+						android:layout_width="wrap_content" android:layout_height="wrap_content"
+						android:text="报告主题" android:paddingBottom="8dip"
+						android:textColor="#000088" android:textSize="20sp" />
+
+					<ImageView android:layout_width="fill_parent"
+						android:layout_height="wrap_content" android:background="@drawable/phone_study_dotted_line" />
+
+					<LinearLayout android:layout_width="fill_parent"
+						android:layout_height="wrap_content" android:paddingTop="8dip"
+						android:gravity="center_vertical">
+
+						<ImageView android:layout_width="wrap_content"
+							android:layout_height="wrap_content" android:layout_gravity="center_vertical"
+							android:background="@drawable/bglitt" />
+
+						<TextView android:id="@+id/report_intro_zuoz_bq"
+						    android:layout_width="wrap_content"
+							android:layout_height="wrap_content" android:paddingLeft="5dip"
+							android:text="作者：" android:textColor="@color/black"
+							android:textSize="15sp" />
+
+						<TextView android:id="@+id/report_intro_zuoz"
+							android:layout_width="wrap_content" android:layout_height="wrap_content"
+							android:paddingLeft="5dip" android:text="张三" android:textColor="@color/black"
+							android:textSize="15sp" />
+					</LinearLayout>
+
+					<LinearLayout android:layout_width="fill_parent"
+						android:layout_height="wrap_content">
+
+						<ImageView android:layout_width="wrap_content"
+							android:layout_height="wrap_content" android:background="@drawable/zjzx_point"
+							android:visibility="invisible" />
+
+						<TextView android:id="@+id/report_intro_price_bq"
+						android:layout_width="wrap_content"
+							android:layout_height="wrap_content" android:paddingLeft="5dip"
+							android:text="价格：" android:textColor="@color/black"
+							android:textSize="15sp" />
+
+						<TextView android:id="@+id/report_intro_price"
+							android:layout_width="wrap_content" android:layout_height="wrap_content"
+							android:paddingLeft="5dip" android:text="22" android:textColor="#FF0000"
+							android:textSize="15sp" />
+					</LinearLayout>
+
+					<LinearLayout android:layout_width="fill_parent"
+						android:layout_height="wrap_content">
+
+						<ImageView android:layout_width="wrap_content"
+							android:layout_height="wrap_content" android:background="@drawable/zjzx_point"
+							android:visibility="invisible" />
+
+						<TextView android:layout_width="wrap_content"
+							android:layout_height="wrap_content" android:paddingLeft="5dip"
+							android:text="发布时间：" android:textColor="@color/black"
+							android:textSize="15sp" />
+
+						<TextView android:id="@+id/report_intro_time"
+							android:layout_width="wrap_content" android:layout_height="wrap_content"
+							android:paddingLeft="5dip" android:text="2012" android:textColor="@color/black"
+							android:textSize="15sp" />
+					</LinearLayout>
+				</LinearLayout>
+				<ImageButton android:id="@+id/report_intro_read"
+					android:background="#00000000" android:layout_width="wrap_content"
+					android:paddingRight="30dip" android:paddingBottom="20dip"
+					android:layout_alignParentRight="true"
+					android:layout_alignParentBottom="true" android:layout_height="wrap_content"
+					android:src="@drawable/yjbg_read" />
+			</RelativeLayout>
+
+			<RelativeLayout android:layout_width="fill_parent"
+				android:layout_height="fill_parent" android:layout_marginLeft="30dip"
+				android:layout_marginRight="30dip" android:layout_marginTop="20dip"
+				android:layout_weight="4" android:background="@drawable/report_intro_text_bg">
+				<ImageView android:id="@+id/report_intro_jj"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true"
+					android:layout_alignParentTop="true" android:layout_marginLeft="20dip"
+					android:layout_marginTop="10dip" android:background="@drawable/yjbg_report_info_shuoming" />
+
+				<TextView android:id="@+id/report_intro_jiej"
+					android:layout_marginLeft="20dip" android:layout_marginTop="10dip"
+					android:layout_below="@id/report_intro_jj" android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:background="@null"
+					android:textSize="22px"
+					android:lineSpacingExtra="3dp"
+					android:textColor="#000000" />
+
+
+
+			</RelativeLayout>
+
+			<RelativeLayout android:layout_width="fill_parent"
+				android:layout_height="fill_parent" android:layout_marginLeft="30dip"
+				android:layout_marginRight="30dip" android:layout_marginTop="20dip"
+				android:layout_marginBottom="20dip"
+				android:layout_weight="3" android:background="@drawable/report_intro_text_bg">
+				<ImageView android:id="@+id/report_intro_ml"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true"
+					android:layout_alignParentTop="true" android:layout_marginLeft="20dip"
+					android:layout_marginTop="10dip" android:background="@drawable/report_intro_ml" />
+
+				<TextView android:id="@+id/report_intro_mul"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:layout_marginLeft="20dip" android:layout_marginTop="10dip"
+					android:layout_below="@id/report_intro_ml" android:background="@null"
+					android:textSize="22px"
+					android:lineSpacingExtra="3dp"
+					android:textColor="#000000" />
+
+			</RelativeLayout>
+		</LinearLayout>
+	</ScrollView>
+</RelativeLayout>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	android:id="@+id/layout"
+	android:background="@drawable/background"
+	android:fadingEdge="none"
+	android:fadingEdgeLength="0.0dip"
+	android:alwaysDrawnWithCache="false"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<include android:id="@+id/top" layout="@layout/yjbg_title_top"/>
+	<RelativeLayout
+        android:id="@+id/botton"
+        android:layout_width="fill_parent"
+        android:layout_height="85dip"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/phone_study_bottom"
+        android:paddingLeft="100.0dip"
+        android:paddingRight="100.0dip" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal"
+            android:paddingTop="10.0dip"
+            android:weightSum="7.0" >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/iv_mianfei_report_page_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/econ_data_home1" />
+            </RelativeLayout>
+
+             <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/iv_mianfei_report_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/yjbg_but_home1" />
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/iv_mianfei_report_goods"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/yjbg_but_jp1" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/iv_mianfei_report_sort"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/yjbg_but_yd" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/iv_mianfei_report_partition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/yjbg_but_fl1" />
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/iv_mianfei_report_miamfei"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/yjbg_but_mf1" />
+            </RelativeLayout>
+            
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/iv_mianfei_report_find"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/yjbg_but_ss1" />
+            </RelativeLayout>
+            
+        </LinearLayout>
+    </RelativeLayout>
+	<ListView
+		android:background="@drawable/phone_studynm_bg"
+		android:id="@+id/yjbg_mianfeireport_list"
+		android:layout_below="@id/top"
+		android:layout_above="@id/botton"
+		 android:cacheColorHint="@null"
+		android:divider="#c8c8c8"
+		android:paddingLeft="10dip"
+		android:paddingTop="20dip"
+		android:paddingRight="10dip"
+		android:dividerHeight="1dip"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"></ListView>
+		 <LinearLayout
+		android:layout_height="fill_parent"
+		android:layout_width="fill_parent"
+		android:background="#00000000"
+		android:id="@+id/report_mianf_pro"
+		android:gravity="center">
+		<ProgressBar
+			android:layout_width="50dip"
+			android:layout_height="50dip"
+			android:gravity="center" />
+	</LinearLayout>
+</RelativeLayout>

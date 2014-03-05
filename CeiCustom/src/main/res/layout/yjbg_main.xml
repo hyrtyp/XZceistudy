@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:alwaysDrawnWithCache="false"
+    android:background="@drawable/phone_study_bg"
+    android:fadingEdge="none"
+    android:fadingEdgeLength="0.0dip" >
+<include android:id="@+id/top" layout="@layout/yjbg_title_top"/>
+
+    <RelativeLayout
+        android:id="@+id/botton"
+        android:layout_width="fill_parent"
+        android:layout_height="85dip"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bottom_bg"
+        android:paddingLeft="100.0dip"
+        android:paddingRight="100.0dip" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal"
+            android:paddingTop="10.0dip"
+            android:weightSum="7.0" >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/iv_report_page_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/econ_data_home1" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/iv_report_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/yjbg_but_home" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/iv_report_goods"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/yjbg_but_jp1" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/iv_report_sort"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/yjbg_but_yd1" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/iv_report_partition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/yjbg_but_fl1" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/iv_report_miamfei"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/yjbg_but_mf1" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/iv_report_find"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/yjbg_but_ss1" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <com.hyrt.cei.ui.ebook.view.CustomScrollView
+        android:id="@id/phone_study_scrollview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/botton"
+        android:layout_below="@id/top" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <com.hyrt.cei.ui.phonestudy.view.FlowRelativeyout
+                android:id="@id/phone_study_top_ivparent"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#99FFFFFF"
+                android:paddingTop="5dip" >
+
+                <ImageView
+                    android:id="@id/phone_study_leftoperation"
+                    android:layout_width="50dip"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="5dip"
+                    android:src="@drawable/phone_study_leftopertion_selector" />
+
+                <ImageView
+                    android:id="@id/phone_study_rightoperation"
+                    android:layout_width="50dip"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:paddingRight="5dip"
+                    android:src="@drawable/phone_study_rightopertion_selector" />
+
+                <ImageView
+                    android:id="@id/phone_study_top_1"
+                    android:layout_width="292dip"
+                    android:layout_height="129dip"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="50dip"
+                    android:src="@drawable/courseware_big_default_icon" />
+
+                <ImageView
+                    android:id="@id/phone_study_top_2"
+                    android:layout_width="354dip"
+                    android:layout_height="157dip"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="170dip"
+                    android:src="@drawable/courseware_big_default_icon" />
+
+                <ImageView
+                    android:id="@id/phone_study_top_5"
+                    android:layout_width="292dip"
+                    android:layout_height="129dip"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="50dip"
+                    android:src="@drawable/courseware_big_default_icon" />
+
+                <ImageView
+                    android:id="@id/phone_study_top_4"
+                    android:layout_width="354dip"
+                    android:layout_height="157dip"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="-176dip"
+                    android:layout_toLeftOf="@id/phone_study_top_5"
+                    android:src="@drawable/courseware_big_default_icon" />
+
+                <ImageView
+                    android:id="@id/phone_study_top_3"
+                    android:layout_width="380dip"
+                    android:layout_height="169dip"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="275dip"
+                    android:layout_marginTop="5dip"
+                    android:src="@drawable/courseware_big_default_icon" />
+            </com.hyrt.cei.ui.phonestudy.view.FlowRelativeyout>
+
+            <LinearLayout
+                android:id="@id/phone_study_indexParent"
+                android:layout_width="fill_parent"
+                android:layout_height="20dip"
+                android:background="#99FFFFFF"
+                android:gravity="center" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dip"
+                    android:src="@drawable/phone_study_index_selector" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dip"
+                    android:src="@drawable/phone_study_index_selector" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dip"
+                    android:src="@drawable/phone_study_index_selector" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dip"
+                    android:src="@drawable/phone_study_index_selector" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dip"
+                    android:src="@drawable/phone_study_index_selector" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dip"
+                    android:src="@drawable/phone_study_index_selector" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <com.hyrt.cei.ui.phonestudy.view.MyGridView
+                    android:id="@+id/yjbg_gv_book"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:listSelector="#00000000"
+                    android:numColumns="6"
+                    android:padding="12dip"
+                    android:verticalSpacing="20dip" />
+
+                <Button
+                    android:id="@+id/yjbg_more_report"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="#50ffffff"
+                    android:gravity="center"
+                    android:text="更多..."
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.hyrt.cei.ui.ebook.view.CustomScrollView>
+
+    <LinearLayout
+        android:id="@+id/yjbg_read_pro"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#00000000"
+        android:focusable="true"
+        android:gravity="center" >
+
+        <ProgressBar
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:gravity="center" />
+    </LinearLayout>
+
+</RelativeLayout>

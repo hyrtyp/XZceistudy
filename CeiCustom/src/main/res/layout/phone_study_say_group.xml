@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:id="@+id/full_view"
+	android:background="@drawable/phone_study_child_bg"
+	android:orientation="vertical">
+	
+	 <RelativeLayout android:id="@id/phone_study_top"
+		android:layout_width="fill_parent" android:layout_height="47px"
+		android:background="@drawable/phone_study_top_bg">
+
+		<ImageView android:id="@id/back_btn" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:layout_marginLeft="10dip"
+			android:gravity="center" android:src="@drawable/back_btn"/>
+
+		<TextView android:layout_width="wrap_content" android:layout_toRightOf="@id/back_btn"
+			android:layout_height="wrap_content" android:layout_marginLeft="50dip"
+			android:text="课件讨论组" 
+			style="@style/yangshi_pad_title"/>
+
+		<ImageView android:id="@id/phone_study_downmanager"
+			android:layout_centerVertical="true" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:src="@drawable/phone_study_downmanager"
+			android:layout_toLeftOf="@id/phone_study_search_btn" android:layout_marginRight="25dip" />	
+			
+		<ImageView android:id="@id/phone_study_search_btn"
+			android:layout_centerVertical="true" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:src="@drawable/phone_study_search"
+			android:layout_toLeftOf="@id/phone_study_refresh" android:layout_marginRight="20dip" />
+			
+		<ImageView android:id="@id/phone_study_refresh"
+			android:layout_centerVertical="true" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:src="@drawable/phone_study_refresh"
+			android:layout_alignParentRight="true" android:layout_marginRight="50dip" />
+	</RelativeLayout>
+
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:layout_weight="8"
+		android:background="@drawable/phone_study_kinds_right"
+		android:paddingTop="1.0px" android:orientation="vertical">
+
+
+		<LinearLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:orientation="horizontal"
+			android:paddingTop="20dip" android:paddingLeft="30dip">
+
+			<ImageView android:id="@id/phone_study_detail_icon"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:scaleType="fitXY" android:src="@drawable/courseware_default_icon" />
+
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:layout_marginLeft="5dip"
+				android:orientation="vertical">
+
+				<RelativeLayout android:layout_width="fill_parent"
+					android:layout_height="wrap_content">
+
+					<TextView android:id="@id/phone_study_detail_title" android:paddingLeft="20dip"
+						android:layout_width="wrap_content" android:layout_height="wrap_content"
+						android:maxLines="1" android:text="主题 ：美国决定对中国输美荧光增白剂征收高额反倾销关税"
+						android:textColor="#003380" android:textSize="17sp"
+						android:textStyle="bold" />
+				</RelativeLayout>
+
+				<LinearLayout android:layout_width="fill_parent"
+					android:layout_height="1dip" android:layout_marginLeft="20dip"
+					android:layout_marginRight="40dip" android:layout_marginTop="6dip"
+					android:background="@drawable/phone_study_dotted_line" />
+
+				<RelativeLayout android:layout_width="fill_parent"
+					android:layout_height="wrap_content">
+
+					<LinearLayout android:layout_width="wrap_content" android:paddingLeft="20dip"
+						android:layout_height="wrap_content" android:orientation="vertical">
+
+						<TextView android:id="@id/phone_study_detail_author" 
+							android:layout_width="wrap_content" android:layout_height="wrap_content"
+							android:layout_marginTop="10dip" android:maxLines="1"
+							android:text="主讲人 ：范先生/张先生" android:textColor="#000000"
+							android:textSize="15sp" android:textStyle="bold" />
+
+						<TextView android:id="@id/phone_study_detail_protime"
+							android:layout_width="wrap_content" android:layout_height="wrap_content"
+							android:layout_marginTop="6dip" android:maxLines="1"
+							android:text="发布时间 ：2012-12-31 15:23:50" android:textColor="#000000"
+							android:textSize="15sp" android:textStyle="bold" />
+					</LinearLayout>
+				</RelativeLayout>
+			</LinearLayout>
+		</LinearLayout>
+
+		<RelativeLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:layout_marginRight="40dip"
+			android:layout_marginTop="22dip" android:background="@drawable/phone_study_saygroup_bottombg"
+			android:minHeight="500dip" android:paddingRight="10dip"
+			android:paddingTop="8dip" android:layout_marginLeft="18dip">
+			<LinearLayout  android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:background="@drawable/phone_study_say_group_bar">
+				<TextView android:layout_width="fill_parent" android:layout_height="fill_parent" android:paddingTop="5dip" android:id="@id/phone_study_saygroup_num"
+					android:text="" android:textSize="13sp" android:textColor="#FFFFFF" android:gravity="center_horizontal"/>
+			</LinearLayout>
+			<ListView android:layout_width="fill_parent" android:cacheColorHint="#00000000"
+				android:layout_height="400dip" android:divider="#00000000"
+				android:layout_marginTop="35dip" android:layout_marginLeft="20dip"
+				android:descendantFocusability="blocksDescendants" android:id="@id/phone_study_saygroup_listview" />
+
+		</RelativeLayout>
+	</LinearLayout>
+
+</LinearLayout>

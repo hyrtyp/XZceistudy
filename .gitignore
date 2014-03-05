@@ -28,7 +28,7 @@ proguard/
 *.iws
 .idea/
 app/
-CeiCustom/
+CeiCustom/build/
 CeiCustomPhone/build/
 Weibo/build/
 WeiboApi/build/

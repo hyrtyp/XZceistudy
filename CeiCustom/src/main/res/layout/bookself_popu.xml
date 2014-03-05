@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/yjbg_book_self_pop_bg"
+    android:weightSum="3" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_marginLeft="30dip"
+            android:layout_marginTop="30dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dip"
+            android:textColor="#003366"
+            android:text="更换背景" />
+
+        <LinearLayout
+            android:paddingLeft="10dip"
+            android:paddingTop="10dip"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ImageView android:id="@+id/report_item_bg1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                />
+
+            <ImageView android:id="@+id/report_item_bg2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                />
+
+            <ImageView  android:id="@+id/report_item_bg3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+               />
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+         android:layout_marginLeft="30dip"
+        android:background="@drawable/yjbg_book_self_pop_bg_line"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_marginLeft="30dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dip"
+            android:textColor="#003366"
+            android:text="修改图书排序" />
+
+        <LinearLayout  
+            android:paddingLeft="30dip"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <ImageView android:id="@+id/report_item_sort1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dip"
+                android:paddingTop="10dip"
+                android:src="@drawable/yjbg_book_sort_name" />
+
+            <ImageView android:id="@+id/report_item_sort2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dip"
+                android:src="@drawable/yjbg_book_sort_time" />
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="30dip"
+        android:background="@drawable/yjbg_book_self_pop_bg_line"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+</LinearLayout>

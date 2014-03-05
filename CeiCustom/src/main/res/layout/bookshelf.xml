@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainlayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bookself_bg"
+    android:fadingEdge="none" >
+    <RelativeLayout
+        android:id="@+id/top"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top"
+        android:fadingEdge="none"
+        android:fadingEdgeLength="0.0dip" >
+
+        <ImageButton
+            android:id="@+id/ib_goodbg_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10.0dip"
+            android:background="@drawable/back" />
+
+        <ImageButton
+            android:id="@+id/ib_goodbg_bookshelf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10.0dip"
+            android:background="@drawable/yjbg_book_shezhi" />
+
+        <TextView
+            android:id="@+id/imageView1"
+            android:text="我的书架"
+            style="@style/yangshi_pad_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="150.0dip"
+            android:layout_toRightOf="@+id/home" />
+    </RelativeLayout>
+    <RelativeLayout
+    android:id="@+id/mid"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/top"
+        android:layout_marginTop="10dip" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" >
+
+            <EditText android:id="@+id/yjbg_book_find_et"
+                android:singleLine="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:hint="搜索"
+                android:drawableLeft="@drawable/yjbg_book_find_bg_small"
+                android:paddingLeft="20dip"
+                android:background="@drawable/yjbg_book_find_bg" />
+
+            <ImageView android:id="@+id/yjbg_book_find"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/yjbg_book_find"
+                android:layout_marginLeft="20dip" />
+
+            <ImageView android:id="@+id/yjbg_book_shu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="50dip"
+                android:background="@drawable/yjbg_book_shu" />
+
+            <ImageView android:id="@+id/yjbg_book_heng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/yjbg_book_heng" />
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/mid" >
+
+        <com.hyrt.cei.ui.ebook.view.ShelvesView
+            android:id="@+id/grid_shelves"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:cacheColorHint="#00000000"
+            android:columnWidth="160px"
+            android:numColumns="4"
+            android:paddingLeft="50dip" />
+        <ListView  android:id="@+id/yjbg_book_shelves"
+            android:background="@drawable/phone_studynm_bg"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:divider="#c8c8c8"
+			android:dividerHeight="1dip"
+            android:cacheColorHint="#00000000"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:paddingTop="20dip"
+            android:visibility="gone"></ListView>
+
+    </RelativeLayout>
+    <LinearLayout
+		android:layout_height="fill_parent"
+		android:layout_width="fill_parent"
+		android:background="#90000000"
+		android:focusable="true"
+		android:visibility="gone"
+		android:id="@+id/yjbg_bookself_pro"
+		android:gravity="center">
+		<ProgressBar
+			android:layout_width="50dip"
+			android:layout_height="50dip"
+			android:gravity="center" />
+	</LinearLayout>
+</RelativeLayout>

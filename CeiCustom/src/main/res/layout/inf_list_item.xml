@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="70dip"
+	android:paddingLeft="10dip"
+	android:padding="3dip"
+	android:paddingRight="10dip"
+	android:orientation="vertical"
+>
+	<RelativeLayout
+		android:id="@+id/topfirst"
+		android:layout_alignParentTop="true"
+		android:gravity="bottom"
+		android:layout_marginTop="5dip"
+		android:layout_width="fill_parent"
+		android:layout_height="35dip"
+		android:orientation="horizontal"
+	>
+		<ImageView
+			android:layout_marginLeft="5dip"
+			android:layout_centerVertical="true"
+			android:id="@+id/info_point"
+			android:layout_alignParentLeft="true"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:background="@drawable/zjzx_point" />
+		<TextView
+		    android:textStyle="bold"
+			android:text="time"
+			android:layout_centerVertical="true"
+			android:id="@+id/info_time"
+			android:layout_alignParentRight="true"
+			android:layout_marginLeft="5dip"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textColor="#ff3c3c3c"
+			android:textSize="15.0sp" />
+		<TextView
+		    android:textStyle="bold"
+			android:singleLine="true"
+			android:text="title"
+			android:layout_centerVertical="true"
+			android:layout_toRightOf="@+id/info_point"
+			android:layout_toLeftOf="@+id/info_time"
+			android:layout_marginLeft="5dip"
+			android:id="@+id/info_title"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:textColor="#000000"
+			android:textSize="18.0sp" />
+	</RelativeLayout>
+	<TextView
+	    android:textStyle="bold"
+		android:gravity="top"
+		android:layout_below="@+id/topfirst"
+		android:singleLine="true"
+		android:text="subhead"
+		android:layout_marginLeft="5dip"
+		android:id="@+id/info_subhead"
+		android:layout_width="fill_parent"
+		android:layout_height="35dip"
+		android:textColor="#ff3c3c3c"
+		android:textSize="15.0sp" />
+	<ImageView
+		android:background="@drawable/ing_item_line"
+		android:layout_below="@+id/info_subhead"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true" />
+</RelativeLayout>

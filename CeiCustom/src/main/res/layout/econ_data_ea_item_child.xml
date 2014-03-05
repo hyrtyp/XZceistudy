@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="252dip" android:layout_height="40dip"
+	android:gravity="center"
+	android:background="@drawable/econ_data_ea_item_child"
+	>
+	<ImageView android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_marginLeft="45dip"
+	android:background="@drawable/econ_data_ea_item_child_point"/>
+	<TextView android:id="@+id/econ_data_ea_item_child_tv"
+		android:layout_marginLeft="20dip" android:gravity="center_vertical"
+		android:layout_width="fill_parent" android:singleLine="true"
+		android:layout_height="40dip" android:text="child"
+		android:textSize="16px" android:textColor="@color/black" 
+		android:ellipsize="marquee" 
+		android:paddingRight="15dip"
+        android:marqueeRepeatLimit="marquee_forever" 
+        android:focusableInTouchMode="true" 
+        android:scrollHorizontally="true"
+		/>
+
+</LinearLayout>

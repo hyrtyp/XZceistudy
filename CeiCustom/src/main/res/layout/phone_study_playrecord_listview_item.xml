@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:padding="20dip">
+
+    <ImageView
+        android:id="@id/phone_study_playrecord_course_icon"
+       android:layout_width="222dip"
+        android:layout_height="160dip"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/courseware_default_icon" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dip"
+            android:paddingTop="25dip" >
+
+            <TextView
+                android:id="@id/phone_study_gird_item_tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="主题 ：环保与经济"
+                android:textColor="#003380"
+                android:textSize="20.0dip"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:paddingRight="30dip" >
+
+                <ImageView
+                    android:id="@id/phone_study_playrecord_play_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="study_iv"
+                    android:src="@drawable/phone_study_playrecord_study_btn" />
+
+                <ImageView
+                    android:id="@id/phone_study_playrecord_download_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dip"
+                    android:src="@drawable/phone_study_download_btn" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginLeft="20dip"
+            android:layout_marginTop="6dip"
+            android:background="@drawable/phone_study_dotted_line" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dip"
+                android:orientation="vertical"
+                android:id="@id/phone_study_playrecord_author_ll">
+
+                <TextView
+                    android:id="@id/phone_study_gird_item_tv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="主讲人 ：张小娴"
+                    android:textColor="#000000"
+                    android:textSize="15.0dip" />
+
+                <TextView
+                    android:id="@id/phone_study_gird_item_tv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dip"
+                    android:gravity="center_horizontal"
+                    android:text="发布时间 ：2012-12-31"
+                    android:textColor="#000000"
+                    android:textSize="15.0dip" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@id/phone_study_playrecord_addcourse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:paddingRight="60dip"
+                android:src="@drawable/phone_study_uploadcourse_btn" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dip"
+                android:paddingLeft="20dip"
+                android:layout_below="@id/phone_study_playrecord_author_ll"
+                android:gravity="center_vertical">
+
+                <ImageView android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/phone_study_playrecord_item_iv1" />
+				<TextView android:layout_width="wrap_content" android:visibility="gone"
+                    android:layout_height="wrap_content" android:layout_marginLeft="6dip"
+                    android:textColor="#80000000" android:text="共4集"  android:textSize="12.0dip"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/phone_study_playrecord_item_iv2" />
+				<TextView android:layout_width="wrap_content" android:id="@id/phone_study_playrecord_totaltime"
+                    android:layout_height="wrap_content" android:layout_marginLeft="3dip"
+                    android:textColor="#80000000" android:text="总时长 ：150/h" android:textSize="12.0dip"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="95dip"
+                    android:src="@drawable/phone_study_playrecord_item_iv3" />
+				<TextView android:layout_width="wrap_content"
+				    android:id="@id/phone_study_playrecord_alstudytime"
+                    android:layout_height="wrap_content" android:layout_marginLeft="6dip"
+                    android:textColor="#80000000" android:text="已学习时间 ：10/h" android:textSize="12.0dip"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dip"
+                    android:src="@drawable/phone_study_playrecord_item_iv4" />
+                <TextView android:layout_width="wrap_content" android:id="@id/phone_study_playrecord_studystatus"
+                    android:layout_height="wrap_content" android:layout_marginLeft="6dip"
+                    android:textColor="#80000000" android:text="学习状态 ：未完成" android:textSize="12.0dip"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<color name="border_color">#3e4145</color>
+	<color name="gray">#fff5f5f5</color>
+	<color name="common_white">#ffffffff</color>
+	<color name="black">#ff000000</color>
+	<color name="banner_text_color">@android:color/black</color>
+	<color name="grid_text_color">@android:color/black</color>
+	<color name="commom_dark">#ff3b3b3b</color>
+	<color name="common_light_dark">#ff6b6b6b</color>
+	<color name="white">#ffffffff</color>
+	 <color name="transparent">#00000000</color>
+	 <color name="popwin_bg">#40838d9b</color>
+	  <color name="full_transparent">#00000000</color>
+</resources>

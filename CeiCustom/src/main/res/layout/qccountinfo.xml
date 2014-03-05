@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:background="@null"
+	android:layout_height="fill_parent">
+	<ImageView
+		android:layout_marginTop="30dip"
+		android:layout_marginLeft="50dip"
+		android:id="@+id/qccountinfo"
+		android:layout_alignParentTop="true"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:background="@drawable/qccount_info" />
+	<RelativeLayout
+		android:layout_below="@+id/qccountinfo"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent">
+		<ImageView
+			android:layout_marginTop="15dip"
+			android:id="@+id/qccountinfo_line"
+			android:layout_alignParentTop="true"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:background="@drawable/phone_study_dotted_line" />
+		<TextView
+			android:layout_marginLeft="50dip"
+			android:layout_marginTop="20dip"
+			android:textColor="#000000"
+			android:layout_width="wrap_content"
+			android:text="账   号:"
+			android:id="@+id/textView1"
+			android:textSize="18sp"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/qccountinfo_line"></TextView>
+		<TextView
+			android:layout_marginTop="20dip"
+			android:textColor="#000000"
+			android:layout_width="wrap_content"
+			android:text="积   分:"
+			android:id="@+id/textView2"
+			android:textSize="18sp"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/textView1"
+			android:layout_marginLeft="50dip"></TextView>
+		<TextView
+			android:layout_toRightOf="@+id/textView1"
+			android:textColor="#000000"
+			android:textSize="18sp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:id="@+id/personinfo_userid"
+			android:layout_below="@+id/qccountinfo_line"
+			android:layout_marginTop="20dip"
+			android:layout_marginLeft="20dp"></TextView>
+		<TextView
+			android:id="@+id/personinfo_integral"
+			android:textColor="#000000"
+			android:textSize="18sp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignTop="@+id/textView2"
+			android:layout_alignLeft="@+id/personinfo_userid"></TextView>
+	</RelativeLayout>
+</RelativeLayout>  

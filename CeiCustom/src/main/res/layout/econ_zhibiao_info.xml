@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background" >
+
+    <include
+        android:id="@+id/econ_title"
+        layout="@layout/econ_title" />
+
+    <RelativeLayout
+        android:id="@+id/econ_part_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bottom_bg"
+        android:paddingLeft="200.0dip"
+        android:paddingRight="200.0dip" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal"
+            android:paddingTop="10.0dip"
+            android:weightSum="6.0" >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/iv_econ_zbinfo_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/phone_study" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/iv_econ_zbinfo_sz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/econ_szkx" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <TextView
+                    android:id="@+id/iv_econ_zbinfo_zz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    style="@style/yangshi_pad_title"
+			        android:text="数据查询" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/iv_econ_zbinfo_fx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/econ_fxyc" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/iv_econ_zbinfo_zb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/econ_zbcx1" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/econ_sjcx" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/econ_part_bottom"
+        android:layout_below="@id/econ_title"
+        android:layout_marginLeft="30dip"
+        android:layout_marginRight="30dip"
+        android:background="@drawable/jjsj_back_wai"
+        android:padding="70dip" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/jjsj_back_nei"
+            android:orientation="vertical"
+            android:paddingLeft="10dip"
+           >
+            <LinearLayout android:id="@+id/title"
+                android:layout_width="fill_parent"
+                android:layout_alignParentTop="true"
+                android:layout_height="60dip"
+                android:gravity="fill_vertical"
+                android:paddingLeft="20dip"
+                android:paddingTop="20dip"
+                >
+                <TextView android:layout_width="wrap_content"
+                    android:layout_height="40dip"
+                    android:text="国内生产总值"
+                    
+                    android:textSize="25dip"
+                    android:gravity="center"
+                    android:textColor="@color/black"/>
+                <TextView android:layout_width="wrap_content"
+                    android:layout_height="40dip"
+                    android:textSize="25dip"
+                    android:text="English"
+                    android:gravity="center"
+                    android:paddingLeft="500dip"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/bottle"
+                android:layout_alignParentBottom="true"
+                android:layout_width="fill_parent"
+                android:layout_height="60dip"
+                android:paddingTop="20dip"
+                android:paddingLeft="20dip"
+                >
+                <ImageView android:layout_width="wrap_content"
+                    android:layout_height="40dip"
+                    />
+                <TextView android:layout_width="wrap_content"
+                    android:layout_height="40dip"
+                    android:textSize="25dip"
+                    android:text="English"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+            <FrameLayout
+                android:layout_above="@id/bottle"
+                android:layout_below="@id/title"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#ffffff" >
+
+                <ImageView
+                    android:paddingLeft="34dip"
+                    android:id="@+id/wv_zb_map"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    >
+                </ImageView>
+                <ImageView
+                    android:id="@+id/wv_zb_map1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                     >
+                </ImageView>
+            </FrameLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

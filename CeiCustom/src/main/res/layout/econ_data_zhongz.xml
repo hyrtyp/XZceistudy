@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:id="@+id/econ_data_zz_all"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background" >
+
+    <RelativeLayout
+        android:id="@+id/top"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top"
+        android:fadingEdge="none"
+        android:fadingEdgeLength="0.0dip" >
+
+        <ImageButton
+            android:id="@+id/econ_data_zz_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10.0dip"
+            android:visibility="gone"
+            android:background="@drawable/back" />
+         <ImageView
+            android:id="@+id/econ_data_zz_shuax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="30.0dip"
+            android:gravity="center"
+            android:src="@drawable/econ_data_shuax" >
+        </ImageView>
+        <TextView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="50.0dip"
+            android:layout_toRightOf="@+id/econ_data_zz_back"
+            style="@style/yangshi_pad_title"
+			android:text="中经指数" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/econ_part_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/econ_data_bottom_bg"
+        android:paddingLeft="100.0dip"
+        android:paddingRight="100.0dip" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal"
+            android:paddingTop="10.0dip"
+            android:weightSum="7.0" >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/econ_data_zz_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/econ_data_home1" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/econ_data_zz_zx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/econ_data_data1" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/econ_data_zz_sz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/econ_data_kx1" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/econ_data_zz_zz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/econ_data_zs" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/econ_data_zz_fx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/econ_data_fx1" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/econ_data_zz_zb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/econ_data_zb1" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0" >
+
+                <ImageView
+                    android:id="@+id/econ_data_zz_sj"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/econ_data_cx1" />
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_above="@+id/econ_part_bottom"
+        android:layout_below="@+id/top"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+        <LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_above="@+id/botton"
+		android:layout_below="@+id/top"
+		android:weightSum="10">
+
+		<RelativeLayout
+			android:id="@+id/personcenten_re"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:layout_weight="7"
+			android:background="@drawable/grzx_left">
+
+			 <TextView android:id="@+id/top_name"
+            android:visibility="gone"
+                android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:background="@drawable/econ_data_ea_item_group1"
+				android:layout_alignParentTop="true"
+				android:gravity="center"
+				android:text="title"
+				android:textSize="20dip"
+                android:textColor="#006666"/>
+			<ListView
+			    android:layout_below="@+id/top_name"
+				android:id="@+id/econ_data_number_list"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent"
+				android:cacheColorHint="#00000000"
+				android:divider="@null"
+				android:headerDividersEnabled="true"
+				android:clickable="true"
+				android:listSelector="@drawable/nodrawable">
+			</ListView>
+			<ProgressBar
+				android:id="@+id/progressbar_content"
+				android:visibility="gone"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerInParent="true" />
+		</RelativeLayout>
+
+		<RelativeLayout
+			android:id="@+id/pc_re"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:layout_toRightOf="@+id/personcenten_re"
+			android:layout_weight="3"
+			android:paddingLeft="40dip"
+				android:paddingRight="40dip"
+			android:background="#FFFFFF">
+
+			<WebView
+				android:id="@+id/econ_data_number_web"
+				android:background="@null"
+				android:scrollbars="none"
+				android:layout_width="fill_parent"
+				android:layout_height="fill_parent" />
+			<ProgressBar
+				android:id="@+id/progressbar_web"
+				android:visibility="gone"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_centerInParent="true" />
+		</RelativeLayout>
+	</LinearLayout>
+    </RelativeLayout>
+ <LinearLayout
+		android:layout_height="fill_parent"
+		android:layout_width="fill_parent"
+		android:background="#00000000"
+		android:id="@+id/econ_data_zz_pro"
+		android:gravity="center">
+		<ProgressBar
+			android:layout_width="50dip"
+			android:layout_height="50dip"
+			android:gravity="center" />
+	</LinearLayout>
+</RelativeLayout>

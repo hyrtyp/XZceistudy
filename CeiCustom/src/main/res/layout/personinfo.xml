@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="@null">
+
+	<ImageView
+		android:id="@+id/qccountinfo"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentTop="true"
+		android:layout_marginLeft="50dip"
+		android:layout_marginTop="30dip"
+		android:background="@drawable/person_info" />
+
+	<RelativeLayout
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_below="@+id/qccountinfo">
+
+		<ImageView
+			android:id="@+id/qccountinfo_line"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_alignParentTop="true"
+			android:layout_marginTop="15dip"
+			android:background="@drawable/phone_study_dotted_line" />
+
+		<LinearLayout
+			android:id="@+id/lin1"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/qccountinfo_line"
+			android:layout_marginTop="20dip"
+			android:gravity="center_vertical">
+
+			<TextView
+				android:layout_width="100dip"
+				android:layout_height="wrap_content"
+				android:text="登录名:"
+				android:textColor="#000000"
+				android:gravity="right"
+				android:textSize="18sp">
+			</TextView>
+
+			<TextView
+				android:id="@+id/personinfo_loginname"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="30dip"
+				android:gravity="left"
+				android:textColor="#000000"
+				android:textSize="18sp">
+			</TextView>
+		</LinearLayout>
+		<LinearLayout
+			android:id="@+id/lin2"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/lin1"
+			android:layout_alignLeft="@id/lin1"
+			android:layout_marginTop="20dip"
+			android:gravity="center_vertical">
+			<TextView
+				android:layout_width="100dip"
+				android:layout_height="wrap_content"
+				android:gravity="right"
+				android:text="姓名:"
+				android:textColor="#000000"
+				android:textSize="18sp">
+			</TextView>
+			<TextView
+				android:id="@+id/personinfo_name"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="30dip"
+				android:gravity="center"
+				android:textColor="#000000"
+				android:textSize="18sp">
+			</TextView>
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/lin3"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/lin2"
+			android:layout_marginTop="20dip"
+			android:gravity="center_vertical">
+
+			<TextView
+				android:layout_width="100dip"
+				android:layout_height="wrap_content"
+				android:gravity="right"
+				android:text="性别:"
+				android:textColor="#000000"
+				android:textSize="18sp">
+			</TextView>
+
+			<TextView
+				android:id="@+id/personinfo_sex"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="30dip"
+				android:gravity="center"
+				android:textColor="#000000"
+				android:textSize="18sp">
+			</TextView>
+		</LinearLayout>
+		<LinearLayout
+			android:id="@+id/lin4"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/lin3"
+			android:layout_marginTop="20dip"
+			android:gravity="center_vertical">
+
+			<TextView
+				android:layout_width="100dip"
+				android:layout_height="wrap_content"
+				android:gravity="right"
+				android:text="证件类型:"
+				android:textColor="#000000"
+				android:textSize="18sp">
+			</TextView>
+
+			<TextView
+				android:id="@+id/personinfo_zhengjian"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="30dip"
+				android:textColor="#000000"
+				android:textSize="18sp">
+			</TextView>
+		</LinearLayout>
+		<LinearLayout
+			android:id="@+id/lin5"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/lin4"
+			android:layout_marginTop="20dip"
+			android:gravity="center_vertical">
+			<TextView
+				android:layout_width="100dip"
+				android:layout_height="wrap_content"
+				android:gravity="right"
+				android:text="证件号码:"
+				android:textColor="#000000"
+				android:textSize="18sp">
+			</TextView>
+			<TextView
+				android:id="@+id/personinfo_zhengjiannum"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:singleLine="true"
+				android:layout_marginLeft="30dip"
+				android:textColor="#000000"
+				android:textSize="18sp">
+			</TextView>
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/lin6"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/lin5"
+			android:layout_marginTop="20dip"
+			android:gravity="center_vertical">
+
+			<TextView
+				android:layout_width="100dip"
+				android:layout_height="wrap_content"
+				android:gravity="right"
+				android:text="电话:"
+				android:textColor="#000000"
+				android:textSize="18sp">
+			</TextView>
+
+			<TextView
+				android:id="@+id/personinfo_phonenum"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="30dip"
+				android:gravity="center"
+				android:textColor="#000000"
+				android:textSize="18sp">
+			</TextView>
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/lin7"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/lin6"
+			android:layout_marginTop="20dip"
+			android:gravity="center_vertical">
+
+			<TextView
+				android:layout_width="100dip"
+				android:layout_height="wrap_content"
+				android:gravity="right"
+
+				android:text="电子邮箱:"
+				android:textColor="#000000"
+				android:textSize="18sp">
+			</TextView>
+
+			<TextView
+				android:id="@+id/personinfo_email"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="30dip"
+				android:gravity="center"
+				android:textColor="#000000"
+				android:textSize="18sp">
+			</TextView>
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/lin8"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/lin7"
+			android:layout_marginTop="20dip"
+			android:gravity="center_vertical">
+
+			<TextView
+				android:layout_width="100dip"
+				android:layout_height="wrap_content"
+				android:gravity="right"
+				android:text="单位:"
+				android:textColor="#000000"
+				android:textSize="18sp">
+			</TextView>
+
+			<TextView
+				android:id="@+id/personinfo_danwei"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:gravity="left"
+				android:layout_marginLeft="30dip"
+				android:textColor="#000000"
+				android:textSize="18sp">
+			</TextView>
+		</LinearLayout>
+	</RelativeLayout>
+
+</RelativeLayout>
