@@ -6,7 +6,7 @@
     android:cacheColorHint="#00000000"
     android:divider="#c8c8c8"
     android:dividerHeight="1dip"
-    android:background="@color/phone_listview_bg"
-    android:layout_marginLeft="3dp"
     android:layout_marginRight="3dp"
+    android:layout_marginLeft="3dp"
+    android:background="@color/phone_listview_bg"
     android:listSelector="@drawable/phone_study_listview_selector" />

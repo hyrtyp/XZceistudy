@@ -24,7 +24,15 @@
                 android:layout_centerVertical="true"
                 android:src="@drawable/icon"
             android:visibility="gone"/>
-
+        <ImageView
+            android:id="@+id/phone_study_back_bt"
+            android:padding="4dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/phone_study_back_bt"
+            />
 		<TextView
 		    android:text="关于我们"
 			android:layout_marginLeft="20dip"
@@ -64,15 +72,14 @@
 		android:id="@+id/select"
 		android:paddingLeft="15dip"
 		android:paddingRight="15dip"
-		android:weightSum="3"
 		android:layout_below="@+id/top"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
+        android:gravity="center"
 	>
 		<Button
 			android:id="@+id/abouts_us"
-			android:layout_weight="1"
-			android:layout_width="fill_parent"
+			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
             style="@style/phone_study_Tab"
             android:text="关于我们"
@@ -81,16 +88,13 @@
             />
 		<Button
 			android:id="@+id/usesinfo"
-			android:layout_weight="1"
-			android:layout_width="fill_parent"
+			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
             style="@style/phone_study_Tab"
             android:text="使用说明"/>
 		<Button
-			android:background="@color/phone_study_color1"
 			android:id="@+id/mazminfo"
-			android:layout_weight="1"
-			android:layout_width="fill_parent"
+			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
             style="@style/phone_study_Tab"
             android:text="免责说明"
@@ -102,5 +106,7 @@
 		android:id="@+id/disclaimer_web"
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
+        android:layout_marginLeft="@dimen/phone_study_view_margin"
+        android:layout_marginRight="@dimen/phone_study_view_margin"
 	></WebView>
 </RelativeLayout>

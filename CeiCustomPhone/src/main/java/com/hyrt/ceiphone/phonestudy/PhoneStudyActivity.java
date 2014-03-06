@@ -265,4 +265,10 @@ public class PhoneStudyActivity extends FoundationActivity {
             findViewById(R.id.main_login).setVisibility(View.VISIBLE);
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+//        activitys.clear();
+    }
 }

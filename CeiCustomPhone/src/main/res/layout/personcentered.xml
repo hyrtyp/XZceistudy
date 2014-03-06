@@ -24,7 +24,15 @@
                 android:layout_centerVertical="true"
                 android:src="@drawable/icon"
                 android:visibility="gone"/>
-
+        <ImageView
+            android:id="@+id/phone_study_back_bt"
+            android:padding="4dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/phone_study_back_bt"
+            />
 		<TextView
 		    android:text="个人中心"
             style="@style/phone_study_top_tv"
@@ -77,16 +85,15 @@
 		android:background="#3c71ba"
 		android:paddingLeft="15dip"
 		android:paddingRight="15dip"
-		android:weightSum="3"
 		android:layout_below="@+id/top"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/linearLayout1"
+        android:gravity="center"
 	>
 		<Button
 			android:id="@+id/person_info"
-			android:layout_weight="1"
-			android:layout_width="fill_parent"
+			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
             android:text="个人信息"
             style="@style/phone_study_Tab"
@@ -94,16 +101,14 @@
             android:textColor="@color/phone_study_color_black"/>
 		<Button
 			android:id="@+id/qccount_info"
-			android:layout_weight="1"
-			android:layout_width="fill_parent"
+			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
             android:text="账户信息"
             style="@style/phone_study_Tab"
             />
 		<Button
 			android:id="@+id/change_password"
-			android:layout_weight="1"
-			android:layout_width="fill_parent"
+			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
             android:text="修改信息"
             style="@style/phone_study_Tab"
@@ -115,5 +120,7 @@
 		android:id="@+id/pc_re"
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
+        android:layout_marginLeft="@dimen/phone_study_view_margin"
+        android:layout_marginRight="@dimen/phone_study_view_margin"
 	></RelativeLayout>
 </RelativeLayout>

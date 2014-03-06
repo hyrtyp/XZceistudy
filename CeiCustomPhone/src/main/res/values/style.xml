@@ -44,8 +44,8 @@
         <item name="android:background">@drawable/phone_study_bottom_tv_bg</item>
         <item name="android:paddingRight">10dp</item>
         <item name="android:paddingLeft">10dp</item>
-        <item name="android:layout_marginRight">1dp</item>
-        <item name="android:layout_marginLeft">1dp</item>
+        <item name="android:layout_marginRight">0.5dp</item>
+        <item name="android:layout_marginLeft">0dp</item>
         <item name="android:textSize">15sp</item>
     </style>
     
@@ -59,8 +59,8 @@
     
     <style name="phone_study_Tab">
         <item name="android:background">@drawable/phone_study_tab_bg2</item>
-        <item name="android:layout_marginLeft">10dp</item>
-        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginLeft">2dp</item>
+        <item name="android:layout_marginRight">2dp</item>
         <item name="android:paddingTop">5dp</item>
         <item name="android:paddingBottom">5dp</item>
         <item name="android:paddingLeft">10dp</item>
@@ -80,7 +80,7 @@
         <item name="android:singleLine">true</item>
     </style>
     <style name="phone_study_h2">
-        <item name="android:background">@color/phone_study_h2_bg</item>
+        <item name="android:background">@drawable/phone_study_det_h2_bg</item>
         <item name="android:textColor">#ffffff</item>
         <item name="android:padding">3dp</item>
         <item name="android:textStyle">bold</item>
@@ -108,5 +108,13 @@
     <style name="phone_study_top_tv">
         <item name="android:textColor">#ffffff</item>
         <item name="android:textSize">@dimen/top_text_size</item>
+    </style>
+
+    <style name="phone_study_pop_tv">
+        <item name="android:textColor">@color/phone_study_color_White</item>
+        <item name="android:background">@drawable/phone_study_pop_bt_bg</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">33dp</item>
     </style>
 </resources>

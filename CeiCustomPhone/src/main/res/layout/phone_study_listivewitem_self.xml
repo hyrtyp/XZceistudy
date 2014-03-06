@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="100dip"
+    style="@style/phone_study_listview"
+    android:background="@color/phone_study_color_White"
+  >
+
+    <ImageView
+        android:id="@+id/phone_study_listviewitem_icon"
+        android:src="@drawable/courseware_default_icon"
+        android:layout_gravity="center_vertical"
+        android:contentDescription="@string/hello"
+        android:scaleType="fitXY"
+        style="@style/phone_study_image_list"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:paddingLeft="8dip"
+        android:paddingTop="3dip" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="26dip" >
+
+            <TextView
+                android:id="@+id/phone_study_listviewitem_title"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:text="@string/phone_study_title"
+                style="@style/phone_study_h1" />
+
+            <ImageView
+                android:id="@+id/phone_study_listviewitem_downbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dip"
+                android:contentDescription="@string/hello"
+                android:visibility="gone"
+                android:src="@drawable/phone_study_download_btn" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="5dip"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/phone_study_listviewitem_teachername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/phone_study_teachername"
+                   style="@style/phone_study_h1_small" />
+
+                <TextView
+                    android:id="@+id/phone_study_listviewitem_protime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dip"
+                    android:text="@string/phone_study_protime"
+                    style="@style/phone_study_h1_small" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/phone_study_controllcourse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dip"
+                android:contentDescription="@string/hello"
+             />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

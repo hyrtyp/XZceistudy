@@ -16,7 +16,6 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="1dip"
         android:gravity="center"
         android:text="下载自选课"
         style="@style/phone_study_Tab"

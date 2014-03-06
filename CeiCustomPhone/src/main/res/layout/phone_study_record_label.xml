@@ -15,7 +15,6 @@
             style="@style/phone_study_Tab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="2dip"
             android:text="全  部"
             android:background="@drawable/phone_study_tab_bg"
             android:textColor="@color/phone_study_color_black"
@@ -33,7 +32,6 @@
             style="@style/phone_study_Tab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="2dip"
             android:text="未上传"
              />
 
@@ -41,7 +39,6 @@
             style="@style/phone_study_Tab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="2dip"
             android:text="已上传"
             />
 
@@ -49,7 +46,6 @@
             style="@style/phone_study_Tab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="2dip"
             android:text="已学完"
             />
     </LinearLayout>

@@ -14,7 +14,7 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
 		android:background="@color/phone_bottomandtop_bg"
-	>
+	    >
         <ImageView
                 android:id="@+id/phone_study_icon"
                 android:padding="4dp"
@@ -24,6 +24,15 @@
                 android:layout_centerVertical="true"
                 android:src="@drawable/icon"
             android:visibility="gone"/>
+        <ImageView
+            android:id="@+id/phone_study_back_bt"
+            android:padding="4dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/phone_study_back_bt"
+            />
 		<TextView
 		    android:text="通知公告"
             style="@style/phone_study_top_tv"
@@ -80,5 +89,7 @@
 		android:layout_above="@+id/bottoms_Ll"
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
+        android:layout_marginRight="@dimen/phone_study_view_margin"
+        android:layout_marginLeft="@dimen/phone_study_view_margin"
 	></ListView>
 </RelativeLayout>

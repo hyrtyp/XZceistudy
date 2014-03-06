@@ -6,6 +6,7 @@
     android:layout_alignParentBottom="true"
     android:orientation="vertical" >
     <HorizontalScrollView
+        android:id="@+id/bottom_horscr"
         android:scrollbars="none"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
@@ -18,7 +19,7 @@
                 android:id="@+id/bottoms_parent"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="#ffffff"
+                android:background="@color/phone_study_color1"
                 android:baselineAligned="false"
                 android:layout_marginTop="2dp"
                 >

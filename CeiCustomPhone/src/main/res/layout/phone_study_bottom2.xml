@@ -22,7 +22,7 @@
                 android:id="@+id/bottoms_parent"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="#ffffff"
+                android:background="@color/phone_study_color1"
                 android:baselineAligned="false"
                 android:layout_marginTop="2dp"
                 >

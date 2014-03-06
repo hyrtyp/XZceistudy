@@ -39,18 +39,16 @@
 			android:padding="20dip"
 			android:layout_height="fill_parent"
 			android:gravity="center_vertical">
-			<ImageView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:src="@drawable/phone_study_issure_sure"
+			<Button
 				android:layout_alignParentLeft="true"
-				android:id="@+id/pop_exit_show_yes" />
-			<ImageView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:src="@drawable/phone_study_issure_cancel"
+				android:id="@+id/pop_exit_show_yes"
+                android:text="确定"
+                style="@style/phone_study_pop_tv"/>
+			<Button
 				android:layout_alignParentRight="true"
-				android:id="@+id/pop_exit_show_exit" />
+				android:id="@+id/pop_exit_show_exit"
+                android:text="取消"
+                style="@style/phone_study_pop_tv"/>
 		</RelativeLayout>
 	</LinearLayout>
 </RelativeLayout>

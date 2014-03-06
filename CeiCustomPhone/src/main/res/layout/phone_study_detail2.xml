@@ -11,22 +11,21 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="#f0f4f6"
-        android:paddingTop="1.0px"
+        android:paddingTop="1dp"
         android:scrollbars="none" >
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:padding="@dimen/phone_study_view_margin"
+            >
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="4dip"
-                android:paddingLeft="2dip"
-                android:paddingRight="8dip"
-                android:paddingTop="4dip"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/phone_study_view_margin">
 
                 <ImageView
                     android:id="@+id/phone_study_detail_icon"
@@ -37,7 +36,7 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="5dip"
                     android:layout_marginTop="2dip"
                     android:orientation="vertical"
@@ -114,12 +113,12 @@
                     </RelativeLayout>
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_width="60dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:layout_gravity="right"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
+                    android:layout_gravity="right"
                     >
 
                     <Button
@@ -131,7 +130,6 @@
 
                     <Button
                         android:id="@+id/phone_study_detail_play"
-                        android:layout_gravity="center_horizontal"
                         android:text="播放"
                         style="@style/phone_study_bt"
                         />
@@ -146,26 +144,27 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dip"
                 android:orientation="vertical"
-                android:paddingLeft="5dip" >
+                android:layout_margin="@dimen/phone_study_view_margin"
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dip"
                     android:maxLines="1"
                     android:text="课件详情"
-                    style="@style/phone_study_h2"/>
+                    style="@style/phone_study_h2"
+                    />
 
                 <TextView
                     android:id="@+id/phone_study_detail_content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dip"
                     android:minHeight="90dip"
                     android:text="课件内容"
-                    style="@style/phone_study_text"/>
+                    style="@style/phone_study_text"
+                    android:layout_marginTop="@dimen/phone_study_view_h2_margin_top"
+                    android:layout_marginBottom="@dimen/phone_study_view_h2_margin_top"/>
             </LinearLayout>
 
             <ImageView
@@ -176,14 +175,14 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dip"
                 android:orientation="vertical"
-                android:paddingLeft="8dip" >
+                android:layout_margin="@dimen/phone_study_view_margin"
+                >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dip" >
+                    >
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -196,7 +195,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:minHeight="80dip"
-                    android:scrollbars="none" >
+                    android:scrollbars="none"
+                    android:layout_marginTop="@dimen/phone_study_view_h2_margin_top"
+                    android:layout_marginBottom="@dimen/phone_study_view_h2_margin_top">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -219,15 +220,13 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dip"
                 android:orientation="vertical"
-                android:paddingLeft="10dip"
-                android:paddingRight="10dip" >
+                android:layout_margin="@dimen/phone_study_view_margin"
+               >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dip"
                     android:text="用户评价"
                     style="@style/phone_study_h2"/>
 
@@ -235,7 +234,8 @@
                     android:id="@+id/phone_study_detail_say_inputEdit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dip"
+                    android:layout_marginTop="@dimen/phone_study_view_h2_margin_top"
+                    android:layout_marginBottom="@dimen/phone_study_view_h2_margin_top"
                     android:background="@drawable/login_bg_edittext_focused"
                     android:minHeight="50dip" />
 
@@ -247,7 +247,6 @@
                     <Button
                         android:id="@+id/phone_study_submit"
                         android:layout_alignParentRight="true"
-                        android:layout_marginRight="20dip"
                         android:text="提交"
                         style="@style/phone_study_bt"
                         />

@@ -11,32 +11,39 @@ android:id="@+id/full_view"
 		<LinearLayout android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
             android:layout_above="@+id/phone_study_preload_scrollView"
-			android:paddingTop="5dip">
+			android:paddingTop="5dip"
+            >
 			<Button
                 style="@style/phone_study_Tab"
                 android:text="正下载"
                 android:background="@drawable/phone_study_tab_bg"
                 android:textColor="@color/phone_study_color_black"
 				android:gravity="center"
-                android:layout_marginLeft="10dip"
 				android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-				android:id="@+id/phone_study_preload_loadingBtn" />
+				android:id="@+id/phone_study_preload_loadingBtn"
+                android:layout_marginLeft="20dp"/>
 			<Button
                 style="@style/phone_study_Tab"
                 android:text="已下载"
 				android:gravity="center"
-                android:layout_marginLeft="10dip"
 				android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 				android:id="@+id/phone_study_preload_alreLoadBtn" />
 		</LinearLayout>
 		<ScrollView android:gravity="center"
-			android:id="@+id/phone_study_preload_scrollView" android:paddingTop="1.0px"
-			android:layout_width="fill_parent" android:layout_height="fill_parent">
+			android:id="@+id/phone_study_preload_scrollView"
+            android:paddingTop="1dp"
+			android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fillViewport="false"
+            android:background="@color/phone_study_color_White">
 			<LinearLayout android:orientation="vertical"
 				android:id="@+id/phone_study_preload_itemParent"
-				android:layout_width="fill_parent" android:layout_height="wrap_content" />
+				android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/phone_study_view_margin"
+                android:layout_marginRight="@dimen/phone_study_view_margin"/>
 		</ScrollView>
 	</LinearLayout>
 </LinearLayout>

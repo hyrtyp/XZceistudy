@@ -126,5 +126,7 @@
 		android:layout_above="@+id/bottoms_Ll"
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
+        android:layout_marginRight="@dimen/phone_study_view_margin"
+        android:layout_marginLeft="@dimen/phone_study_view_margin"
 	></WebView>
 </RelativeLayout>

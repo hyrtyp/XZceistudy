@@ -1,71 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-        android:id="@+id/top"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent"
-        android:layout_height="48dp"
-        android:paddingLeft="16dip"
-        android:paddingRight="16dip"
-        android:background="@color/phone_bottomandtop_bg" >
+    android:id="@+id/top"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="48dp"
+    android:paddingLeft="16dip"
+    android:paddingRight="16dip"
+    android:background="@color/phone_bottomandtop_bg">
 
     <TextView
-            android:id="@+id/phone_study_basetitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:text="移动学习"
-            style="@style/yangshi_phone_title_small"
-            android:layout_alignParentEnd="true"
-            android:visibility="gone"
-            />
+        android:id="@+id/phone_study_basetitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:text="移动学习"
+        style="@style/yangshi_phone_title_small"
+        android:layout_alignParentEnd="true"
+        android:visibility="gone" />
     <ImageView
-            android:id="@+id/phone_study_icon"
-            android:padding="4dp"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/icon"
-            android:visibility="gone"/>
+        android:id="@+id/phone_study_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/top_search" />
+    <ImageView
+        android:id="@+id/phone_study_icon"
+        android:padding="4dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/icon"
+        android:visibility="gone" />
 
+    <ImageView
+        android:id="@+id/phone_study_back_bt"
+        android:padding="4dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/phone_study_back_bt"
+        android:visibility="gone"/>
 
     <TextView
-            android:id="@+id/phone_study_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:textColor="#ffffff"
-            android:textSize="@dimen/top_text_size"
-            />
+        android:id="@+id/phone_study_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/top_text_size" />
 
     <Button
-            android:id="@+id/main_login"
-            android:layout_toLeftOf="@+id/phone_study_search"
-            android:layout_marginRight="30dip"
-            android:layout_centerVertical="true"
-            android:background="@drawable/main_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:visibility="gone"
-            />
-    <TextView
-            android:id="@+id/main_login_tv"
-            android:textColor="#FFFFFF"
-            android:text="欢迎您使用！"
-            android:layout_toLeftOf="@+id/phone_study_search"
-            android:layout_marginRight="10dip"
-            android:visibility="gone"
-            android:layout_centerVertical="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        android:id="@+id/main_login"
+        android:layout_toLeftOf="@id/phone_study_search"
+        android:layout_marginRight="20dip"
+        android:layout_centerVertical="true"
+        android:background="@drawable/main_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 
-    <ImageView
-            android:id="@+id/phone_study_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/top_search" />
+    <TextView
+        android:id="@+id/main_login_tv"
+        android:textColor="#FFFFFF"
+        android:text="欢迎您使用！"
+        android:layout_toLeftOf="@id/phone_study_search"
+        android:layout_marginRight="10dip"
+        android:visibility="gone"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
 </RelativeLayout>
