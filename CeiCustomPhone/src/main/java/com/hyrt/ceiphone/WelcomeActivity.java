@@ -1,9 +1,5 @@
 package com.hyrt.ceiphone;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -30,9 +26,12 @@ import com.hyrt.cei.util.MyTools;
 import com.hyrt.cei.util.WriteOrRead;
 import com.hyrt.cei.util.XmlUtil;
 import com.hyrt.cei.vo.ColumnEntry;
-import com.hyrt.cei.vo.ReportColumn;
 import com.hyrt.cei.webservice.service.Service;
 import com.hyrt.ceiphone.common.HomePageDZB;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  *
@@ -154,28 +153,28 @@ public class WelcomeActivity extends ContainerActivity {
 				editor1.commit();
 				break;
 			case USER_ERROR:
-				SharedPreferences settings = getSharedPreferences("loginInfo",
-						Activity.MODE_PRIVATE);
-				SharedPreferences.Editor editor = settings.edit();
-				editor.putString("LOGINNAME", "");
-				editor.putString("PASSWORD", "");
-				editor.commit();
-				AlertDialog.Builder errorUserBuilder = new Builder(
-						WelcomeActivity.this);
-				errorUserBuilder.setTitle("提示");
-				errorUserBuilder.setMessage("用户名密码错误,请点确认进入默认版！");
-				errorUserBuilder.setPositiveButton("确认",
-						new DialogInterface.OnClickListener() {
+                    SharedPreferences settings = getSharedPreferences("loginInfo",
+                            Activity.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = settings.edit();
+                    editor.putString("LOGINNAME", "");
+                    editor.putString("PASSWORD", "");
+                    editor.commit();
+                    AlertDialog.Builder errorUserBuilder = new Builder(
+                            WelcomeActivity.this);
+                    errorUserBuilder.setTitle("提示");
+                    errorUserBuilder.setMessage("用户名密码错误,请点确认进入默认版！");
+                    errorUserBuilder.setPositiveButton("确认",
+                            new DialogInterface.OnClickListener() {
 
-							@Override
-							public void onClick(DialogInterface dialog,
-									int which) {
-								dialog.dismiss();
-								WelcomeActivity.this.finish();
-							}
-						});
-				errorUserBuilder.create().show();
-				break;
+                                @Override
+                                public void onClick(DialogInterface dialog,
+                                                    int which) {
+                                    dialog.dismiss();
+                                    WelcomeActivity.this.finish();
+                                }
+                            });
+                    errorUserBuilder.create().show();
+                    break;
 
 			}
 		}

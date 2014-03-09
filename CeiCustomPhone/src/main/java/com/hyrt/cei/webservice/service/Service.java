@@ -101,8 +101,8 @@ public class Service {
 	/**
 	 * 修改业务类表中的字段值正确返回业务服务端ID错误返回-1或0；
 	 * 
-	 * @param versionId
-	 * @param type
+	 * @param userid
+	 * @param resourceid
 	 * @return
 	 */
 	public static String upDateWitSea(String userid, String resourceid) {
@@ -122,9 +122,7 @@ public class Service {
 	/**
 	 * 删除智慧海业务
 	 * 
-	 * @param userid
-	 * @param resourceid
-	 * @return
+
 	 */
 	public static String deleteWitSea(ColumnEntry item) {
 		String rs = "<ROOT>" 
@@ -232,7 +230,7 @@ public class Service {
 	/**
 	 * 新增论坛的列表
 	 * 
-	 * @param s
+	 * @param
 	 * @return
 	 */
 	public static String saveBBS(Forum forum) {
@@ -256,7 +254,7 @@ public class Service {
 	/**
 	 * 新增论坛详细
 	 * 
-	 * @param s
+	 * @param
 	 * @return
 	 */
 	public static String saveBBSInfo(Forum forum) {
@@ -280,7 +278,7 @@ public class Service {
 	/**
 	 * 栏目访问日志
 	 * 
-	 * @param s
+	 * @param
 	 * @return
 	 */
 	public static void addLog(ColumnEntry columnEntry) {
@@ -539,7 +537,7 @@ public class Service {
 	/**
 	 * 政经资讯首页左上部
 	 * 
-	 * @param userId
+	 * @param functionid
 	 * @return
 	 */
 	public static String queryNewsImage(String functionid) {
@@ -583,7 +581,7 @@ public class Service {
 	 * 
 	 * @param functionid
 	 *            业务id
-	 * @param 控制个数
+	 * @param
 	 * @return
 	 */
 	public static String queryNewsByFunctionId(String functionid, String num,String userId) {
@@ -605,8 +603,8 @@ public class Service {
 	/**
 	 * 政经资讯按名称查询信息queryNewsByName
 	 * 
-	 * @param functionid
-	 * @param num
+	 * @param functionids
+	 * @param titlename
 	 * @return
 	 */
 	public static String queryNewsByName(String functionids, String titlename) {
@@ -629,8 +627,8 @@ public class Service {
 	 * 
 	 * @param functionid
 	 * 
-	 * @param functionids
-	 * @param titlename
+	 * @param userid
+	 * @param resourceid
 	 * @return
 	 */
 	public static String saveCoolect(String userid, String resourceid,
@@ -654,7 +652,6 @@ public class Service {
 	 * 查询资讯收藏信息queryCollect
 	 * 
 	 * @param userid
-	 * @param resourceid
 	 * @return
 	 */
 	public static String queryCollect(String userid) {
@@ -808,9 +805,8 @@ public class Service {
 	/**
 	 * 取得某一分类下的所有报告列表
 	 * 
-	 * @param ids
+	 * @param id
 	 * @param number
-	 * @param reportName
 	 * @return
 	 */
 	public static String queryAllClassTypeReport(String id, String number) {

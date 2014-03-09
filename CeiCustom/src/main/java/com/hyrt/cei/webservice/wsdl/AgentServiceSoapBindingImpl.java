@@ -370,7 +370,7 @@ public final class AgentServiceSoapBindingImpl {
 		SoapSerializationEnvelope _envelope = new SoapSerializationEnvelope(
 				SoapEnvelope.VER11);
 		_envelope.bodyOut = _client;
-		_client.addProperty("xmlStr", xmlStr);
+		//_client.addProperty("xmlStr", xmlStr);
 		MyAndroidHttpTransport _ht = new MyAndroidHttpTransport(
 				Configuration.getWsUrl());
 		_ht.call("", _envelope);
