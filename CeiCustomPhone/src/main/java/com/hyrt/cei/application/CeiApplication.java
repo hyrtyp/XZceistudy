@@ -81,7 +81,7 @@ public class CeiApplication extends Application {
 								 if(("1").equals(coursewares.get(i).getIscompleted() )
 										 //&& ("-1").equals(coursewares.get(i).getTimePoint())
 										 && coursewares.get(i).getUploadTime() > 0){
-									 String rs = Service.saveUserClassTime(columnEntry.getUserId(),coursewares.get(i));
+									 String rs = Service.saveUserClassTime(columnEntry.getUserId(),coursewares.get(i),columnEntry.getXzuserid());
 									 if(XmlUtil.parseReturnCode(rs).equals("1")){
 										 coursewares.get(i).setTimePoint("0");
 										 coursewares.get(i).setUploadTime(0);

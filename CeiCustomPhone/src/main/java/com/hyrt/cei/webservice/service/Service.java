@@ -494,7 +494,6 @@ public class Service {
 		String rs = "";
 		try {
 			String xmlStr = "<?xml version='1.0' encoding='UTF-8'?>" + "<ROOT>"
-					+ "<functionids>" + functionids + "</functionids>"
 					+ "</ROOT>";
 			rs = agent.queryClassByType(xmlStr);
 		} catch (Exception e) {
@@ -1005,12 +1004,14 @@ public class Service {
 		return rs;
 	}
 	
-	public static String saveUserClassTime(String userId,String classId,String studyTime) {
+	public static String saveUserClassTime(String userId,String classId,String studyTime,String xzuserid,String xzclassid) {
 		String rs = "";
 		try {
 			String xmlStr = "<?xml version='1.0' encoding='UTF-8'?>" + "<ROOT>"
 					+ "<userid>" + userId + "</userid>"
-					+ "<classid>" + classId + "</classid>" 
+					+ "<classid>" + classId + "</classid>"
+                    + "<xzuserid>" + xzuserid + "</xzuserid>"
+                    + "<xzclassid>" + xzclassid + "</xzclassid>"
 					+ "<time>" + studyTime + "</time>" + "</ROOT>";
 			rs = agent.saveUserClassTime(xmlStr);
 		} catch (Exception e) {
@@ -1070,13 +1071,15 @@ public class Service {
 	}
 	
 	/*更新学习状态*/
-	public static String saveUserClassTime(String userid, Courseware courseware) {
+	public static String saveUserClassTime(String userid, Courseware courseware,String xzuserid) {
 		String result = "";
 		try {
 			String xmlStr = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 					+ "<ROOT>" 
 					+ "<userid>"+userid + "</userid>"
 					+ "<classid>"+ courseware.getClassId()+"</classid>"
+                    + "<xzuserid>"+ xzuserid+"</xzuserid>"
+                    + "<xzclassid>"+ courseware.getXzclassid()+"</xzclassid>"
 					+ "<time>" + courseware.getUploadTime()+"</time>"
 					+ "<iscompleted>" + courseware.getIscompleted()+"</iscompleted>"
 					+ "</ROOT>";

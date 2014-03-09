@@ -25,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hyrt.cei.application.CeiApplication;
+import com.hyrt.cei.ui.common.LoginActivityphone;
 import com.hyrt.cei.util.MyTools;
 import com.hyrt.cei.util.WriteOrRead;
 import com.hyrt.cei.util.XmlUtil;
@@ -254,6 +255,7 @@ public class WelcomeActivity extends ContainerActivity {
 					WriteOrRead.write(result, MyTools.nativeData,
 							INITSELFRESOURCES_FILENAME);
 					XmlUtil.parseInitSelfResources(result, columnEntry);
+
 					// 请求智慧海业务
 					// 获取版本号
 					// 将设备号写入SDCARD中
@@ -286,7 +288,7 @@ public class WelcomeActivity extends ContainerActivity {
 				} else {
 					// 请求初始化资源 50%
 					String result = WriteOrRead.read(MyTools.nativeData,
-							INITRESOURCES_FILENAME);
+                            INITRESOURCES_FILENAME);
 					if (!isNotice) {
 						Message message = handler.obtainMessage();
 						message.arg1 = IS_NET;
@@ -320,26 +322,15 @@ public class WelcomeActivity extends ContainerActivity {
 					message.arg2 = 100;
 					handler.sendMessage(message);
 				}
-				Message message = handler.obtainMessage();
-				message.arg1 = GO_MAIN;
-				// 获取版本号，调用接口得到报告的各个属性；
-				// 获取版本号；
-				/*try {
-                    String id = columnEntry.getColumnEntryChilds().get(0).getId();
-                    String returnCode = Service.queryReportName(id);
-					if (returnCode != null) {
-						if (returnCode.equals("0")) {
-							((CeiApplication) getApplication()).ReportColumns.add(new ReportColumn());
-						} else {
-							((CeiApplication) getApplication()).ReportColumns = XmlUtil
-									.parseReportColumn(returnCode);
-						}
-					}
+                Message message = handler.obtainMessage();
+                if(columnEntry.getUserId() == null){
+                    startActivity(new Intent(WelcomeActivity.this, LoginActivityphone.class));
+                    return;
+                }else{
+                    message.arg1 = GO_MAIN;
+                    handler.sendMessage(message);
+                }
 
-				} catch (Exception e) {
-					e.printStackTrace();
-				}*/
-				handler.sendMessage(message);
 			}
 		};
 		new Thread(runnable).start();

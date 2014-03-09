@@ -33,8 +33,39 @@ public class ColumnEntry implements Serializable {
 	private boolean isSelected;
 	//描述内容
 	private String description;
-	
-	public String getDescription() {
+    //国开行userid
+    private String xzuserid;
+    //开行分类id
+    private String Classificationid;
+
+    public String getClassificationid() {
+        return Classificationid;
+    }
+
+    public void setClassificationid(String classificationid) {
+        Classificationid = classificationid;
+    }
+
+    //状态
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getXzuserid() {
+        return xzuserid;
+    }
+
+    public void setXzuserid(String xzuserid) {
+        this.xzuserid = xzuserid;
+    }
+
+    public String getDescription() {
 		return description;
 	}
 

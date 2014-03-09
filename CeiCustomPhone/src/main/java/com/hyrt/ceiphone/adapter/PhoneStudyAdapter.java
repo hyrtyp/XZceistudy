@@ -254,7 +254,11 @@ public class PhoneStudyAdapter extends BaseAdapter {
 														coursewares
 																.get(position)
 																.getUploadTime()
-																+ "")).equals(
+																+ "",
+                                                        ((CeiApplication) (activity
+                                                                .getApplication())).columnEntry
+                                                                .getXzuserid(),coursewares
+                                                                .get(position).getXzclassid())).equals(
 												"-1")) {
 									handler.post(new Runnable() {
 
@@ -428,6 +432,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
 			});
 		}
 		if (holder.controCourse != null) {
+            holder.controCourse.setVisibility(View.INVISIBLE);
 			if (!coursewares.get(position).isSelfCourse()) {
 				holder.controCourse
 						.setImageResource(R.drawable.phone_study_addcourse_btn);
@@ -468,6 +473,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
 					}
 				});
 			} else {
+                holder.controCourse.setVisibility(View.INVISIBLE);
 				holder.controCourse
 						.setImageResource(R.drawable.phone_study_canclecourse_btn);
 				holder.controCourse.setOnClickListener(new OnClickListener() {
@@ -569,9 +575,11 @@ public class PhoneStudyAdapter extends BaseAdapter {
 						.getApplication())).dataHelper;
 				Preload preload = new Preload();
 				preload.setLoadPlayId(courseware.getClassId());
+                preload.setXzClassId(courseware.getXzclassid());
 				preload.setLoadCurrentByte(0);
 				preload.setLoading(1);
 				preload.setLoadFinish(0);
+                preload.setXzClassId(courseware.getXzclassid());
 				preload.setLoadUrl(courseware.getDownPath());
 				preload.setLoadLocalPath(MyTools.RESOURCE_PATH
 						+ MyTools.KJ_PARTPATH

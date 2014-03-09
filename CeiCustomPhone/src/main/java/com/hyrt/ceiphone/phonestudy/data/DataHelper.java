@@ -245,13 +245,13 @@ public class DataHelper {
 
 			// 初始化请求数据
 			private void initSendData() {
-				ColumnEntry columnEntry = ((CeiApplication) (activity
+				/*ColumnEntry columnEntry = ((CeiApplication) (activity
 						.getApplication())).columnEntry;
 				ColumnEntry phoneStudyCol = columnEntry
 						.getColByName(FoundationActivity.MODEL_NAME);
-				functionIds = new StringBuilder(phoneStudyCol.getId());
+				functionIds = new StringBuilder(phoneStudyCol.getId());*/
 				selfselCoursewares = new ArrayList<Courseware>();
-				for (int i = 0; i < columnEntry.getColumnEntryChilds().size(); i++) {
+				/*for (int i = 0; i < columnEntry.getColumnEntryChilds().size(); i++) {
 					ColumnEntry entryChild = columnEntry.getColumnEntryChilds()
 							.get(i);
 					if (entryChild.getPath() != null
@@ -259,7 +259,7 @@ public class DataHelper {
 									phoneStudyCol.getId())) {
 						functionIds.append("," + entryChild.getId());
 					}
-				}
+				}*/
 				activity.coursewares.clear();
 			}
 
@@ -267,10 +267,10 @@ public class DataHelper {
 				initSendData();
 				if (((CeiApplication) activity.getApplication()).isNet()) {
 					String result = Service.queryClassName(className,
-							functionIds.toString());
+							"");
 					XmlUtil.parseCoursewares(result, activity.courses);
 					result = Service.queryCourse(((CeiApplication) (activity
-							.getApplication())).columnEntry.getUserId());
+							.getApplication())).columnEntry.getXzuserid());
 					XmlUtil.parseCoursewares(result, selfselCoursewares);
 					for (int i = 0; i < activity.courses.size(); i++) {
 						for (int j = 0; j < selfselCoursewares.size(); j++) {
@@ -312,7 +312,7 @@ public class DataHelper {
 			// 初始化请求数据
 			private void initSendData() {
 				columnEntry = ((CeiApplication) (activity.getApplication())).columnEntry;
-				ColumnEntry phoneStudyCol = columnEntry
+				/*ColumnEntry phoneStudyCol = columnEntry
 						.getColByName(FoundationActivity.MODEL_NAME);
 				functionIds = new StringBuilder(phoneStudyCol.getId());
 				for (int i = 0; i < columnEntry.getColumnEntryChilds().size(); i++) {
@@ -323,7 +323,7 @@ public class DataHelper {
 									phoneStudyCol.getId())) {
 						functionIds.append("," + entryChild.getId());
 					}
-				}
+				}*/
 			}
 
 			public void run() {
@@ -395,7 +395,7 @@ public class DataHelper {
 				activity.coursewares.clear();
 				if (((CeiApplication) activity.getApplication()).isNet()) {
 					String result = Service.queryCourse(((CeiApplication) (activity
-							.getApplication())).columnEntry.getUserId());
+							.getApplication())).columnEntry.getXzuserid());
 					XmlUtil.parseErrorCoursewares(result, activity.courses);
 					for (int i = 0; i < activity.courses.size(); i++) {
 						activity.courses.get(i).setSelfCourse(true);

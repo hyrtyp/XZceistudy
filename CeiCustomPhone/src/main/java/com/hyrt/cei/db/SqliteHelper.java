@@ -107,7 +107,8 @@ public class SqliteHelper extends SQLiteOpenHelper {
 				+ Preload.LOAD_PARENTID + " VERCHAR," 
 				+ Preload.PASS_KEY + " TEXT," 
 				+ Preload.CLASS_LENGTH + " VERCHAR,"
-				+ Preload.CLASS_LEVEL + " VERCHAR"+")");
+				+ Preload.CLASS_LEVEL + " VERCHAR,"
+                + Preload.XZ_CLASSID + " VERCHAR"+")");
 		//课件学习记录
 		db.execSQL("CREATE TABLE IF NOT EXISTS " + TB_STUDYRECORD_NAME + "("
 				+ Courseware.ID + " INTEGER  PRIMARY KEY," 

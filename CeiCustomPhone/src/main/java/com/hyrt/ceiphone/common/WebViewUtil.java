@@ -38,6 +38,7 @@ public class WebViewUtil extends ContainerActivity {
 	private WebView webView;
 	private String path;
 	private String classId;
+    private String xzclassid;
 	// 课件入口文件名称
 	private Courseware courseware;
 	private int isCreated = 0;
@@ -91,8 +92,10 @@ public class WebViewUtil extends ContainerActivity {
 		courseware = (Courseware) getIntent().getSerializableExtra("class");
 		if (courseware == null) {
 			classId = getIntent().getStringExtra("classId");
+            xzclassid = getIntent().getStringExtra("xzclassid");
 		} else {
 			classId = courseware.getClassId();
+            xzclassid = courseware.getXzclassid();
 		}
 		DataHelper dataHelper = ((CeiApplication) (WebViewUtil.this
 				.getApplication())).dataHelper;
@@ -136,14 +139,14 @@ public class WebViewUtil extends ContainerActivity {
 			if (dataHelper.getStudyRecord(courseware)) {
 				path += "?userid="
 						+ ((CeiApplication) (this.getApplication())).columnEntry
-								.getUserId() + "&classid=" + classId
+								.getUserId() + "&classid=" + classId + "&xzclassid=" + xzclassid
 						+ "&native=0" + "&location="
 						+ courseware.getTimePoint() + "&totaltime="
 						+ courseware.getStudyTime();
 			} else {
 				path += "?userid="
 						+ ((CeiApplication) (this.getApplication())).columnEntry
-								.getUserId() + "&classid=" + classId
+								.getUserId() + "&classid=" + classId + "&xzclassid=" + xzclassid
 						+ "&native=0" + "&location=0" + "&totaltime=0";
 			}
 			validStatusCode(path.replace("/apad.html",
@@ -221,14 +224,14 @@ public class WebViewUtil extends ContainerActivity {
 			if (dataHelper.getStudyRecord(courseware)) {
 				path += "?userid="
 						+ ((CeiApplication) (WebViewUtil.this.getApplication())).columnEntry
-								.getUserId() + "&classid=" + classId
+								.getUserId() + "&classid=" + classId  + "&xzclassid=" + xzclassid
 						+ "&native=1" + "&location="
 						+ courseware.getTimePoint() + "&totaltime="
 						+ courseware.getStudyTime();
 			} else {
 				path += "?userid="
 						+ ((CeiApplication) (WebViewUtil.this.getApplication())).columnEntry
-								.getUserId() + "&classid=" + classId
+								.getUserId() + "&classid=" + classId  + "&xzclassid=" + xzclassid
 						+ "&native=1" + "&location=0" + "&totaltime=0";
 			}
 			findViewById(R.id.webview_progress).setVisibility(View.GONE);

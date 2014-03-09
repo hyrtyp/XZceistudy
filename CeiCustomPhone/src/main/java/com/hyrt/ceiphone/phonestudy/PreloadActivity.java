@@ -162,6 +162,9 @@ public class PreloadActivity extends FoundationActivity {
 																							.replace(
 																									FLASH_POSTFIX,
 																									FLASH_GATE));
+                                                                    intent.putExtra(
+                                                                            "xzclassid",preload.getXzClassId()
+                                                                            );
 																	intent.putExtra(
 																			"classId",
 																			preload.getLoadPlayId());

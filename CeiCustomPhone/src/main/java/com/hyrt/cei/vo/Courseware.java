@@ -46,7 +46,7 @@ public class Courseware implements Serializable{
     private boolean isSelfCourse;
     private boolean isSay;
     private String parentId;
-    private boolean isFree;
+    private boolean isFree = true;
     private String key;
     //学习时间
     private String studyTime;
@@ -61,8 +61,17 @@ public class Courseware implements Serializable{
     private String fullName;
     //排序时间
     private long orderTime;
-    
-	public long getOrderTime() {
+    private String xzclassid;
+
+    public String getXzclassid() {
+        return xzclassid;
+    }
+
+    public void setXzclassid(String xzclassid) {
+        this.xzclassid = xzclassid;
+    }
+
+    public long getOrderTime() {
 		return orderTime;
 	}
 
@@ -103,7 +112,7 @@ public class Courseware implements Serializable{
 	}
 
 	public boolean isFree() {
-		return isFree;
+		return true;
 	}
 
 	public void setFree(boolean isFree) {

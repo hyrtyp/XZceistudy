@@ -355,9 +355,15 @@ public class XmlUtil {
 					if (tag_name.equals("logo")) {
 						columnEntry.setLogo(someValue);
 					}
+                    if (tag_name.equals("status")) {
+                        columnEntry.setStatus(someValue);
+                    }
 					if (tag_name.equals("background")) {
 						columnEntry.setBackground(someValue);
 					}
+                    if (tag_name.equals("xzuserid")) {
+                        columnEntry.setXzuserid(someValue);
+                    }
 					if (tag_name.equals("wcolor")) {
 						columnEntry.setwColor(someValue);
 					}
@@ -646,6 +652,9 @@ public class XmlUtil {
 					if (tag_name.equals("passkey")) {
 						coursewares.get(i).setKey(someValue);
 					}
+                    if (tag_name.equals("xzclassid")) {
+                        coursewares.get(i).setXzclassid(someValue);
+                    }
 					break;
 				}
 			}
@@ -732,6 +741,9 @@ public class XmlUtil {
 					if (tag_name.equals("passkey")) {
 						coursewares.get(i).setKey(someValue);
 					}
+                    if (tag_name.equals("xzclassid")) {
+                        coursewares.get(i).setXzclassid(someValue);
+                    }
 					break;
 				}
 			}
@@ -1083,6 +1095,9 @@ public class XmlUtil {
 					if (tag_name.equals("parentid")) {
 						classTypes.get(i).setParentId(someValue);
 					}
+                    if(tag_name.equals("classificationid")){
+                        classTypes.get(i).setClassificationid(someValue);
+                    }
 					break;
 				}
 			}

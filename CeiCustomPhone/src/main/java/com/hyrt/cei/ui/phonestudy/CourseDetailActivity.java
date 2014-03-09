@@ -259,7 +259,7 @@ public class CourseDetailActivity extends FoundationActivity {
 
 			// 初始化请求数据
 			private void initSendData() {
-				ColumnEntry columnEntry = ((CeiApplication) (CourseDetailActivity.this
+				/*ColumnEntry columnEntry = ((CeiApplication) (CourseDetailActivity.this
 						.getApplication())).columnEntry;
 				ColumnEntry phoneStudyCol = columnEntry
 						.getColByName(FoundationActivity.MODEL_NAME);
@@ -272,7 +272,7 @@ public class CourseDetailActivity extends FoundationActivity {
 									phoneStudyCol.getId())) {
 						functionIds.append("," + entryChild.getId());
 					}
-				}
+				}*/
 			}
 
 			@Override
@@ -286,7 +286,7 @@ public class CourseDetailActivity extends FoundationActivity {
 						courseware.getFullName().lastIndexOf("["));
 				if (((CeiApplication) getApplication()).isNet()) {
 					String result = Service.queryClassName(name,
-							functionIds.toString());
+							"");
 					XmlUtil.parseCoursewares(result, aboutCourseware);
 					for (int i = 0; i < aboutCourseware.size(); i++) {
 						if (aboutCourseware.get(i).getClassId()
@@ -743,6 +743,7 @@ public class CourseDetailActivity extends FoundationActivity {
 				preload.setLoadCurrentByte(0);
 				preload.setLoading(1);
 				preload.setLoadFinish(0);
+                preload.setXzClassId(courseware.getXzclassid());
 				if (courseware.getDownPath() != null)
 					preload.setLoadUrl(courseware.getDownPath().replace("an1",
 							"an2"));

@@ -14,6 +14,7 @@ public class ClassType implements Serializable{
 	private String classId;
 	private String parentId;
 	private String content;
+    private String classificationid;
 	
 	public String getClassId() {
 		return classId;
@@ -33,5 +34,12 @@ public class ClassType implements Serializable{
 	public void setContent(String content) {
 		this.content = content;
 	}
-	
+
+    public String getClassificationid() {
+        return classificationid;
+    }
+
+    public void setClassificationid(String classificationid) {
+        this.classificationid = classificationid;
+    }
 }

@@ -11,6 +11,7 @@ public class Preload implements Serializable {
 	private static final long serialVersionUID = 0xe66297979cf3983eL;
 	public static final String ID = "_id";
 	public static final String LOAD_PLAYID = "loadPlayId";
+    public static final String XZ_CLASSID = "xzclassid";
 	public static final String LOAD_CURRENTBYTE = "loadCurrentByte";
 	public static final String LOAD_PLAYTITLE = "loadPlayTitle";
 	public static final String LOAD_SUMBYTE = "loadSumByte";
@@ -40,8 +41,17 @@ public class Preload implements Serializable {
 	private String passKey;
 	private String classLength;
 	private String classLevel;
-	
-	public String getClassLevel() {
+    private String xzClassId;
+
+    public String getXzClassId() {
+        return xzClassId;
+    }
+
+    public void setXzClassId(String xzClassId) {
+        this.xzClassId = xzClassId;
+    }
+
+    public String getClassLevel() {
 		return classLevel;
 	}
 	public void setClassLevel(String classLevel) {

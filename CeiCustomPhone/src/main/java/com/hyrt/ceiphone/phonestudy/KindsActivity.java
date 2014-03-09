@@ -64,19 +64,21 @@ public class KindsActivity extends FoundationActivity{
 					((TextView) rl.getChildAt(1)).setTextColor(Color.BLUE);
 				}
 			}
-			firstColumnEntries = new ArrayList<ColumnEntry>();
+            initLvData(columnEntries.get(position).getClassificationid());
+			/*firstColumnEntries = new ArrayList<ColumnEntry>();
 			for(int i=0;i<classTypes.size();i++){
 				if(classTypes.get(i).getParentId().equals(columnEntries.get(position).getId())){
 					ColumnEntry menuNodeChilds = new ColumnEntry();
 					menuNodeChilds.setId(classTypes.get(i).getClassId());
 					menuNodeChilds.setName(classTypes.get(i).getContent());
+                    menuNodeChilds.setClassificationid(classTypes.get(i).getClassificationid());
 					firstColumnEntries.add(menuNodeChilds);
 				}
 			}
 			HorGridViewAdapter gridViewAdapter = new HorGridViewAdapter(KindsActivity.this,firstColumnEntries,false);
 			gridView1.setAdapter(gridViewAdapter, 4);
 			findViewById(R.id.phone_study_gridviewparent2).setVisibility(View.GONE);
-			phoneStudyListView.setVisibility(View.GONE);
+			phoneStudyListView.setVisibility(View.GONE);*/
 			break;
 		case R.id.phone_study_gridview1:
 			for (int i = 0; i < adapter.getChildCount(); i++) {
@@ -95,12 +97,13 @@ public class KindsActivity extends FoundationActivity{
 					ColumnEntry menuNodeChilds = new ColumnEntry();
 					menuNodeChilds.setId(classTypes.get(i).getClassId());
 					menuNodeChilds.setName(classTypes.get(i).getContent());
+                    menuNodeChilds.setClassificationid(classTypes.get(i).getClassificationid());
 					secondColumnEntries.add(menuNodeChilds);
 				}
 			}
 			if(secondColumnEntries.size() == 0 && firstColumnEntries.size() > 0){
 				phoneStudyListView.setVisibility(View.VISIBLE);
-				initLvData(firstColumnEntries.get(position).getId());
+				initLvData(firstColumnEntries.get(position).getClassificationid());
 				findViewById(R.id.phone_study_gridviewparent2).setVisibility(View.GONE);
 			}else{
 				HorGridViewAdapter gridViewAdapter2 = new HorGridViewAdapter(KindsActivity.this,secondColumnEntries,false);
@@ -120,26 +123,28 @@ public class KindsActivity extends FoundationActivity{
 				}
 			}
 			phoneStudyListView.setVisibility(View.VISIBLE);
-			initLvData(secondColumnEntries.get(position).getId());
+			initLvData(secondColumnEntries.get(position).getClassificationid());
 			break;
 		}
 	}
-	
-	private void initMenuData() {
+
+    private String rootId;
+    private void initMenuData() {
 		final Handler handler = new Handler() {
 			@Override
 			public void dispatchMessage(Message msg) {
 				if(classTypes.size() <= 0)
 					return;
 				columnEntries = new ArrayList<ColumnEntry>();
-				String rootId = classTypes.get(0).getClassId();
-				classTypes.remove(0);
+				rootId = classTypes.get(0).getParentId();
+				//classTypes.remove(0);
 				for (int i = 0; i < classTypes.size(); i++) {
 					if (!classTypes.get(i).getParentId().equals(rootId))
 						continue;
 					ColumnEntry menuNodeChilds = new ColumnEntry();
 					menuNodeChilds.setId(classTypes.get(i).getClassId());
 					menuNodeChilds.setName(classTypes.get(i).getContent());
+                    menuNodeChilds.setClassificationid(classTypes.get(i).getClassificationid());
 					columnEntries.add(menuNodeChilds);
 				}
 				HorGridViewAdapter gridViewAdapter = new HorGridViewAdapter(KindsActivity.this,columnEntries,true);
@@ -155,7 +160,7 @@ public class KindsActivity extends FoundationActivity{
 			@Override
 			public void run() {
 				if (((CeiApplication) getApplication()).isNet()) {
-					ColumnEntry columnEntry = ((CeiApplication) (KindsActivity.this.getApplication())).columnEntry;
+					/*ColumnEntry columnEntry = ((CeiApplication) (KindsActivity.this.getApplication())).columnEntry;
 					ColumnEntry phoneStudyCol = columnEntry.getColByName(FoundationActivity.MODEL_NAME);
 					StringBuilder functionIds = new StringBuilder(phoneStudyCol.getId());
 					for (int i = 0; i < columnEntry.getColumnEntryChilds().size(); i++) {
@@ -163,7 +168,8 @@ public class KindsActivity extends FoundationActivity{
 						if (entryChild.getPath() != null && entryChild.getPath().contains(phoneStudyCol.getId())) {
 							functionIds.append("," + entryChild.getId());
 						}
-					}
+					}*/
+                    String functionIds = "";
 					String result = Service.queryClassByType(functionIds.toString());
 					XmlUtil.parseClassType(result, classTypes);
 					((CeiApplication) (KindsActivity.this.getApplication())).dataHelper.saveClassType(classTypes);
@@ -191,21 +197,22 @@ public class KindsActivity extends FoundationActivity{
 		}
 		firstColumnEntries = new ArrayList<ColumnEntry>();
 		for(int i=0;i<classTypes.size();i++){
-			if(classTypes.get(i).getParentId().equals(columnEntries.get(0).getId())){
+			/*if(classTypes.get(i).getParentId().equals(rootId)){
 				ColumnEntry menuNodeChilds = new ColumnEntry();
 				menuNodeChilds.setId(classTypes.get(i).getClassId());
 				menuNodeChilds.setName(classTypes.get(i).getContent());
+                menuNodeChilds.setClassificationid(classTypes.get(i).getClassificationid());
 				firstColumnEntries.add(menuNodeChilds);
-			}
+			}*/
 		}
 		HorGridViewAdapter gridViewAdapter = new HorGridViewAdapter(KindsActivity.this,firstColumnEntries,true);
 		gridView1.setAdapter(gridViewAdapter, 4);
-		if(firstColumnEntries.size() != 0)
-			findViewById(R.id.phone_study_gridviewparent1).setVisibility(View.VISIBLE);
-		
+		if(firstColumnEntries.size() != 0){
+            findViewById(R.id.phone_study_gridviewparent1).setVisibility(View.VISIBLE);
+        }
 		secondColumnEntries = new ArrayList<ColumnEntry>();
 		if(firstColumnEntries.size() == 0){
-			initLvData(columnEntries.get(0).getId());
+			initLvData(columnEntries.get(0).getClassificationid());
 			return;
 		}
 		for(int i=0;i<classTypes.size();i++){
@@ -213,12 +220,13 @@ public class KindsActivity extends FoundationActivity{
 				ColumnEntry menuNodeChilds = new ColumnEntry();
 				menuNodeChilds.setId(classTypes.get(i).getClassId());
 				menuNodeChilds.setName(classTypes.get(i).getContent());
+                menuNodeChilds.setClassificationid(classTypes.get(i).getClassificationid());
 				secondColumnEntries.add(menuNodeChilds);
 			}
 		}
 		if(secondColumnEntries.size() == 0){
 			phoneStudyListView.setVisibility(View.VISIBLE);
-			initLvData(firstColumnEntries.get(0).getId());
+			initLvData(firstColumnEntries.get(0).getClassificationid());
 			return;
 		}
 		HorGridViewAdapter gridViewAdapter2 = new HorGridViewAdapter(KindsActivity.this,secondColumnEntries,true);
@@ -226,7 +234,7 @@ public class KindsActivity extends FoundationActivity{
 		if(secondColumnEntries.size() != 0)
 			findViewById(R.id.phone_study_gridviewparent2).setVisibility(View.VISIBLE);
 		phoneStudyListView.setVisibility(View.VISIBLE);
-		initLvData(secondColumnEntries.get(0).getId());
+		initLvData(secondColumnEntries.get(0).getClassificationid());
 	}
 
 }

@@ -51,6 +51,7 @@ public class DataHelper {
 		}).start();
 		ContentValues contentvalues = new ContentValues();
 		contentvalues.put(Preload.LOAD_PLAYID, preload.getLoadPlayId());
+        contentvalues.put(Preload.XZ_CLASSID, preload.getXzClassId());
 		contentvalues.put(Preload.LOAD_PLAYTITLE, preload.getLoadPlayTitle());
 		contentvalues.put(Preload.LOAD_PLAYTITLE_BELOW,
 				preload.getLoadPlayTitleBelow());
@@ -350,6 +351,7 @@ public class DataHelper {
 			preload.setPassKey(cursor.getString(12));
 			preload.setClassLength(cursor.getString(13));
 			preload.setClassLevel(cursor.getString(14));
+            preload.setXzClassId(cursor.getString(15));
 			preloadList.add(preload);
 			cursor.moveToNext();
 		}
@@ -414,6 +416,7 @@ public class DataHelper {
 			preload.setLoadLocalPath(cursor.getString(6));
 			preload.setLoadFinish(Integer.valueOf(cursor.getInt(7)));
 			preload.setPassKey(cursor.getString(12));
+            preload.setXzClassId(cursor.getString(15));
 			cursor.close();
 		}
 		return preload;
@@ -445,7 +448,7 @@ public class DataHelper {
 	/**
 	 * 保存已下载报告
 	 * 
-	 * @param Report
+	 * @param report
 	 * @return
 	 */
 	// nullpointE
