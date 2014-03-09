@@ -65,8 +65,8 @@ public class KindsActivity extends BaseActivity implements OnClickListener {
 					return;
 				}
 				menuNodes = new ArrayList<MenuNode>();
-				String rootId = classTypes.get(0).getClassId();
-				classTypes.remove(0);
+				String rootId = classTypes.get(0).getParentId();
+				//classTypes.remove(0);
 				for(int i=0;i<classTypes.size();i++){
 					if(classTypes.get(i).getContent().equals("免费课件")){
 						freeClassId = classTypes.get(i).getClassId();
@@ -296,6 +296,7 @@ public class KindsActivity extends BaseActivity implements OnClickListener {
 					Animation animation = AnimationUtils.loadAnimation(
 							KindsActivity.this, R.anim.scale);
 					secondMenu.startAnimation(animation);
+                    initLvData(classTypes.get(currentIndex).getClassificationid());
 				}
 			});
 		}
