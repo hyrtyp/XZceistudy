@@ -1,13 +1,11 @@
 package com.hyrt.cei.application;
 
-import java.io.File;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+import android.app.Application;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 
 import com.hyrt.cei.db.DataHelper;
-import com.hyrt.cei.exception.CrashHandler;
 import com.hyrt.cei.ui.information.funId;
 import com.hyrt.cei.ui.main.Welcome;
 import com.hyrt.cei.util.AsyncImageLoader;
@@ -19,10 +17,9 @@ import com.hyrt.cei.vo.Courseware;
 import com.hyrt.cei.vo.ReportColumn;
 import com.hyrt.cei.webservice.service.Service;
 
-import android.app.Application;
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CeiApplication extends Application {
 	public String nowStart;
@@ -61,7 +58,7 @@ public class CeiApplication extends Application {
 								 if(("1").equals(coursewares.get(i).getIscompleted() )
 										 //&& ("-1").equals(coursewares.get(i).getTimePoint())
 										 && coursewares.get(i).getUploadTime() > 0){
-									 String rs = Service.saveUserClassTime(columnEntry.getUserId(),coursewares.get(i));
+									 String rs = Service.saveUserClassTime(columnEntry.getUserId(),coursewares.get(i),columnEntry.getXzuserid());
 									 if(XmlUtil.parseReturnCode(rs).equals("1")){
 										 coursewares.get(i).setTimePoint("0");
 										 coursewares.get(i).setUploadTime(0);

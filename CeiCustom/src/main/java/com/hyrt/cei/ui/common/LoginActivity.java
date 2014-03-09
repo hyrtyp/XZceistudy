@@ -1,24 +1,22 @@
 package com.hyrt.cei.ui.common;
 
-import com.hyrt.cei.R;
-import com.hyrt.cei.dzb.ui.HomePageDZB;
-
-import com.hyrt.cei.ui.main.Announcement;
-import com.hyrt.cei.ui.main.Disclaimer;
-import com.hyrt.cei.ui.main.Welcome;
-import com.hyrt.cei.ui.personcenter.PersonCenter;
-import com.hyrt.cei.ui.witsea.WitSeaActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.View.OnClickListener;
-import android.view.inputmethod.InputMethodManager;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.hyrt.cei.R;
+import com.hyrt.cei.dzb.ui.HomePageDZB;
+import com.hyrt.cei.ui.main.Announcement;
+import com.hyrt.cei.ui.main.Disclaimer;
+import com.hyrt.cei.ui.main.Welcome;
+import com.hyrt.cei.ui.personcenter.PersonCenter;
+import com.hyrt.cei.ui.witsea.WitSeaActivity;
 
 /**
  * 登录界面
@@ -40,7 +38,7 @@ public class LoginActivity extends Activity  implements OnClickListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.ui_login);
+		setContentView(R.layout.ui_login2);
 		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		for (int i = 0; i < HomePageDZB.commonActivities.size(); i++) {
 			try {
@@ -144,7 +142,7 @@ public class LoginActivity extends Activity  implements OnClickListener{
 		findViewById(R.id.home_ceinet).setOnClickListener(this);
 		findViewById(R.id.home_personcenter).setOnClickListener(this);
 		findViewById(R.id.home_disclaimer).setOnClickListener(this);
-		findViewById(R.id.back_back).setOnClickListener(this);
+//		findViewById(R.id.back_back).setOnClickListener(this);
 	}
 	@Override
 	protected void onPause() {

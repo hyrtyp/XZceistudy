@@ -229,8 +229,8 @@ public class HomePageActivity extends BaseActivity implements OnClickListener,
                 }
             }
         };
-        getWellCourses();
-        getGridViewData();
+//        getWellCourses();
+//        getGridViewData();
         showLoginBtnByUserName();
     }
 
@@ -415,26 +415,28 @@ public class HomePageActivity extends BaseActivity implements OnClickListener,
     }
 
     private void initBottom() {
-        ImageView headIv = (ImageView) findViewById(R.id.phone_study_notice);
-        ImageView newIv = (ImageView) findViewById(R.id.phone_study_new);
-        ImageView nominateIv = (ImageView) findViewById(R.id.phone_study_nominate);
-        ImageView freeIv = (ImageView) findViewById(R.id.phone_study_free);
-        ImageView kindIv = (ImageView) findViewById(R.id.phone_study_kind);
-        ImageView selfIv = (ImageView) findViewById(R.id.phone_study_self);
-        ImageView studyIv = (ImageView) findViewById(R.id.phone_study_study);
-        ImageView sayIv = (ImageView) findViewById(R.id.phone_study_say);
-        ImageView personcenterIv = (ImageView) findViewById(R.id.phone_study_personcenter);
+        TextView headIv = (TextView) findViewById(R.id.phone_study_notice);
+        TextView newIv = (TextView) findViewById(R.id.phone_study_new);
+        TextView nominateIv = (TextView) findViewById(R.id.phone_study_nominate);
+        TextView freeIv = (TextView) findViewById(R.id.phone_study_free);
+        TextView kindIv = (TextView) findViewById(R.id.phone_study_kind);
+        TextView selfIv = (TextView) findViewById(R.id.phone_study_self);
+        TextView studyIv = (TextView) findViewById(R.id.phone_study_study);
+        TextView sayIv = (TextView) findViewById(R.id.phone_study_say);
+        TextView personcenterIv = (TextView) findViewById(R.id.phone_study_personcenter);
         personcenterIv.setOnClickListener(this);
-        ImageView aboutIv = (ImageView) findViewById(R.id.phone_study_about);
+        TextView aboutIv = (TextView) findViewById(R.id.phone_study_about);
         aboutIv.setOnClickListener(this);
         headIv.setOnClickListener(this);
-        newIv.setOnClickListener(this);
+//        newIv.setOnClickListener(this);
         nominateIv.setOnClickListener(this);
         freeIv.setOnClickListener(this);
         kindIv.setOnClickListener(this);
         selfIv.setOnClickListener(this);
         studyIv.setOnClickListener(this);
         sayIv.setOnClickListener(this);
+        findViewById(R.id.phone_study_new).setBackgroundResource(R.drawable.pad_bottom_tv_select);
+        newIv.setTextColor(getResources().getColor(R.color.pad_bottomandtop_bg));
     }
 
     @Override

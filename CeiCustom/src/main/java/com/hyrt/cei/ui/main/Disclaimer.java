@@ -1,10 +1,5 @@
 package com.hyrt.cei.ui.main;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,16 +9,14 @@ import android.os.Message;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.webkit.WebSettings;
+import android.webkit.WebSettings.LayoutAlgorithm;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.webkit.WebSettings.LayoutAlgorithm;
-import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.hyrt.cei.R;
 import com.hyrt.cei.application.CeiApplication;
-import com.hyrt.cei.dzb.ui.HomePageDZB;
-import com.hyrt.cei.ui.common.WebViewUtil;
 import com.hyrt.cei.ui.personcenter.PersonCenter;
 import com.hyrt.cei.ui.phonestudy.BaseActivity;
 import com.hyrt.cei.ui.phonestudy.FreeActivity;
@@ -34,12 +27,14 @@ import com.hyrt.cei.ui.phonestudy.PlayRecordCourseActivity;
 import com.hyrt.cei.ui.phonestudy.PreloadActivity;
 import com.hyrt.cei.ui.phonestudy.SayGroupListActivity;
 import com.hyrt.cei.ui.phonestudy.SelfSelectCourseActivity;
-import com.hyrt.cei.ui.witsea.WitSeaActivity;
 import com.hyrt.cei.util.MyTools;
 import com.hyrt.cei.util.XmlUtil;
 import com.hyrt.cei.vo.ColumnEntry;
 import com.hyrt.cei.vo.InfoNew;
 import com.hyrt.cei.webservice.service.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 免责声明
@@ -84,18 +79,23 @@ public class Disclaimer extends BaseActivity implements OnClickListener {
 		findViewById(R.id.abouts_us).setOnClickListener(this);
 		findViewById(R.id.usesinfo).setOnClickListener(this);
 		findViewById(R.id.mazminfo).setOnClickListener(this);
-        ImageView headIv = (ImageView) findViewById(R.id.phone_study_notice);
-        ImageView newIv = (ImageView) findViewById(R.id.phone_study_new);
-        ImageView nominateIv = (ImageView) findViewById(R.id.phone_study_nominate);
-        ImageView freeIv = (ImageView) findViewById(R.id.phone_study_free);
-        ImageView kindIv = (ImageView) findViewById(R.id.phone_study_kind);
-        ImageView selfIv = (ImageView) findViewById(R.id.phone_study_self);
-        ImageView studyIv = (ImageView) findViewById(R.id.phone_study_study);
-        ImageView sayIv = (ImageView) findViewById(R.id.phone_study_say);
-        ImageView personcenterIv = (ImageView) findViewById(R.id.phone_study_personcenter);
+        TextView headIv = (TextView) findViewById(R.id.phone_study_notice);
+        TextView newIv = (TextView) findViewById(R.id.phone_study_new);
+        TextView nominateIv = (TextView) findViewById(R.id.phone_study_nominate);
+        TextView freeIv = (TextView) findViewById(R.id.phone_study_free);
+        TextView kindIv = (TextView) findViewById(R.id.phone_study_kind);
+        TextView selfIv = (TextView) findViewById(R.id.phone_study_self);
+        TextView studyIv = (TextView) findViewById(R.id.phone_study_study);
+        TextView sayIv = (TextView) findViewById(R.id.phone_study_say);
+        TextView personcenterIv = (TextView) findViewById(R.id.phone_study_personcenter);
         personcenterIv.setOnClickListener(this);
-        ImageView aboutIv = (ImageView) findViewById(R.id.phone_study_about);
-        aboutIv.setOnClickListener(this);
+        TextView aboutIv = (TextView) findViewById(R.id.phone_study_about);
+
+        findViewById(R.id.phone_study_about).setBackgroundResource(R.drawable.pad_bottom_tv_select);
+        aboutIv.setTextColor(getResources().getColor(R.color.pad_bottomandtop_bg));
+
+
+//        aboutIv.setOnClickListener(this);
         headIv.setOnClickListener(this);
         newIv.setOnClickListener(this);
         nominateIv.setOnClickListener(this);
@@ -210,12 +210,13 @@ public class Disclaimer extends BaseActivity implements OnClickListener {
                                     .getDecorView(), "请登陆后查看！");
                 break;
 		case R.id.abouts_us:
-			findViewById(R.id.abouts_us).setBackgroundResource(
-					R.drawable.about_no);
-			findViewById(R.id.usesinfo).setBackgroundResource(
-					R.drawable.useinfo_select);
-			findViewById(R.id.mazminfo).setBackgroundResource(
-					R.drawable.mzsm_select);
+            ((Button)findViewById(R.id.abouts_us)).setBackgroundResource(R.drawable.pad_study_tab_bg);
+            ((Button)findViewById(R.id.usesinfo)).setBackgroundResource(R.drawable.pad_study_tab_bg2);
+            ((Button)findViewById(R.id.mazminfo)).setBackgroundResource(R.drawable.pad_study_tab_bg2);
+
+            ((Button)findViewById(R.id.abouts_us)).setTextColor(getResources().getColor(R.color.pad_study_color_black));
+            ((Button)findViewById(R.id.usesinfo)).setTextColor(getResources().getColor(R.color.pad_study_color_White));
+            ((Button)findViewById(R.id.mazminfo)).setTextColor(getResources().getColor(R.color.pad_study_color_White));
 			if (news.size() >= 3) {
 				for (int i = 0; i < news.size(); i++) {
 					if (news.get(i).getTitle().endsWith(MODEL_NAME)) {
@@ -225,12 +226,13 @@ public class Disclaimer extends BaseActivity implements OnClickListener {
 			}
 			break;
 		case R.id.usesinfo:
-			findViewById(R.id.abouts_us).setBackgroundResource(
-					R.drawable.about_select);
-			findViewById(R.id.usesinfo).setBackgroundResource(
-					R.drawable.useinfo_no);
-			findViewById(R.id.mazminfo).setBackgroundResource(
-					R.drawable.mzsm_select);
+            ((Button)findViewById(R.id.abouts_us)).setBackgroundResource(R.drawable.pad_study_tab_bg2);
+            ((Button)findViewById(R.id.usesinfo)).setBackgroundResource(R.drawable.pad_study_tab_bg);
+            ((Button)findViewById(R.id.mazminfo)).setBackgroundResource(R.drawable.pad_study_tab_bg2);
+
+            ((Button)findViewById(R.id.abouts_us)).setTextColor(getResources().getColor(R.color.pad_study_color_White));
+            ((Button)findViewById(R.id.usesinfo)).setTextColor(getResources().getColor(R.color.pad_study_color_black));
+            ((Button)findViewById(R.id.mazminfo)).setTextColor(getResources().getColor(R.color.pad_study_color_White));
 			if (news.size() >= 3) {
 				for (int i = 0; i < news.size(); i++) {
 					if (news.get(i).getTitle().endsWith("使用说明")) {
@@ -240,12 +242,13 @@ public class Disclaimer extends BaseActivity implements OnClickListener {
 			}
 			break;
 		case R.id.mazminfo:
-			findViewById(R.id.abouts_us).setBackgroundResource(
-					R.drawable.about_select);
-			findViewById(R.id.usesinfo).setBackgroundResource(
-					R.drawable.useinfo_select);
-			findViewById(R.id.mazminfo).setBackgroundResource(
-					R.drawable.mzsm_no);
+            ((Button)findViewById(R.id.abouts_us)).setBackgroundResource(R.drawable.pad_study_tab_bg2);
+            ((Button)findViewById(R.id.usesinfo)).setBackgroundResource(R.drawable.pad_study_tab_bg2);
+            ((Button)findViewById(R.id.mazminfo)).setBackgroundResource(R.drawable.pad_study_tab_bg);
+
+            ((Button)findViewById(R.id.abouts_us)).setTextColor(getResources().getColor(R.color.pad_study_color_White));
+            ((Button)findViewById(R.id.usesinfo)).setTextColor(getResources().getColor(R.color.pad_study_color_White));
+            ((Button)findViewById(R.id.mazminfo)).setTextColor(getResources().getColor(R.color.pad_study_color_black));
 			if (news.size() >= 3) {
 				for (int i = 0; i < news.size(); i++) {
 					if (news.get(i).getTitle().endsWith("免责声明")) {

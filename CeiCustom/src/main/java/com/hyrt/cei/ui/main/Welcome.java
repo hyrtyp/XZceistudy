@@ -1,9 +1,5 @@
 package com.hyrt.cei.ui.main;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -27,17 +23,18 @@ import android.widget.Toast;
 
 import com.hyrt.cei.R;
 import com.hyrt.cei.application.CeiApplication;
-
 import com.hyrt.cei.dzb.ui.HomePageDZB;
-
 import com.hyrt.cei.ui.common.LoginActivity;
 import com.hyrt.cei.util.MyTools;
 import com.hyrt.cei.util.TimeOutHelper;
 import com.hyrt.cei.util.WriteOrRead;
 import com.hyrt.cei.util.XmlUtil;
 import com.hyrt.cei.vo.ColumnEntry;
-import com.hyrt.cei.vo.ReportColumn;
 import com.hyrt.cei.webservice.service.Service;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  * 欢迎页
@@ -299,26 +296,26 @@ public class Welcome extends Activity {
 						message.arg1 = UPDATE_CENT;
 						message.arg2 = 100;
 						handler.sendMessage(message);
-						// 获取版本号，调用接口得到报告的各个属性；
-						// 获取版本号；
-						String id = columnEntry.getColumnEntryChilds().get(0)
-								.getId();
-						((CeiApplication) getApplication()).ReportColumns
-								.add(new ReportColumn());
-						String returnCode = Service.queryReportName(id);
-
-						if (returnCode != null) {
-							if (returnCode.equals("0")) {
-								((CeiApplication) getApplication()).ReportColumns
-										.add(new ReportColumn());
-							} else {
-								((CeiApplication) getApplication()).ReportColumns = XmlUtil
-										.parseReportColumn(returnCode);
-								WriteOrRead
-										.write(returnCode, MyTools.nativeData,
-												"ReportColumns.xml");
-							}
-						}
+//						// 获取版本号，调用接口得到报告的各个属性；
+//						// 获取版本号；
+//						String id = columnEntry.getColumnEntryChilds().get(0)
+//								.getId();
+//						((CeiApplication) getApplication()).ReportColumns
+//								.add(new ReportColumn());
+//						String returnCode = Service.queryReportName(id);
+//
+//						if (returnCode != null) {
+//							if (returnCode.equals("0")) {
+//								((CeiApplication) getApplication()).ReportColumns
+//										.add(new ReportColumn());
+//							} else {
+//								((CeiApplication) getApplication()).ReportColumns = XmlUtil
+//										.parseReportColumn(returnCode);
+//								WriteOrRead
+//										.write(returnCode, MyTools.nativeData,
+//												"ReportColumns.xml");
+//							}
+//						}
 					} else {
 						// 请求初始化资源 50%
 						String result = WriteOrRead.read(MyTools.nativeData,
@@ -377,9 +374,16 @@ public class Welcome extends Activity {
 						}*/
 					}
 					timeOutHelper.uninstallTimerTask(TimeOutHelper.ALDATA_FLAG);
-					Message message = handler.obtainMessage();
-					message.arg1 = GO_MAIN;
-					handler.sendMessage(message);
+
+                    if(columnEntry.getXzuserid()!=null){
+                        Message message = handler.obtainMessage();
+                        message.arg1 = GO_MAIN;
+                        handler.sendMessage(message);
+                    }else {
+                        startActivity(new Intent(Welcome.this, LoginActivity.class));
+                    }
+
+
 				} catch (Exception e) {
 					timeOutHelper.uninstallTimerTask(TimeOutHelper.ALDATA_FLAG);
 					e.printStackTrace();

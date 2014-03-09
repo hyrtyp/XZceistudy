@@ -1,16 +1,5 @@
 package com.hyrt.cei.db;
 
-import java.io.ByteArrayOutputStream;
-import java.util.ArrayList;
-import java.util.List;
-import com.hyrt.cei.vo.ClassType;
-import com.hyrt.cei.vo.Courseware;
-import com.hyrt.cei.vo.ImageResourse;
-import com.hyrt.cei.vo.Preload;
-import com.hyrt.cei.vo.Report;
-import com.hyrt.cei.vo.WitSea;
-import com.hyrt.cei.webservice.service.Service;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -19,6 +8,18 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+
+import com.hyrt.cei.vo.ClassType;
+import com.hyrt.cei.vo.Courseware;
+import com.hyrt.cei.vo.ImageResourse;
+import com.hyrt.cei.vo.Preload;
+import com.hyrt.cei.vo.Report;
+import com.hyrt.cei.vo.WitSea;
+import com.hyrt.cei.webservice.service.Service;
+
+import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DataHelper {
 	// 数据库名称
@@ -58,6 +59,7 @@ public class DataHelper {
 		contentvalues.put(Preload.LOAD_LOCALPATH, preload.getLoadLocalPath());
 		contentvalues.put(Preload.LOAD_FINISH, preload.getLoadFinish());
 		contentvalues.put(Preload.LOADING, preload.getLoading());
+		contentvalues.put(Preload.XZCLASSID, preload.getXzclassid());
 		contentvalues.put(Preload.LOAD_PARENTID,preload.getLoadParentId() == null ? "" : preload.getLoadParentId());
 		contentvalues.put(Preload.PASS_KEY, preload.getPassKey() == null ? "": preload.getPassKey());
 		contentvalues.put(Preload.CLASS_LENGTH,preload.getClassLength() == null ? "0": preload.getClassLength());
@@ -335,6 +337,7 @@ public class DataHelper {
 			preload.setLoadParentId(cursor.getString(11));
 			preload.setPassKey(cursor.getString(12));
 			preload.setClassLength(cursor.getString(13));
+            preload.setXzclassid(cursor.getString(14));
 			preloadList.add(preload);
 			cursor.moveToNext();
 		}
@@ -397,6 +400,7 @@ public class DataHelper {
 			preload.setLoadLocalPath(cursor.getString(6));
 			preload.setLoadFinish(Integer.valueOf(cursor.getInt(7)));
 			preload.setPassKey(cursor.getString(12));
+			preload.setXzclassid(cursor.getString(14));
 			cursor.close();
 		}
 		return preload;
@@ -428,7 +432,7 @@ public class DataHelper {
 	/**
 	 * 保存已下载报告
 	 * 
-	 * @param Report
+	 * @param
 	 * @return
 	 */
 	// nullpointE
@@ -686,7 +690,7 @@ public class DataHelper {
 		db.insert(SqliteHelper.TB_STUDYRECORD_NAME, Courseware.ID, contentvalues);
 		contentvalues.clear();
 	} 
-	
+	 
 	/**
 	 * 获取学习记录的列表
 	 * 
@@ -750,7 +754,7 @@ public class DataHelper {
 	
 	/**
 	 * 根据课件id该条记录
-	 * @param classId
+	 * @param
 	 * @return
 	 */
 	public Boolean getStudyRecord(Courseware courseware) {

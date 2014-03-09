@@ -48,4 +48,67 @@
 		<item name="android:textColor">#ffffff</item>
 	</style>
 	<style name="AppTheme" parent="android:Theme.Light" />
+
+    <style name="pad_image_padding">
+        <item name="android:padding">3dp</item>
+        <item name="android:background">#ffffff</item>
+    </style>
+
+    <style name="pad_study_bt">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:layout_width">57dp</item>
+        <item name="android:layout_height">33dp</item>
+        <item name="android:background">@drawable/pad_study_bt_bg</item>
+    </style>
+
+    <style name="pad_study_h1">
+        <item name="android:textColor">#054b93</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="pad_study_h1_small">
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="pad_study_h1_small2">
+        <item name="android:textColor">#b5b5b5</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="pad_study_h2">
+        <item name="android:background">@drawable/pad_study_det_h2_bg</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:padding">3dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="pad_study_text">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="pad_study_Tab">
+        <item name="android:background">@drawable/pad_study_tab_bg2</item>
+        <item name="android:layout_marginLeft">2dp</item>
+        <item name="android:layout_marginRight">2dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="pad_study_bottom_tv">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:background">@drawable/pad_study_bottom_tv_bg</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:layout_marginRight">0.5dp</item>
+        <item name="android:layout_marginLeft">0dp</item>
+        <item name="android:textSize">25sp</item>
+    </style>
 </resources>

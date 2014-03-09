@@ -10,12 +10,21 @@ public class ClassType implements Serializable{
 	public static final String CLASSID = "class_id";
 	public static final String PARENTID = "parent_id";
 	public static final String CONTENT = "content";
-	
+
+    private String classificationid;
 	private String classId;
 	private String parentId;
 	private String content;
-	
-	public String getClassId() {
+
+    public String getClassificationid() {
+        return classificationid;
+    }
+
+    public void setClassificationid(String classificationid) {
+        this.classificationid = classificationid;
+    }
+
+    public String getClassId() {
 		return classId;
 	}
 	public void setClassId(String classId) {

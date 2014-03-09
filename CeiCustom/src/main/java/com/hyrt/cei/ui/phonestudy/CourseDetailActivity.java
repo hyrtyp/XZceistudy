@@ -1,9 +1,5 @@
 package com.hyrt.cei.ui.phonestudy;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -21,11 +17,11 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hyrt.cei.R;
 import com.hyrt.cei.application.CeiApplication;
@@ -36,7 +32,6 @@ import com.hyrt.cei.ui.phonestudy.view.GGridView;
 import com.hyrt.cei.util.AsyncImageLoader;
 import com.hyrt.cei.util.ImageUtil;
 import com.hyrt.cei.util.MyTools;
-import com.hyrt.cei.util.UIHelper;
 import com.hyrt.cei.util.XmlUtil;
 import com.hyrt.cei.vo.ColumnEntry;
 import com.hyrt.cei.vo.Courseware;
@@ -45,6 +40,10 @@ import com.hyrt.cei.vo.ImageResourse;
 import com.hyrt.cei.vo.Preload;
 import com.hyrt.cei.webservice.service.Service;
 import com.weibo.sdk.android.demo.MainActivity;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CourseDetailActivity extends Activity implements OnClickListener {
 
@@ -728,7 +727,8 @@ public class CourseDetailActivity extends Activity implements OnClickListener {
 				preload.setLoadPlayId(courseware.getClassId());
 				preload.setLoadCurrentByte(0);
 				preload.setLoading(1);
-				preload.setLoadFinish(0);
+				preload.setXzclassid(courseware.getXzclassid());
+                preload.setLoadFinish(0);
 				preload.setLoadUrl(courseware.getDownPath());
 				try {
 					preload.setLoadLocalPath(MyTools.RESOURCE_PATH
@@ -800,11 +800,11 @@ public class CourseDetailActivity extends Activity implements OnClickListener {
 	
 	private void changeDownBtn(View view,String classId){
 		DataHelper dataHelper = ((CeiApplication) (this.getApplication())).dataHelper;
-		ImageView downBtn = (ImageView)view;
+		Button downBtn = (Button)view;
 		Preload preload = dataHelper.getPreload(classId);
 		if(preload != null && preload.getLoadFinish() == 1){
 			downBtn.setOnClickListener(null);
-			downBtn.setImageResource(R.drawable.phone_study_nodown_btn);
+//			downBtn.setImageResource(R.drawable.phone_study_nodown_btn);
 		}
 	}
 

@@ -1,23 +1,5 @@
 package com.hyrt.cei.ui.phonestudy;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.hyrt.cei.R;
-import com.hyrt.cei.adapter.PhoneStudyKindsAdapter;
-import com.hyrt.cei.application.CeiApplication;
-import com.hyrt.cei.dzb.ui.HomePageDZB;
-import com.hyrt.cei.ui.main.Announcement;
-import com.hyrt.cei.ui.main.Disclaimer;
-import com.hyrt.cei.ui.personcenter.PersonCenter;
-import com.hyrt.cei.util.MyTools;
-import com.hyrt.cei.util.XmlUtil;
-import com.hyrt.cei.vo.ClassType;
-import com.hyrt.cei.vo.ColumnEntry;
-import com.hyrt.cei.vo.Courseware;
-import com.hyrt.cei.vo.MenuNode;
-import com.hyrt.cei.webservice.service.Service;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -31,11 +13,26 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.hyrt.cei.R;
+import com.hyrt.cei.adapter.PhoneStudyKindsAdapter;
+import com.hyrt.cei.application.CeiApplication;
+import com.hyrt.cei.ui.main.Announcement;
+import com.hyrt.cei.ui.main.Disclaimer;
+import com.hyrt.cei.ui.personcenter.PersonCenter;
+import com.hyrt.cei.util.MyTools;
+import com.hyrt.cei.util.XmlUtil;
+import com.hyrt.cei.vo.ClassType;
+import com.hyrt.cei.vo.ColumnEntry;
+import com.hyrt.cei.vo.Courseware;
+import com.hyrt.cei.vo.MenuNode;
+import com.hyrt.cei.webservice.service.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class KindsActivity extends BaseActivity implements OnClickListener {
 
@@ -130,20 +127,19 @@ public class KindsActivity extends BaseActivity implements OnClickListener {
 				if (((CeiApplication) getApplication()).isNet()) {
 					ColumnEntry columnEntry = ((CeiApplication) (KindsActivity.this
 							.getApplication())).columnEntry;
-					ColumnEntry phoneStudyCol = columnEntry.getColByName(HomePageActivity.MODEL_NAME);
-					StringBuilder functionIds = new StringBuilder(phoneStudyCol.getId());
-					for (int i = 0; i < columnEntry.getColumnEntryChilds()
-							.size(); i++) {
-						ColumnEntry entryChild = columnEntry
-								.getColumnEntryChilds().get(i);
-						if (entryChild.getPath() != null
-								&& entryChild.getPath().contains(
-										phoneStudyCol.getId())) {
-							functionIds.append("," + entryChild.getId());
-						}
-					}
-					String result = Service.queryClassByType(functionIds
-							.toString());
+//					ColumnEntry phoneStudyCol = columnEntry.getColByName(HomePageActivity.MODEL_NAME);
+//					StringBuilder functionIds = new StringBuilder(phoneStudyCol.getId());
+//					for (int i = 0; i < columnEntry.getColumnEntryChilds()
+//							.size(); i++) {
+//						ColumnEntry entryChild = columnEntry
+//								.getColumnEntryChilds().get(i);
+//						if (entryChild.getPath() != null
+//								&& entryChild.getPath().contains(
+//										phoneStudyCol.getId())) {
+//							functionIds.append("," + entryChild.getId());
+//						}
+//					}
+					String result = Service.queryClassByType("");
 					if(XmlUtil.parseReturnCode(result).equals("5")){
 					    Message message = handler.obtainMessage();
 					    message.arg1 = NO_KINDS;
@@ -248,7 +244,7 @@ public class KindsActivity extends BaseActivity implements OnClickListener {
 									String name = ((TextView)child.getChildAt(1)).getText().toString();
 									for(int z=0;z<classTypes.size();z++){
 										if(classTypes.get(z).getContent().equals(name))
-											initLvData(classTypes.get(z).getClassId());
+											initLvData(classTypes.get(z).getClassificationid());
 									}
 								}
 								for (int i = 0; i < thirdMenuNodes.size(); i++) {
@@ -281,7 +277,7 @@ public class KindsActivity extends BaseActivity implements OnClickListener {
 														String name = ((TextView)thirdMenuItemLl.getChildAt(1)).getText().toString();
 														for(int z=0;z<classTypes.size();z++){
 															if(classTypes.get(z).getContent().equals(name))
-																initLvData(classTypes.get(z).getClassId());
+																initLvData(classTypes.get(z).getClassificationid());
 														}
 													}
 
@@ -466,8 +462,17 @@ public class KindsActivity extends BaseActivity implements OnClickListener {
 		}
 	};
 
-	private void initLvData(final String functionId) {
-		currentFunctionId = functionId;
+	private void initLvData(String functionId) {
+		for(int i=0;i<classTypes.size();i++){
+            if(classTypes.get(i).getClassId().equals(functionId)){
+                functionId=classTypes.get(i).getClassificationid();
+            }
+        }
+
+        final String functionid=functionId;
+
+        currentFunctionId = functionId;
+
 		if (oldFunctionId.equals(currentFunctionId))
 			return;
 		index = 1;
@@ -479,9 +484,9 @@ public class KindsActivity extends BaseActivity implements OnClickListener {
 				List<Courseware> selfselCourseware = new ArrayList<Courseware>();
 				if (((CeiApplication) getApplication()).isNet()) {
 					boolean isFree = false;
-					String result = Service.queryClassTypeByClass(functionId,index);
+					String result = Service.queryClassTypeByClass(functionid,index);
 					for(int i=0;i<classTypes.size();i++){
-						if(classTypes.get(i).getClassId().equals(functionId)){
+						if(classTypes.get(i).getClassId().equals(functionid)){
 							if(classTypes.get(i).getParentId().equals(freeClassId)){
 								isFree = true;
 							}
@@ -505,7 +510,7 @@ public class KindsActivity extends BaseActivity implements OnClickListener {
 							}catch(Exception e){
 								e.printStackTrace();
 							}
-							courses.get(i).setParentId(functionId);
+							courses.get(i).setParentId(functionid);
 							if(isFree)
 								courses.get(i).setFree(true);
 							((CeiApplication) getApplication()).dataHelper.saveCourseware(courses.get(i));
@@ -520,7 +525,7 @@ public class KindsActivity extends BaseActivity implements OnClickListener {
 					}
 				} else {
 					Courseware courseware = new Courseware();
-					courseware.setParentId(functionId);
+					courseware.setParentId(functionid);
 					courses = ((CeiApplication) getApplication()).dataHelper.getCoursewares(courseware);
 					Message msg = handler.obtainMessage();
 					msg.arg1 = LVDATA_KEY;
@@ -537,26 +542,29 @@ public class KindsActivity extends BaseActivity implements OnClickListener {
 	}
 	
 	private void initBottom(){
-		ImageView headIv = (ImageView)findViewById(R.id.phone_study_notice);
-		ImageView newIv = (ImageView)findViewById(R.id.phone_study_new);
-		ImageView nominateIv = (ImageView)findViewById(R.id.phone_study_nominate);
-		ImageView freeIv = (ImageView)findViewById(R.id.phone_study_free);
-		ImageView kindIv = (ImageView)findViewById(R.id.phone_study_kind);
-		ImageView selfIv = (ImageView)findViewById(R.id.phone_study_self);
-		ImageView studyIv = (ImageView)findViewById(R.id.phone_study_study);
-		ImageView sayIv = (ImageView)findViewById(R.id.phone_study_say);
-        ImageView personcenterIv = (ImageView) findViewById(R.id.phone_study_personcenter);
+		TextView headIv = (TextView)findViewById(R.id.phone_study_notice);
+		TextView newIv = (TextView)findViewById(R.id.phone_study_new);
+		TextView nominateIv = (TextView)findViewById(R.id.phone_study_nominate);
+		TextView freeIv = (TextView)findViewById(R.id.phone_study_free);
+		TextView kindIv = (TextView)findViewById(R.id.phone_study_kind);
+		TextView selfIv = (TextView)findViewById(R.id.phone_study_self);
+		TextView studyIv = (TextView)findViewById(R.id.phone_study_study);
+		TextView sayIv = (TextView)findViewById(R.id.phone_study_say);
+        TextView personcenterIv = (TextView) findViewById(R.id.phone_study_personcenter);
         personcenterIv.setOnClickListener(this);
-        ImageView aboutIv = (ImageView) findViewById(R.id.phone_study_about);
+        TextView aboutIv = (TextView) findViewById(R.id.phone_study_about);
         aboutIv.setOnClickListener(this);
         headIv.setOnClickListener(this);
 		newIv.setOnClickListener(this);
 		nominateIv.setOnClickListener(this);
 		freeIv.setOnClickListener(this);
-		kindIv.setOnClickListener(this);
+//		kindIv.setOnClickListener(this);
 		selfIv.setOnClickListener(this);
 		studyIv.setOnClickListener(this);
 		sayIv.setOnClickListener(this);
+
+        findViewById(R.id.phone_study_kind).setBackgroundResource(R.drawable.pad_bottom_tv_select);
+        kindIv.setTextColor(getResources().getColor(R.color.pad_bottomandtop_bg));
 	}
 
 

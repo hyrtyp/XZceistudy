@@ -105,6 +105,6 @@
 
 	</LinearLayout>
 
-    <include layout="@layout/phone_study_bottom_transparentbar"/>
+    <include layout="@layout/phone_study_bottom_transparentbar2"/>
 
 </LinearLayout>

@@ -1,19 +1,5 @@
 package com.hyrt.cei.ui.phonestudy;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.hyrt.cei.R;
-import com.hyrt.cei.application.CeiApplication;
-import com.hyrt.cei.dzb.ui.HomePageDZB;
-import com.hyrt.cei.ui.main.Announcement;
-import com.hyrt.cei.ui.phonestudy.adapter.PhoneStudyAdapter;
-import com.hyrt.cei.util.MyTools;
-import com.hyrt.cei.util.XmlUtil;
-import com.hyrt.cei.vo.ColumnEntry;
-import com.hyrt.cei.vo.Courseware;
-import com.hyrt.cei.webservice.service.Service;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -24,9 +10,22 @@ import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import com.hyrt.cei.R;
+import com.hyrt.cei.application.CeiApplication;
+import com.hyrt.cei.ui.main.Announcement;
+import com.hyrt.cei.ui.phonestudy.adapter.PhoneStudyAdapter;
+import com.hyrt.cei.util.MyTools;
+import com.hyrt.cei.util.XmlUtil;
+import com.hyrt.cei.vo.ColumnEntry;
+import com.hyrt.cei.vo.Courseware;
+import com.hyrt.cei.webservice.service.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 免费课件
@@ -194,14 +193,14 @@ public class FreeActivity extends BaseActivity implements OnClickListener {
 	}
 
 	private void initBottom() {
-		ImageView headIv = (ImageView) findViewById(R.id.phone_study_notice);
-		ImageView newIv = (ImageView) findViewById(R.id.phone_study_new);
-		ImageView nominateIv = (ImageView) findViewById(R.id.phone_study_nominate);
-		ImageView freeIv = (ImageView) findViewById(R.id.phone_study_free);
-		ImageView kindIv = (ImageView) findViewById(R.id.phone_study_kind);
-		ImageView selfIv = (ImageView) findViewById(R.id.phone_study_self);
-		ImageView studyIv = (ImageView) findViewById(R.id.phone_study_study);
-		ImageView sayIv = (ImageView) findViewById(R.id.phone_study_say);
+        TextView headIv = (TextView) findViewById(R.id.phone_study_notice);
+        TextView newIv = (TextView) findViewById(R.id.phone_study_new);
+        TextView nominateIv = (TextView) findViewById(R.id.phone_study_nominate);
+        TextView freeIv = (TextView) findViewById(R.id.phone_study_free);
+        TextView kindIv = (TextView) findViewById(R.id.phone_study_kind);
+        TextView selfIv = (TextView) findViewById(R.id.phone_study_self);
+        TextView studyIv = (TextView) findViewById(R.id.phone_study_study);
+        TextView sayIv = (TextView) findViewById(R.id.phone_study_say);
 		headIv.setOnClickListener(this);
 		newIv.setOnClickListener(this);
 		nominateIv.setOnClickListener(this);

@@ -1135,12 +1135,14 @@ public class Service {
 	}
 
 	public static String saveUserClassTime(String userId, String classId,
-			String studyTime) {
+			String studyTime,String xzuserid,String xzclassid) {
 		String rs = "";
 		try {
 			String xmlStr = "<?xml version='1.0' encoding='UTF-8'?>" + "<ROOT>"
 					+ "<userid>" + userId + "</userid>" + "<classid>" + classId
 					+ "</classid>" + "<time>" + studyTime + "</time>"
+                    + "<xzuserid>" +xzuserid+"</xzuserid>"
+                    + "<xzclassid>" + xzclassid+"</xzclassid>"
 					+ "</ROOT>";
 			WriteOrRead.write(xmlStr, "/mnt/sdcard/yepeng/",
 					"saveUserClassTime");
@@ -1204,7 +1206,7 @@ public class Service {
 		return rs;
 	}
 	/*更新学习状态*/
-	public static String saveUserClassTime(String userid, Courseware courseware) {
+	public static String saveUserClassTime(String userid, Courseware courseware,String xzuserid) {
 		String result = "";
 		try {
 			String xmlStr = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
@@ -1212,6 +1214,8 @@ public class Service {
 					+ "<userid>"+userid + "</userid>"
 					+ "<classid>"+ courseware.getClassId()+"</classid>"
 					+ "<time>" + courseware.getUploadTime()+"</time>"
+                    + "<xzuserid>" +xzuserid+"</xzuserid>"
+                    + "<xzclassid>" + courseware.getXzclassid()+"</xzclassid>"
 					+ "<iscompleted>" + courseware.getIscompleted()+"</iscompleted>"
 					+ "</ROOT>";
 			WriteOrRead.write(xmlStr, "/mnt/sdcard/yepeng/", "updateUserClassTime");

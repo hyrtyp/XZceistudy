@@ -1,13 +1,13 @@
 package com.hyrt.cei.vo;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.hyrt.cei.ui.main.Welcome;
 import com.hyrt.cei.util.MyTools;
 import com.hyrt.cei.util.WriteOrRead;
 import com.hyrt.cei.util.XmlUtil;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ColumnEntry implements Serializable {
 
@@ -15,7 +15,9 @@ public class ColumnEntry implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
+
+    private String xzuserid;
 	private String id;
 	private String parentId;
 	private String name;
@@ -34,8 +36,16 @@ public class ColumnEntry implements Serializable {
 	private boolean isSelected;
 	//描述内容
 	private String description;
-	
-	public String getDescription() {
+
+    public String getXzuserid() {
+        return xzuserid;
+    }
+
+    public void setXzuserid(String xzuserid) {
+        this.xzuserid = xzuserid;
+    }
+
+    public String getDescription() {
 		return description;
 	}
 

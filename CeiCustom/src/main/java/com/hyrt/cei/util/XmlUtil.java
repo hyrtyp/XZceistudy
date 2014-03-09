@@ -1,17 +1,7 @@
 package com.hyrt.cei.util;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.kxml2.io.KXmlParser;
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
 import android.util.Xml;
+
 import com.hyrt.cei.ui.information.funId;
 import com.hyrt.cei.vo.AnnouncementNews;
 import com.hyrt.cei.vo.ClassType;
@@ -28,6 +18,18 @@ import com.hyrt.cei.vo.ReportpaitElement;
 import com.hyrt.cei.vo.Updata;
 import com.hyrt.cei.vo.WeatherInfo;
 import com.hyrt.cei.vo.WitSea;
+
+import org.kxml2.io.KXmlParser;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class XmlUtil {
 	
@@ -68,6 +70,15 @@ public class XmlUtil {
 					if (tag_name.equals("classid") || tag_name.equals("id")) {
 						coursewares.get(i).setClassId(someValue);
 					}
+                    if (tag_name.equals("xzclassid")) {
+                        coursewares.get(i).setXzclassid(someValue);
+                    }
+                    if (tag_name.equals("schedule")) {
+                        coursewares.get(i).setSchedule(someValue);
+                    }
+                    if (tag_name.equals("timepoint")) {
+                        coursewares.get(i).setTimepoint(someValue);
+                    }
 					if (tag_name.equals("name")) {
 						coursewares.get(i).setName(someValue.length()>40?someValue.substring(0
 								,39)+"...":someValue);
@@ -435,6 +446,9 @@ public class XmlUtil {
 					if (tag_name.equals("userid")) {
 						columnEntry.setUserId(someValue);
 					}
+                    if(tag_name.equals("xzuserid")){
+                        columnEntry.setXzuserid(someValue);
+                    }
 					if (tag_name.equals("loginid")) {
 						columnEntry.setLoginid(someValue);
 					}
@@ -689,6 +703,9 @@ public class XmlUtil {
 					if (tag_name.equals("classid") || tag_name.equals("id")) {
 						coursewares.get(i).setClassId(someValue);
 					}
+                    if (tag_name.equals("xzclassid")) {
+                        coursewares.get(i).setXzclassid(someValue);
+                    }
 					if (tag_name.equals("name")) {
 						coursewares.get(i).setName(someValue.length()>40?someValue.substring(0
 								,39)+"...":someValue);
@@ -1076,6 +1093,9 @@ public class XmlUtil {
 					if (tag_name.equals("id")) {
 						classTypes.get(i).setClassId(someValue);
 					}
+                    if (tag_name.equals("classificationid")) {
+                        classTypes.get(i).setClassificationid(someValue);
+                    }
 					if (tag_name.equals("name")) {
 						classTypes.get(i).setContent(someValue);
 					}

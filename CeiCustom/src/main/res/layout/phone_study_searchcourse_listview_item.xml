@@ -30,9 +30,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="主题 ：环保与经济"
-                android:textColor="#003380"
-                android:textSize="20.0dip"
-                android:textStyle="bold" />
+               style="@style/pad_study_h1"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -41,18 +39,16 @@
                 android:paddingRight="30dip"
              >
 
-                <ImageView
+                <Button
                     android:id="@id/phone_study_searchcourse_play_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/phone_study_play_btn" />
+                    style="@style/pad_study_bt"
+                    android:text="学习"/>
 
-                <ImageView
+                <Button
                     android:id="@id/phone_study_searchcourse_download_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_marginLeft="12dip"
-                    android:src="@drawable/phone_study_download_btn" />
+                    style="@style/pad_study_bt"
+                    android:text="下载"/>
             </LinearLayout>
         </RelativeLayout>
 		<LinearLayout android:layout_width="fill_parent" android:layout_height="1dip" android:layout_marginTop="6dip" 
@@ -74,8 +70,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:text="主讲人 ：张小娴"
-                    android:textColor="#80000000"
-                    android:textSize="12.0dip" />
+                   style="@style/pad_study_h1_small"/>
 
                 <TextView
                     android:id="@id/phone_study_gird_item_tv3"
@@ -84,8 +79,7 @@
                     android:layout_marginTop="5dip"
                     android:gravity="center_horizontal"
                     android:text="发布时间 ：2012-12-31"
-                    android:textColor="#80000000"
-                    android:textSize="12.0dip" />
+                    style="@style/pad_study_h1_small"/>
             </LinearLayout>
 
             <ImageView

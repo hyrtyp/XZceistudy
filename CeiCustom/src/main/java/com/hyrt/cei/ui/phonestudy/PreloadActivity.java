@@ -1,34 +1,7 @@
 package com.hyrt.cei.ui.phonestudy;
 
-import java.io.File;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import com.hyrt.cei.R;
-import com.hyrt.cei.application.CeiApplication;
-import com.hyrt.cei.db.DataHelper;
-import com.hyrt.cei.predownload.DownloadProgressListener;
-import com.hyrt.cei.predownload.DownloadThreadManager;
-import com.hyrt.cei.predownload.FileDownloader;
-import com.hyrt.cei.ui.common.WebViewUtil;
-import com.hyrt.cei.util.MyTools;
-import com.hyrt.cei.util.ThreadPoolWrap;
-import com.hyrt.cei.util.XmlUtil;
-import com.hyrt.cei.util.ZipUtils;
-import com.hyrt.cei.vo.ColumnEntry;
-import com.hyrt.cei.vo.Courseware;
-import com.hyrt.cei.vo.Preload;
-import com.hyrt.cei.vo.PreloadContolGroup;
-import com.hyrt.cei.webservice.service.Service;
-
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -48,7 +21,31 @@ import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.hyrt.cei.R;
+import com.hyrt.cei.application.CeiApplication;
+import com.hyrt.cei.db.DataHelper;
+import com.hyrt.cei.predownload.DownloadProgressListener;
+import com.hyrt.cei.predownload.DownloadThreadManager;
+import com.hyrt.cei.predownload.FileDownloader;
+import com.hyrt.cei.ui.common.WebViewUtil;
+import com.hyrt.cei.util.MyTools;
+import com.hyrt.cei.util.ThreadPoolWrap;
+import com.hyrt.cei.util.XmlUtil;
+import com.hyrt.cei.util.ZipUtils;
+import com.hyrt.cei.vo.ColumnEntry;
+import com.hyrt.cei.vo.Courseware;
+import com.hyrt.cei.vo.Preload;
+import com.hyrt.cei.vo.PreloadContolGroup;
+import com.hyrt.cei.webservice.service.Service;
+
+import java.io.File;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 /*
  * 
@@ -160,6 +157,7 @@ public class PreloadActivity extends Activity {
 																							.replace(
 																									FLASH_POSTFIX,
 																									FLASH_GATE));
+                                                                    intent.putExtra("xzclass",preload.getXzclassid());
 																	intent.putExtra("classId",preload.getLoadPlayId());
 																	intent.putExtra("bdclass",preload.getLoadPlayTitleBelow()+"|"+preload.getLoadPlayTitle());
 																	intent.putExtra("classLength", preload.getClassLength());

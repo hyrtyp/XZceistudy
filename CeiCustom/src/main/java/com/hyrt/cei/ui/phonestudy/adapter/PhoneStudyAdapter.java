@@ -1,9 +1,26 @@
 package com.hyrt.cei.ui.phonestudy.adapter;
 
-import java.lang.ref.SoftReference;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.os.Handler;
+import android.os.Message;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.hyrt.cei.R;
 import com.hyrt.cei.application.CeiApplication;
@@ -17,31 +34,11 @@ import com.hyrt.cei.util.MyTools;
 import com.hyrt.cei.util.XmlUtil;
 import com.hyrt.cei.vo.ColumnEntry;
 import com.hyrt.cei.vo.Courseware;
-import com.hyrt.cei.vo.ImageResourse;
 import com.hyrt.cei.vo.Preload;
 import com.hyrt.cei.webservice.service.Service;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
-import android.os.Handler;
-import android.os.Message;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.PopupWindow;
-import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PhoneStudyAdapter extends BaseAdapter {
 
@@ -148,9 +145,9 @@ public class PhoneStudyAdapter extends BaseAdapter {
 			convertView = inflater.inflate(itemLayout, null);
 			holder.courseIcon = (ImageView) convertView
 					.findViewById(R.id.phone_study_courseIcon);
-			holder.coursePlayBtn = (ImageView) convertView
+			holder.coursePlayBtn = (Button) convertView
 					.findViewById(R.id.phone_study_playBtn);
-			holder.downloadBtn = (ImageView) convertView
+			holder.downloadBtn = (Button) convertView
 					.findViewById(R.id.phone_study_downloadBtn);
 			holder.controCourse = (ImageView) convertView
 					.findViewById(R.id.phone_study_controllcourse);
@@ -433,8 +430,8 @@ public class PhoneStudyAdapter extends BaseAdapter {
 
 	class ViewHolder {
 		ImageView courseIcon;
-		ImageView downloadBtn;
-		ImageView coursePlayBtn;
+		Button downloadBtn;
+        Button coursePlayBtn;
 		ImageView controCourse;
 		TextView tv1;
 		TextView tv2;
@@ -455,6 +452,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
 				preload.setLoadCurrentByte(0);
 				preload.setLoading(1);
 				preload.setLoadFinish(0);
+                preload.setXzclassid(courseware.getXzclassid());
 				preload.setLoadUrl(courseware.getDownPath());
 				preload.setLoadLocalPath(MyTools.RESOURCE_PATH
 						+ MyTools.KJ_PARTPATH + System.currentTimeMillis()
@@ -541,11 +539,11 @@ public class PhoneStudyAdapter extends BaseAdapter {
 
 	private void changeDownBtn(View view, String classId) {
 		DataHelper dataHelper = ((CeiApplication) (activity.getApplication())).dataHelper;
-		ImageView downBtn = (ImageView) view;
+        Button downBtn = (Button) view;
 		Preload preload = dataHelper.getPreload(classId);
 		if (preload != null && preload.getLoadFinish() == 1) {
 			downBtn.setOnClickListener(null);
-			downBtn.setImageResource(R.drawable.phone_study_nodown_btn);
+//			downBtn.setImageResource(R.drawable.phone_study_nodown_btn);
 		}
 	}
 }

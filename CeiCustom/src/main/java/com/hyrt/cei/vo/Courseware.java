@@ -30,7 +30,9 @@ public class Courseware implements Serializable{
 	//0为未完成 1为完成
 	public static final String ISCOMPLETED = "is_completed";
 	public static final String ORDERTIME = "order_time";
-	
+
+
+    private String xzclassid;
 	private int id;
 	private String classId;
 	private boolean ischeck;
@@ -46,7 +48,7 @@ public class Courseware implements Serializable{
     private boolean isSelfCourse;
     private boolean isSay;
     private String parentId;
-    private boolean isFree;
+    private boolean isFree=true;
     private String key;
     //学习时间
     private String studyTime;
@@ -60,8 +62,35 @@ public class Courseware implements Serializable{
     private String fullName;
     //排序时间
     private long orderTime;
-    
-	public long getOrderTime() {
+
+    private String schedule;
+    private String timepoint;
+
+    public String getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(String schedule) {
+        this.schedule = schedule;
+    }
+
+    public String getTimepoint() {
+        return timepoint;
+    }
+
+    public void setTimepoint(String timepoint) {
+        this.timepoint = timepoint;
+    }
+
+    public String getXzclassid() {
+        return xzclassid;
+    }
+
+    public void setXzclassid(String xzclassid) {
+        this.xzclassid = xzclassid;
+    }
+
+    public long getOrderTime() {
 		return orderTime;
 	}
 
@@ -94,7 +123,7 @@ public class Courseware implements Serializable{
 	}
 
 	public boolean isFree() {
-		return isFree;
+		return true;
 	}
 
 	public void setFree(boolean isFree) {

@@ -1,41 +1,37 @@
 package com.hyrt.cei.ui.phonestudy;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
-import com.hyrt.cei.R;
-import com.hyrt.cei.adapter.PhoneStudySearchAdapter;
-import com.hyrt.cei.application.CeiApplication;
-import com.hyrt.cei.ui.information.InfoSearchActivity;
-import com.hyrt.cei.util.MyTools;
-import com.hyrt.cei.util.XmlUtil;
-import com.hyrt.cei.vo.ColumnEntry;
-import com.hyrt.cei.vo.Courseware;
-import com.hyrt.cei.webservice.service.Service;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.view.View.OnKeyListener;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-import android.widget.Toast;
+
+import com.hyrt.cei.R;
+import com.hyrt.cei.adapter.PhoneStudySearchAdapter;
+import com.hyrt.cei.application.CeiApplication;
+import com.hyrt.cei.util.MyTools;
+import com.hyrt.cei.util.XmlUtil;
+import com.hyrt.cei.vo.Courseware;
+import com.hyrt.cei.webservice.service.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class SearchCourseActivity extends Activity {
 
@@ -200,21 +196,21 @@ public class SearchCourseActivity extends Activity {
 
 			// 初始化请求数据
 			private void initSendData() {
-				ColumnEntry columnEntry = ((CeiApplication) (SearchCourseActivity.this
-						.getApplication())).columnEntry;
-				ColumnEntry phoneStudyCol = columnEntry
-						.getColByName(HomePageActivity.MODEL_NAME);
-				functionIds = new StringBuilder(phoneStudyCol.getId());
+//				ColumnEntry columnEntry = ((CeiApplication) (SearchCourseActivity.this
+//						.getApplication())).columnEntry;
+//				ColumnEntry phoneStudyCol = columnEntry
+//						.getColByName(HomePageActivity.MODEL_NAME);
+//				functionIds = new StringBuilder(phoneStudyCol.getId());
 				selfselCoursewares = new ArrayList<Courseware>();
-				for (int i = 0; i < columnEntry.getColumnEntryChilds().size(); i++) {
-					ColumnEntry entryChild = columnEntry.getColumnEntryChilds()
-							.get(i);
-					if (entryChild.getPath() != null
-							&& entryChild.getPath().contains(
-									phoneStudyCol.getId())) {
-						functionIds.append("," + entryChild.getId());
-					}
-				}
+//				for (int i = 0; i < columnEntry.getColumnEntryChilds().size(); i++) {
+//					ColumnEntry entryChild = columnEntry.getColumnEntryChilds()
+//							.get(i);
+//					if (entryChild.getPath() != null
+//							&& entryChild.getPath().contains(
+//									phoneStudyCol.getId())) {
+//						functionIds.append("," + entryChild.getId());
+//					}
+//				}
 				coursewares.clear();
 				courses.clear();
 			}
@@ -222,7 +218,7 @@ public class SearchCourseActivity extends Activity {
 			public void run() {
 				initSendData();
 				if (((CeiApplication) getApplication()).isNet()) {
-					String result = Service.queryClassName(searchContent.getText().toString().trim(),functionIds.toString());
+					String result = Service.queryClassName(searchContent.getText().toString().trim(),"".toString());
 					XmlUtil.parseCoursewares(result, courses);
 					result = Service.queryCourse(((CeiApplication) (getApplication())).columnEntry.getUserId());
 					XmlUtil.parseCoursewares(result, selfselCoursewares);

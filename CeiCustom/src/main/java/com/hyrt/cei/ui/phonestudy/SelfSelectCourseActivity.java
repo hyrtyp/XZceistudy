@@ -1,13 +1,21 @@
 package com.hyrt.cei.ui.phonestudy;
 
-import java.util.ArrayList;
-import java.util.List;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.hyrt.cei.R;
 import com.hyrt.cei.adapter.PhoneStudySelcoAdapter;
 import com.hyrt.cei.application.CeiApplication;
 import com.hyrt.cei.db.DataHelper;
-import com.hyrt.cei.dzb.ui.HomePageDZB;
 import com.hyrt.cei.ui.main.Announcement;
 import com.hyrt.cei.ui.main.Disclaimer;
 import com.hyrt.cei.ui.personcenter.PersonCenter;
@@ -16,17 +24,8 @@ import com.hyrt.cei.vo.Courseware;
 import com.hyrt.cei.vo.Preload;
 import com.hyrt.cei.webservice.service.Service;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SelfSelectCourseActivity extends BaseActivity implements
 		OnClickListener {
@@ -160,12 +159,16 @@ public class SelfSelectCourseActivity extends BaseActivity implements
 						break;
 					}
 					for (int i = 0; i < labelParent.getChildCount(); i++) {
-						ImageView labelIv = (ImageView) labelParent
+						Button labelIv = (Button) labelParent
 								.getChildAt(i);
 						if (i == j) {
-							labelIv.setImageResource(drawables[i][1]);
+//							labelIv.setImageResource(drawables[i][1]);
+                            labelIv.setBackgroundResource(R.drawable.pad_study_tab_bg);
+                            labelIv.setTextColor(getResources().getColor(R.color.pad_study_color_black));
 						} else {
-							labelIv.setImageResource(drawables[i][0]);
+//							labelIv.setImageResource(drawables[i][0]);
+                            labelIv.setBackgroundResource(R.drawable.pad_study_tab_bg2);
+                            labelIv.setTextColor(getResources().getColor(R.color.pad_study_color_White));
 						}
 					}
 				}
@@ -199,7 +202,7 @@ public class SelfSelectCourseActivity extends BaseActivity implements
 				if (((CeiApplication) getApplication()).isNet()) {
 					String result = Service
 							.queryCourse(((CeiApplication) (getApplication())).columnEntry
-									.getUserId());
+									.getXzuserid());
 					XmlUtil.parseErrorCoursewares(result, courses);
 					for (int i = 0; i < courses.size(); i++) {
 						courses.get(i).setSelfCourse(true);
@@ -225,17 +228,17 @@ public class SelfSelectCourseActivity extends BaseActivity implements
 	}
 
 	private void initBottom() {
-		ImageView headIv = (ImageView) findViewById(R.id.phone_study_notice);
-		ImageView newIv = (ImageView) findViewById(R.id.phone_study_new);
-		ImageView nominateIv = (ImageView) findViewById(R.id.phone_study_nominate);
-		ImageView freeIv = (ImageView) findViewById(R.id.phone_study_free);
-		ImageView kindIv = (ImageView) findViewById(R.id.phone_study_kind);
-		ImageView selfIv = (ImageView) findViewById(R.id.phone_study_self);
-		ImageView studyIv = (ImageView) findViewById(R.id.phone_study_study);
-		ImageView sayIv = (ImageView) findViewById(R.id.phone_study_say);
-        ImageView personcenterIv = (ImageView) findViewById(R.id.phone_study_personcenter);
+		TextView headIv = (TextView) findViewById(R.id.phone_study_notice);
+		TextView newIv = (TextView) findViewById(R.id.phone_study_new);
+		TextView nominateIv = (TextView) findViewById(R.id.phone_study_nominate);
+		TextView freeIv = (TextView) findViewById(R.id.phone_study_free);
+		TextView kindIv = (TextView) findViewById(R.id.phone_study_kind);
+		TextView selfIv = (TextView) findViewById(R.id.phone_study_self);
+		TextView studyIv = (TextView) findViewById(R.id.phone_study_study);
+		TextView sayIv = (TextView) findViewById(R.id.phone_study_say);
+        TextView personcenterIv = (TextView) findViewById(R.id.phone_study_personcenter);
         personcenterIv.setOnClickListener(this);
-        ImageView aboutIv = (ImageView) findViewById(R.id.phone_study_about);
+        TextView aboutIv = (TextView) findViewById(R.id.phone_study_about);
         aboutIv.setOnClickListener(this);
 		headIv.setOnClickListener(this);
 		newIv.setOnClickListener(this);
@@ -245,6 +248,9 @@ public class SelfSelectCourseActivity extends BaseActivity implements
 		selfIv.setOnClickListener(this);
 		studyIv.setOnClickListener(this);
 		sayIv.setOnClickListener(this);
+
+        findViewById(R.id.phone_study_self).setBackgroundResource(R.drawable.pad_bottom_tv_select);
+        selfIv.setTextColor(getResources().getColor(R.color.pad_bottomandtop_bg));
 	}
 
 	@Override

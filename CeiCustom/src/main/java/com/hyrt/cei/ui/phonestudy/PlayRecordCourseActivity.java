@@ -1,20 +1,5 @@
 package com.hyrt.cei.ui.phonestudy;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.hyrt.cei.R;
-import com.hyrt.cei.adapter.PhoneStudyRecordAdapter;
-import com.hyrt.cei.application.CeiApplication;
-import com.hyrt.cei.dzb.ui.HomePageDZB;
-import com.hyrt.cei.ui.main.Announcement;
-import com.hyrt.cei.ui.main.Disclaimer;
-import com.hyrt.cei.ui.personcenter.PersonCenter;
-import com.hyrt.cei.util.XmlUtil;
-import com.hyrt.cei.vo.Courseware;
-import com.hyrt.cei.webservice.service.Service;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -22,9 +7,23 @@ import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ImageView;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import com.hyrt.cei.R;
+import com.hyrt.cei.adapter.PhoneStudyRecordAdapter;
+import com.hyrt.cei.application.CeiApplication;
+import com.hyrt.cei.ui.main.Announcement;
+import com.hyrt.cei.ui.main.Disclaimer;
+import com.hyrt.cei.ui.personcenter.PersonCenter;
+import com.hyrt.cei.util.XmlUtil;
+import com.hyrt.cei.vo.Courseware;
+import com.hyrt.cei.webservice.service.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PlayRecordCourseActivity extends BaseActivity implements
 		OnClickListener {
@@ -135,7 +134,7 @@ public class PlayRecordCourseActivity extends BaseActivity implements
 		labelParent = (LinearLayout) findViewById(R.id.phone_study_labelParent);
 		for (int i = 0; i < labelParent.getChildCount(); i++) {
 			final int x = i;
-			ImageView iv = (ImageView) labelParent.getChildAt(i);
+            Button iv = (Button) labelParent.getChildAt(i);
 			iv.setOnClickListener(new OnClickListener() {
 
 				@Override
@@ -186,12 +185,16 @@ public class PlayRecordCourseActivity extends BaseActivity implements
 							break;
 						}
 						for (int i = 0; i < labelParent.getChildCount(); i++) {
-							ImageView iv = (ImageView) labelParent
+							Button iv = (Button) labelParent
 									.getChildAt(i);
 							if (i == x) {
-								iv.setImageResource(drawables[i][1]);
+//								iv.setImageResource(drawables[i][1]);
+                                iv.setBackgroundResource(R.drawable.pad_study_tab_bg);
+                                iv.setTextColor(getResources().getColor(R.color.pad_study_color_black));
 							} else {
-								iv.setImageResource(drawables[i][0]);
+//								iv.setImageResource(drawables[i][0]);
+                                iv.setBackgroundResource(R.drawable.pad_study_tab_bg2);
+                                iv.setTextColor(getResources().getColor(R.color.pad_study_color_White));
 							}
 						}
 					} catch (Exception e) {
@@ -278,17 +281,17 @@ public class PlayRecordCourseActivity extends BaseActivity implements
 	}
 
 	private void initBottom() {
-		ImageView headIv = (ImageView) findViewById(R.id.phone_study_notice);
-		ImageView newIv = (ImageView) findViewById(R.id.phone_study_new);
-		ImageView nominateIv = (ImageView) findViewById(R.id.phone_study_nominate);
-		ImageView freeIv = (ImageView) findViewById(R.id.phone_study_free);
-		ImageView kindIv = (ImageView) findViewById(R.id.phone_study_kind);
-		ImageView selfIv = (ImageView) findViewById(R.id.phone_study_self);
-		ImageView studyIv = (ImageView) findViewById(R.id.phone_study_study);
-		ImageView sayIv = (ImageView) findViewById(R.id.phone_study_say);
-        ImageView personcenterIv = (ImageView) findViewById(R.id.phone_study_personcenter);
+		TextView headIv = (TextView) findViewById(R.id.phone_study_notice);
+		TextView newIv = (TextView) findViewById(R.id.phone_study_new);
+		TextView nominateIv = (TextView) findViewById(R.id.phone_study_nominate);
+		TextView freeIv = (TextView) findViewById(R.id.phone_study_free);
+		TextView kindIv = (TextView) findViewById(R.id.phone_study_kind);
+		TextView selfIv = (TextView) findViewById(R.id.phone_study_self);
+		TextView studyIv = (TextView) findViewById(R.id.phone_study_study);
+		TextView sayIv = (TextView) findViewById(R.id.phone_study_say);
+        TextView personcenterIv = (TextView) findViewById(R.id.phone_study_personcenter);
         personcenterIv.setOnClickListener(this);
-        ImageView aboutIv = (ImageView) findViewById(R.id.phone_study_about);
+        TextView aboutIv = (TextView) findViewById(R.id.phone_study_about);
         aboutIv.setOnClickListener(this);
 		headIv.setOnClickListener(this);
 		newIv.setOnClickListener(this);
@@ -296,8 +299,11 @@ public class PlayRecordCourseActivity extends BaseActivity implements
 		freeIv.setOnClickListener(this);
 		kindIv.setOnClickListener(this);
 		selfIv.setOnClickListener(this);
-		studyIv.setOnClickListener(this);
+//		studyIv.setOnClickListener(this);
 		sayIv.setOnClickListener(this);
+
+        findViewById(R.id.phone_study_study).setBackgroundResource(R.drawable.pad_bottom_tv_select);
+        studyIv.setTextColor(getResources().getColor(R.color.pad_bottomandtop_bg));
 	}
 
 	@Override

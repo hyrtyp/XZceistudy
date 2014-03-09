@@ -1,7 +1,22 @@
 package com.hyrt.cei.ui.common;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
+import android.app.Activity;
+import android.content.Context;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.os.PowerManager;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
+import android.webkit.WebSettings.PluginState;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.TextView;
 
 import com.hyrt.cei.R;
 import com.hyrt.cei.application.CeiApplication;
@@ -15,25 +30,8 @@ import com.hyrt.cei.vo.Courseware;
 import com.hyrt.cei.vo.Preload;
 import com.hyrt.cei.webservice.service.Service;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.os.PowerManager;
-import android.os.Process;
-import android.view.KeyEvent;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.webkit.JsResult;
-import android.webkit.WebChromeClient;
-import android.webkit.WebSettings;
-import android.webkit.WebSettings.PluginState;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.TextView;
-import android.widget.Toast;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class WebViewUtil extends Activity {
 
@@ -42,6 +40,8 @@ public class WebViewUtil extends Activity {
 	private String classId;
 	// 课件入口文件名称
 	private Courseware courseware;
+
+    private String xzclassid;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -94,9 +94,11 @@ public class WebViewUtil extends Activity {
 		// 如果是读本地课件的话
 		courseware = (Courseware) getIntent().getSerializableExtra("class");
 		if (courseware == null) {
+            xzclassid=getIntent().getStringExtra("xzclass");
 			classId = getIntent().getStringExtra("classId");
 		} else {
 			classId = courseware.getClassId();
+            xzclassid=courseware.getXzclassid();
 		}
 		if (!path.contains("ftp") && !path.contains("file:///")) {
 			// 设置可以支持缩放
@@ -164,14 +166,14 @@ public class WebViewUtil extends Activity {
 			if (dataHelper.getStudyRecord(courseware)) {
 				path += "?userid="
 						+ ((CeiApplication) (this.getApplication())).columnEntry
-								.getUserId() + "&classid=" + classId
+								.getUserId() + "&classid=" + classId + "&xzclassid=" + xzclassid
 						+ "&native=0" + "&location="
 						+ courseware.getTimePoint() + "&totaltime="
 						+ courseware.getStudyTime();
 			} else {
 				path += "?userid="
 						+ ((CeiApplication) (this.getApplication())).columnEntry
-								.getUserId() + "&classid=" + classId
+								.getUserId() + "&classid=" + classId+ "&xzclassid=" + xzclassid
 						+ "&native=0" + "&location=0" + "&totaltime=0";
 			}
 			validStatusCode(path);

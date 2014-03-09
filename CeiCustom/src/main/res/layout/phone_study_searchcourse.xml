@@ -1,79 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent" android:layout_height="fill_parent"
-	android:id="@+id/full_view"
-	android:background="@drawable/background" android:orientation="vertical">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/full_view"
+    android:background="@drawable/background"
+    android:orientation="vertical">
 
-	<RelativeLayout android:id="@id/phone_study_top"
-		android:layout_width="fill_parent" android:layout_height="47px"
-		android:background="@drawable/phone_study_top_bg">
+    <RelativeLayout
+        android:id="@id/phone_study_top"
+        android:layout_width="fill_parent"
+        android:layout_height="47px"
+        android:background="@color/pad_bottomandtop_bg">
 
-		<ImageView android:id="@id/back_btn" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:layout_marginLeft="10dip"
-			android:gravity="center" android:src="@drawable/back_btn"/>
+        <ImageView
+            android:id="@id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:gravity="center"
+            android:src="@drawable/back_btn" />
 
-		<TextView android:layout_width="wrap_content"
-			android:layout_toRightOf="@id/back_btn" android:layout_height="wrap_content"
-			android:layout_marginLeft="50dip" 
-			android:text="课件搜索" style="@style/yangshi_pad_title"
-			android:layout_centerVertical="true" />
-			
-		<ImageView android:id="@id/phone_study_downmanager"
-			android:layout_centerVertical="true" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:src="@drawable/phone_study_downmanager"
-			android:layout_toLeftOf="@id/phone_study_search_btn" android:layout_marginRight="25dip" />	
-			
-		<ImageView android:id="@id/phone_study_search_btn"
-			android:layout_centerVertical="true" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:src="@drawable/phone_study_search"
-			android:layout_toLeftOf="@id/phone_study_refresh" android:layout_marginRight="20dip" />
-			
-		<ImageView android:id="@id/phone_study_refresh"
-			android:layout_centerVertical="true" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" android:src="@drawable/phone_study_refresh"
-			android:layout_alignParentRight="true" android:layout_marginRight="50dip" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_toRightOf="@id/back_btn"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dip"
+            android:text="课件搜索"
+            style="@style/yangshi_pad_title"
+            android:layout_centerVertical="true" />
 
-	</RelativeLayout>
+        <ImageView
+            android:id="@id/phone_study_downmanager"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/phone_study_downmanager"
+            android:layout_toLeftOf="@id/phone_study_search_btn"
+            android:layout_marginRight="25dip" />
 
-	<LinearLayout android:layout_width="fill_parent"
-		android:layout_height="fill_parent" android:orientation="vertical"
-		android:background="@drawable/phone_studynm_bg">
+        <ImageView
+            android:id="@id/phone_study_search_btn"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/phone_study_search"
+            android:layout_toLeftOf="@id/phone_study_refresh"
+            android:layout_marginRight="20dip" />
 
-		<LinearLayout android:layout_width="fill_parent" android:gravity="center"
-			android:layout_height="wrap_content" android:layout_marginTop="40dip">
+        <ImageView
+            android:id="@id/phone_study_refresh"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/phone_study_refresh"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="50dip" />
 
-			<EditText
-			    android:singleLine="true"
-			    android:id="@id/phone_study_search_edit"
-			    android:layout_width="wrap_content"
-			    android:layout_height="wrap_content"
-			    android:layout_gravity="center"
-			    android:background="@drawable/phone_study_search_search_bg"
-			    android:paddingLeft="90dip" />
+    </RelativeLayout>
 
-			<ImageView android:layout_width="wrap_content"
-				android:layout_gravity="center_vertical" android:layout_marginLeft="17dip"
-				android:id="@id/phone_study_search_ss" android:layout_height="wrap_content"
-				android:src="@drawable/phone_study_search_ss" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:background="@drawable/phone_studynm_bg">
 
-		</LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dip">
 
-		<RelativeLayout android:layout_width="fill_parent"
-			android:layout_height="fill_parent">
+            <EditText
+                android:singleLine="true"
+                android:id="@id/phone_study_search_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/phone_study_search_search_bg"
+                android:paddingLeft="90dip" />
 
-			<ListView android:id="@id/phone_study_searchcourse_listview"
-				android:layout_width="fill_parent" android:layout_height="fill_parent"
-				android:divider="#00000000" android:cacheColorHint="#00000000">
-			</ListView>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="17dip"
+                android:id="@id/phone_study_search_ss"
+                android:layout_height="wrap_content"
+                android:src="@drawable/phone_study_search_ss" />
 
-			<LinearLayout android:layout_width="fill_parent"
-				android:layout_height="fill_parent" android:gravity="center">
+        </LinearLayout>
 
-				<ProgressBar android:id="@id/phone_study_searchcourse_progress"
-					android:layout_width="wrap_content" android:layout_height="wrap_content"
-					android:gravity="center" android:visibility="gone"/>
-			</LinearLayout>
-		</RelativeLayout>
-	</LinearLayout>
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <ListView
+                android:id="@id/phone_study_searchcourse_listview"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:divider="#00000000"
+                android:cacheColorHint="#00000000"></ListView>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center">
+
+                <ProgressBar
+                    android:id="@id/phone_study_searchcourse_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
 
 </LinearLayout>

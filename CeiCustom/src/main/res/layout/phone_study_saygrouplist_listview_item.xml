@@ -5,24 +5,32 @@
     android:padding="20dip"
     android:gravity="center_vertical">
 
-    <ImageView
-        android:id="@id/phone_study_course_icon"
-        android:layout_width="222dip"
-        android:layout_height="160dip"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY"
-        android:src="@drawable/courseware_default_icon" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        style="@style/pad_image_padding">
+
+        <ImageView
+            android:id="@id/phone_study_course_icon"
+            android:layout_width="222dip"
+            android:layout_height="160dip"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/courseware_default_icon" />
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="20dip"
-            android:paddingTop="25dip" >
+            android:paddingTop="25dip">
 
             <TextView
                 android:id="@id/phone_study_gird_item_tv1"
@@ -30,22 +38,26 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="主题 ：环保与经济"
-                android:textColor="#003380"
-                android:textSize="20.0dip"
-                android:textStyle="bold" />
+                style="@style/pad_study_h1" />
         </RelativeLayout>
-		<LinearLayout android:layout_width="fill_parent" android:layout_height="1dip" android:layout_marginTop="6dip" 
-		    android:background="@drawable/phone_study_dotted_line" android:layout_marginLeft="20dip"/>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:layout_marginTop="6dip"
+            android:background="@drawable/phone_study_dotted_line"
+            android:layout_marginLeft="20dip" />
+
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-             android:layout_marginTop="20dip">
+            android:layout_marginTop="20dip">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dip"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@id/phone_study_gird_item_tv2"
@@ -53,8 +65,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:text="主讲人 ：张小娴"
-                    android:textColor="#80000000"
-                    android:textSize="12.0dip" />
+                    style="@style/pad_study_h1_small"/>
 
                 <TextView
                     android:id="@id/phone_study_gird_item_tv3"
@@ -63,8 +74,7 @@
                     android:layout_marginTop="5dip"
                     android:gravity="center_horizontal"
                     android:text="发布时间 ：2012-12-31"
-                    android:textColor="#80000000"
-                    android:textSize="12.0dip" />
+                    style="@style/pad_study_h1_small"/>
             </LinearLayout>
 
         </RelativeLayout>

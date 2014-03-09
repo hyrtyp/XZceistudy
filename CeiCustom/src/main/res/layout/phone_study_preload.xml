@@ -4,13 +4,13 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/phone_study_child_bg"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <RelativeLayout
         android:id="@id/phone_study_top"
         android:layout_width="fill_parent"
         android:layout_height="47px"
-        android:background="@drawable/phone_study_top_bg" >
+        android:background="@color/pad_bottomandtop_bg">
 
         <ImageView
             android:id="@id/back_btn"
@@ -26,21 +26,21 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="50dip"
             android:layout_toRightOf="@id/back_btn"
-            android:text="下载管理" 
-            style="@style/yangshi_pad_title"/>
+            android:text="下载管理"
+            style="@style/yangshi_pad_title" />
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="@drawable/phone_studyym_bg"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_above="@id/phone_study_preload_scrollView"
-            android:paddingTop="17dip" >
+            android:paddingTop="17dip">
 
             <ImageView
                 android:id="@id/phone_study_preload_loadingBtn"
@@ -64,7 +64,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:gravity="center"
-            android:paddingTop="1.0px" >
+            android:paddingTop="1.0px">
 
             <LinearLayout
                 android:id="@id/phone_study_preload_itemParent"

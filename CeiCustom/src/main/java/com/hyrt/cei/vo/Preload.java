@@ -23,6 +23,7 @@ public class Preload implements Serializable {
 	public static final String LOAD_PARENTID = "loadParentId";
 	public static final String PASS_KEY = "passKey";
 	public static final String CLASS_LENGTH = "classLength";
+    public static final String XZCLASSID = "xzclassid";
 
 	private Long _id;
 	private int loadCurrentByte = -1;
@@ -38,8 +39,17 @@ public class Preload implements Serializable {
 	private String loadParentId;
 	private String passKey;
 	private String classLength;
-	
-	public String getPassKey() {
+	private String xzclassid;
+
+    public String getXzclassid() {
+        return xzclassid;
+    }
+
+    public void setXzclassid(String xzclassid) {
+        this.xzclassid = xzclassid;
+    }
+
+    public String getPassKey() {
 		return passKey;
 	}
 	public void setPassKey(String passKey) {

@@ -3,7 +3,7 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
-	android:background="@drawable/phone_study_bg"
+	android:background="@drawable/background"
 	android:orientation="vertical"
 >
 
@@ -13,7 +13,7 @@
 		android:layout_height="48dp"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-		android:background="@drawable/phone_study_top_bg"
+		android:background="@color/pad_bottomandtop_bg"
 	>
 
 		<ImageView
@@ -227,6 +227,6 @@
 		</LinearLayout>
 	</ScrollView>
 
-	<include layout="@layout/phone_study_bottom_transparentbar" />
+	<include layout="@layout/phone_study_bottom_transparentbar2" />
 
 </LinearLayout>

@@ -1,24 +1,5 @@
 package com.hyrt.cei.adapter;
 
-import java.util.HashMap;
-import java.util.List;
-
-import com.hyrt.cei.R;
-import com.hyrt.cei.application.CeiApplication;
-import com.hyrt.cei.db.DataHelper;
-import com.hyrt.cei.ui.common.WebViewUtil;
-import com.hyrt.cei.ui.phonestudy.CourseDetailActivity;
-import com.hyrt.cei.ui.phonestudy.PlayRecordCourseActivity;
-import com.hyrt.cei.ui.phonestudy.PreloadActivity;
-import com.hyrt.cei.util.AsyncImageLoader;
-import com.hyrt.cei.util.BitmapManager;
-import com.hyrt.cei.util.MyTools;
-import com.hyrt.cei.util.XmlUtil;
-import com.hyrt.cei.vo.Courseware;
-import com.hyrt.cei.vo.ImageResourse;
-import com.hyrt.cei.vo.Preload;
-import com.hyrt.cei.webservice.service.Service;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -32,13 +13,31 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+
+import com.hyrt.cei.R;
+import com.hyrt.cei.application.CeiApplication;
+import com.hyrt.cei.db.DataHelper;
+import com.hyrt.cei.ui.common.WebViewUtil;
+import com.hyrt.cei.ui.phonestudy.CourseDetailActivity;
+import com.hyrt.cei.ui.phonestudy.PlayRecordCourseActivity;
+import com.hyrt.cei.ui.phonestudy.PreloadActivity;
+import com.hyrt.cei.util.BitmapManager;
+import com.hyrt.cei.util.MyTools;
+import com.hyrt.cei.util.XmlUtil;
+import com.hyrt.cei.vo.Courseware;
+import com.hyrt.cei.vo.Preload;
+import com.hyrt.cei.webservice.service.Service;
+
+import java.util.HashMap;
+import java.util.List;
 
 public class PhoneStudyRecordAdapter extends BaseAdapter {
 
@@ -84,9 +83,9 @@ public class PhoneStudyRecordAdapter extends BaseAdapter {
 		convertView = inflater.inflate(itemLayout, null);
 		holder.courseIcon = (ImageView) convertView
 				.findViewById(R.id.phone_study_playrecord_course_icon);
-		holder.coursePlayBtn = (ImageView) convertView
+		holder.coursePlayBtn = (Button) convertView
 				.findViewById(R.id.phone_study_playrecord_play_btn);
-		holder.downloadBtn = (ImageView) convertView
+		holder.downloadBtn = (Button) convertView
 				.findViewById(R.id.phone_study_playrecord_download_btn);
 		holder.addCourse = (ImageView) convertView
 				.findViewById(R.id.phone_study_playrecord_addcourse);
@@ -124,8 +123,8 @@ public class PhoneStudyRecordAdapter extends BaseAdapter {
 		}
 		holder.totalTime.setText("总时长 : "
 				+ coursewares.get(position).getClassLength());
-		holder.coursePlayBtn
-				.setImageResource(R.drawable.phone_study_playrecord_study_btn);
+//		holder.coursePlayBtn
+//				.setImageResource(R.drawable.phone_study_playrecord_study_btn);
 		try {
 			if (coursewares.get(position).getUploadTime() != 0
 					&& !"1".equals(coursewares.get(position).getIscompleted()))
@@ -186,7 +185,11 @@ public class PhoneStudyRecordAdapter extends BaseAdapter {
 														coursewares
 																.get(position)
 																.getUploadTime()
-																+ "")).equals(
+																+ "",((CeiApplication) (activity
+                                                        .getApplication())).columnEntry
+                                                        .getXzuserid(),coursewares.get(
+                                                        position)
+                                                        .getXzclassid())).equals(
 												"-1")) {
 									handler.post(new Runnable() {
 
@@ -251,7 +254,11 @@ public class PhoneStudyRecordAdapter extends BaseAdapter {
 													coursewares
 															.get(position)
 															.getUploadTime()
-															+ "")).equals(
+															+ "",((CeiApplication) (activity
+                                    .getApplication())).columnEntry
+                                    .getXzuserid(),coursewares.get(
+                                    position)
+                                    .getXzclassid())).equals(
 											"-1")) {
 								handler.post(new Runnable() {
 
@@ -328,8 +335,8 @@ public class PhoneStudyRecordAdapter extends BaseAdapter {
 
 	class ViewHolder {
 		ImageView courseIcon;
-		ImageView downloadBtn;
-		ImageView coursePlayBtn;
+        Button downloadBtn;
+        Button coursePlayBtn;
 		ImageView addCourse;
 		TextView alStudyTime;
 		TextView studyStatus;
@@ -353,6 +360,7 @@ public class PhoneStudyRecordAdapter extends BaseAdapter {
 				preload.setLoadCurrentByte(0);
 				preload.setLoading(1);
 				preload.setLoadFinish(0);
+                preload.setXzclassid(courseware.getXzclassid());
 				preload.setLoadUrl(courseware.getDownPath());
 				if (courseware.getDownPath() != null)
 					preload.setLoadLocalPath(MyTools.RESOURCE_PATH
@@ -438,11 +446,11 @@ public class PhoneStudyRecordAdapter extends BaseAdapter {
 
 	private void changeDownBtn(View view, String classId) {
 		DataHelper dataHelper = ((CeiApplication) (activity.getApplication())).dataHelper;
-		ImageView downBtn = (ImageView) view;
+        Button downBtn = (Button) view;
 		Preload preload = dataHelper.getPreload(classId);
 		if (preload != null && preload.getLoadFinish() == 1) {
 			downBtn.setOnClickListener(null);
-			downBtn.setImageResource(R.drawable.phone_study_nodown_btn);
+//			downBtn.setImageResource(R.drawable.phone_study_nodown_btn);
 		}
 	}
 }

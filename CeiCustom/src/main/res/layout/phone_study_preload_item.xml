@@ -27,8 +27,7 @@
             android:scrollHorizontally="true"
             android:text="主题 ：美国决定对中国输美荧光增白剂征收高额反倾销关税"
             android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="#003380"
-            android:textSize="17sp" />
+           style="@style/pad_study_h1" />
 
         <LinearLayout
             android:id="@+id/phone_study_preload_item_processStatus"
@@ -90,7 +89,7 @@
             android:layout_centerVertical="true"
             android:singleLine="true"
             android:text="主讲人：范先生/张先生            发布时间:2012-12-31 15:23:50"
-            android:textColor="#80000000" />
+            style="@style/pad_study_h1_small" />
 
         <Button
             android:id="@id/phone_study_preload_item_btnDelete"

@@ -1,16 +1,17 @@
 package com.hyrt.cei.db;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDatabase.CursorFactory;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
 import com.hyrt.cei.vo.ClassType;
 import com.hyrt.cei.vo.Courseware;
 import com.hyrt.cei.vo.ImageResourse;
 import com.hyrt.cei.vo.Preload;
 import com.hyrt.cei.vo.Report;
 import com.hyrt.cei.vo.WitSea;
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 public class SqliteHelper extends SQLiteOpenHelper {
 
@@ -106,7 +107,8 @@ public class SqliteHelper extends SQLiteOpenHelper {
 				+ Preload.LOAD_PLAYTITLE_BELOW + " VERCHAR,"
 				+ Preload.LOAD_PARENTID + " VERCHAR," 
 				+ Preload.PASS_KEY + " TEXT," 
-				+ Preload.CLASS_LENGTH + " VERCHAR"+")");
+				+ Preload.CLASS_LENGTH + " VERCHAR,"
+                + Preload.XZCLASSID + " VERCHAR"+")");
 		//课件学习记录
 		db.execSQL("CREATE TABLE IF NOT EXISTS " + TB_STUDYRECORD_NAME + "("
 				+ Courseware.ID + " INTEGER  PRIMARY KEY," 

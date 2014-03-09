@@ -25,7 +25,7 @@ public final class AgentServiceSoapBindingImpl {
 	 * @throws Exception
 	 */
 	public String loginUserInfo(String xmlStr) throws Exception {
-		SoapObject _client = new SoapObject("", "loginUserInfo");
+		SoapObject _client = new SoapObject("", "getLoginUserInfo");
 		SoapSerializationEnvelope _envelope = new SoapSerializationEnvelope(
 				SoapEnvelope.VER11);
 		_client.addProperty("xmlStr", xmlStr);
