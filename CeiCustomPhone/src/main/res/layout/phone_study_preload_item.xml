@@ -106,7 +106,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="15.0dip"
-                android:background="@drawable/phone_study_preload_item_addcourse" />
+                android:background="@drawable/phone_study_preload_item_addcourse"
+                android:visibility="gone"/>
 
             <Button
                 android:id="@+id/phone_study_preload_item_btnPlay"

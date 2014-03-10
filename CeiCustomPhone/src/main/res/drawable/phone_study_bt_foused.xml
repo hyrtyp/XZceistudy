@@ -1,5 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
 
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-
-</selector>
+    <solid android:color="@color/phone_study_bt_bg_fouced" />
+    <corners android:radius="3dip"/>
+    <stroke
+        android:width="1dip"
+        android:color="@color/phone_study_bt_bg_fouced" />
+    <padding
+        android:left="1dp"
+        android:bottom="1dp"
+        android:right="1dp"
+        android:top="1dp"
+        />
+</shape>

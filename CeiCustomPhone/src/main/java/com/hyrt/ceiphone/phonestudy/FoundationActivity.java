@@ -278,7 +278,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
             case NEW_DATA_KEY:
                 ((TextView) findViewById(R.id.phone_study_title))
                         .setText("移动学习");
-                ((ImageView) findViewById(R.id.phone_study_icon)).setVisibility(View.VISIBLE);
+                ((ImageView) findViewById(R.id.phone_study_icon)).setVisibility(View.INVISIBLE);
                 break;
             case FREE_DATA_KEY:
                 ((TextView) findViewById(R.id.phone_study_title))
@@ -710,17 +710,17 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
             textView = (TextView) findViewById(R.id.phone_study_about_tv);
             textView.setBackgroundResource(R.drawable.bg_bottom_textview_focused);
             textView.setTextColor(getResources().getColor(R.color.phone_bottomandtop_bg));
-            bottomHorScr.smoothScrollTo(7*textView.getMeasuredHeight(), 0);
+            bottomHorScr.smoothScrollTo(5*textView.getMeasuredHeight(), 0);
         } else if (this instanceof PersonCenter) {
             textView = (TextView) findViewById(R.id.phone_study_personcenter_tv);
             textView.setBackgroundResource(R.drawable.bg_bottom_textview_focused);
             textView.setTextColor(getResources().getColor(R.color.phone_bottomandtop_bg));
-            bottomHorScr.smoothScrollTo(6*textView.getMeasuredHeight(), 0);
+            bottomHorScr.smoothScrollTo(4*textView.getMeasuredHeight(), 0);
         } else if (this instanceof Announcement) {
             textView = (TextView) findViewById(R.id.phone_study_notice_tv);
             textView.setBackgroundResource(R.drawable.bg_bottom_textview_focused);
             textView.setTextColor(getResources().getColor(R.color.phone_bottomandtop_bg));
-            bottomHorScr.smoothScrollTo(5*textView.getMeasuredHeight(), 0);
+            bottomHorScr.smoothScrollTo(3*textView.getMeasuredHeight(), 0);
         } else if (this instanceof SearchActivity) {
 //            textView=(TextView)findViewById(R.id.phone_study_search);
 //            textView.setBackgroundResource(R.drawable.bg_bottom_textview_focused);
@@ -747,12 +747,12 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
             textView = (TextView) findViewById(R.id.phone_study_say_tv);
             textView.setBackgroundResource(R.drawable.bg_bottom_textview_focused);
             textView.setTextColor(getResources().getColor(R.color.phone_bottomandtop_bg));
-            bottomHorScr.smoothScrollTo(4*textView.getMeasuredHeight(), 0);
+//            bottomHorScr.smoothScrollTo(4*textView.getMeasuredHeight(), 0);
         } else if (this instanceof SelfActivity) {
             textView = (TextView) findViewById(R.id.phone_study_self_tv);
             textView.setBackgroundResource(R.drawable.bg_bottom_textview_focused);
             textView.setTextColor(getResources().getColor(R.color.phone_bottomandtop_bg));
-            bottomHorScr.smoothScrollTo(3*textView.getMeasuredHeight(), 0);
+//            bottomHorScr.smoothScrollTo(3*textView.getMeasuredHeight(), 0);
         }
     }
 }
