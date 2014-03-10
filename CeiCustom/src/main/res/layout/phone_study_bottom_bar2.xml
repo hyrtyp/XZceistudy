@@ -11,7 +11,7 @@
         android:background="@color/pad_study_color1"
         android:baselineAligned="false"
         android:layout_marginTop="2dp"
-        android:weightSum="9"
+        android:weightSum="6"
         android:orientation="horizontal"
         android:gravity="center_vertical">
 
@@ -30,7 +30,8 @@
             style="@style/pad_study_bottom_tv"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="推荐课程"/>
+            android:text="推荐课程"
+            android:visibility="gone"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -72,7 +73,8 @@
             style="@style/pad_study_bottom_tv"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="课程讨论"/>
+            android:text="课程讨论"
+            android:visibility="gone"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -89,7 +91,8 @@
             style="@style/pad_study_bottom_tv"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="个人中心"/>
+            android:text="个人中心"
+            android:visibility="gone"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

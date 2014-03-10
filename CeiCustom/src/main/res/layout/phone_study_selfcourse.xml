@@ -30,7 +30,8 @@
             android:layout_height="32dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/icon" />
+            android:src="@drawable/icon"
+            android:visibility="invisible"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -86,15 +87,16 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:paddingTop="5dip"
+        android:paddingTop="10dip"
         android:layout_weight="5"
-        android:background="@drawable/phone_studyym_bg"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@id/phone_study_labelParent">
+            android:id="@id/phone_study_labelParent"
+            android:layout_marginLeft="60dp"
+            >
 
             <Button
                 android:layout_width="wrap_content"
@@ -102,7 +104,8 @@
                 style="@style/pad_study_Tab"
                 android:text="全部自选课"
                 android:background="@drawable/pad_study_tab_bg"
-                android:textColor="@color/pad_study_color_black" />
+                android:textColor="@color/pad_study_color_black"
+                />
 
             <Button
                 android:layout_width="wrap_content"
@@ -117,7 +120,7 @@
             android:layout_height="fill_parent"
             android:divider="#00000000"
             android:cacheColorHint="#00000000"
-            android:background="#ffffff" />
+            android:background="#e0ffffff" />
 
     </LinearLayout>
 

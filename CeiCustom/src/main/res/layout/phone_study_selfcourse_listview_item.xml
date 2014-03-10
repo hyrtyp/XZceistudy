@@ -95,7 +95,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:paddingRight="60dip"
-                android:src="@drawable/phone_study_canclecourse_btn" />
+                android:src="@drawable/phone_study_canclecourse_btn"
+                android:visibility="gone"/>
         </RelativeLayout>
     </LinearLayout>
 
