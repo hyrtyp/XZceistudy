@@ -12,7 +12,8 @@
         android:background="#90ffffff"
         android:orientation="horizontal"
         android:layout_centerInParent="true"
-        android:id="@+id/ui_login_ly">
+        android:id="@+id/ui_login_ly"
+        android:layout_marginTop="20dp">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -151,7 +152,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#ffffff"
-        android:textSize="50dp"
+        android:textSize="55dp"
         android:layout_centerHorizontal="true"
         android:layout_above="@id/ui_login_ly"
         android:textScaleX="1.2"

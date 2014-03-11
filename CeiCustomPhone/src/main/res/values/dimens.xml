@@ -5,11 +5,13 @@
     <dimen name="padding_large">16dp</dimen>
 
     <!--顶部标题的字体大小-->
-    <dimen name="top_text_size">25sp</dimen>
+    <dimen name="top_text_size">15sp</dimen>
     <!--界面外边距-->
     <dimen name="phone_study_view_margin">5dp</dimen>
-    <!--二级标题顶部距离-->
+    <!--二级标题-->
     <dimen name="phone_study_view_h2_margin_top">8dp</dimen>
+    <dimen name="phone_study_h2_padding">3dp</dimen>
+    <dimen name="phone_study_h2_textSize">16sp</dimen>
     <!--底部导航-->
     <dimen name="phone_study_bottom_tv_pad_left">10dp</dimen>
     <dimen name="phone_study_bottom_tv_pad_right">10dp</dimen>
@@ -25,5 +27,38 @@
     <dimen name="phone_study_Tab_pad_top_bot">5dp</dimen>
     <dimen name="phone_study_Tab_textSize">17sp</dimen>
 
+    <!--一级标题-->
+    <dimen name="phone_study_h1_textSize">18sp</dimen>
+    <dimen name="phone_study_h1_small_textSize">16sp</dimen>
 
+    <!--字体-->
+    <dimen name="phone_study_text_textSize">20sp</dimen>
+
+    <!--详细页面图片-->
+    <dimen name="phone_study_image_detail_height">100dp</dimen>
+    <dimen name="phone_study_image_detail_width">110dp</dimen>
+
+    <!--列表页面图片-->
+    <dimen name="phone_study_image_list_width">100dp</dimen>
+    <dimen name="phone_study_image_list_height">80dp</dimen>
+
+    <!--列表边距-->
+    <dimen name="phone_study_listview_paddingBottom">10dp</dimen>
+    <dimen name="phone_study_listview_paddingleft">15dp</dimen>
+
+    <!--pop窗口-->
+    <dimen name="phone_study_pop_tv_textSize">17sp</dimen>
+    <dimen name="phone_study_pop_tv_width">60dp</dimen>
+    <dimen name="phone_study_pop_tv_height">33dp</dimen>
+
+    <!--gallery-->
+    <dimen name="phone_study_gallery_tv">10sp</dimen>
+
+    <!--下载条目-->
+    <dimen name="phone_study_prload_h1_textSize">15sp</dimen>
+    <dimen name="phone_study_prload_h1_paddingRight">70dp</dimen>
+    <dimen name="phone_study_prload_h2_textSize">13sp</dimen>
+
+    <!--登录标题字体-->
+    <dimen name="phone_study_login_title_textSize">29sp</dimen>
 </resources>

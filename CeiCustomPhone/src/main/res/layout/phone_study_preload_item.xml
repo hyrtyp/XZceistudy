@@ -16,8 +16,7 @@
         
         <com.hyrt.cei.ui.phonestudy.view.AlwaysMarqueeTextView
             android:id="@+id/phone_study_preload_item_title"
-            style="@style/yangshi_1"
-            android:layout_width="300px"
+            android:layout_width="340dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
@@ -27,10 +26,9 @@
             android:marqueeRepeatLimit="marquee_forever"
             android:scrollHorizontally="true"
             android:singleLine="true"
-            android:textColor="#054b93"
-            android:textSize="28px"
             android:text="主题 ：美国决定对中国输美荧光增白剂征收高额反倾销关税"
-            android:textAppearance="?android:textAppearanceMedium" />
+            style="@style/phone_study_prload_h1"
+            />
 
         <LinearLayout
             android:id="@+id/phone_study_preload_item_processStatus"
@@ -87,7 +85,7 @@
 
         <TextView
             android:id="@+id/phone_study_preload_item_content"
-            style="@style/yangshi_2"
+            style="@style/phone_study_prload_h2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"

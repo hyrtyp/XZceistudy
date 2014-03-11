@@ -190,7 +190,7 @@ public class PhoneStudyActivity extends FoundationActivity {
 
 			}
 		});
-		getWellCourses();
+        getWellCourses();
 	}
 
 	@Override
