@@ -51,7 +51,9 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:textColor="#ffffff"
-        android:textSize="@dimen/top_text_size" />
+        android:textSize="@dimen/top_text_size"
+        android:text="移动学习"
+        />
 
     <Button
         android:id="@+id/main_login"
@@ -67,12 +69,15 @@
         android:id="@+id/main_login_tv"
         android:textColor="#FFFFFF"
         android:text="欢迎您使用！"
+        android:layout_toRightOf="@id/phone_study_title"
         android:layout_toLeftOf="@id/phone_study_search"
-        android:layout_marginRight="10dip"
-        android:visibility="gone"
         android:layout_centerVertical="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="5dp"
+        android:singleLine="true"
+        android:visibility="gone"/>
 
 
 </RelativeLayout>

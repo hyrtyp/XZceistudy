@@ -111,7 +111,7 @@ public class PhoneStudyActivity extends FoundationActivity {
 		super.onCreate(savedInstanceState);
 		this.CURRENT_KEY = FoundationActivity.NEW_DATA_KEY;
 		setContentView(R.layout.phone_study);
-        showLoginBtnByUserName();
+//        showLoginBtnByUserName();
         findViewById(R.id.main_login).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

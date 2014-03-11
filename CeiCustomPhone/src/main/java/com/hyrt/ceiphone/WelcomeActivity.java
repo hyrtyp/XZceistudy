@@ -57,7 +57,7 @@ public class WelcomeActivity extends ContainerActivity {
 		installData();
 	}
 
-	public static final int UPDATE_CENT = 1;
+    public static final int UPDATE_CENT = 1;
 	public static final int GO_MAIN = 2;
 	public static final int IS_NET = 3;
 	public static final int NO_DATA = 4;
@@ -324,6 +324,7 @@ public class WelcomeActivity extends ContainerActivity {
                 Message message = handler.obtainMessage();
                 if(columnEntry.getUserId() == null){
                     startActivity(new Intent(WelcomeActivity.this, LoginActivityphone.class));
+                    WelcomeActivity.this.finish();
                     return;
                 }else{
                     message.arg1 = GO_MAIN;

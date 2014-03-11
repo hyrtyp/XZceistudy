@@ -1,8 +1,5 @@
 package com.hyrt.ceiphone.common;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
-
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -17,7 +14,6 @@ import android.webkit.WebSettings;
 import android.webkit.WebSettings.PluginState;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Toast;
 
 import com.hyrt.cei.application.CeiApplication;
 import com.hyrt.cei.db.DataHelper;
@@ -32,6 +28,9 @@ import com.hyrt.ceiphone.ContainerActivity;
 import com.hyrt.ceiphone.R;
 import com.hyrt.ceiphone.phonestudy.FoundationActivity;
 import com.hyrt.ceiphone.phonestudy.PreloadActivity;
+
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class WebViewUtil extends ContainerActivity {
 

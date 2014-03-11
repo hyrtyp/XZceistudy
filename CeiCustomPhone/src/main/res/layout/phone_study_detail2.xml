@@ -215,13 +215,14 @@
             <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="2dip"
-                android:background="#d6e1e5" />
+                android:background="#d6e1e5"/>
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_margin="@dimen/phone_study_view_margin"
+                android:visibility="gone"
                >
 
                 <TextView

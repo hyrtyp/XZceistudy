@@ -42,30 +42,30 @@
     <style name="phone_study_bottom_tv">
         <item name="android:textColor">#ffffff</item>
         <item name="android:background">@drawable/phone_study_bottom_tv_bg</item>
-        <item name="android:paddingRight">10dp</item>
-        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">@dimen/phone_study_bottom_tv_pad_right</item>
+        <item name="android:paddingLeft">@dimen/phone_study_bottom_tv_pad_left</item>
         <item name="android:layout_marginRight">0.5dp</item>
         <item name="android:layout_marginLeft">0dp</item>
-        <item name="android:textSize">15sp</item>
+        <item name="android:textSize">@dimen/phone_study_bottom_tv_textSize</item>
     </style>
     
     <style name="phone_study_bt">
         <item name="android:textColor">#ffffff</item>
-        <item name="android:textSize">17sp</item>
-        <item name="android:layout_width">57dp</item>
-        <item name="android:layout_height">33dp</item>
+        <item name="android:textSize">@dimen/phone_study_bt_textSize</item>
+        <item name="android:layout_width">@dimen/phone_study_bt_width</item>
+        <item name="android:layout_height">@dimen/phone_study_bt_height</item>
         <item name="android:background">@drawable/phone_study_bt_bg</item>
     </style>
     
     <style name="phone_study_Tab">
         <item name="android:background">@drawable/phone_study_tab_bg2</item>
-        <item name="android:layout_marginLeft">2dp</item>
-        <item name="android:layout_marginRight">2dp</item>
-        <item name="android:paddingTop">5dp</item>
-        <item name="android:paddingBottom">5dp</item>
-        <item name="android:paddingLeft">10dp</item>
-        <item name="android:paddingRight">10dp</item>
-        <item name="android:textSize">17sp</item>
+        <item name="android:layout_marginLeft">@dimen/phone_study_Tab_mar_left</item>
+        <item name="android:layout_marginRight">@dimen/phone_study_Tab_mar_right</item>
+        <item name="android:paddingTop">@dimen/phone_study_Tab_pad_top_bot</item>
+        <item name="android:paddingBottom">@dimen/phone_study_Tab_pad_top_bot</item>
+        <item name="android:paddingLeft">@dimen/phone_study_Tab_pad_right_left</item>
+        <item name="android:paddingRight">@dimen/phone_study_Tab_pad_right_left</item>
+        <item name="android:textSize">@dimen/phone_study_Tab_textSize</item>
         <item name="android:textColor">#ffffff</item>
     </style>
     

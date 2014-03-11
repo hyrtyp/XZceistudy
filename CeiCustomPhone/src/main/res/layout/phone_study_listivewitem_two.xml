@@ -26,7 +26,7 @@
 
             <TextView
                 android:id="@+id/phone_study_listviewitem_title"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_alignParentLeft="true"
                 android:text="@string/phone_study_title"
@@ -79,6 +79,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="12dip"
                 android:contentDescription="@string/hello"
+                android:visibility="gone"
              />
         </RelativeLayout>
     </LinearLayout>

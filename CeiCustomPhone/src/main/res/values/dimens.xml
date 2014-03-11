@@ -3,7 +3,27 @@
     <dimen name="padding_small">8dp</dimen>
     <dimen name="padding_medium">8dp</dimen>
     <dimen name="padding_large">16dp</dimen>
+
+    <!--顶部标题的字体大小-->
     <dimen name="top_text_size">25sp</dimen>
+    <!--界面外边距-->
     <dimen name="phone_study_view_margin">5dp</dimen>
+    <!--二级标题顶部距离-->
     <dimen name="phone_study_view_h2_margin_top">8dp</dimen>
+    <!--底部导航-->
+    <dimen name="phone_study_bottom_tv_pad_left">10dp</dimen>
+    <dimen name="phone_study_bottom_tv_pad_right">10dp</dimen>
+    <dimen name="phone_study_bottom_tv_textSize">15sp</dimen>
+    <!--按钮-->
+    <dimen name="phone_study_bt_textSize">17sp</dimen>
+    <dimen name="phone_study_bt_width">57dp</dimen>
+    <dimen name="phone_study_bt_height">33dp</dimen>
+    <!--选项卡-->
+    <dimen name="phone_study_Tab_mar_left">2dp</dimen>
+    <dimen name="phone_study_Tab_mar_right">2dp</dimen>
+    <dimen name="phone_study_Tab_pad_right_left">10dp</dimen>
+    <dimen name="phone_study_Tab_pad_top_bot">5dp</dimen>
+    <dimen name="phone_study_Tab_textSize">17sp</dimen>
+
+
 </resources>
