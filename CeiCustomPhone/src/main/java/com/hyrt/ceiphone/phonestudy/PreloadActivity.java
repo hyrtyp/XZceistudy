@@ -486,7 +486,7 @@ public class PreloadActivity extends FoundationActivity {
 						}
 					}
 					if (!isSelfCourse) {
-						handlerVG.sendMessage(handler.obtainMessage());
+//						handlerVG.sendMessage(handler.obtainMessage());
 					}
 				}
 			}).start();

@@ -84,6 +84,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     >
                     <CheckBox
                         android:id="@+id/rememberme_cb"
@@ -105,20 +106,23 @@
                 </RelativeLayout>
                 <Button
                     android:id="@+id/ui_login_login_bt"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="30dp"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:textColor="#ffffff"
-                    android:background="@color/phone_bottomandtop_bg"
+                    android:background="@drawable/phone_study_bt_bg"
                     android:textSize="18sp"
                     android:padding="5dp"
-                    android:text="登录"/>
+                    android:text="登录"
+                    android:layout_gravity="right"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="20dp">
+                    android:layout_marginBottom="20dp"
+                    android:visibility="gone">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -141,11 +145,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#ffffff"
-        android:textSize="40dp"
         android:layout_centerHorizontal="true"
         android:layout_above="@id/ui_login_ly"
-        android:textScaleX="1.1"
         android:text="西藏干部教育网"
+        style="@style/phone_study_login_title"
         />
 </RelativeLayout>

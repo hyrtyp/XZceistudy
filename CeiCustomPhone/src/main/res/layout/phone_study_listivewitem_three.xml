@@ -16,7 +16,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical"
-         android:paddingLeft="8dip"
+        android:paddingLeft="8dip"
         android:paddingTop="3dip" >
 
         <TextView
@@ -28,8 +28,8 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_marginTop="10dip"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip"
             android:orientation="vertical" >
 
             <TextView
@@ -43,7 +43,7 @@
                 android:id="@+id/phone_study_listviewitem_protime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dip"
+                android:layout_marginTop="2dip"
                 android:text="@string/phone_study_protime"
                 style="@style/phone_study_h1_small" />
         </LinearLayout>

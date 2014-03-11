@@ -15,7 +15,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.ProgressBar;
@@ -211,15 +210,16 @@ public class PreloadActivity extends Activity {
 				PreloadActivity.this.finish();
 			}
 		});
-		final ImageView alreLoadBtn = (ImageView) findViewById(R.id.phone_study_preload_alreLoadBtn);
-		final ImageView loadBtn = (ImageView) findViewById(R.id.phone_study_preload_loadingBtn);
+		final Button alreLoadBtn = (Button) findViewById(R.id.phone_study_preload_alreLoadBtn);
+		final Button loadBtn = (Button) findViewById(R.id.phone_study_preload_loadingBtn);
 		alreLoadBtn.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				alreLoadBtn
-						.setImageResource(R.drawable.phone_study_preload_aldown_hover);
-				loadBtn.setImageResource(R.drawable.phone_study_preload_down);
+				alreLoadBtn.setBackgroundResource(R.drawable.pad_study_tab_bg);
+                loadBtn.setBackgroundResource(R.drawable.pad_study_tab_bg2);
+                alreLoadBtn.setTextColor(getResources().getColor(R.color.pad_study_color_black));
+                loadBtn.setTextColor(getResources().getColor(R.color.pad_study_color_White));
 				for (int i = 0; i < linearLayList.getChildCount(); i++) {
 					if (linearLayList
 							.getChildAt(i)
@@ -236,9 +236,10 @@ public class PreloadActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				alreLoadBtn
-						.setImageResource(R.drawable.phone_study_preload_aldown);
-				loadBtn.setImageResource(R.drawable.phone_study_preload_down_hover);
+                alreLoadBtn.setBackgroundResource(R.drawable.pad_study_tab_bg2);
+                loadBtn.setBackgroundResource(R.drawable.pad_study_tab_bg);
+                alreLoadBtn.setTextColor(getResources().getColor(R.color.pad_study_color_White));
+                loadBtn.setTextColor(getResources().getColor(R.color.pad_study_color_black));
 				for (int i = 0; i < linearLayList.getChildCount(); i++) {
 					if (linearLayList
 							.getChildAt(i)
@@ -455,7 +456,7 @@ public class PreloadActivity extends Activity {
 						}
 					}
 					if(!isSelfCourse){
-						handlerVG.sendMessage(handler.obtainMessage());
+//						handlerVG.sendMessage(handler.obtainMessage());
 					}
 			}}).start();
 			addcourseBtn.setOnClickListener(new OnClickListener() {

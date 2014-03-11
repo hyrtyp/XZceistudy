@@ -25,7 +25,7 @@
             android:paddingLeft="20dp"
             android:textColor="#000000"
             android:gravity="center_vertical"
-            style="@style/yangshi_4"
+            style="@style/phone_study_gallery"
             android:text="西藏党校综合楼"
             />
 

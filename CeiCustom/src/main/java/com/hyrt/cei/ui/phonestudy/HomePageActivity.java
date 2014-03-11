@@ -448,13 +448,15 @@ public class HomePageActivity extends BaseActivity implements OnClickListener,
                 break;
             case R.id.phone_study_morebtn:
                 pageIndex++;
-                for (int i = pageIndex * 10; i < (pageIndex + 1) * 10
-                        && i < newCoursewares.size(); i++) {
-                    if (i == newCoursewares.size() - 1)
-                        findViewById(R.id.phone_study_morebtn).setVisibility(
-                                View.GONE);
-                    if (currentCousewares != null)
-                        currentCousewares.add(newCoursewares.get(i));
+                if(newCoursewares!=null){
+                    for (int i = pageIndex * 10; i < (pageIndex + 1) * 10
+                            && i < newCoursewares.size(); i++) {
+                        if (i == newCoursewares.size() - 1)
+                            findViewById(R.id.phone_study_morebtn).setVisibility(
+                                    View.GONE);
+                        if (currentCousewares != null)
+                            currentCousewares.add(newCoursewares.get(i));
+                    }
                 }
                 if (bottomGirdViewAdapter != null)
                     bottomGirdViewAdapter.notifyDataSetChanged();

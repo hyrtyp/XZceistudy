@@ -12,7 +12,8 @@
         android:background="#90ffffff"
         android:orientation="horizontal"
         android:layout_centerInParent="true"
-        android:id="@+id/ui_login_ly">
+        android:id="@+id/ui_login_ly"
+        android:layout_marginTop="20dp">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -88,6 +89,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     >
                     <CheckBox
                         android:id="@+id/rememberme_cb"
@@ -110,20 +112,23 @@
                 </RelativeLayout>
                 <Button
                     android:id="@+id/ui_login_login"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="30dp"
                     android:layout_width="70dp"
                     android:layout_height="wrap_content"
                     android:textColor="#ffffff"
-                    android:background="@color/pad_bottomandtop_bg"
+                    android:background="@drawable/pad_study_bt_bg"
                     android:textSize="23sp"
                     android:padding="5dp"
-                    android:text="登录"/>
+                    android:text="登录"
+                    android:layout_gravity="right"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="20dp">
+                    android:layout_marginBottom="20dp"
+                    android:visibility="gone">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -147,7 +152,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#ffffff"
-        android:textSize="50dp"
+        android:textSize="55dp"
         android:layout_centerHorizontal="true"
         android:layout_above="@id/ui_login_ly"
         android:textScaleX="1.2"

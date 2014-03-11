@@ -127,7 +127,8 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="10.0dip"
             android:layout_toLeftOf="@id/phone_study_preload_item_btnControl"
-            android:background="@drawable/phone_study_preload_item_addcourse" />
+            android:background="@drawable/phone_study_preload_item_addcourse"
+            android:visibility="gone"/>
     </RelativeLayout>
 
     <ImageView

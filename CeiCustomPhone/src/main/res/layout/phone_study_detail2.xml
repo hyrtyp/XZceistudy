@@ -81,6 +81,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="主讲人 ：范先生/张先生"
                                     style="@style/phone_study_h1_small"
+                                    android:ellipsize="marquee"
                                     />
 
                                 <TextView
@@ -119,23 +120,32 @@
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
                     android:layout_gravity="right"
+                    android:visibility="gone"
                     >
 
-                    <Button
-                        android:id="@+id/phone_study_detail_preload"
-                        android:text="下载"
-                        style="@style/phone_study_bt"
-                        android:layout_marginBottom="15dp"
-                        />
 
-                    <Button
-                        android:id="@+id/phone_study_detail_play"
-                        android:text="播放"
-                        style="@style/phone_study_bt"
-                        />
                 </LinearLayout>
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/phone_study_view_margin"
+                android:layout_marginBottom="@dimen/phone_study_view_margin">
+                <Button
+                    android:id="@+id/phone_study_detail_preload"
+                    android:text="下载"
+                    style="@style/phone_study_bt"
+                    android:layout_marginRight="15dp"
+                    />
 
+                <Button
+                    android:id="@+id/phone_study_detail_play"
+                    android:text="播放"
+                    style="@style/phone_study_bt"
+                    />
+            </LinearLayout>
             <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="2dip"
@@ -215,13 +225,14 @@
             <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="2dip"
-                android:background="#d6e1e5" />
+                android:background="#d6e1e5"/>
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_margin="@dimen/phone_study_view_margin"
+                android:visibility="gone"
                >
 
                 <TextView

@@ -3,7 +3,7 @@
     android:id="@+id/full_view"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/phone_study_child_bg"
+    android:background="@drawable/background"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -33,30 +33,34 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@drawable/phone_studyym_bg"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_above="@id/phone_study_preload_scrollView"
-            android:paddingTop="17dip">
+            android:paddingTop="10dip"
+            android:layout_marginLeft="60dp">
 
-            <ImageView
+            <Button
                 android:id="@id/phone_study_preload_loadingBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dip"
                 android:gravity="center"
-                android:src="@drawable/phone_study_preload_down_hover" />
+                style="@style/pad_study_Tab"
+                android:text="正下载"
+                android:background="@drawable/pad_study_tab_bg"
+                android:textColor="@color/pad_study_color_black"/>
 
-            <ImageView
+            <Button
                 android:id="@id/phone_study_preload_alreLoadBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dip"
                 android:gravity="center"
-                android:src="@drawable/phone_study_preload_aldown" />
+                style="@style/pad_study_Tab"
+                android:text="正下载" />
         </LinearLayout>
 
         <ScrollView
@@ -64,7 +68,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:gravity="center"
-            android:paddingTop="1.0px">
+            android:background="#e0ffffff">
 
             <LinearLayout
                 android:id="@id/phone_study_preload_itemParent"

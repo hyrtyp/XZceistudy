@@ -17,4 +17,6 @@
     <color name="phone_study_color_White">#ffffff</color>
     <color name="phone_study_color_pop_bt_bg">#04a7e8</color>
     <color name="phone_study_color_pop_bt_k">#0160b9</color>
+    <color name="phone_study_h1_color">#054b93</color>
+    <color name="phone_study_h1_small_color">#b5b5b5</color>
 </resources>

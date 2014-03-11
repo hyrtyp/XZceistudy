@@ -31,7 +31,8 @@
                     android:text="推荐课程"
                     android:gravity="center"
                     style="@style/phone_study_bottom_tv"
-                    android:layout_marginLeft="0dp"/>
+                    android:layout_marginLeft="0dp"
+                    android:visibility="gone"/>
                 <TextView
                     android:id="@+id/phone_study_kind_tv"
                     android:layout_width="wrap_content"
@@ -64,7 +65,8 @@
                     android:layout_weight="1"
                     android:text="课程讨论"
                     android:gravity="center"
-                    style="@style/phone_study_bottom_tv"/>
+                    style="@style/phone_study_bottom_tv"
+                    android:visibility="gone"/>
                 <TextView
                     android:id="@+id/phone_study_down_tv"
                     android:layout_width="wrap_content"
@@ -88,7 +90,8 @@
                     android:layout_weight="1"
                     android:text="个人中心"
                     android:gravity="center"
-                    style="@style/phone_study_bottom_tv"/>
+                    style="@style/phone_study_bottom_tv"
+                    android:visibility="gone"/>
                 <TextView
                     android:id="@+id/phone_study_about_tv"
                     android:layout_width="wrap_content"

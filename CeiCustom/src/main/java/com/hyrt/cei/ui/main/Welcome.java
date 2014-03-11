@@ -381,6 +381,7 @@ public class Welcome extends Activity {
                         handler.sendMessage(message);
                     }else {
                         startActivity(new Intent(Welcome.this, LoginActivity.class));
+                        Welcome.this.finish();
                     }
 
 
