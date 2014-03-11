@@ -479,6 +479,8 @@ public class KindsActivity extends BaseActivity implements OnClickListener {
 		index = 1;
 		coursewares.clear();
 		courses.clear();
+        if(phoneStudyKindsAdapter != null)
+            phoneStudyKindsAdapter.notifyDataSetChanged();
 		oldFunctionId = currentFunctionId;
 		new Thread(new Runnable() {
 			public void run() {
