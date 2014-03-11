@@ -552,7 +552,7 @@ public class CourseDetailActivity extends Activity implements OnClickListener {
 			@Override
 			public void dispatchMessage(Message msg) {
 				controSelClass = (ImageView) findViewById(R.id.phone_study_detail_addcourse);
-				controSelClass.setVisibility(View.VISIBLE);
+//				controSelClass.setVisibility(View.VISIBLE);
 				if (courseware.isSelfCourse()) {
 					controSelClass
 							.setImageResource(R.drawable.phone_study_canclecourse_btn);

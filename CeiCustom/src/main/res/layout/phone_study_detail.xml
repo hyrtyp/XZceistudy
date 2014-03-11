@@ -3,7 +3,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:id="@+id/full_view"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/background">
 
     <RelativeLayout
         android:id="@id/phone_study_top"
@@ -61,9 +62,9 @@
         android:layout_width="fill_parent"
         android:scrollbars="none"
         android:layout_height="fill_parent"
-        android:background="@drawable/phone_studynm_bg"
         android:paddingTop="1.0px"
-        android:paddingRight="50dip">
+        android:paddingRight="50dip"
+        android:background="#e0ffffff">
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -254,7 +255,8 @@
 
             <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="fill_parent"
