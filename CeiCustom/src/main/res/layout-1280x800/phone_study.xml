@@ -105,16 +105,16 @@
 	>
 		<LinearLayout
 			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
+			android:layout_height="fill_parent"
 			android:orientation="vertical"
-		>
+		    >
 			<com.hyrt.cei.ui.phonestudy.view.FlowRelativeyout
 				android:paddingTop="5dip"
 				android:background="#99FFFFFF"
 				android:layout_width="fill_parent"
 				android:id="@id/phone_study_top_ivparent"
 				android:layout_height="wrap_content"
-			>
+			    >
 				<ImageView
 					android:src="@drawable/phone_study_leftopertion_selector"
 					android:paddingLeft="5dip"
@@ -220,10 +220,11 @@
 				android:layout_width="fill_parent"
 				android:layout_height="40dip"
 				android:text="更多。。。"
-				android:textSize="12sp"
+				android:textSize="17sp"
 				android:background="#50ffffff"
 				android:gravity="center"
-				android:id="@id/phone_study_morebtn" />
+				android:id="@id/phone_study_morebtn"
+                android:layout_gravity="bottom"/>
 		</LinearLayout>
 	</ScrollView>
 

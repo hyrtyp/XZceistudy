@@ -258,20 +258,20 @@ public class CourseDetailActivity extends Activity implements OnClickListener {
 
 			// 初始化请求数据
 			private void initSendData() {
-				ColumnEntry columnEntry = ((CeiApplication) (CourseDetailActivity.this
-						.getApplication())).columnEntry;
-				ColumnEntry phoneStudyCol = columnEntry
-						.getColByName(HomePageActivity.MODEL_NAME);
-				functionIds = new StringBuilder(phoneStudyCol.getId());
-				for (int i = 0; i < columnEntry.getColumnEntryChilds().size(); i++) {
-					ColumnEntry entryChild = columnEntry.getColumnEntryChilds()
-							.get(i);
-					if (entryChild.getPath() != null
-							&& entryChild.getPath().contains(
-									phoneStudyCol.getId())) {
-						functionIds.append("," + entryChild.getId());
-					}
-				}
+//				ColumnEntry columnEntry = ((CeiApplication) (CourseDetailActivity.this
+//						.getApplication())).columnEntry;
+//				ColumnEntry phoneStudyCol = columnEntry
+//						.getColByName(HomePageActivity.MODEL_NAME);
+//				functionIds = new StringBuilder(phoneStudyCol.getId());
+//				for (int i = 0; i < columnEntry.getColumnEntryChilds().size(); i++) {
+//					ColumnEntry entryChild = columnEntry.getColumnEntryChilds()
+//							.get(i);
+//					if (entryChild.getPath() != null
+//							&& entryChild.getPath().contains(
+//									phoneStudyCol.getId())) {
+//						functionIds.append("," + entryChild.getId());
+//					}
+//				}
 			}
 
 			@Override
@@ -282,7 +282,7 @@ public class CourseDetailActivity extends Activity implements OnClickListener {
 				// 获取该课程相关课程
 				initSendData();
 				if (((CeiApplication) getApplication()).isNet()) {
-					String result = Service.queryClassName(name, functionIds.toString());
+					String result = Service.queryClassName(name, "");
 					XmlUtil.parseCoursewares(result, aboutCourseware);
 					for (int i = 0; i < aboutCourseware.size(); i++) {
 						if (aboutCourseware.get(i).getClassId()
