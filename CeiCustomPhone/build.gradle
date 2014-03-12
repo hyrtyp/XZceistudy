@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.7.+'
+        classpath 'com.android.tools.build:gradle:0.9.+'
     }
 }
 apply plugin: 'android'
@@ -35,7 +35,7 @@ android {
     signingConfigs {
 
         myConfig {
-            storeFile file("C:\\Users\\GYH\\.ssh\\hyrt.store")
+            storeFile file("C:\\Users\\peng\\.ssh\\hyrt.store")
             storePassword "hyrt.store"
             keyAlias "hyrt.store"
             keyPassword "hyrt.store"
@@ -51,12 +51,7 @@ android {
     productFlavors {
         flavor1 {
             packageName "com.example.flavorxzphone1"
-            versionCode 20
-        }
-
-        flavor2 {
-            packageName "com.example.flavorxzphone2"
-            minSdkVersion 14
+            versionCode 1
         }
     }
 
@@ -69,7 +64,6 @@ android {
         exclude 'META-INF/LICENSE.txt'
         exclude 'META-INF/NOTICE.txt'
     }
-
 }
 
 dependencies {

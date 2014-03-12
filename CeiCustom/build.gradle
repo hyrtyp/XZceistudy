@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.7.+'
+        classpath 'com.android.tools.build:gradle:0.9.+'
     }
 }
 
@@ -33,7 +33,7 @@ android {
     signingConfigs {
 
         myConfig {
-            storeFile file("C:\\Users\\GYH\\.ssh\\hyrt.store")
+            storeFile file("C:\\Users\\peng\\.ssh\\hyrt.store")
             storePassword "hyrt.store"
             keyAlias "hyrt.store"
             keyPassword "hyrt.store"
@@ -59,12 +59,7 @@ android {
     productFlavors {
         flavor1 {
             packageName "com.example.flavorxzpad1"
-            versionCode 20
-        }
-
-        flavor2 {
-            packageName "com.example.flavorxzpad2"
-            minSdkVersion 14
+            versionCode 1
         }
     }
 }
@@ -74,7 +69,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
     compile project(":Weibo")
     compile project(":WeiboApi")
-
 }
 
 task nativeLibsToJar(type: Zip, description: 'create a jar archive of the native libs') {

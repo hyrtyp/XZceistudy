@@ -51,9 +51,9 @@ public class LoginActivity extends Activity  implements OnClickListener{
 		accountEt = (EditText) findViewById(R.id.ui_login_username);
 		passwordEt = (EditText) findViewById(R.id.ui_login_password);
 		SharedPreferences settings = getSharedPreferences("loginInfo",Activity.MODE_PRIVATE);
-		loginName = settings.getString("LOGINNAME", "");
-		accountEt.setText(settings.getString("LOGINNAME", ""));
-		passwordEt.setText(settings.getString("PASSWORD", ""));
+		loginName = settings.getString("LOGINNAME", "1000101");
+		accountEt.setText(settings.getString("LOGINNAME", "1000101"));
+		passwordEt.setText(settings.getString("PASSWORD", "888888"));
 
 		findViewById(R.id.ui_login_regist).setOnClickListener(
 				new OnClickListener() {
