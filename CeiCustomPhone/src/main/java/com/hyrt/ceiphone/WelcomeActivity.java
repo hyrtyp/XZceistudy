@@ -16,8 +16,10 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.telephony.TelephonyManager;
+import android.view.View;
 import android.view.ViewTreeObserver.OnPreDrawListener;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hyrt.cei.application.CeiApplication;
@@ -48,14 +50,47 @@ public class WelcomeActivity extends ContainerActivity {
 	public static final String INITRESOURCES_FILENAME = "initResources.xml";
 	public static final String INITSELFRESOURCES_FILENAME = "initSelfResources.xml";
 
+    private ImageView loginImage;
+    private RelativeLayout pb_loading;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.welcome);
-		isGoUnline = false;
-		installProAnim();
-		installData();
+		setContentView(R.layout.welcome2);
+//		isGoUnline = false;
+//		installProAnim();
+//		installData();
+        pb_loading=(RelativeLayout)findViewById(R.id.pb_loading);
+        loginImage=(ImageView)findViewById(R.id.login_bt2);
+        loginImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                welcomeInitData();
+            }
+        });
 	}
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==1&&resultCode==2){
+            welcomeInitData();
+        }else{
+            loginImage.setVisibility(View.VISIBLE);
+            pb_loading.setVisibility(View.GONE);
+        }
+    }
+
+    /**
+     * 登录
+     * */
+    private void welcomeInitData(){
+        loginImage.setVisibility(View.GONE);
+        pb_loading.setVisibility(View.VISIBLE);
+        isGoUnline = false;
+        installProAnim();
+        installData();
+    }
 
     public static final int UPDATE_CENT = 1;
 	public static final int GO_MAIN = 2;
@@ -63,6 +98,12 @@ public class WelcomeActivity extends ContainerActivity {
 	public static final int NO_DATA = 4;
 	public static final int USER_ERROR = 5;
 	public static final int DEVICE_ERROR = 6;
+
+    public static final int LS01=7;
+    public static final int LF00=8;
+    public static final int BE08=9;
+    public static final int BE00=10;
+    public static final int AE03=11;
 
 	private Handler handler = new Handler() {
 		@Override
@@ -162,7 +203,7 @@ public class WelcomeActivity extends ContainerActivity {
                     AlertDialog.Builder errorUserBuilder = new Builder(
                             WelcomeActivity.this);
                     errorUserBuilder.setTitle("提示");
-                    errorUserBuilder.setMessage("用户名密码错误,请点确认进入默认版！");
+                    errorUserBuilder.setMessage("用户名密码错误,请重新登录!");
                     errorUserBuilder.setPositiveButton("确认",
                             new DialogInterface.OnClickListener() {
 
@@ -170,10 +211,81 @@ public class WelcomeActivity extends ContainerActivity {
                                 public void onClick(DialogInterface dialog,
                                                     int which) {
                                     dialog.dismiss();
-                                    WelcomeActivity.this.finish();
+                                    startActivityForResult(new Intent(WelcomeActivity.this, LoginActivityphone.class),1);
+//                                    WelcomeActivity.this.finish();
                                 }
                             });
                     errorUserBuilder.create().show();
+                    break;
+                case BE00:
+                    SharedPreferences settingsbe00 = getSharedPreferences("loginInfo",Activity.MODE_PRIVATE);
+                    SharedPreferences.Editor editorbe00 = settingsbe00.edit();
+                    editorbe00.putString("LOGINNAME", "");
+                    editorbe00.putString("PASSWORD", "");
+                    editorbe00.commit();
+                    AlertDialog.Builder errorUserBuilderbe00 = new Builder(
+                            WelcomeActivity.this);
+                    errorUserBuilderbe00.setTitle("提示");
+                    errorUserBuilderbe00.setMessage("登录失败，请重新登录!");
+                    errorUserBuilderbe00.setPositiveButton("确认",
+                            new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialog,
+                                                    int which) {
+                                    dialog.dismiss();
+                                    startActivityForResult(new Intent(WelcomeActivity.this, LoginActivityphone.class),1);
+//                                    WelcomeActivity.this.finish();
+                                }
+                            });
+                    errorUserBuilderbe00.create().show();
+                    break;
+
+                case LS01:
+                    SharedPreferences settingsbeLS01 = getSharedPreferences("loginInfo",Activity.MODE_PRIVATE);
+                    SharedPreferences.Editor editorbeLS01 = settingsbeLS01.edit();
+                    editorbeLS01.putString("LOGINNAME", "");
+                    editorbeLS01.putString("PASSWORD", "");
+                    editorbeLS01.commit();
+                    AlertDialog.Builder errorUserBuilderbeLS01 = new Builder(
+                            WelcomeActivity.this);
+                    errorUserBuilderbeLS01.setTitle("提示");
+                    errorUserBuilderbeLS01.setMessage("用户已停用，请重新登录!");
+                    errorUserBuilderbeLS01.setPositiveButton("确认",
+                            new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialog,
+                                                    int which) {
+                                    dialog.dismiss();
+                                    startActivityForResult(new Intent(WelcomeActivity.this, LoginActivityphone.class),1);
+//                                    WelcomeActivity.this.finish();
+                                }
+                            });
+                    errorUserBuilderbeLS01.create().show();
+                    break;
+                case BE08:
+                    SharedPreferences settingsbeBE08 = getSharedPreferences("loginInfo",Activity.MODE_PRIVATE);
+                    SharedPreferences.Editor editorbeBE08 = settingsbeBE08.edit();
+                    editorbeBE08.putString("LOGINNAME", "");
+                    editorbeBE08.putString("PASSWORD", "");
+                    editorbeBE08.commit();
+                    AlertDialog.Builder errorUserBuilderbeBE08 = new Builder(
+                            WelcomeActivity.this);
+                    errorUserBuilderbeBE08.setTitle("提示");
+                    errorUserBuilderbeBE08.setMessage("网络平台发生异常，请重新登录!");
+                    errorUserBuilderbeBE08.setPositiveButton("确认",
+                            new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialog,
+                                                    int which) {
+                                    dialog.dismiss();
+                                    startActivityForResult(new Intent(WelcomeActivity.this, LoginActivityphone.class),1);
+//                                    WelcomeActivity.this.finish();
+                                }
+                            });
+                    errorUserBuilderbeBE08.create().show();
                     break;
 
 			}
@@ -219,12 +331,12 @@ public class WelcomeActivity extends ContainerActivity {
 							e.printStackTrace();
 						}
 					}
-					if (XmlUtil.parseReturnCode(result).equals("-1")) {
+					if (XmlUtil.parseReturnCode(result).equals("AE03")) {//网络平台连接异常
 						Message message = handler.obtainMessage();
 						message.arg1 = IS_NET;
 						handler.sendMessage(message);
 						return;
-					} else if (XmlUtil.parseReturnCode(result).equals("1")
+					} else if (XmlUtil.parseReturnCode(result).equals("LF00")//登陆失败
 							&& !settings.getString("LOGINNAME", "").equals("")) {
 						WriteOrRead.write(result, MyTools.nativeData,
 								INITRESOURCES_FILENAME);
@@ -241,7 +353,28 @@ public class WelcomeActivity extends ContainerActivity {
 						message.arg1 = DEVICE_ERROR;
 						handler.sendMessage(message);
 						return;
-					}
+					}else if(XmlUtil.parseReturnCode(result).equals("LS01")){//用户停用
+                        Message message = handler.obtainMessage();
+                        message.arg1 = LS01;
+                        handler.sendMessage(message);
+                        return;
+                    }else if(XmlUtil.parseReturnCode(result).equals("BE08")){//网络平台发生异常
+                        Message message = handler.obtainMessage();
+                        message.arg1 = BE08;
+                        handler.sendMessage(message);
+                        return;
+                    }else if(XmlUtil.parseReturnCode(result).equals("BE00")){//异常
+                        Message message = handler.obtainMessage();
+                        message.arg1 = BE00;
+                        handler.sendMessage(message);
+                        return;
+                    }else if(XmlUtil.parseReturnCode(result).equals("BE04")){//异常
+                        Message message = handler.obtainMessage();
+                        message.arg1 = BE00;
+                        handler.sendMessage(message);
+                        return;
+                    }
+
 					WriteOrRead.write(result, MyTools.nativeData,
 							INITRESOURCES_FILENAME);
 					XmlUtil.parseInitResources(result, columnEntry);
@@ -323,9 +456,9 @@ public class WelcomeActivity extends ContainerActivity {
 				}
                 Message message = handler.obtainMessage();
                 if(columnEntry.getUserId() == null){
-                    startActivity(new Intent(WelcomeActivity.this, LoginActivityphone.class));
-                    WelcomeActivity.this.finish();
-                    return;
+//                    startActivity(new Intent(WelcomeActivity.this, LoginActivityphone.class));
+//                    WelcomeActivity.this.finish();
+//                    return;
                 }else{
                     message.arg1 = GO_MAIN;
                     handler.sendMessage(message);

@@ -62,4 +62,6 @@
 
     <!--登录标题字体-->
     <dimen name="phone_study_login_title_textSize">40sp</dimen>
+    <dimen name="phone_study_login_topimage_mar">80dp</dimen>
+    <dimen name="phone_study_login_toptv_mar">130dp</dimen>
 </resources>
