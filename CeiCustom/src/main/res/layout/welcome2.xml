@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/welcome"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pad_welcome_bg">
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/wecome_logo"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="35dip"
+        android:layout_marginTop="35dip"
+        android:visibility="gone"></ImageView>
+
+    <ImageView
+        android:background="@drawable/welcome_word_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:id="@+id/welcome_img_min"
+        android:visibility="gone"></ImageView>
+
+    <ImageView
+        android:background="@anim/welcome_loading_anim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/welcome_iv"
+        android:layout_below="@+id/welcome_img_min"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dip"
+        android:visibility="gone"></ImageView>
+
+    <TextView
+        android:id="@+id/welcome_text_min"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/welcome_img_min"
+        android:layout_centerHorizontal="true"
+        android:text="0%"
+        android:textSize="20sp"
+        android:textColor="#1399c4"
+        android:layout_marginTop="75dip"
+        android:visibility="gone" />
+
+    <ImageView
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:src="@drawable/welcome_word_2"
+        android:layout_below="@id/welcome_iv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="66dp"
+        android:visibility="gone"></ImageView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/pad_welcome_01"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/pad_welcome_021"/>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/padwelcome_1"
+                android:id="@+id/spinner_pro"
+                android:visibility="gone">
+                <ProgressBar
+                    style="@style/Spinner"
+                    android:layout_centerInParent="true"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center_horizontal"/>
+            </RelativeLayout>
+            <ImageView
+                android:id="@+id/pad_login_bt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/pad_login_bt_bg"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/pad_welcome_022"/>
+        </LinearLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/pad_welcome_04"/>
+    </LinearLayout>
+    
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/pad_welcome_05"/>
+</RelativeLayout>

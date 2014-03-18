@@ -16,8 +16,10 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.telephony.TelephonyManager;
+import android.view.View;
 import android.view.ViewTreeObserver.OnPreDrawListener;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,23 +55,60 @@ public class Welcome extends Activity {
 	private boolean isNotice;
 	private String str;
 	private TextView tv;
+    private ImageView pad_login_bt;
+    private RelativeLayout spinner_pro;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.welcome);
-		isGoUnline = false;
-		timeOutHelper = new TimeOutHelper(this);
-		installProAnim();
-		installData();
+		setContentView(R.layout.welcome2);
+        spinner_pro=(RelativeLayout)findViewById(R.id.spinner_pro);
+        pad_login_bt=(ImageView)findViewById(R.id.pad_login_bt);
+        pad_login_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                welcomeInitData();
+            }
+        });
+
 	}
 
-	public static final int UPDATE_CENT = 1;
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==1&&resultCode==2){
+            welcomeInitData();
+        }else{
+            pad_login_bt.setVisibility(View.VISIBLE);
+            spinner_pro.setVisibility(View.GONE);
+        }
+    }
+
+    /**
+     * 登录
+     * */
+    private void welcomeInitData(){
+        spinner_pro.setVisibility(View.VISIBLE);
+        pad_login_bt.setVisibility(View.GONE);
+        isGoUnline = false;
+        timeOutHelper = new TimeOutHelper(Welcome.this);
+        installProAnim();
+        installData();
+    }
+
+    public static final int UPDATE_CENT = 1;
 	public static final int GO_MAIN = 2;
 	public static final int IS_NET = 3;
 	public static final int NO_DATA = 4;
 	public static final int USER_ERROR = 5;
 	public static final int DEVICE_ERROR = 6;
+
+    public static final int LS01=7;
+    public static final int LF00=8;
+    public static final int BE08=9;
+    public static final int BE00=10;
+    public static final int AE03=11;
+
 	private Handler handler = new Handler() {
 		@Override
 		public void dispatchMessage(Message msg) {
@@ -166,7 +205,7 @@ public class Welcome extends Activity {
 				editor.commit();
 				AlertDialog.Builder errorUserBuilder = new Builder(Welcome.this);
 				errorUserBuilder.setTitle("提示");
-				errorUserBuilder.setMessage("用户名密码错误,请点确认进入默认版！");
+				errorUserBuilder.setMessage("用户名密码错误,请重新登录！");
 				errorUserBuilder.setPositiveButton("确认",
 						new DialogInterface.OnClickListener() {
 
@@ -174,11 +213,78 @@ public class Welcome extends Activity {
 							public void onClick(DialogInterface dialog,
 									int which) {
 								dialog.dismiss();
-								Welcome.this.finish();
+                                startActivityForResult(new Intent(Welcome.this, LoginActivity.class),1);
+//								Welcome.this.finish();
 							}
 						});
 				errorUserBuilder.create().show();
 				break;
+                case BE00:
+                    SharedPreferences settingsbe00 = getSharedPreferences("loginInfo",Activity.MODE_PRIVATE);
+                    SharedPreferences.Editor editorbe00 = settingsbe00.edit();
+                    editorbe00.putString("LOGINNAME", "");
+                    editorbe00.putString("PASSWORD", "");
+                    editorbe00.commit();
+                    AlertDialog.Builder errorUserBuilderbe00 = new Builder(
+                            Welcome.this);
+                    errorUserBuilderbe00.setTitle("提示");
+                    errorUserBuilderbe00.setMessage("登录失败，请重新登录!");
+                    errorUserBuilderbe00.setPositiveButton("确认",
+                            new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialog,
+                                                    int which) {
+                                    dialog.dismiss();
+                                    startActivityForResult(new Intent(Welcome.this, LoginActivity.class),1);
+                                }
+                            });
+                    errorUserBuilderbe00.create().show();
+                    break;
+                case LS01:
+                    SharedPreferences settingsbeLS01 = getSharedPreferences("loginInfo",Activity.MODE_PRIVATE);
+                    SharedPreferences.Editor editorbeLS01 = settingsbeLS01.edit();
+                    editorbeLS01.putString("LOGINNAME", "");
+                    editorbeLS01.putString("PASSWORD", "");
+                    editorbeLS01.commit();
+                    AlertDialog.Builder errorUserBuilderbeLS01 = new Builder(
+                            Welcome.this);
+                    errorUserBuilderbeLS01.setTitle("提示");
+                    errorUserBuilderbeLS01.setMessage("用户已停用，请重新登录!");
+                    errorUserBuilderbeLS01.setPositiveButton("确认",
+                            new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialog,
+                                                    int which) {
+                                    dialog.dismiss();
+                                    startActivityForResult(new Intent(Welcome.this, LoginActivity.class),1);
+                                }
+                            });
+                    errorUserBuilderbeLS01.create().show();
+                    break;
+                case BE08:
+                    SharedPreferences settingsbeBE08 = getSharedPreferences("loginInfo",Activity.MODE_PRIVATE);
+                    SharedPreferences.Editor editorbeBE08 = settingsbeBE08.edit();
+                    editorbeBE08.putString("LOGINNAME", "");
+                    editorbeBE08.putString("PASSWORD", "");
+                    editorbeBE08.commit();
+                    AlertDialog.Builder errorUserBuilderbeBE08 = new Builder(
+                            Welcome.this);
+                    errorUserBuilderbeBE08.setTitle("提示");
+                    errorUserBuilderbeBE08.setMessage("网络平台发生异常，请重新登录!");
+                    errorUserBuilderbeBE08.setPositiveButton("确认",
+                            new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialog,
+                                                    int which) {
+                                    dialog.dismiss();
+                                    startActivityForResult(new Intent(Welcome.this, LoginActivity.class),1);
+                                }
+                            });
+                    errorUserBuilderbeBE08.create().show();
+                    break;
 
 			}
 		}
@@ -227,13 +333,13 @@ public class Welcome extends Activity {
 								e.printStackTrace();
 							}
 						}
-						if (XmlUtil.parseReturnCode(result).equals("-1")) {
+						if (XmlUtil.parseReturnCode(result).equals("AE03")) {
 							Message message = handler.obtainMessage();
 							message.arg1 = IS_NET;
 							handler.sendMessage(message);
 							timeOutHelper.uninstallTimerTask(TimeOutHelper.ALDATA_FLAG);
 							return;
-						} else if (XmlUtil.parseReturnCode(result).equals("1")
+						} else if (XmlUtil.parseReturnCode(result).equals("LF00")
 								&& !settings.getString("LOGINNAME", "").equals(
 										"")) {
 							WriteOrRead.write(result, MyTools.nativeData,
@@ -253,7 +359,27 @@ public class Welcome extends Activity {
 							handler.sendMessage(message);
 							timeOutHelper.uninstallTimerTask(TimeOutHelper.ALDATA_FLAG);
 							return;
-						}
+						}else if(XmlUtil.parseReturnCode(result).equals("LS01")){//用户停用
+                            Message message = handler.obtainMessage();
+                            message.arg1 = LS01;
+                            handler.sendMessage(message);
+                            return;
+                        }else if(XmlUtil.parseReturnCode(result).equals("BE08")){//网络平台发生异常
+                            Message message = handler.obtainMessage();
+                            message.arg1 = BE08;
+                            handler.sendMessage(message);
+                            return;
+                        }else if(XmlUtil.parseReturnCode(result).equals("BE00")){//异常
+                            Message message = handler.obtainMessage();
+                            message.arg1 = BE00;
+                            handler.sendMessage(message);
+                            return;
+                        }else if(XmlUtil.parseReturnCode(result).equals("BE04")){//异常
+                            Message message = handler.obtainMessage();
+                            message.arg1 = BE00;
+                            handler.sendMessage(message);
+                            return;
+                        }
 						WriteOrRead.write(result, MyTools.nativeData,
 								INITRESOURCES_FILENAME);
 						XmlUtil.parseInitResources(result, columnEntry);
@@ -380,8 +506,8 @@ public class Welcome extends Activity {
                         message.arg1 = GO_MAIN;
                         handler.sendMessage(message);
                     }else {
-                        startActivity(new Intent(Welcome.this, LoginActivity.class));
-                        Welcome.this.finish();
+//                        startActivity(new Intent(Welcome.this, LoginActivity.class));
+//                        Welcome.this.finish();
                     }
 
 

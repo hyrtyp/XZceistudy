@@ -92,8 +92,8 @@
 
     <style name="pad_study_Tab">
         <item name="android:background">@drawable/pad_study_tab_bg2</item>
-        <item name="android:layout_marginLeft">2dp</item>
-        <item name="android:layout_marginRight">2dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
         <item name="android:paddingTop">5dp</item>
         <item name="android:paddingBottom">5dp</item>
         <item name="android:paddingLeft">10dp</item>
@@ -110,5 +110,12 @@
         <item name="android:layout_marginRight">0.5dp</item>
         <item name="android:layout_marginLeft">0dp</item>
         <item name="android:textSize">25sp</item>
+    </style>
+
+    <style name="Spinner">
+        <item name="android:indeterminate">true</item>
+        <item name="android:indeterminateDrawable">@drawable/padspinner</item>
+        <item name="android:indeterminateDuration">2000</item>
+        <item name="android:indeterminateOnly">true</item>
     </style>
 </resources>

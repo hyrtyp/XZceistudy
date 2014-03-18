@@ -14,7 +14,6 @@ import com.hyrt.cei.R;
 import com.hyrt.cei.dzb.ui.HomePageDZB;
 import com.hyrt.cei.ui.main.Announcement;
 import com.hyrt.cei.ui.main.Disclaimer;
-import com.hyrt.cei.ui.main.Welcome;
 import com.hyrt.cei.ui.personcenter.PersonCenter;
 import com.hyrt.cei.ui.witsea.WitSeaActivity;
 
@@ -90,13 +89,16 @@ public class LoginActivity extends Activity  implements OnClickListener{
 									Toast.LENGTH_SHORT).show();
 							return;
 						}
-						LoginActivity.this.finish();
 						editor.putString("LOGINNAME", accountEt.getText().toString().trim());
 						editor.putString("PASSWORD", passwordEt.getText().toString().trim());
 						editor.commit();
-						Intent intent = new Intent(LoginActivity.this,
-								Welcome.class);
-						startActivity(intent);
+//						Intent intent = new Intent(LoginActivity.this,
+//								Welcome.class);
+//						startActivity(intent);
+                        Intent intentdata= new Intent();
+                        intentdata.putExtra("codeid","200");
+                        setResult(2,intentdata);
+                        LoginActivity.this.finish();
 					}
 				});
 		 registBottomEvent();

@@ -141,7 +141,7 @@
 
             <ListView
                 android:id="@id/phone_study_kinds_listview"
-                android:background="#e0ffffff"
+                android:background="#f0ffffff"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:divider="#00000000"
