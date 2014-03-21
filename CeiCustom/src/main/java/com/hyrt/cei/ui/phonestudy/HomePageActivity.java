@@ -148,8 +148,7 @@ public class HomePageActivity extends BaseActivity implements OnClickListener,
                 switch (msg.arg1) {
                     case NEWCOURSE_KEY:
                         currentCousewares = new ArrayList<Courseware>();
-                        for (int i = pageIndex * 10; i < (pageIndex + 1) * 10
-                                && i < newCoursewares.size(); i++) {
+                        for (int i = pageIndex * 10; i < (pageIndex + 1) * 10&& i < newCoursewares.size(); i++) {
                             if (i == newCoursewares.size() - 1)
                                 findViewById(R.id.phone_study_morebtn)
                                         .setVisibility(View.GONE);
@@ -229,8 +228,8 @@ public class HomePageActivity extends BaseActivity implements OnClickListener,
                 }
             }
         };
-//        getWellCourses();
-//        getGridViewData();
+        getWellCourses();
+        getGridViewData();
         showLoginBtnByUserName();
     }
 
@@ -268,25 +267,25 @@ public class HomePageActivity extends BaseActivity implements OnClickListener,
 
         final Runnable runnable = new Runnable() {
 
-            private StringBuilder functionIds;
+//            private StringBuilder functionIds;
             private ColumnEntry columnEntry;
 
             // 初始化请求数据
             private void initSendData() {
                 columnEntry = ((CeiApplication) (HomePageActivity.this
                         .getApplication())).columnEntry;
-                ColumnEntry phoneStudyCol = columnEntry
-                        .getColByName(MODEL_NAME);
-                functionIds = new StringBuilder(phoneStudyCol.getId());
-                for (int i = 0; i < columnEntry.getColumnEntryChilds().size(); i++) {
-                    ColumnEntry entryChild = columnEntry.getColumnEntryChilds()
-                            .get(i);
-                    if (entryChild.getPath() != null
-                            && entryChild.getPath().contains(
-                            phoneStudyCol.getId())) {
-                        functionIds.append("," + entryChild.getId());
-                    }
-                }
+//                ColumnEntry phoneStudyCol = columnEntry
+//                        .getColByName(MODEL_NAME);
+//                functionIds = new StringBuilder(phoneStudyCol.getId());
+//                for (int i = 0; i < columnEntry.getColumnEntryChilds().size(); i++) {
+//                    ColumnEntry entryChild = columnEntry.getColumnEntryChilds()
+//                            .get(i);
+//                    if (entryChild.getPath() != null
+//                            && entryChild.getPath().contains(
+//                            phoneStudyCol.getId())) {
+//                        functionIds.append("," + entryChild.getId());
+//                    }
+//                }
             }
 
             public void run() {
@@ -294,10 +293,8 @@ public class HomePageActivity extends BaseActivity implements OnClickListener,
                 if (((CeiApplication) getApplication()).isNet()) {
                     initSendData();
                     String result = "";
-                    if (columnEntry.getColumnEntryChilds().size() > 0) {
-                        result = Service.queryClassByTime(columnEntry
-                                .getColumnEntryChilds().get(0).getId(),
-                                functionIds.toString());
+                    if (columnEntry.getColumnEntryChilds().size() > 0||true) {
+                        result = Service.queryClassByTime("","");
                         WriteOrRead.write(result, MyTools.nativeData,
                                 NEWCLASS_FILENAME);
                     }
@@ -357,16 +354,16 @@ public class HomePageActivity extends BaseActivity implements OnClickListener,
             public void run() {
                 topCoursewares = new ArrayList<Courseware>();
                 ColumnEntry columnEntry = ((CeiApplication) getApplication()).columnEntry;
-                if (columnEntry.getColByName(WELLCLASS_NAME, columnEntry
-                        .getColByName(HomePageActivity.MODEL_NAME).getId()) != null) {
-                    String wellClassParentId = columnEntry.getColByName(
-                            WELLCLASS_NAME,
-                            columnEntry.getColByName(
-                                    HomePageActivity.MODEL_NAME).getId())
-                            .getId();
+//                if (columnEntry.getColByName(WELLCLASS_NAME, columnEntry
+//                        .getColByName(HomePageActivity.MODEL_NAME).getId()) != null) {
+//                    String wellClassParentId = columnEntry.getColByName(
+//                            WELLCLASS_NAME,
+//                            columnEntry.getColByName(
+//                                    HomePageActivity.MODEL_NAME).getId())
+//                            .getId();
                     if (((CeiApplication) getApplication()).isNet()) {
                         String result = Service.queryPhoneFunctionTree(
-                                wellClassParentId, "kj");
+                                "", "kj");
                         if (XmlUtil.parseReturnCode(result).equals("")) {
                             XmlUtil.parseCoursewares(result, topCoursewares);
                             WriteOrRead.write(result, MyTools.nativeData,
@@ -393,11 +390,11 @@ public class HomePageActivity extends BaseActivity implements OnClickListener,
 						 * }
 						 */
                     }
-                } else {
-                    Message message = handler.obtainMessage();
-                    message.arg1 = TOP_KEY;
-                    handler.sendMessage(message);
-                }
+//                } else {
+//                    Message message = handler.obtainMessage();
+//                    message.arg1 = TOP_KEY;
+//                    handler.sendMessage(message);
+//                }
             }
 
             ;

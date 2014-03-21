@@ -694,6 +694,7 @@ public class Service {
 			String xmlStr = "<?xml version='1.0' encoding='UTF-8'?>" + "<ROOT>"
 					+ "<functionid>" + functionid + "</functionid>" + "<num>"
 					+ num + "</num>" + "<userId>" + userId + "</userId>"
+                    +"<newstype>new</newstype>"
 					+ "</ROOT>";
 			WriteOrRead.write(xmlStr, "/mnt/sdcard/yepeng/",
 					"queryNewsByFunctionId");

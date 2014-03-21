@@ -47,7 +47,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CourseDetailActivity extends FoundationActivity {
+public class CourseDetailActivityphone extends FoundationActivity {
 
 	private Courseware courseware;
 	private AsyncImageLoader asyncImageLoader;
@@ -62,7 +62,7 @@ public class CourseDetailActivity extends FoundationActivity {
 	private Handler handler = new Handler() {
 		@Override
 		public void dispatchMessage(Message msg) {
-			AlertDialog.Builder builder = new Builder(CourseDetailActivity.this);
+			AlertDialog.Builder builder = new Builder(CourseDetailActivityphone.this);
 			switch (msg.arg1) {
 			case NO_NET:
 				builder.setMessage("网络有问题 ！");
@@ -208,7 +208,7 @@ public class CourseDetailActivity extends FoundationActivity {
                     }
                 }
 				CourseDetailAboutAdapter aboutAdapter = new CourseDetailAboutAdapter(
-						CourseDetailActivity.this, aboutCourseware, gridView);
+						CourseDetailActivityphone.this, aboutCourseware, gridView);
 				gridView.setAdapter(aboutAdapter, 3);
 				break;
 			}
@@ -246,9 +246,9 @@ public class CourseDetailActivity extends FoundationActivity {
 			public void onItemClick(AdapterView<?> arg0, View arg1,
 					int position, long arg3) {
 				// 点击相关课程进入详细信息
-				CourseDetailActivity.this.finish();
-				Intent intent = new Intent(CourseDetailActivity.this,
-						CourseDetailActivity.class);
+				CourseDetailActivityphone.this.finish();
+				Intent intent = new Intent(CourseDetailActivityphone.this,
+						CourseDetailActivityphone.class);
 				intent.putExtra("coursewareInfo", aboutCourseware.get(position));
 				startActivity(intent);
 			}
@@ -259,7 +259,7 @@ public class CourseDetailActivity extends FoundationActivity {
 
 			// 初始化请求数据
 			private void initSendData() {
-				/*ColumnEntry columnEntry = ((CeiApplication) (CourseDetailActivity.this
+				/*ColumnEntry columnEntry = ((CeiApplication) (CourseDetailActivityphone.this
 						.getApplication())).columnEntry;
 				ColumnEntry phoneStudyCol = columnEntry
 						.getColByName(FoundationActivity.MODEL_NAME);
@@ -346,7 +346,7 @@ public class CourseDetailActivity extends FoundationActivity {
 
 					@Override
 					public void imageLoaded(Drawable drawable, String path) {
-						ImageView imageView = (ImageView) CourseDetailActivity.this
+						ImageView imageView = (ImageView) CourseDetailActivityphone.this
 								.findViewById(R.id.phone_study_detail_icon);
 						if (drawable != null) {
 							imageView.setImageDrawable(drawable);
@@ -374,7 +374,7 @@ public class CourseDetailActivity extends FoundationActivity {
 
 					@Override
 					public void onClick(View v) {
-						Intent intent = new Intent(CourseDetailActivity.this,
+						Intent intent = new Intent(CourseDetailActivityphone.this,
 								MainActivity.class);
 						startActivity(intent);
 					}
@@ -393,8 +393,8 @@ public class CourseDetailActivity extends FoundationActivity {
 								.getText().toString());
 						if (forum.getContent() != null
 								&& forum.getContent().trim().length() == 0) {
-							MyTools.exitShow(CourseDetailActivity.this,
-									CourseDetailActivity.this.getWindow()
+							MyTools.exitShow(CourseDetailActivityphone.this,
+									CourseDetailActivityphone.this.getWindow()
 											.getDecorView(), "请输入评论内容!");
 							return;
 						}
@@ -425,12 +425,10 @@ public class CourseDetailActivity extends FoundationActivity {
 		loadSelfCourseData();
 		findViewById(R.id.phone_study_detail_play).setOnClickListener(
 				new OnClickListener() {
-
 					// 没有购买的
 					private static final int NO_BUY = 0;
 					// 已经购买的
 					private static final int AL_BUY = 1;
-
 					/**
 					 * 检查是否有买了这个课件
 					 */
@@ -468,26 +466,27 @@ public class CourseDetailActivity extends FoundationActivity {
 						public void dispatchMessage(Message msg) {
 							switch (msg.arg1) {
 							case NO_BUY:
-								if (((CeiApplication) CourseDetailActivity.this
+								if (((CeiApplication) CourseDetailActivityphone.this
 										.getApplication()).isNet())
 									MyTools.exitShow(
-											CourseDetailActivity.this,
-											CourseDetailActivity.this
+											CourseDetailActivityphone.this,
+											CourseDetailActivityphone.this
 													.getWindow().getDecorView(),
 											"未购买该课件！");
 								else
 									MyTools.exitShow(
-											CourseDetailActivity.this,
-											CourseDetailActivity.this
+											CourseDetailActivityphone.this,
+											CourseDetailActivityphone.this
 													.getWindow().getDecorView(),
 											"请联网查看！");
 								break;
 							case AL_BUY:
 								Intent intent = new Intent(
-										CourseDetailActivity.this,
+										CourseDetailActivityphone.this,
 										WebViewUtil.class);
 								if (courseware.getLookPath() == null)
-									courseware.setLookPath("file:///" + dataHelper.getPreload(courseware.getClassId()).getLoadLocalPath()
+									courseware.setLookPath("file:///" +
+                                            dataHelper.getPreload(courseware.getClassId()).getLoadLocalPath()
 											.replace(
 													FLASH_POSTFIX,
 													FLASH_GATE));
@@ -514,12 +513,10 @@ public class CourseDetailActivity extends FoundationActivity {
 				});
 		findViewById(R.id.phone_study_detail_preload).setOnClickListener(
 				new OnClickListener() {
-
 					// 没有购买的
 					private static final int NO_BUY = 0;
 					// 已经购买的
 					private static final int AL_BUY = 1;
-
 					/**
 					 * 检查是否有买了这个课件
 					 */
@@ -558,17 +555,17 @@ public class CourseDetailActivity extends FoundationActivity {
 						public void dispatchMessage(Message msg) {
 							switch (msg.arg1) {
 							case NO_BUY:
-								if (((CeiApplication) CourseDetailActivity.this
+								if (((CeiApplication) CourseDetailActivityphone.this
 										.getApplication()).isNet())
 									MyTools.exitShow(
-											CourseDetailActivity.this,
-											CourseDetailActivity.this
+											CourseDetailActivityphone.this,
+											CourseDetailActivityphone.this
 													.getWindow().getDecorView(),
 											"未购买该课件！");
 								else
 									MyTools.exitShow(
-											CourseDetailActivity.this,
-											CourseDetailActivity.this
+											CourseDetailActivityphone.this,
+											CourseDetailActivityphone.this
 													.getWindow().getDecorView(),
 											"请联网查看！");
 								break;
@@ -585,8 +582,8 @@ public class CourseDetailActivity extends FoundationActivity {
 					}
 
 				});
-		changeDownBtn(findViewById(R.id.phone_study_detail_preload),
-				courseware.getClassId());
+//		changeDownBtn(findViewById(R.id.phone_study_detail_preload),
+//				courseware.getClassId());
 	}
 
 	private void loadSelfCourseData() {
@@ -737,7 +734,7 @@ public class CourseDetailActivity extends FoundationActivity {
 			@Override
 			public void onClick(View v) {
 				popWin.dismiss();
-				DataHelper dataHelper = ((CeiApplication) (CourseDetailActivity.this.getApplication())).dataHelper;
+				DataHelper dataHelper = ((CeiApplication) (CourseDetailActivityphone.this.getApplication())).dataHelper;
 				Preload preload = new Preload();
 				preload.setLoadPlayId(courseware.getClassId());
 				preload.setLoadCurrentByte(0);
@@ -774,7 +771,7 @@ public class CourseDetailActivity extends FoundationActivity {
 				if (!dataHelper.hasPreload(preload.getLoadPlayId())) {
 					dataHelper.savePreload(preload);
 					AlertDialog.Builder builder = new Builder(
-							CourseDetailActivity.this);
+							CourseDetailActivityphone.this);
 					builder.setMessage("成功加入下载队列 ！");
 					builder.setPositiveButton("确认",
 							new DialogInterface.OnClickListener() {
@@ -784,16 +781,16 @@ public class CourseDetailActivity extends FoundationActivity {
 										int which) {
 									dialog.dismiss();
 									Intent intent = new Intent(
-											CourseDetailActivity.this,
+											CourseDetailActivityphone.this,
 											PreloadActivity.class);
-									CourseDetailActivity.this
+									CourseDetailActivityphone.this
 											.startActivity(intent);
 								}
 							});
 					builder.create().show();
 				} else {
 					AlertDialog.Builder builder = new Builder(
-							CourseDetailActivity.this);
+							CourseDetailActivityphone.this);
 					builder.setMessage("下载队列已存在该剧集 ！");
 					builder.setPositiveButton("确认",
 							new DialogInterface.OnClickListener() {
@@ -803,9 +800,9 @@ public class CourseDetailActivity extends FoundationActivity {
 										int which) {
 									dialog.dismiss();
 									Intent intent = new Intent(
-											CourseDetailActivity.this,
+											CourseDetailActivityphone.this,
 											PreloadActivity.class);
-									CourseDetailActivity.this
+									CourseDetailActivityphone.this
 											.startActivity(intent);
 								}
 							});

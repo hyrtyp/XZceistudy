@@ -300,7 +300,7 @@ public class PhoneStudyKindsAdapter extends BaseAdapter {
 				checkBuy();
 			}
 		});
-		changeDownBtn(holder.downloadBtn,coursewares.get(position).getClassId());
+//		changeDownBtn(holder.downloadBtn,coursewares.get(position).getClassId());
 		if (!coursewares.get(position).isSelfCourse()) {
 			holder.addCourse
 					.setImageResource(R.drawable.phone_study_addcourse_btn);

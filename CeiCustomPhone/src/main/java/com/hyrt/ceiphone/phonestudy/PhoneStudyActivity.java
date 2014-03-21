@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.hyrt.cei.application.CeiApplication;
 import com.hyrt.cei.ui.common.LoginActivityphone;
-import com.hyrt.cei.ui.phonestudy.CourseDetailActivity;
+import com.hyrt.cei.ui.phonestudy.CourseDetailActivityphone;
 import com.hyrt.cei.update.UpdateManager;
 import com.hyrt.cei.util.MyTools;
 import com.hyrt.cei.util.WriteOrRead;
@@ -111,7 +111,6 @@ public class PhoneStudyActivity extends FoundationActivity {
 		super.onCreate(savedInstanceState);
 		this.CURRENT_KEY = FoundationActivity.NEW_DATA_KEY;
 		setContentView(R.layout.phone_study);
-//        showLoginBtnByUserName();
         findViewById(R.id.main_login).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -143,7 +142,6 @@ public class PhoneStudyActivity extends FoundationActivity {
 							.substring(0, 9) + "..." : report.getName());
 				} else {
 					title.setText("");
-
 				}
 				if (arg2 % 5 == 0) {
 					point1.setBackgroundResource(R.drawable.read_report_index_select);
@@ -199,9 +197,9 @@ public class PhoneStudyActivity extends FoundationActivity {
 		Courseware report = (Courseware) adapter.getAdapter().getItem(position);
 		if (report.getClassId() == null)
 			return;
-		Intent intent = new Intent(this, CourseDetailActivity.class);// OpenBookActivity
+		Intent intent = new Intent(this, CourseDetailActivityphone.class);// OpenBookActivity
 		intent.putExtra("coursewareInfo", report);
-		startActivity(intent);
+//		startActivity(intent);
 	}
 
 	/**
@@ -213,13 +211,13 @@ public class PhoneStudyActivity extends FoundationActivity {
 				topCoursewares = new ArrayList<Courseware>();
 				ColumnEntry columnEntry = ((CeiApplication) getApplication()).columnEntry;
 				String wellClassParentId = "";
-                if(1==1){
-                    return;
-                }
-				if (columnEntry.getColByName(WELLCLASS_NAME, columnEntry
-						.getColByName(FoundationActivity.MODEL_NAME).getId()) != null) 
-					wellClassParentId = columnEntry.getColByName(WELLCLASS_NAME, columnEntry
-							.getColByName(FoundationActivity.MODEL_NAME).getId()).getId();
+//                if(1==1){
+//                    return;
+//                }
+//				if (columnEntry.getColByName(WELLCLASS_NAME, columnEntry
+//						.getColByName(FoundationActivity.MODEL_NAME).getId()) != null)
+//					wellClassParentId = columnEntry.getColByName(WELLCLASS_NAME, columnEntry
+//							.getColByName(FoundationActivity.MODEL_NAME).getId()).getId();
 				if (((CeiApplication) getApplication()).isNet()) {
 					String result = Service.queryPhoneFunctionTree(
 							wellClassParentId, "kj");

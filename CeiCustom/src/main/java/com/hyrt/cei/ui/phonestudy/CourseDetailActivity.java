@@ -407,14 +407,11 @@ public class CourseDetailActivity extends Activity implements OnClickListener {
 					}
 				});
 		loadSelfCourseData();
-		findViewById(R.id.phone_study_detail_play).setOnClickListener(
-				new OnClickListener() {
-
+		findViewById(R.id.phone_study_detail_play).setOnClickListener(new OnClickListener() {
 					// 没有购买的
 					private static final int NO_BUY = 0;
 					// 已经购买的
 					private static final int AL_BUY = 1;
-
 					/**
 					 * 检查是否有买了这个课件
 					 */
@@ -481,14 +478,11 @@ public class CourseDetailActivity extends Activity implements OnClickListener {
 						checkBuy();
 					}
 				});
-		findViewById(R.id.phone_study_detail_preload).setOnClickListener(
-				new OnClickListener() {
-
+		findViewById(R.id.phone_study_detail_preload).setOnClickListener(new OnClickListener() {
 					// 没有购买的
 					private static final int NO_BUY = 0;
 					// 已经购买的
 					private static final int AL_BUY = 1;
-
 					/**
 					 * 检查是否有买了这个课件
 					 */
@@ -544,7 +538,7 @@ public class CourseDetailActivity extends Activity implements OnClickListener {
 					}
 
 				});
-		changeDownBtn(findViewById(R.id.phone_study_detail_preload),courseware.getClassId());
+//		changeDownBtn(findViewById(R.id.phone_study_detail_preload),courseware.getClassId());
 	}
 
 	private void loadSelfCourseData() {

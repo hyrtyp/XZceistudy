@@ -112,9 +112,12 @@ public class Disclaimer extends BaseActivity implements OnClickListener {
 			@Override
 			public void run() {
 				columnEntry = ((CeiApplication) getApplication()).columnEntry;
-				if(columnEntry.getColByName(Disclaimer.MODEL_NAME) == null)
-					return;
-				rs = Service.queryNewsByFunctionId(columnEntry.getColByName(Disclaimer.MODEL_NAME).getId(), "", columnEntry.getUserId());
+//				if(columnEntry.getColByName(Disclaimer.MODEL_NAME) == null)
+//					return;
+				rs = Service.queryNewsByFunctionId(
+                        "",
+                        "",
+                        columnEntry.getUserId());
 				XmlUtil.getNewsList(rs, news);
 				news.size();
 				Message msg = newsHandler.obtainMessage();

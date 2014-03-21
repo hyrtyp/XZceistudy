@@ -60,7 +60,7 @@
                 android:layout_marginLeft="10dip"
                 android:gravity="center"
                 style="@style/pad_study_Tab"
-                android:text="正下载" />
+                android:text="已下载" />
         </LinearLayout>
 
         <ScrollView

@@ -379,6 +379,11 @@ public class Welcome extends Activity {
                             message.arg1 = BE00;
                             handler.sendMessage(message);
                             return;
+                        }else if(XmlUtil.parseReturnCode(result).equals("-1")){//异常
+                            Message message = handler.obtainMessage();
+                            message.arg1 = BE08;
+                            handler.sendMessage(message);
+                            return;
                         }
 						WriteOrRead.write(result, MyTools.nativeData,
 								INITRESOURCES_FILENAME);

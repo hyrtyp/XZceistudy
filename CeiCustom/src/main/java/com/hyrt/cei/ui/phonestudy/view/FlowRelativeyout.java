@@ -1,12 +1,22 @@
 package com.hyrt.cei.ui.phonestudy.view;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.os.Handler;
+import android.util.AttributeSet;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnTouchListener;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 
 import com.hyrt.cei.R;
-import com.hyrt.cei.ui.phonestudy.HomePageActivity;
 import com.hyrt.cei.ui.phonestudy.anim.CenterItemLeftCamera;
 import com.hyrt.cei.ui.phonestudy.anim.CenterItemRightCamera;
 import com.hyrt.cei.ui.phonestudy.anim.LeftOneItemLeftCamera;
@@ -17,23 +27,7 @@ import com.hyrt.cei.ui.phonestudy.anim.RightOneItemRightCamera;
 import com.hyrt.cei.ui.phonestudy.anim.RightTwoItemLeftCamera;
 import com.hyrt.cei.util.ImageUtil;
 
-import android.content.Context;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.os.Handler;
-import android.os.Message;
-import android.util.AttributeSet;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.Animation.AnimationListener;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
-import android.view.View.OnTouchListener;
+import java.util.LinkedList;
 
 ;
 
@@ -101,10 +95,10 @@ public class FlowRelativeyout extends RelativeLayout implements
 
 			@Override
 			public void onClick(View v) {
-				Message message = handler.obtainMessage();
-				centerImageView.getDrawable();
-				message.arg1 = HomePageActivity.GO_DETAIL;
-				handler.sendMessage(message);
+//				Message message = handler.obtainMessage();
+//				centerImageView.getDrawable();
+//				message.arg1 = HomePageActivity.GO_DETAIL;
+//				handler.sendMessage(message);
 			}
 		});
 		centerImageView.setOnTouchListener(this);

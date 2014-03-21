@@ -1,8 +1,5 @@
 package com.hyrt.ceiphone.phonestudy.data;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.app.Activity;
 import android.os.Environment;
 import android.os.Message;
@@ -18,6 +15,9 @@ import com.hyrt.ceiphone.phonestudy.FoundationActivity;
 import com.hyrt.ceiphone.phonestudy.KindsActivity;
 import com.hyrt.ceiphone.phonestudy.NominateActivity;
 import com.hyrt.ceiphone.phonestudy.PhoneStudyActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DataHelper {
 
@@ -332,10 +332,9 @@ public class DataHelper {
 				if (((CeiApplication) activity.getApplication()).isNet()) {
 					initSendData();
 					String result = "";
-					if (columnEntry.getColumnEntryChilds().size() > 0) {
-						result = Service.queryClassByTime(columnEntry
-								.getColumnEntryChilds().get(0).getId(),
-								functionIds.toString());
+					if (columnEntry.getColumnEntryChilds().size() > 0||true) {
+						result = Service.queryClassByTime("",
+								"");
 						WriteOrRead.write(result, MyTools.nativeData,
 								PhoneStudyActivity.NEWCLASS_FILENAME);
 					}

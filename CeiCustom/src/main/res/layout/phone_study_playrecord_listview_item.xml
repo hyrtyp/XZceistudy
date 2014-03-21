@@ -45,7 +45,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:paddingRight="30dip">
+                android:paddingRight="30dip"
+                android:visibility="gone">
 
                 <Button
                     android:id="@id/phone_study_playrecord_play_btn"
@@ -104,7 +105,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:paddingRight="60dip"
-                android:src="@drawable/phone_study_uploadcourse_btn" />
+                android:src="@drawable/phone_study_uploadcourse_btn"
+                android:visibility="gone"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"

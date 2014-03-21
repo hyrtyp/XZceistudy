@@ -64,7 +64,8 @@
         android:layout_height="wrap_content"
         android:contentDescription="@string/hello"
         android:layout_alignParentRight="true"
-        android:src="@drawable/phone_study_uploadcourse_btn" />
+        android:src="@drawable/phone_study_uploadcourse_btn"
+        android:visibility="gone"/>
    </RelativeLayout>
 
 </LinearLayout>

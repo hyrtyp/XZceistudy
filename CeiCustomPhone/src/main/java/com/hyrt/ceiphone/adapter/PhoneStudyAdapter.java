@@ -24,7 +24,7 @@ import android.widget.TextView;
 
 import com.hyrt.cei.application.CeiApplication;
 import com.hyrt.cei.db.DataHelper;
-import com.hyrt.cei.ui.phonestudy.CourseDetailActivity;
+import com.hyrt.cei.ui.phonestudy.CourseDetailActivityphone;
 import com.hyrt.cei.util.AsyncImageLoader;
 import com.hyrt.cei.util.MyTools;
 import com.hyrt.cei.util.XmlUtil;
@@ -207,7 +207,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
 
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(activity, CourseDetailActivity.class);
+				Intent intent = new Intent(activity, CourseDetailActivityphone.class);
 				intent.putExtra("coursewareInfo", coursewares.get(position));
 				intent.putExtra("isRecord", isRecord);
 				activity.startActivity(intent);

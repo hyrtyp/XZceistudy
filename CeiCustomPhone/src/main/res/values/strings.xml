@@ -4,7 +4,7 @@
     <string name="hello">Hello World, WelcomeActivity!</string>
     <string name="app_name">移动学习</string>
     <string name="not_exist_sd">sd卡不存在，请插卡即将退出！</string>
-    <string name="phone_study_title">主题 ：环保与经济aaaaaaaaaaaaaaaaaaaaa</string>
+    <string name="phone_study_title">主题 ：环保与经济</string>
     <string name="phone_study_teachername">主讲人 ：范先生</string>
     <string name="phone_study_protime">发布时间：2012年1月1日</string>
     <string name="soft_update_no">已经是最新版本</string>

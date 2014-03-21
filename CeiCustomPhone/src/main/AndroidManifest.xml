@@ -160,7 +160,7 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
-            android:name="com.hyrt.cei.ui.phonestudy.CourseDetailActivity"
+            android:name="com.hyrt.cei.ui.phonestudy.CourseDetailActivityphone"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <!--<activity-->

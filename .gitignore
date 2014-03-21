@@ -33,4 +33,6 @@ CeiCustomPhone/build/
 Weibo/build/
 WeiboApi/build/
 .gradle/
+CeiCustom/build.gradle
+CeiCustomPhone/build.gradle
 

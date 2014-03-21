@@ -590,7 +590,8 @@ public class Service {
 			String xmlStr = "<?xml version='1.0' encoding='UTF-8'?>" + "<ROOT>"
 					+ "<functionid>" + functionid + "</functionid>" + "<num>"
 					+ num + "</num>" +"<userId>"
-					+ userId + "</userId>"+ "</ROOT>";
+					+ userId + "</userId>"+ "<newstype>new</newstype>"+
+                    "</ROOT>";
 			rs = agent.queryNewsByFunctionId(xmlStr);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -977,6 +978,8 @@ public class Service {
 					+ "<userid >" + userId + "</userid >" 
 					 +"<imagetype>androidpad</imagetype>"
 					+ "</ROOT>";
+            WriteOrRead.write(xmlStr, "/mnt/sdcard/yepeng/",
+                    "queryUserClassTime");
 			rs = agent.queryUserClassTime(xmlStr);
 		} catch (Exception e) {
 			e.printStackTrace();
