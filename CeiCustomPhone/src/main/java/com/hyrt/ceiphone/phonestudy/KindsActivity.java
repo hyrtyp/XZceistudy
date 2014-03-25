@@ -1,16 +1,5 @@
 package com.hyrt.ceiphone.phonestudy;
 
-import java.util.ArrayList;
-import java.util.List;
-import com.hyrt.cei.application.CeiApplication;
-import com.hyrt.cei.ui.phonestudy.view.MenuGridView;
-import com.hyrt.cei.util.XmlUtil;
-import com.hyrt.cei.vo.ClassType;
-import com.hyrt.cei.vo.ColumnEntry;
-import com.hyrt.cei.webservice.service.Service;
-import com.hyrt.ceiphone.R;
-import com.hyrt.ceiphone.adapter.HorGridViewAdapter;
-
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,6 +9,18 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.hyrt.cei.application.CeiApplication;
+import com.hyrt.cei.ui.phonestudy.view.MenuGridView;
+import com.hyrt.cei.util.XmlUtil;
+import com.hyrt.cei.vo.ClassType;
+import com.hyrt.cei.vo.ColumnEntry;
+import com.hyrt.cei.webservice.service.Service;
+import com.hyrt.ceiphone.R;
+import com.hyrt.ceiphone.adapter.HorGridViewAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class KindsActivity extends FoundationActivity{
 
@@ -136,8 +137,8 @@ public class KindsActivity extends FoundationActivity{
 				if(classTypes.size() <= 0)
 					return;
 				columnEntries = new ArrayList<ColumnEntry>();
-				rootId = classTypes.get(0).getParentId();
-				//classTypes.remove(0);
+				rootId = classTypes.get(0).getClassificationid();
+				classTypes.remove(0);
 				for (int i = 0; i < classTypes.size(); i++) {
 					if (!classTypes.get(i).getParentId().equals(rootId))
 						continue;
