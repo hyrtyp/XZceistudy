@@ -65,10 +65,10 @@ public class KindsActivity extends FoundationActivity{
 					((TextView) rl.getChildAt(1)).setTextColor(Color.BLUE);
 				}
 			}
-            initLvData(columnEntries.get(position).getClassificationid());
-			/*firstColumnEntries = new ArrayList<ColumnEntry>();
+
+			firstColumnEntries = new ArrayList<ColumnEntry>();
 			for(int i=0;i<classTypes.size();i++){
-				if(classTypes.get(i).getParentId().equals(columnEntries.get(position).getId())){
+				if(classTypes.get(i).getParentId().equals(columnEntries.get(position).getClassificationid())){
 					ColumnEntry menuNodeChilds = new ColumnEntry();
 					menuNodeChilds.setId(classTypes.get(i).getClassId());
 					menuNodeChilds.setName(classTypes.get(i).getContent());
@@ -78,8 +78,12 @@ public class KindsActivity extends FoundationActivity{
 			}
 			HorGridViewAdapter gridViewAdapter = new HorGridViewAdapter(KindsActivity.this,firstColumnEntries,false);
 			gridView1.setAdapter(gridViewAdapter, 4);
+            if(firstColumnEntries.size() > 0)
+                findViewById(R.id.phone_study_gridviewparent1).setVisibility(View.VISIBLE);
+            else
+                initLvData(columnEntries.get(position).getClassificationid());
 			findViewById(R.id.phone_study_gridviewparent2).setVisibility(View.GONE);
-			phoneStudyListView.setVisibility(View.GONE);*/
+			phoneStudyListView.setVisibility(View.GONE);
 			break;
 		case R.id.phone_study_gridview1:
 			for (int i = 0; i < adapter.getChildCount(); i++) {

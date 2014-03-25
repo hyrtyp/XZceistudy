@@ -57,27 +57,6 @@ public class LoginActivityphone extends ContainerActivity implements OnClickList
 		loginName = settings.getString("LOGINNAME", "");
 		// accountEt.setText(settings.getString("LOGINNAME", ""));
 		// passwordEt.setText(settings.getString("PASSWORD", ""));
-		accountEt.setOnFocusChangeListener(new OnFocusChangeListener() {
-			@Override
-			public void onFocusChange(View v, boolean hasFocus) {
-				// TODO Auto-generated method stub
-				if (hasFocus && i1 == 0) {
-					accountEt.setText("");
-					i1++;
-				}
-			}
-		});
-		passwordEt.setOnFocusChangeListener(new OnFocusChangeListener() {
-
-			@Override
-			public void onFocusChange(View v, boolean hasFocus) {
-				// TODO Auto-generated method stub
-				if (hasFocus && i2 == 0) {
-					passwordEt.setText("");
-					i2++;
-				}
-			}
-		});
 		findViewById(R.id.ui_login_regist_tv).setOnClickListener(
 				new OnClickListener() {
 

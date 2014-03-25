@@ -65,25 +65,25 @@ public class KindsActivity extends BaseActivity implements OnClickListener {
 					return;
 				}
 				menuNodes = new ArrayList<MenuNode>();
-				String rootId = classTypes.get(0).getParentId();
-				//classTypes.remove(0);
+				String rootId = classTypes.get(0).getClassificationid();
+				classTypes.remove(0);
 				for(int i=0;i<classTypes.size();i++){
 					if(classTypes.get(i).getContent().equals("免费课件")){
 						freeClassId = classTypes.get(i).getClassId();
 					}
 				}
 				for (int i = 0; i < classTypes.size(); i++) {
-					if (!classTypes.get(i).getParentId().equals(rootId))
-						continue;
 					MenuNode menuNodeChilds = new MenuNode();
-					menuNodeChilds.setId(classTypes.get(i).getClassId());
+					menuNodeChilds.setId(classTypes.get(i).getClassificationid());
 					menuNodeChilds.setContent(classTypes.get(i).getContent());
+                    if(!classTypes.get(i).getParentId().equals(rootId))
+                        continue;
 					for (int j = 0; j < classTypes.size(); j++) {
 						if (classTypes.get(j).getParentId()
 								.equals(menuNodeChilds.getId())) {
 							MenuNode menuNodeChildChilds = new MenuNode();
 							menuNodeChildChilds.setId(classTypes.get(j)
-									.getClassId());
+									.getClassificationid());
 							menuNodeChildChilds.setContent(classTypes.get(j)
 									.getContent());
 							menuNodeChilds.getMenuNodeChilds().add(
@@ -92,7 +92,7 @@ public class KindsActivity extends BaseActivity implements OnClickListener {
 								if (classTypes.get(x).getParentId()
 										.equals(menuNodeChildChilds.getId())) {
 									MenuNode menuNodeChildChildCild = new MenuNode();
-									menuNodeChildChildCild.setId(classTypes.get(x).getClassId());
+									menuNodeChildChildCild.setId(classTypes.get(x).getClassificationid());
 									menuNodeChildChildCild
 											.setContent(classTypes.get(x)
 													.getContent());
@@ -135,10 +135,9 @@ public class KindsActivity extends BaseActivity implements OnClickListener {
 //								.getColumnEntryChilds().get(i);
 //						if (entryChild.getPath() != null
 //								&& entryChild.getPath().contains(
-//										phoneStudyCol.getId())) {
-//							functionIds.append("," + entryChild.getId());
-//						}
-//					}
+//										p//						}
+//honeStudyCol.getId())) {
+//							functionIdd
 					String result = Service.queryClassByType("");
 					if(XmlUtil.parseReturnCode(result).equals("5")){
 					    Message message = handler.obtainMessage();
@@ -699,7 +698,7 @@ public class KindsActivity extends BaseActivity implements OnClickListener {
 											.setBackgroundResource(
 													R.drawable.phone_study_kind_second_menu_icon);
 									((TextView) child.getChildAt(1))
-											.setTextColor(Color.WHITE);
+											.setTextColor(Color.BLUE);
 								}
 							}
 							// 清空当前三级栏目然后根据数据增加条目
