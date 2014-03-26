@@ -83,6 +83,7 @@ public class KindsActivity extends FoundationActivity{
                 findViewById(R.id.phone_study_gridviewparent1).setVisibility(View.VISIBLE);
             else{
                 initLvData(columnEntries.get(position).getClassificationid());
+                phoneStudyListView.setVisibility(View.VISIBLE);
                 findViewById(R.id.phone_study_gridviewparent1).setVisibility(View.GONE);
             }
 			findViewById(R.id.phone_study_gridviewparent2).setVisibility(View.GONE);
