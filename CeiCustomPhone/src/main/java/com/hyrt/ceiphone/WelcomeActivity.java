@@ -21,6 +21,7 @@ import android.view.ViewTreeObserver.OnPreDrawListener;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hyrt.cei.application.CeiApplication;
 import com.hyrt.cei.ui.common.LoginActivityphone;
@@ -441,6 +442,9 @@ public class WelcomeActivity extends ContainerActivity {
 						return;
 					}
 					XmlUtil.parseInitResources(result, columnEntry);
+                    SharedPreferences.Editor editor = settings.edit();
+                    editor.putString("XZUSERID",columnEntry.getXzuserid());
+                    editor.commit();
 					Message message = handler.obtainMessage();
 					message.arg1 = UPDATE_CENT;
 					message.arg2 = 50;

@@ -388,6 +388,9 @@ public class Welcome extends Activity {
 						WriteOrRead.write(result, MyTools.nativeData,
 								INITRESOURCES_FILENAME);
 						XmlUtil.parseInitResources(result, columnEntry);
+                        SharedPreferences.Editor editor = settings.edit();
+                        editor.putString("XZUSERID",columnEntry.getXzuserid());
+                        editor.commit();
 						Message message = handler.obtainMessage();
 						message.arg1 = UPDATE_CENT;
 						message.arg2 = 50;

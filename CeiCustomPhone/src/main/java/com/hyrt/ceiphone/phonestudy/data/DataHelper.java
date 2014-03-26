@@ -1,6 +1,7 @@
 package com.hyrt.ceiphone.phonestudy.data;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Environment;
 import android.os.Message;
 
@@ -393,8 +394,11 @@ public class DataHelper {
 				activity.courses.clear();
 				activity.coursewares.clear();
 				if (((CeiApplication) activity.getApplication()).isNet()) {
-					String result = Service.queryCourse(((CeiApplication) (activity
-							.getApplication())).columnEntry.getXzuserid());
+                    SharedPreferences settings = activity.getSharedPreferences("loginInfo",
+                            Activity.MODE_PRIVATE);
+                    String xzuserid = ((CeiApplication) (activity
+                            .getApplication())).columnEntry.getXzuserid();
+					String result = Service.queryCourse(settings.getString("XZUSERID",xzuserid));
 					XmlUtil.parseErrorCoursewares(result, activity.courses);
 					for (int i = 0; i < activity.courses.size(); i++) {
 						activity.courses.get(i).setSelfCourse(true);

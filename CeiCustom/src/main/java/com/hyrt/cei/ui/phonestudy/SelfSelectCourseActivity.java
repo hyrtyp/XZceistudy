@@ -1,6 +1,8 @@
 package com.hyrt.cei.ui.phonestudy;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -200,9 +202,11 @@ public class SelfSelectCourseActivity extends BaseActivity implements
 			public void run() {
 
 				if (((CeiApplication) getApplication()).isNet()) {
-					String result = Service
-							.queryCourse(((CeiApplication) (getApplication())).columnEntry
-									.getXzuserid());
+                    SharedPreferences settings = getSharedPreferences("loginInfo",
+                            Activity.MODE_PRIVATE);
+                    String xzuserid = ((CeiApplication) (getApplication())).columnEntry.getXzuserid();
+                    String result = Service
+							.queryCourse(settings.getString("XZUSERID",xzuserid));
 					XmlUtil.parseErrorCoursewares(result, courses);
 					for (int i = 0; i < courses.size(); i++) {
 						courses.get(i).setSelfCourse(true);
