@@ -1,10 +1,5 @@
 package com.hyrt.ceiphone.adapter;
 
-import java.util.List;
-
-import com.hyrt.cei.vo.ColumnEntry;
-import com.hyrt.ceiphone.R;
-
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
@@ -12,12 +7,15 @@ import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.hyrt.cei.vo.ColumnEntry;
+import com.hyrt.ceiphone.R;
+
+import java.util.List;
 
 public class HorGridViewAdapter extends BaseAdapter {
 
@@ -64,11 +62,12 @@ public class HorGridViewAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		RelativeLayout item = (RelativeLayout) inflater.inflate(R.layout.phone_study_gridview_item, null);
+		RelativeLayout item = (RelativeLayout) inflater.inflate(R.layout.phone_study_gridview_item2, null);
 		item.setLayoutParams(new GridView.LayoutParams(width / 4,50));
 		TextView tv = (TextView) item.getChildAt(1);
 		if(position == 0 && isFristBlue){
-			 ((ImageView)item.getChildAt(0)).setImageResource(R.drawable.phone_study_menu_select);
+//			 ((ImageView)item.getChildAt(0)).setImageResource(R.drawable.phone_study_menu_select);
+            tv.setBackgroundResource(R.color.phone_study_kinds_bg);
 			 tv.setTextColor(Color.WHITE);
 		}else{
 			tv.setTextColor(Color.BLUE);

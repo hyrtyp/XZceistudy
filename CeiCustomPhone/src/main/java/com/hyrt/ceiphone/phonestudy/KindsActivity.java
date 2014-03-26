@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -58,10 +57,12 @@ public class KindsActivity extends FoundationActivity{
 			for (int i = 0; i < adapter.getChildCount(); i++) {
 				RelativeLayout rl = (RelativeLayout) adapter.getChildAt(i);
 				if (i == position) {
-					((ImageView) rl.getChildAt(0)).setImageResource(R.drawable.phone_study_menu_select);
+//					((ImageView) rl.getChildAt(0)).setImageResource(R.drawable.phone_study_menu_select);
+                    ((TextView) rl.getChildAt(1)).setBackgroundResource(R.color.phone_study_kinds_bg);
 					((TextView) rl.getChildAt(1)).setTextColor(Color.WHITE);
 				} else {
-					((ImageView) rl.getChildAt(0)).setImageDrawable(null);
+//					((ImageView) rl.getChildAt(0)).setImageDrawable(null);
+                    ((TextView) rl.getChildAt(1)).setBackgroundResource(R.color.phone_study_color_White);
 					((TextView) rl.getChildAt(1)).setTextColor(Color.BLUE);
 				}
 			}
@@ -91,10 +92,12 @@ public class KindsActivity extends FoundationActivity{
 			for (int i = 0; i < adapter.getChildCount(); i++) {
 				RelativeLayout rl = (RelativeLayout) adapter.getChildAt(i);
 				if (i == position) {
-					((ImageView) rl.getChildAt(0)).setImageResource(R.drawable.phone_study_menu_select);
+//					((ImageView) rl.getChildAt(0)).setImageResource(R.drawable.phone_study_menu_select);
+                    ((TextView) rl.getChildAt(1)).setBackgroundResource(R.color.phone_study_kinds_bg);
 					((TextView) rl.getChildAt(1)).setTextColor(Color.WHITE);
 				} else {
-					((ImageView) rl.getChildAt(0)).setImageDrawable(null);
+//					((ImageView) rl.getChildAt(0)).setImageDrawable(null);
+                    ((TextView) rl.getChildAt(1)).setBackgroundResource(R.color.phone_study_color_White);
 					((TextView) rl.getChildAt(1)).setTextColor(Color.BLUE);
 				}
 			}
@@ -122,10 +125,12 @@ public class KindsActivity extends FoundationActivity{
 			for (int i = 0; i < adapter.getChildCount(); i++) {
 				RelativeLayout rl = (RelativeLayout) adapter.getChildAt(i);
 				if (i == position) {
-					((ImageView) rl.getChildAt(0)).setImageResource(R.drawable.phone_study_menu_select);
+//					((ImageView) rl.getChildAt(0)).setImageResource(R.drawable.phone_study_menu_select);
+                    ((TextView) rl.getChildAt(1)).setBackgroundResource(R.color.phone_study_kinds_bg);
 					((TextView) rl.getChildAt(1)).setTextColor(Color.WHITE);
 				} else {
-					((ImageView) rl.getChildAt(0)).setImageDrawable(null);
+//					((ImageView) rl.getChildAt(0)).setImageDrawable(null);
+                    ((TextView) rl.getChildAt(1)).setBackgroundResource(R.color.phone_study_color_White);
 					((TextView) rl.getChildAt(1)).setTextColor(Color.BLUE);
 				}
 			}
