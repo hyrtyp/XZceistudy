@@ -63,7 +63,7 @@ public class HorGridViewAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		RelativeLayout item = (RelativeLayout) inflater.inflate(R.layout.phone_study_gridview_item2, null);
-		item.setLayoutParams(new GridView.LayoutParams(width / 4,50));
+		item.setLayoutParams(new GridView.LayoutParams(width / 4, ViewGroup.LayoutParams.WRAP_CONTENT));
 		TextView tv = (TextView) item.getChildAt(1);
 		if(position == 0 && isFristBlue){
 //			 ((ImageView)item.getChildAt(0)).setImageResource(R.drawable.phone_study_menu_select);
