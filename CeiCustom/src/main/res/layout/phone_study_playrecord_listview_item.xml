@@ -106,7 +106,7 @@
                 android:layout_alignParentRight="true"
                 android:paddingRight="60dip"
                 android:src="@drawable/phone_study_uploadcourse_btn"
-                android:visibility="gone"/>
+                android:visibility="visible"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"

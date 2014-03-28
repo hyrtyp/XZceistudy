@@ -298,6 +298,7 @@ public class Service {
 	 * 查询自选课件
 	 */
 	public static String queryCourse(String userid) {
+        System.out.print("-------userid------------"+userid);
 		String rs = "";
 		try {
 			String xmlStr = "<?xml version='1.0' encoding='UTF-8'?>" + "<ROOT>"

@@ -65,7 +65,7 @@
         android:contentDescription="@string/hello"
         android:layout_alignParentRight="true"
         android:src="@drawable/phone_study_uploadcourse_btn"
-        android:visibility="gone"/>
+        android:visibility="visible"/>
    </RelativeLayout>
 
 </LinearLayout>

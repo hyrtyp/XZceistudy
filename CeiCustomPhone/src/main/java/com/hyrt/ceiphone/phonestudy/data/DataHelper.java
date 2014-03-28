@@ -466,7 +466,7 @@ public class DataHelper {
 				CeiApplication ceiApplication = (CeiApplication) (activity
 						.getApplication());
 				String userId = ((CeiApplication) (activity.getApplication())).columnEntry
-						.getUserId();
+						.getXzuserid();
 				if (userId == null || userId.equals(""))
 					return;
 				if (((CeiApplication) activity.getApplication()).isNet()) {

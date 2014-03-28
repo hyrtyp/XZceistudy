@@ -87,7 +87,7 @@ public class KindsActivity extends FoundationActivity{
                 findViewById(R.id.phone_study_gridviewparent1).setVisibility(View.GONE);
             }
 			findViewById(R.id.phone_study_gridviewparent2).setVisibility(View.GONE);
-			phoneStudyListView.setVisibility(View.GONE);
+//			phoneStudyListView.setVisibility(View.GONE);
 			break;
 		case R.id.phone_study_gridview1:
 			for (int i = 0; i < adapter.getChildCount(); i++) {
