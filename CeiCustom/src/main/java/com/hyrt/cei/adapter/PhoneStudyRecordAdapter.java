@@ -6,6 +6,7 @@ import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
@@ -77,7 +78,13 @@ public class PhoneStudyRecordAdapter extends BaseAdapter {
 	}
 
 	public View getView(final int position, View convertView, ViewGroup parent) {
-		ViewHolder holder = null;
+        final SharedPreferences settings = activity.getSharedPreferences(
+                "loginInfo", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = settings.edit();
+        if(coursewares.get(position).getXzclassid() != null)
+            editor.putString(coursewares.get(position).getClassId(),coursewares.get(position).getXzclassid());
+        editor.commit();
+        ViewHolder holder = null;
 		// if (convertView == null) {
 		holder = new ViewHolder();
 		convertView = inflater.inflate(itemLayout, null);
@@ -187,9 +194,9 @@ public class PhoneStudyRecordAdapter extends BaseAdapter {
 																.getUploadTime()
 																+ "",((CeiApplication) (activity
                                                         .getApplication())).columnEntry
-                                                        .getXzuserid(),coursewares.get(
+                                                        .getXzuserid(),settings.getString(coursewares.get(
                                                         position)
-                                                        .getXzclassid())).equals(
+                                                        .getClassId(),""))).equals(
 												"-1")) {
 									handler.post(new Runnable() {
 

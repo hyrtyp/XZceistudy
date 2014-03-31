@@ -1,16 +1,5 @@
 package com.hyrt.cei.db;
 
-import java.io.ByteArrayOutputStream;
-import java.util.ArrayList;
-import java.util.List;
-import com.hyrt.cei.vo.ClassType;
-import com.hyrt.cei.vo.Courseware;
-import com.hyrt.cei.vo.ImageResourse;
-import com.hyrt.cei.vo.Preload;
-import com.hyrt.cei.vo.Report;
-import com.hyrt.cei.vo.WitSea;
-import com.hyrt.cei.webservice.service.Service;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -19,6 +8,18 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+
+import com.hyrt.cei.vo.ClassType;
+import com.hyrt.cei.vo.Courseware;
+import com.hyrt.cei.vo.ImageResourse;
+import com.hyrt.cei.vo.Preload;
+import com.hyrt.cei.vo.Report;
+import com.hyrt.cei.vo.WitSea;
+import com.hyrt.cei.webservice.service.Service;
+
+import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DataHelper {
 	// 数据库名称
@@ -810,7 +811,7 @@ public class DataHelper {
 	/**
 	 * 根据课件id该条记录
 	 * 
-	 * @param classId
+	 * @param courseware
 	 * @return
 	 */
 	public Boolean getStudyRecord(Courseware courseware) {

@@ -21,7 +21,6 @@ import android.view.ViewTreeObserver.OnPreDrawListener;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hyrt.cei.application.CeiApplication;
 import com.hyrt.cei.ui.common.LoginActivityphone;

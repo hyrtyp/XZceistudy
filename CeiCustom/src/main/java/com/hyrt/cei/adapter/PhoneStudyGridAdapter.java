@@ -1,17 +1,8 @@
 package com.hyrt.cei.adapter;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-
-import com.hyrt.cei.R;
-import com.hyrt.cei.application.CeiApplication;
-import com.hyrt.cei.util.AsyncImageLoader;
-import com.hyrt.cei.vo.Courseware;
-import com.hyrt.cei.vo.ImageResourse;
-
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -22,6 +13,16 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.hyrt.cei.R;
+import com.hyrt.cei.application.CeiApplication;
+import com.hyrt.cei.util.AsyncImageLoader;
+import com.hyrt.cei.vo.Courseware;
+import com.hyrt.cei.vo.ImageResourse;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+
 public class PhoneStudyGridAdapter extends BaseAdapter {
 
 	private int itemLayout;
@@ -30,9 +31,11 @@ public class PhoneStudyGridAdapter extends BaseAdapter {
 	private AsyncImageLoader asyncImageLoader;
 	private GridView gv;
 	private HashMap<String, Drawable> drawables = new HashMap<String, Drawable>();
+    private Activity activity;
 
 	public PhoneStudyGridAdapter(Activity activity, int itemLayout,
 			List<Courseware> coursewares, GridView gv) {
+        this.activity = activity;
 		this.itemLayout = itemLayout;
 		this.coursewares = coursewares;
 		this.gv = gv;
@@ -66,6 +69,12 @@ public class PhoneStudyGridAdapter extends BaseAdapter {
 
 	public View getView(final int position, View convertView, ViewGroup parent) {
 		ViewHolder holder = null;
+        SharedPreferences settings = activity.getSharedPreferences(
+                "loginInfo", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = settings.edit();
+        if(coursewares.get(position).getXzclassid() != null)
+            editor.putString(coursewares.get(position).getClassId(),coursewares.get(position).getXzclassid());
+        editor.commit();
 		if (convertView == null) {
 			holder = new ViewHolder();
 			convertView = inflater.inflate(itemLayout, null);

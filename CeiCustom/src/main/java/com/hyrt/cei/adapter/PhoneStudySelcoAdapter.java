@@ -6,6 +6,7 @@ import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
@@ -80,7 +81,13 @@ public class PhoneStudySelcoAdapter extends BaseAdapter {
 	}
 
 	public View getView(final int position, View convertView, ViewGroup parent) {
-		ViewHolder holder = null;
+        SharedPreferences settings = activity.getSharedPreferences(
+                "loginInfo", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = settings.edit();
+        if(coursewares.get(position).getXzclassid() != null)
+        editor.putString(coursewares.get(position).getClassId(),coursewares.get(position).getXzclassid());
+        editor.commit();
+        ViewHolder holder = null;
 		if (convertView == null) {
 			holder = new ViewHolder();
 			convertView = inflater.inflate(itemLayout, null);

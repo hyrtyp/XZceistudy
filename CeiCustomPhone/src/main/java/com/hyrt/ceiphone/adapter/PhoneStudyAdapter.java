@@ -6,6 +6,7 @@ import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
@@ -165,6 +166,12 @@ public class PhoneStudyAdapter extends BaseAdapter {
 	public View getView(final int position, View convertView, ViewGroup parent) {
 		ViewHolder holder = null;
 		holder = new ViewHolder();
+        SharedPreferences settings = activity.getSharedPreferences(
+                "loginInfo", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = settings.edit();
+        if(coursewares.get(position).getXzclassid() != null)
+        editor.putString(coursewares.get(position).getClassId(),coursewares.get(position).getXzclassid());
+        editor.commit();
 		convertView = inflater.inflate(itemLayout, null);
 		holder.courseIcon = (ImageView) convertView
 				.findViewById(R.id.phone_study_listviewitem_icon);
@@ -239,7 +246,9 @@ public class PhoneStudyAdapter extends BaseAdapter {
 					// 上传学习记录，并同步数据库的信息，更新列表
 					final Handler handler = new Handler();
 					if (coursewares.get(position).getUploadTime() != 0 && !"1".equals(coursewares.get(position).getIscompleted())) {
-						new Thread(new Runnable() {
+                        final SharedPreferences settings = activity.getSharedPreferences(
+                                "loginInfo", Activity.MODE_PRIVATE);
+                        new Thread(new Runnable() {
 							@Override
 							public void run() {
 								if (!XmlUtil
@@ -257,8 +266,8 @@ public class PhoneStudyAdapter extends BaseAdapter {
 																+ "",
                                                         ((CeiApplication) (activity
                                                                 .getApplication())).columnEntry
-                                                                .getXzuserid(),coursewares
-                                                                .get(position).getXzclassid())).equals(
+                                                                .getXzuserid(),settings.getString(coursewares
+                                                                .get(position).getXzclassid(),""))).equals(
 												"-1")) {
 									handler.post(new Runnable() {
 

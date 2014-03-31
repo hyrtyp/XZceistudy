@@ -164,17 +164,30 @@ public class WebViewUtil extends Activity {
 				return;
 			}
 			if (dataHelper.getStudyRecord(courseware)) {
-				path += "?userid="
-						+ ((CeiApplication) (this.getApplication())).columnEntry
-								.getUserId() + "&classid=" + classId + "&xzclassid=" + xzclassid
-						+ "&native=0" + "&location="
-						+ courseware.getTimePoint() + "&totaltime="
-						+ courseware.getStudyTime();
+//				path += "?userid="
+//						+ ((CeiApplication) (this.getApplication())).columnEntry
+//								.getUserId() + "&classid=" + classId + "&xzclassid=" + xzclassid
+//						+ "&native=0" + "&location="
+//						+ courseware.getTimePoint() + "&totaltime="
+//						+ courseware.getStudyTime();
+                path += "?userid="
+                        + ((CeiApplication) (this.getApplication())).columnEntry
+                        .getUserId() + "&classid=" + classId +"&native=0" +"&location="
+                        + courseware.getTimePoint() +
+                        "&xzclassid=" + xzclassid+"&xzuserid"+((CeiApplication) (this.getApplication())).columnEntry
+                        .getXzuserid()+"&totaltime"
+                        + courseware.getStudyTime();
 			} else {
-				path += "?userid="
-						+ ((CeiApplication) (this.getApplication())).columnEntry
-								.getUserId() + "&classid=" + classId+ "&xzclassid=" + xzclassid
-						+ "&native=0" + "&location=0" + "&totaltime=0";
+//				path += "?userid="
+//						+ ((CeiApplication) (this.getApplication())).columnEntry
+//								.getUserId() + "&classid=" + classId+ "&xzclassid=" + xzclassid
+//						+ "&native=0" + "&location=0" + "&totaltime=0";
+                path += "?userid="
+                        + ((CeiApplication) (this.getApplication())).columnEntry
+                        .getUserId() + "&classid=" + classId
+                        + "&native=0" + "&location=0"+
+                        "&xzclassid=" + xzclassid +"&xzuserid"+((CeiApplication) (this.getApplication())).columnEntry
+                        .getXzuserid()+"&totaltime=0";
 			}
 			validStatusCode(path);
 		}
@@ -246,17 +259,30 @@ public class WebViewUtil extends Activity {
 			DataHelper dataHelper = ((CeiApplication) (WebViewUtil.this
 					.getApplication())).dataHelper;
 			if (dataHelper.getStudyRecord(courseware)) {
-				path += "?userid="
-						+ ((CeiApplication) (WebViewUtil.this.getApplication())).columnEntry
-								.getUserId() + "&classid=" + classId
-						+ "&native=1" + "&location="
-						+ courseware.getTimePoint() + "&totaltime="
-						+ courseware.getStudyTime();
+//				path += "?userid="
+//						+ ((CeiApplication) (WebViewUtil.this.getApplication())).columnEntry
+//								.getUserId() + "&classid=" + classId
+//						+ "&native=1" + "&location="
+//						+ courseware.getTimePoint() + "&totaltime="
+//						+ courseware.getStudyTime();
+                path += "?userid="
+                        + ((CeiApplication) (WebViewUtil.this.getApplication())).columnEntry
+                        .getUserId() + "&classid=" + classId +"&native=0" +"&location="
+                        + courseware.getTimePoint() +
+                        "&xzclassid=" + xzclassid+"&xzuserid"+((CeiApplication) (WebViewUtil.this.getApplication())).columnEntry
+                        .getXzuserid()+"&totaltime"
+                        + courseware.getStudyTime();
 			} else {
-				path += "?userid="
-						+ ((CeiApplication) (WebViewUtil.this.getApplication())).columnEntry
-								.getUserId() + "&classid=" + classId
-						+ "&native=1" + "&location=0" + "&totaltime=0";
+//				path += "?userid="
+//						+ ((CeiApplication) (WebViewUtil.this.getApplication())).columnEntry
+//								.getUserId() + "&classid=" + classId
+//						+ "&native=1" + "&location=0" + "&totaltime=0";
+                path += "?userid="
+                        + ((CeiApplication) (WebViewUtil.this.getApplication())).columnEntry
+                        .getUserId() + "&classid=" + classId
+                        + "&native=0" + "&location=0"+
+                        "&xzclassid=" + xzclassid +"&xzuserid"+((CeiApplication) (WebViewUtil.this.getApplication())).columnEntry
+                        .getXzuserid()+"&totaltime=0";
 			}
 			webView.loadUrl(path);
 			webView.requestFocus();

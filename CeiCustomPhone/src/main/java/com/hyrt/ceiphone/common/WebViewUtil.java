@@ -1,6 +1,8 @@
 package com.hyrt.ceiphone.common;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -229,6 +231,8 @@ public class WebViewUtil extends ContainerActivity {
 		public void dispatchMessage(Message msg) {
 			DataHelper dataHelper = ((CeiApplication) (WebViewUtil.this
 					.getApplication())).dataHelper;
+            SharedPreferences settings = getSharedPreferences("loginInfo",
+                    Activity.MODE_PRIVATE);
 			if (dataHelper.getStudyRecord(courseware)) {
 //				path += "?userid="
 //						+ ((CeiApplication) (WebViewUtil.this.getApplication())).columnEntry
