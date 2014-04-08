@@ -328,15 +328,6 @@ public class KindsActivity extends BaseActivity implements OnClickListener {
 		loginName = settings.getString("LOGINNAME", "");
 		overridePendingTransition(R.anim.push_in, R.anim.push_out);
 		initBottom();
-		for (int i = 0; i < HomePageActivity.phoneStudyContainer.size(); i++) {
-			try {
-				KindsActivity isKindsActivity = (KindsActivity) (HomePageActivity.phoneStudyContainer
-						.get(i));
-				isKindsActivity.finish();
-			} catch (Exception e) {
-			}
-		}
-		HomePageActivity.phoneStudyContainer.add(this);
 		findViewById(R.id.back_btn).setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -539,7 +530,6 @@ public class KindsActivity extends BaseActivity implements OnClickListener {
 
 	@Override
 	protected void onDestroy() {
-		HomePageActivity.phoneStudyContainer.remove(this);
 		super.onDestroy();
 	}
 	

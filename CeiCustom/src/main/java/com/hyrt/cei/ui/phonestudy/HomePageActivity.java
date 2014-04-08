@@ -107,15 +107,6 @@ public class HomePageActivity extends BaseActivity implements OnClickListener,
         overridePendingTransition(R.anim.push_in, R.anim.push_out);
         initBottom();
         asyncImageLoader = ((CeiApplication) (getApplication())).asyncImageLoader;
-        for (int i = 0; i < HomePageActivity.phoneStudyContainer.size(); i++) {
-            try {
-                HomePageActivity isHomePageActivity = (HomePageActivity) (HomePageActivity.phoneStudyContainer
-                        .get(i));
-                isHomePageActivity.finish();
-            } catch (Exception e) {
-            }
-        }
-        phoneStudyContainer.add(this);
         flowLayout = (FlowRelativeyout) findViewById(R.id.phone_study_top_ivparent);
         flowLayout.indexParent = (LinearLayout) findViewById(R.id.phone_study_indexParent);
         flowLayout.indexParent.getChildAt(0).setSelected(true);
@@ -135,7 +126,6 @@ public class HomePageActivity extends BaseActivity implements OnClickListener,
     protected void onDestroy() {
         // if(bottomGirdViewAdapter != null)
         // bottomGirdViewAdapter.clearBitmaps();
-        phoneStudyContainer.remove(this);
         // if(flowLayout != null)
         // flowLayout.clearBitmaps();
         super.onDestroy();

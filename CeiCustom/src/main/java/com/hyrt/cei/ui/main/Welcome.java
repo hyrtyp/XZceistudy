@@ -158,20 +158,9 @@ public class Welcome extends Activity {
 				builder.create().show();
 				break;
 			case NO_DATA:
-				AlertDialog.Builder noDataBuilder = new Builder(Welcome.this);
-				noDataBuilder.setTitle("提示");
-				noDataBuilder.setMessage("无缓存数据，请退出应用！");
-				noDataBuilder.setPositiveButton("确认",
-						new DialogInterface.OnClickListener() {
-
-							@Override
-							public void onClick(DialogInterface dialog,
-									int which) {
-								dialog.dismiss();
-								Welcome.this.finish();
-							}
-						});
-				noDataBuilder.create().show();
+                Message message = handler.obtainMessage();
+                message.arg1 = GO_MAIN;
+                handler.sendMessage(message);
 				break;
 			case DEVICE_ERROR:
 				AlertDialog.Builder deviceErrorBuilder = new Builder(

@@ -107,11 +107,6 @@ public class Disclaimer extends FoundationActivity implements OnClickListener {
 		}
 	};
 
-	protected void onPause() {
-		super.onPause();
-		Disclaimer.this.finish();
-	}
-
 	@Override
 	public void onClick(View v) {
         super.onClick(v);

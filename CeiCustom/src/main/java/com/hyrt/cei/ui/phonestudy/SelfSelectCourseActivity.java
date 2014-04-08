@@ -56,15 +56,6 @@ public class SelfSelectCourseActivity extends BaseActivity implements
 		overridePendingTransition(R.anim.push_in, R.anim.push_out);
 		initBottom();
 		initLvData();
-		for (int i = 0; i < HomePageActivity.phoneStudyContainer.size(); i++) {
-			try {
-				SelfSelectCourseActivity isSelfSelectCourseActivity = (SelfSelectCourseActivity) (HomePageActivity.phoneStudyContainer
-						.get(i));
-				isSelfSelectCourseActivity.finish();
-			} catch (Exception e) {
-			}
-		}
-		HomePageActivity.phoneStudyContainer.add(this);
 		findViewById(R.id.back_btn).setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -227,7 +218,6 @@ public class SelfSelectCourseActivity extends BaseActivity implements
 
 	@Override
 	protected void onDestroy() {
-		HomePageActivity.phoneStudyContainer.remove(this);
 		super.onDestroy();
 	}
 

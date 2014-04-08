@@ -55,22 +55,12 @@ public class FreeActivity extends BaseActivity implements OnClickListener {
 		loginName = settings.getString("LOGINNAME", "");
 		overridePendingTransition(R.anim.push_in, R.anim.push_out);
 		initBottom();
-		for (int i = 0; i < HomePageActivity.phoneStudyContainer.size(); i++) {
-			try {
-				FreeActivity isFreeActivity = (FreeActivity) (HomePageActivity.phoneStudyContainer
-						.get(i));
-				isFreeActivity.finish();
-			} catch (Exception e) {
-			}
-		}
-		HomePageActivity.phoneStudyContainer.add(this);
 		registEvent();
 		loadData();
 	}
 
 	@Override
 	protected void onDestroy() {
-		HomePageActivity.phoneStudyContainer.remove(this);
 		super.onDestroy();
 	}
 

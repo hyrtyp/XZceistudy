@@ -68,15 +68,6 @@ public class PlayRecordCourseActivity extends BaseActivity implements
 		drawables[3][0] = R.drawable.phone_study_playrecord_m4_select;
 		drawables[4][1] = R.drawable.phone_study_playrecord_m5;
 		drawables[4][0] = R.drawable.phone_study_playrecord_m5_select;
-		for (int i = 0; i < HomePageActivity.phoneStudyContainer.size(); i++) {
-			try {
-				PlayRecordCourseActivity isPlayRecordCourseActivity = (PlayRecordCourseActivity) (HomePageActivity.phoneStudyContainer
-						.get(i));
-				isPlayRecordCourseActivity.finish();
-			} catch (Exception e) {
-			}
-		}
-		HomePageActivity.phoneStudyContainer.add(this);
 		findViewById(R.id.back_btn).setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -276,7 +267,6 @@ public class PlayRecordCourseActivity extends BaseActivity implements
 
 	@Override
 	protected void onDestroy() {
-		HomePageActivity.phoneStudyContainer.remove(this);
 		super.onDestroy();
 	}
 

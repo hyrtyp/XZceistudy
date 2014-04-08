@@ -1,21 +1,19 @@
 package com.hyrt.cei.util;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.res.Resources;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 
-import com.hyrt.cei.ui.main.Welcome;
+import com.hyrt.ceiphone.WelcomeActivity;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * 
@@ -64,7 +62,7 @@ public class TimeOutHelper {
 	 * 提示消息接收器
 	 */
 	public Handler messageHandler = new Handler(Looper.getMainLooper()) {
-		public void handleMessage(android.os.Message msg) {
+		public void handleMessage(Message msg) {
 			int value = msg.arg1;
 			if (value == TIMEOUT_VALUE) {
 				if (progressDialog != null) {
@@ -74,7 +72,7 @@ public class TimeOutHelper {
 				return;
 			}
 			uninstallDialog();
-			AlertDialog.Builder builder = new Builder(context);
+			Builder builder = new Builder(context);
 			builder.setTitle("提示");
 			builder.setMessage(msg.obj.toString());
 			builder.setPositiveButton("确认",
@@ -83,7 +81,7 @@ public class TimeOutHelper {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					dialog.dismiss();
-				}
+                }
 			});
 			try {
 				builder.create().show();
@@ -97,7 +95,7 @@ public class TimeOutHelper {
 	 * 定时器
 	 */
 	public void installTimerTask() {
-		Runnable timeOutRunnable = new Runnable() {
+	   Runnable timeOutRunnable = new Runnable() {
 			@Override
 			public void run() {
 				Message msg = messageHandler.obtainMessage();
@@ -137,9 +135,9 @@ public class TimeOutHelper {
 	 * 确认失败框
 	 */
 	public void installFailerDialog(DialogInterface.OnClickListener listener) {
-		AlertDialog.Builder builder = new Builder(context);
+		Builder builder = new Builder(context);
 		builder.setTitle("提示");
-		builder.setMessage("当前网路不通,请退出进入离线模式访问！");
+		builder.setMessage("当前网路不通,请退出进入离线模式！");
 		if (listener == null) {
 			builder.setPositiveButton("确认",
 					new DialogInterface.OnClickListener() {
@@ -153,9 +151,9 @@ public class TimeOutHelper {
 		} else {
 			builder.setPositiveButton("确认", listener);
 		}
-        Welcome.isGoUnline = true;
-        try {
+		try {
 			builder.create().show();
+            WelcomeActivity.isGoUnline = true;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -177,6 +175,7 @@ public class TimeOutHelper {
 		} else {
 			messageHandler.removeCallbacks(taskThreadLocal.get());
 		}
+
 		if (timeThreadLocal.get() == null
 				|| System.currentTimeMillis() - timeThreadLocal.get() > timeout) {
 			return false;

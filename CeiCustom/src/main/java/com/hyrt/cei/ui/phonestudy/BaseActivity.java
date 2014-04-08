@@ -4,6 +4,8 @@ import android.app.ActivityGroup;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -17,6 +19,12 @@ import com.hyrt.cei.R;
  * Created by yepeng on 13-9-13.
  */
 public class BaseActivity extends ActivityGroup {
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        HomePageActivity.phoneStudyContainer.add(this);
+    }
 
     @Override
     protected void onResume() {
@@ -33,8 +41,7 @@ public class BaseActivity extends ActivityGroup {
                         imageView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                startActivity(new Intent(BaseActivity.this,HomePageActivity.class));
-                                for(int i=0;i<HomePageActivity.phoneStudyContainer.size();i++){
+                                for(int i=1;i<HomePageActivity.phoneStudyContainer.size();i++){
                                     HomePageActivity.phoneStudyContainer.get(i).finish();
                                 }
                             }
@@ -43,5 +50,27 @@ public class BaseActivity extends ActivityGroup {
                     }
                 });
         super.onResume();
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        if(event.getAction() == KeyEvent.KEYCODE_SOFT_LEFT || event.getAction() == KeyEvent.KEYCODE_BACK){
+            for(int i=0;i<HomePageActivity.phoneStudyContainer.size();i++){
+                if(HomePageActivity.phoneStudyContainer.get(i) instanceof  HomePageActivity)
+                    System.out.println();
+                else
+                    HomePageActivity.phoneStudyContainer.get(i).finish();
+            }
+            if(this instanceof HomePageActivity)
+                this.finish();
+            return true;
+        }
+        return super.onKeyUp(keyCode, event);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        HomePageActivity.phoneStudyContainer.remove(this);
     }
 }

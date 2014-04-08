@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
@@ -217,6 +219,12 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
         }
     };
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        activitys.add(this);
+    }
+
     /**
      * 做初始化工作
      */
@@ -224,7 +232,6 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
     protected void onResume() {
         SharedPreferences settings = getSharedPreferences("loginInfo", Activity.MODE_PRIVATE);
         loginName = settings.getString("LOGINNAME", "");
-        activitys.add(this);
         ColumnEntry columnEntry = ((CeiApplication) getApplication()).columnEntry;
         ImageResourse imageResource = new ImageResourse();
         imageResource.setIconUrl(columnEntry.getLogo());
@@ -354,6 +361,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
 
                         @Override
                         public void onClick(View v) {
+                            startActivity(new Intent(FoundationActivity.this, PhoneStudyActivity.class));
                             for (int i = 0; i < activitys.size(); i++) {
                                 activitys.get(i).finish();
                             }
@@ -694,11 +702,26 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
         ((ImageView) findViewById(R.id.phone_study_back_bt)).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                startActivity(new Intent(FoundationActivity.this, PhoneStudyActivity.class));
+                for (int i = 1; i < activitys.size(); i++) {
+                    activitys.get(i).finish();
+                }
             }
         });
     }
 
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        if(event.getAction() == KeyEvent.KEYCODE_BACK || event.getAction() == KeyEvent.KEYCODE_SOFT_LEFT){
+            if(!(this instanceof PhoneStudyActivity))
+                startActivity(new Intent(FoundationActivity.this, PhoneStudyActivity.class));
+            for (int i = 0; i < activitys.size(); i++) {
+                activitys.get(i).finish();
+            }
+            return true;
+        }
+        return super.onKeyUp(keyCode, event);
+    }
 
     /**
      * 修改底部课程

@@ -25,6 +25,7 @@ import android.widget.TextView;
 import com.hyrt.cei.application.CeiApplication;
 import com.hyrt.cei.ui.common.LoginActivityphone;
 import com.hyrt.cei.util.MyTools;
+import com.hyrt.cei.util.TimeOutHelper;
 import com.hyrt.cei.util.WriteOrRead;
 import com.hyrt.cei.util.XmlUtil;
 import com.hyrt.cei.vo.ColumnEntry;
@@ -52,11 +53,13 @@ public class WelcomeActivity extends ContainerActivity {
 
     private ImageView loginImage;
     private RelativeLayout pb_loading;
+    private TimeOutHelper timeOutHelper;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.welcome2);
+        timeOutHelper = new TimeOutHelper(this);
 //		isGoUnline = false;
 //		installProAnim();
 //		installData();
@@ -154,21 +157,9 @@ public class WelcomeActivity extends ContainerActivity {
 				builder.create().show();
 				break;
 			case NO_DATA:
-				AlertDialog.Builder noDataBuilder = new Builder(
-						WelcomeActivity.this);
-				noDataBuilder.setTitle("提示");
-				noDataBuilder.setMessage("无缓存数据，请退出应用！");
-				noDataBuilder.setPositiveButton("确认",
-						new DialogInterface.OnClickListener() {
-
-							@Override
-							public void onClick(DialogInterface dialog,
-									int which) {
-								dialog.dismiss();
-								WelcomeActivity.this.finish();
-							}
-						});
-				noDataBuilder.create().show();
+                Message message = handler.obtainMessage();
+                message.arg1 = GO_MAIN;
+                handler.sendMessage(message);
 				break;
 			case DEVICE_ERROR:
 				AlertDialog.Builder deviceErrorBuilder = new Builder(
@@ -305,6 +296,7 @@ public class WelcomeActivity extends ContainerActivity {
 
 			@Override
 			public void run() {
+
 				// 如果判断用户是否有登陆
 				SharedPreferences settings = getSharedPreferences("loginInfo",
 						Activity.MODE_PRIVATE);
@@ -319,11 +311,13 @@ public class WelcomeActivity extends ContainerActivity {
 				columnEntry.getColumnEntryChilds().clear();
 				columnEntry.getSelectColumnEntryChilds().clear();
 				if (((CeiApplication) getApplication()).isNet() && !isGoUnline) {
+                    timeOutHelper.installTimerTask();
 					// 请求初始化资源 50%
 					long startTime = System.currentTimeMillis();
 					String result = Service.initResources(columnEntry,
 							WelcomeActivity.this);
 					long endTime = System.currentTimeMillis();
+                    timeOutHelper.uninstallTimerTask(null);
 					if (endTime - startTime < 1000) {
 						try {
 							Thread.sleep(1000);

@@ -77,15 +77,6 @@ public class SearchCourseActivity extends Activity {
 					}
 				});
 		lv.addFooterView(footer);
-		for (int i = 0; i < HomePageActivity.phoneStudyContainer.size(); i++) {
-			try {
-				SearchCourseActivity isSearchCourseActivity = (SearchCourseActivity) (HomePageActivity.phoneStudyContainer
-						.get(i));
-				isSearchCourseActivity.finish();
-			} catch (Exception e) {
-			}
-		}
-		HomePageActivity.phoneStudyContainer.add(this);
 		findViewById(R.id.back_btn).setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -244,7 +235,6 @@ public class SearchCourseActivity extends Activity {
 
 	@Override
 	protected void onDestroy() {
-		HomePageActivity.phoneStudyContainer.remove(this);
 		super.onDestroy();
 	}
 }

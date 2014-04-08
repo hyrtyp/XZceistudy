@@ -79,15 +79,6 @@ public class SayGroupListActivity extends BaseActivity implements OnClickListene
 					}
 				});
 		lv.addFooterView(footer);
-		for (int i = 0; i < HomePageActivity.phoneStudyContainer.size(); i++) {
-			try {
-				SayGroupListActivity isSayGroupListActivity = (SayGroupListActivity) (HomePageActivity.phoneStudyContainer
-						.get(i));
-				isSayGroupListActivity.finish();
-			} catch (Exception e) {
-			}
-		}
-		HomePageActivity.phoneStudyContainer.add(this);
 		findViewById(R.id.back_btn).setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -177,7 +168,6 @@ public class SayGroupListActivity extends BaseActivity implements OnClickListene
 
 	@Override
 	protected void onDestroy() {
-		HomePageActivity.phoneStudyContainer.remove(this);
 		super.onDestroy();
 	}
 
