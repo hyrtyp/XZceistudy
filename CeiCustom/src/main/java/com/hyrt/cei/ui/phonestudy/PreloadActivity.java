@@ -199,7 +199,6 @@ public class PreloadActivity extends Activity {
 		if(info != null && ConnectivityManager.TYPE_WIFI != info.getType()){
 			MyTools.exitShow(this, ((Activity)this).getWindow().getDecorView(), "非wifi模式下载，会产生额外流量资费请注意！");
 		}
-		overridePendingTransition(R.anim.push_in, R.anim.push_out);
 		columnEntry = ((CeiApplication) getApplication()).columnEntry;
 		myformat = new DecimalFormat("#0.00");
 		layoutInflater = getLayoutInflater();

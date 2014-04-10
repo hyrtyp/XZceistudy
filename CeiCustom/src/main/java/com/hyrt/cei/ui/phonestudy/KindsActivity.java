@@ -326,7 +326,6 @@ public class KindsActivity extends BaseActivity implements OnClickListener {
 		setContentView(R.layout.phone_study_kinds);
 		SharedPreferences settings = getSharedPreferences("loginInfo",Activity.MODE_PRIVATE);
 		loginName = settings.getString("LOGINNAME", "");
-		overridePendingTransition(R.anim.push_in, R.anim.push_out);
 		initBottom();
 		findViewById(R.id.back_btn).setOnClickListener(new OnClickListener() {
 

@@ -131,7 +131,6 @@ public class MianfeiReportActivity extends Activity implements OnClickListener{
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.yjbg_mianfei);
-		overridePendingTransition(R.anim.push_in, R.anim.push_out);
 		columnEntry = ((CeiApplication) getApplication()).columnEntry;
 		initView();
 		prolayout.setVisibility(View.VISIBLE);

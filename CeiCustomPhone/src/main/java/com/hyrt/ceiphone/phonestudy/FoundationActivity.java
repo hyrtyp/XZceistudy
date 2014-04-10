@@ -712,7 +712,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
 
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
-        if(event.getAction() == KeyEvent.KEYCODE_BACK || event.getAction() == KeyEvent.KEYCODE_SOFT_LEFT){
+        if(event.getAction() == KeyEvent.KEYCODE_BACK){
             if(!(this instanceof PhoneStudyActivity))
                 startActivity(new Intent(FoundationActivity.this, PhoneStudyActivity.class));
             for (int i = 0; i < activitys.size(); i++) {
@@ -765,7 +765,9 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
             textView.setBackgroundResource(R.drawable.bg_bottom_textview_focused);
             textView.setTextColor(getResources().getColor(R.color.phone_bottomandtop_bg));
         } else if (this instanceof PreloadActivity) {//
-
+            textView = (TextView) findViewById(R.id.phone_study_down_tv );
+            textView.setBackgroundResource(R.drawable.bg_bottom_textview_focused);
+            textView.setTextColor(getResources().getColor(R.color.phone_bottomandtop_bg));
         } else if (this instanceof SayActivity) {
             textView = (TextView) findViewById(R.id.phone_study_say_tv);
             textView.setBackgroundResource(R.drawable.bg_bottom_textview_focused);

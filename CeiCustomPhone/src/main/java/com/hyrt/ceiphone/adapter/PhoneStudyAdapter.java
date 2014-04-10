@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
@@ -27,6 +28,7 @@ import com.hyrt.cei.application.CeiApplication;
 import com.hyrt.cei.db.DataHelper;
 import com.hyrt.cei.ui.phonestudy.CourseDetailActivityphone;
 import com.hyrt.cei.util.AsyncImageLoader;
+import com.hyrt.cei.util.BitmapManager;
 import com.hyrt.cei.util.MyTools;
 import com.hyrt.cei.util.XmlUtil;
 import com.hyrt.cei.vo.ColumnEntry;
@@ -59,6 +61,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
 	private static final int ADD_SUCCESS = 2;
 	private static final int CANCEL_SUCCESS = 3;
 	private boolean isRecord;
+    private BitmapManager bmpManager;
 
 	public PhoneStudyAdapter(Activity activity, int itemLayout,
 			List<Courseware> coursewares, ListView lv,boolean isRecord) {
@@ -71,6 +74,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		asyncImageLoader = ((CeiApplication) (activity.getApplication())).asyncImageLoader;
 		columnEntry = ((CeiApplication) (activity.getApplication())).columnEntry;
+        this.bmpManager = new BitmapManager(BitmapFactory.decodeResource(activity.getResources(), R.drawable.courseware_default_icon));
 	}
 
 	public PhoneStudyAdapter(Activity activity, int itemLayout,
@@ -523,38 +527,19 @@ public class PhoneStudyAdapter extends BaseAdapter {
 			}
 
 		}
-		if (coursewares.size() != 0) {
-			String imageUrl = coursewares.get(position).getSmallPath();
-			holder.courseIcon.setTag(imageUrl);
-			if (drawables.containsKey(coursewares.get(position).getClassId())
-					&& drawables.get(coursewares.get(position).getClassId()) != null) {
-				holder.courseIcon.setImageDrawable(drawables.get(coursewares
-						.get(position).getClassId()));
-			} else {
-				ImageResourse imageResource = new ImageResourse();
-				imageResource.setIconUrl(imageUrl);
-				imageResource.setIconId(coursewares.get(position).getClassId());
-				asyncImageLoader.loadDrawable(imageResource,
-						new AsyncImageLoader.ImageCallback() {
 
-							@Override
-							public void imageLoaded(Drawable drawable,
-									String path) {
-								ImageView imageView = (ImageView) lv
-										.findViewWithTag(path);
-								if (drawable != null && imageView != null) {
-									imageView.setImageDrawable(drawable);
-									try {
-										drawables.put(coursewares.get(position)
-												.getClassId(), drawable);
-									} catch (Exception e) {
-										e.printStackTrace();
-									}
-								}
-							}
-						});
-			}
-		}
+        if (coursewares.size() != 0) {
+            String imageUrl = coursewares.get(position).getSmallPath();
+            holder.courseIcon.setTag(imageUrl);
+            if (drawables.containsKey(coursewares.get(position).getClassId())
+                    && drawables.get(coursewares.get(position).getClassId()) != null) {
+                holder.courseIcon.setImageDrawable(drawables.get(coursewares
+                        .get(position).getClassId()));
+            } else {
+                bmpManager.loadBitmap(imageUrl,holder.courseIcon,coursewares
+                        .get(position).getClassId());
+            }
+        }
 
 		return convertView;
 	}

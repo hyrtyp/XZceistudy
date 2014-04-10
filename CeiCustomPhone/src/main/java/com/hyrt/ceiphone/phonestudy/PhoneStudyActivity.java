@@ -6,12 +6,14 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hyrt.cei.application.CeiApplication;
 import com.hyrt.cei.ui.common.LoginActivityphone;
@@ -265,5 +267,34 @@ public class PhoneStudyActivity extends FoundationActivity {
         }else{
             findViewById(R.id.main_login).setVisibility(View.VISIBLE);
         }
+    }
+
+    private boolean isDouble;
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        Toast.makeText(this,"再次点击退出",Toast.LENGTH_LONG).show();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                isDouble = false;
+            }
+        },2000);
+
+        if(event.getAction() ==1){
+            if(!isDouble)
+                isDouble = true;
+            else {
+                if (!(this instanceof PhoneStudyActivity))
+                    for (int i = 0; i < activitys.size(); i++) {
+                        activitys.get(i).finish();
+                    }
+                this.finish();
+            }
+
+            return true;
+        }
+        return super.onKeyUp(keyCode, event);
     }
 }

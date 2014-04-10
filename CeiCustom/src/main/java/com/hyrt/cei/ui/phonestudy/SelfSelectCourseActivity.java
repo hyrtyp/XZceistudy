@@ -53,7 +53,6 @@ public class SelfSelectCourseActivity extends BaseActivity implements
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.phone_study_selfcourse);
-		overridePendingTransition(R.anim.push_in, R.anim.push_out);
 		initBottom();
 		initLvData();
 		findViewById(R.id.back_btn).setOnClickListener(new OnClickListener() {

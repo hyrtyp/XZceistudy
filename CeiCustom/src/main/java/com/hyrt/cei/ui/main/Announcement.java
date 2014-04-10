@@ -62,7 +62,6 @@ public class Announcement extends BaseActivity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.announcement);
-		overridePendingTransition(R.anim.push_in, R.anim.push_out);
 		SharedPreferences settings = getSharedPreferences("loginInfo",
 				Activity.MODE_PRIVATE);
 		loginName = settings.getString("LOGINNAME", "");

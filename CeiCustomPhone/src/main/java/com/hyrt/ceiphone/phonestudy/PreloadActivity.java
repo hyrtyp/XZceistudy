@@ -202,6 +202,7 @@ public class PreloadActivity extends FoundationActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.phone_study_preload);
+        findViewById(R.id.phone_study_morebtn).setVisibility(View.GONE);
 		this.CURRENT_KEY = FoundationActivity.PRELOAD_DATA_KEY;
 		// 检查sd卡是否存在不存在的话，则退出
 		if (!Environment.getExternalStorageState().equals(
@@ -218,7 +219,6 @@ public class PreloadActivity extends FoundationActivity {
 					((Activity) this).getWindow().getDecorView(),
 					"非wifi模式下载，会产生额外流量资费请注意！");
 		}
-		overridePendingTransition(R.anim.push_in, R.anim.push_out);
 		columnEntry = ((CeiApplication) getApplication()).columnEntry;
 		myformat = new DecimalFormat("#0.00");
 		layoutInflater = getLayoutInflater();

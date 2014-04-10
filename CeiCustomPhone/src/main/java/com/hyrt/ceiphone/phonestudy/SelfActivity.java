@@ -51,6 +51,7 @@ public class SelfActivity extends FoundationActivity {
 						courses.addAll(allCoursewares);
 						break;
 					case 1:
+                        courses.clear();
 						currentLookKind = 1;
 						List<Preload> preloadCourseware = dataHelper.getPreloadList();
 						//已下载自选课集合

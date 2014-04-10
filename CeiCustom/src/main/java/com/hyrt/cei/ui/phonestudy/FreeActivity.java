@@ -53,7 +53,6 @@ public class FreeActivity extends BaseActivity implements OnClickListener {
 		setContentView(R.layout.phone_study_free);
 		SharedPreferences settings = getSharedPreferences("loginInfo",Activity.MODE_PRIVATE);
 		loginName = settings.getString("LOGINNAME", "");
-		overridePendingTransition(R.anim.push_in, R.anim.push_out);
 		initBottom();
 		registEvent();
 		loadData();

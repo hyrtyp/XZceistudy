@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="yidongxuexi">移动学习</string>
+    <string name="yidongxuexi">藏干部教育网</string>
     <string name="app_name">M-Learning</string>
     <string name="not_exist_sd">sd卡不存在，请插卡即将退出！</string>
     <string name="title_activity_main">MainActivity</string>

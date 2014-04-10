@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     android:orientation="vertical"
     android:id="@+id/full_view"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <include layout="@layout/phone_study_top" />
+    <include layout="@layout/phone_study_top" android:id="@+id/ex_top" />
+
+    <include layout="@layout/phone_study_bottom2" android:id="@+id/ex_bot"/>
 
     <LinearLayout
         android:background="#f0f4f6"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_above="@+id/ex_bot"
+        android:layout_below="@+id/ex_top">
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -57,6 +61,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/phone_study_view_margin"
                 android:layout_marginRight="@dimen/phone_study_view_margin" />
+
+
         </ScrollView>
+
     </LinearLayout>
-</LinearLayout>
+
+
+</RelativeLayout>

@@ -56,7 +56,6 @@ public class PlayRecordCourseActivity extends BaseActivity implements
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.phone_study_playrecord);
-		overridePendingTransition(R.anim.push_in, R.anim.push_out);
 		initBottom();
 		drawables[0][1] = R.drawable.phone_study_playrecord_m1;
 		drawables[0][0] = R.drawable.phone_study_playrecord_m1_select;

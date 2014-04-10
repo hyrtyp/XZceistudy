@@ -126,7 +126,6 @@ public class WitSeaActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.toolbox);
-		overridePendingTransition(R.anim.push_in, R.anim.push_out);
 		SharedPreferences settings = getSharedPreferences("loginInfo",Activity.MODE_PRIVATE);
 		loginName = settings.getString("LOGINNAME", "");
 		application = (CeiApplication) this.getApplication();

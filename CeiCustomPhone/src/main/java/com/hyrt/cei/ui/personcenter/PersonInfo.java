@@ -41,7 +41,6 @@ public class PersonInfo extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.personinfo);
-		overridePendingTransition(R.anim.push_in, R.anim.push_out);
 		columnEntry = ((CeiApplication) getApplication()).columnEntry;
 		userId = columnEntry.getUserId();
 		init();

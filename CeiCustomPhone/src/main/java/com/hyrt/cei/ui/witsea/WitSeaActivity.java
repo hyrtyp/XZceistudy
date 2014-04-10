@@ -125,7 +125,6 @@ public class WitSeaActivity extends ContainerActivity implements OnClickListener
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.service_collect);
-		overridePendingTransition(R.anim.push_in, R.anim.push_out);
 		LinearLayout bottomsLl = (LinearLayout) findViewById(R.id.bottoms_Ll);
 		for (int i = 0; i < bottomsLl.getChildCount(); i++) {
 			((RelativeLayout) (bottomsLl.getChildAt(i))).getChildAt(0).setOnClickListener(this);

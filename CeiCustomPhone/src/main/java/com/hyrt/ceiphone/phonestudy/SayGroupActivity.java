@@ -65,8 +65,7 @@ public class SayGroupActivity extends FoundationActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.phone_study_say_group);
 		this.CURRENT_KEY = SAYGROUP_DATA_KEY;
-		overridePendingTransition(R.anim.push_in, R.anim.push_out);
-		InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);    
+		InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
 		imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);  
 		initData();
 	}

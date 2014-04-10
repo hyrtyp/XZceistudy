@@ -4,7 +4,7 @@
 	<uses-sdk android:minSdkVersion="8" />
 
 	<application android:name=".application.CeiApplication"
-		android:hardwareAccelerated="true" android:icon="@drawable/icon_main"
+		android:hardwareAccelerated="true" android:icon="@drawable/icon"
 		android:label="@string/yidongxuexi">
 		<activity android:name=".ui.main.Welcome"
 			android:screenOrientation="landscape"

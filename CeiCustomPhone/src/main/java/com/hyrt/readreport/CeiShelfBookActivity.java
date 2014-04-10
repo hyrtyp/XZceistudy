@@ -421,7 +421,6 @@ public class CeiShelfBookActivity extends Activity implements OnClickListener {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.read_report_bookshelf);
-		overridePendingTransition(R.anim.push_in, R.anim.push_out);
 		application = (CeiApplication) getApplication();
 		SharedPreferences settings = getSharedPreferences("BookSelfColor",
 				Activity.MODE_PRIVATE);

@@ -15,6 +15,5 @@ public class MyThinkTank extends Activity{
  	// TODO Auto-generated method stub
  	super.onCreate(savedInstanceState);
  	setContentView(R.layout.my_think_tank);
- 	overridePendingTransition(R.anim.push_in, R.anim.push_out);
  }
 }

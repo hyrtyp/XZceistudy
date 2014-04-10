@@ -47,7 +47,6 @@ public class SayGroupListActivity extends BaseActivity implements OnClickListene
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.phone_study_saygrouplistcourse);
-		overridePendingTransition(R.anim.push_in, R.anim.push_out);
 		initBottom();
 		initLvData();
 		lv.setOnItemClickListener(new OnItemClickListener() {

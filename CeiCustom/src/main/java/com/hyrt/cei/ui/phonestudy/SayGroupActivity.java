@@ -68,8 +68,7 @@ public class SayGroupActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.phone_study_say_group);
-		overridePendingTransition(R.anim.push_in, R.anim.push_out);
-		InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);    
+		InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
 		imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);  
 		findViewById(R.id.phone_study_refresh).setOnClickListener(
 				new OnClickListener() {

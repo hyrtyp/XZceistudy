@@ -25,6 +25,5 @@ public class OpenBookActivity extends Activity {
 		ba.addItem(str);
 		bk.setPageAdapter(ba);
 		setContentView(bk);
-		overridePendingTransition(R.anim.push_in, R.anim.push_out);
 	}
 }

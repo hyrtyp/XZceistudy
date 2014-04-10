@@ -218,7 +218,6 @@ public class CourseDetailActivity extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.phone_study_detail);
-		overridePendingTransition(R.anim.push_in, R.anim.push_out);
 		getWindow().setSoftInputMode(
 				WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		asyncImageLoader = ((CeiApplication) (getApplication())).asyncImageLoader;

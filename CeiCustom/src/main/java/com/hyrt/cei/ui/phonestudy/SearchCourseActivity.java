@@ -56,7 +56,6 @@ public class SearchCourseActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.phone_study_searchcourse);
-		overridePendingTransition(R.anim.push_in, R.anim.push_out);
 		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		lv = (ListView) findViewById(R.id.phone_study_searchcourse_listview);
 		footer = (LinearLayout) LayoutInflater.from(this).inflate(

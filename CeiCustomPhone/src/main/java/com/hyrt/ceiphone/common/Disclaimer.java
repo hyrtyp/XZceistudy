@@ -49,7 +49,6 @@ public class Disclaimer extends FoundationActivity implements OnClickListener {
 		super.onCreate(savedInstanceState);
         CURRENT_KEY = ABOUT_DATA_KEY;
 		setContentView(R.layout.disclaimer2);
-		overridePendingTransition(R.anim.push_in, R.anim.push_out);
 		SharedPreferences settings = getSharedPreferences("loginInfo",
 				Activity.MODE_PRIVATE);
 		loginName = settings.getString("LOGINNAME", "");

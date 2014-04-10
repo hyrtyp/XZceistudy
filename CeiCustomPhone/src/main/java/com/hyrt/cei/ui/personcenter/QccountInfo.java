@@ -22,7 +22,6 @@ public class QccountInfo extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.qccountinfo);
-		overridePendingTransition(R.anim.push_in, R.anim.push_out);
 		init();
 	}
 

@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -16,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hyrt.cei.R;
 import com.hyrt.cei.adapter.PhoneStudyGridAdapter;
@@ -104,7 +106,6 @@ public class HomePageActivity extends BaseActivity implements OnClickListener,
         SharedPreferences settings = getSharedPreferences("loginInfo",
                 Activity.MODE_PRIVATE);
         loginName = settings.getString("LOGINNAME", "");
-        overridePendingTransition(R.anim.push_in, R.anim.push_out);
         initBottom();
         asyncImageLoader = ((CeiApplication) (getApplication())).asyncImageLoader;
         flowLayout = (FlowRelativeyout) findViewById(R.id.phone_study_top_ivparent);
@@ -535,6 +536,31 @@ public class HomePageActivity extends BaseActivity implements OnClickListener,
                 break;
 
         }
+    }
+
+    private boolean isDouble;
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        Toast.makeText(this, "再次点击退出", Toast.LENGTH_LONG).show();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                isDouble = false;
+            }
+        },2000);
+
+        if(event.getAction() ==1){
+            if(!isDouble)
+                isDouble = true;
+            else {
+                this.finish();
+            }
+
+            return true;
+        }
+        return super.onKeyUp(keyCode, event);
     }
 
 }
