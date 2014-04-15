@@ -748,6 +748,9 @@ public class XmlUtil {
 					if (tag_name.equals("passkey") || tag_name.equals("key")) {
 						coursewares.get(i).setKey(someValue);
 					}
+                    if (tag_name.equals("timepoint")) {
+                        coursewares.get(i).setTimepoint(someValue);
+                    }
 					break;
 				}
 			}
@@ -839,6 +842,9 @@ public class XmlUtil {
 					if (tag_name.equals("iscompleted")) {
 						coursewares.get(i).setIscompleted(someValue);
 					}
+                    if (tag_name.equals("timepoint")) {
+                        coursewares.get(i).setTimepoint(someValue);
+                    }
 					break;
 				}
 			}
@@ -1523,11 +1529,11 @@ public class XmlUtil {
 					u = new Updata();
 				}
 				if (u != null) {
-					if (parser.getName().equals("ydxxapadversion")) {
+					if (parser.getName().equals("apadversion")) {
 						u.setApadversion(Integer.parseInt(parser.nextText()));
-					} else if (parser.getName().equals("ydxxapadname")) {
+					} else if (parser.getName().equals("apadname")) {
 						u.setApadname(parser.nextText());
-					}else if (parser.getName().equals("ydxxapadurl")) {
+					}else if (parser.getName().equals("apadurl")) {
 						u.setApadurl(parser.nextText());
 					}
 				}

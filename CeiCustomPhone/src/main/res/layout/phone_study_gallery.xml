@@ -9,7 +9,8 @@
     <com.hyrt.readreport.view.DetialGallery
         android:id="@+id/read_report_main_ga"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
+        android:layout_height="fill_parent"
+        android:background="@drawable/courseware_big_default_icon"/>
 
     <RelativeLayout
         android:layout_width="fill_parent"

@@ -3,6 +3,7 @@ package com.hyrt.ceiphone.common;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.webkit.WebSettings;
@@ -10,13 +11,16 @@ import android.webkit.WebViewClient;
 import android.webkit.WebSettings.LayoutAlgorithm;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.hyrt.cei.ui.personcenter.PersonCenter;
 import com.hyrt.cei.ui.witsea.WitSeaActivity;
 import com.hyrt.cei.util.MyTools;
 import com.hyrt.ceiphone.ContainerActivity;
 import com.hyrt.ceiphone.R;
+import com.hyrt.ceiphone.phonestudy.FoundationActivity;
 
 /**
  * 通知公告
@@ -53,7 +57,48 @@ public class AnnouncementRead extends ContainerActivity implements OnClickListen
 			((RelativeLayout) (bottomsLl.getChildAt(i))).getChildAt(0)
 					.setOnClickListener(this);
 		}
+        findViewById(R.id.phone_study_exit).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertIsSurePopExit();
+            }
+        });
 	}
+
+    private PopupWindow popWin;
+    private void alertIsSurePopExit() {
+        View popView = this.getLayoutInflater().inflate(
+                R.layout.phone_study_issure, null);
+        ((TextView) popView.findViewById(R.id.issure_title))
+                .setText("确认退出应用吗?");
+        popView.findViewById(R.id.phone_study_issure_sure_btn)
+                .setOnClickListener(new OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        for(int i=0;i<ContainerActivity.activities.size();i++){
+                            ContainerActivity.activities.get(i).finish();
+                        }
+                        for(int i=0;i<FoundationActivity.activitys.size();i++){
+                            FoundationActivity.activitys.get(i).finish();
+                        }
+                        popWin.dismiss();
+                    }
+                });
+        popView.findViewById(R.id.phone_study_issure_cancel_btn)
+                .setOnClickListener(new OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        popWin.dismiss();
+                    }
+                });
+        popWin = new PopupWindow(popView, RelativeLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams.MATCH_PARENT);
+        popWin.setFocusable(true);
+        popWin.showAtLocation(findViewById(R.id.full_view), Gravity.CENTER, 0,
+                0);
+    }
 
 	protected void onPause() {
 		super.onPause();

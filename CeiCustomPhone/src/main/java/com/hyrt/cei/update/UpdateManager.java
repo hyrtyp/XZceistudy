@@ -129,7 +129,7 @@ public class UpdateManager {
 		try {
 			// 获取软件版本号，对应AndroidManifest.xml下android:versionCode
 			versionCode = context.getPackageManager().getPackageInfo(
-					"com.hyrt.ceiphone", 0).versionCode;
+                    context.getPackageName(), 0).versionCode;
 		} catch (NameNotFoundException e) {
 			e.printStackTrace();
 		}

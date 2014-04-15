@@ -331,7 +331,7 @@ public class WelcomeActivity extends ContainerActivity {
 						handler.sendMessage(message);
 						return;
 					} else if (XmlUtil.parseReturnCode(result).equals("LF00")//登陆失败
-							&& !settings.getString("LOGINNAME", "").equals("")) {
+							) {
 						WriteOrRead.write(result, MyTools.nativeData,
 								INITRESOURCES_FILENAME);
 						XmlUtil.parseInitResources(result, columnEntry);
@@ -378,6 +378,9 @@ public class WelcomeActivity extends ContainerActivity {
 					handler.sendMessage(message);
 					// 请求个人资源100%
 					result = Service.initSelfResources(columnEntry);
+                    SharedPreferences.Editor editor = settings.edit();
+                    editor.putString("XZUSERID",columnEntry.getXzuserid());
+                    editor.commit();
 					WriteOrRead.write(result, MyTools.nativeData,
 							INITSELFRESOURCES_FILENAME);
 					XmlUtil.parseInitSelfResources(result, columnEntry);

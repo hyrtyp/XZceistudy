@@ -1004,7 +1004,8 @@ public class Service {
 		return rs;
 	}
 	
-	public static String saveUserClassTime(String userId,String classId,String studyTime,String xzuserid,String xzclassid) {
+	public static String saveUserClassTime(String userId,String classId,String studyTime,String xzuserid,
+                                           String xzclassid,String timepoint) {
 		String rs = "";
 		try {
 			String xmlStr = "<?xml version='1.0' encoding='UTF-8'?>" + "<ROOT>"
@@ -1012,6 +1013,8 @@ public class Service {
 					+ "<classid>" + classId + "</classid>"
                     + "<xzuserid>" + xzuserid + "</xzuserid>"
                     + "<xzclassid>" + xzclassid + "</xzclassid>"
+                    + "<timepoint>" + timepoint + "</timepoint>"
+                    + "<iscompleted>" + (timepoint.equals("-1")?"1":"0")+"</iscompleted>"
 					+ "<time>" + studyTime + "</time>" + "</ROOT>";
 			rs = agent.saveUserClassTime(xmlStr);
 		} catch (Exception e) {

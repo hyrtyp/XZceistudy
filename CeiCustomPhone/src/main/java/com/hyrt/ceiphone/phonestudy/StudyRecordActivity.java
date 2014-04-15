@@ -55,7 +55,7 @@ public class StudyRecordActivity extends FoundationActivity {
 					case NOUPLOAD_INDEX:
 						for (int j = 0; j < allCoursewares.size(); j++) {
 							try{
-							if (allCoursewares.get(j).getUploadTime()!= 0 && !"1".equals(courses.get(j).getIscompleted())){
+							if (allCoursewares.get(j).getUploadTime()!= 0 && !"1".equals(allCoursewares.get(j).getIscompleted())){
 								courses.add(allCoursewares.get(j));
 							}
 							}catch(Exception e){

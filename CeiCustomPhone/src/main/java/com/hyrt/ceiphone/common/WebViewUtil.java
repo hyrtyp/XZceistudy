@@ -47,6 +47,8 @@ public class WebViewUtil extends ContainerActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+        final SharedPreferences settings = getSharedPreferences("loginInfo",
+                Activity.MODE_PRIVATE);
 		setContentView(R.layout.webview);
 		webView = (WebView) findViewById(R.id.web_view);
 		WebSettings webSettings = webView.getSettings();
@@ -148,16 +150,17 @@ public class WebViewUtil extends ContainerActivity {
                         + ((CeiApplication) (this.getApplication())).columnEntry
                         .getUserId() + "&classid=" + classId +"&native=0" +"&location="
                         + courseware.getTimePoint() +
-                        "&xzclassid=" + xzclassid+"&xzuserid"+((CeiApplication) (this.getApplication())).columnEntry
-                        .getXzuserid()+"&totaltime"
+                        "&xzclassid=" + settings.getString(classId,xzclassid)+"&xzuserid="+
+                        settings.getString("XZUSERID",((CeiApplication) (this.getApplication())).columnEntry
+                        .getXzuserid())+"&totaltime="
                         + courseware.getStudyTime();
             } else {
 				path += "?userid="
 						+ ((CeiApplication) (this.getApplication())).columnEntry
 								.getUserId() + "&classid=" + classId
 						+ "&native=0" + "&location=0"+
-                        "&xzclassid=" + xzclassid +"&xzuserid"+((CeiApplication) (this.getApplication())).columnEntry
-                        .getXzuserid()+"&totaltime=0";
+                        "&xzclassid=" + xzclassid +"&xzuserid="+settings.getString("XZUSERID",((CeiApplication) (this.getApplication())).columnEntry
+                        .getXzuserid())+"&totaltime=0";
 			}
 			validStatusCode(path.replace("/apad.html",
 					FoundationActivity.FLASH_GATE));
