@@ -33,7 +33,7 @@ android {
     signingConfigs {
 
         myConfig {
-            storeFile file("/home/yepeng/.ssh/hyrt.store")
+            storeFile file("C:\\Users\\peng\\.ssh\\hyrt.store")
             storePassword "hyrt.store"
             keyAlias "hyrt.store"
             keyPassword "hyrt.store"
@@ -61,6 +61,10 @@ android {
             packageName "com.example.flavorxzpad1"
             versionCode 1
         }
+    }
+
+    lintOptions{
+        abortOnError false
     }
 }
 

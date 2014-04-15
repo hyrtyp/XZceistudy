@@ -235,8 +235,8 @@ public class PreloadActivity extends FoundationActivity {
 				for (int i = 0; i < linearLayList.getChildCount(); i++) {
 					if (linearLayList
 							.getChildAt(i)
-							.findViewById(R.id.phone_study_preload_item_btnPlay)
-							.getVisibility() == View.VISIBLE) {
+							.findViewById(R.id.phone_study_preload_item_btnControl)
+							.getVisibility() != View.VISIBLE) {
 						linearLayList.getChildAt(i).setVisibility(View.VISIBLE);
 					} else {
 						linearLayList.getChildAt(i).setVisibility(View.GONE);
@@ -257,8 +257,8 @@ public class PreloadActivity extends FoundationActivity {
 				for (int i = 0; i < linearLayList.getChildCount(); i++) {
 					if (linearLayList
 							.getChildAt(i)
-							.findViewById(R.id.phone_study_preload_item_btnPlay)
-							.getVisibility() != View.VISIBLE) {
+							.findViewById(R.id.phone_study_preload_item_btnControl)
+							.getVisibility() == View.VISIBLE) {
 						linearLayList.getChildAt(i).setVisibility(View.VISIBLE);
 					} else {
 						linearLayList.getChildAt(i).setVisibility(View.GONE);
