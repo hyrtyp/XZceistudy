@@ -223,6 +223,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activitys.add(this);
+        overridePendingTransition(R.anim.push_in, R.anim.push_out);
     }
 
     /**

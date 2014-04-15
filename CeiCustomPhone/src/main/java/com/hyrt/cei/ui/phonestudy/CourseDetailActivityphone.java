@@ -219,6 +219,9 @@ public class CourseDetailActivityphone extends FoundationActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.phone_study_detail2);
+        if(getIntent().getBooleanExtra("hidePlay",false)){
+            findViewById(R.id.phone_study_detail_play).setVisibility(View.INVISIBLE);
+        }
 		this.CURRENT_KEY = FoundationActivity.DETAIL_DATA_KEY;
 		getWindow().setSoftInputMode(
 				WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);

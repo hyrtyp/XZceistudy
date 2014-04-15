@@ -136,9 +136,7 @@ public class PreloadActivity extends FoundationActivity {
 													.setVisibility(View.GONE);
 											preloadcontolgroup.getBtnControl()
 													.setVisibility(View.GONE);
-											preloadcontolgroup
-													.getBtnPlay()
-													.setVisibility(View.VISIBLE);
+											//preloadcontolgroup.getBtnPlay().setVisibility(View.VISIBLE);
 											preloadcontolgroup
 													.getRootRelativeLayout()
 													.setVisibility(View.GONE);
@@ -311,7 +309,7 @@ public class PreloadActivity extends FoundationActivity {
 				preloadcontolgroup.getLinearLayProcess().setVisibility(
 						View.GONE);
 				preloadcontolgroup.getBtnControl().setVisibility(View.GONE);
-				preloadcontolgroup.getBtnPlay().setVisibility(View.VISIBLE);
+				//preloadcontolgroup.getBtnPlay().setVisibility(View.VISIBLE);
 				preloadcontolgroup.getBtnPlay().setOnClickListener(
 						new OnClickListener() {
 

@@ -84,6 +84,7 @@
             android:id="@+id/phone_study_listviewitem_playbtn"
             style="@style/phone_study_bt"
             android:text="播放"
+            android:visibility="invisible"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="5dp"/>
     </LinearLayout>
