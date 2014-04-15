@@ -92,6 +92,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
 		this.allCoursewares = allCoursewares;
 		asyncImageLoader = ((CeiApplication) (activity.getApplication())).asyncImageLoader;
 		columnEntry = ((CeiApplication) (activity.getApplication())).columnEntry;
+        this.bmpManager = new BitmapManager(BitmapFactory.decodeResource(activity.getResources(), R.drawable.courseware_default_icon));
 	}
 
 	Handler handler = new Handler() {
@@ -276,7 +277,9 @@ public class PhoneStudyAdapter extends BaseAdapter {
                                                         ((CeiApplication) (activity
                                                                 .getApplication())).columnEntry
                                                                 .getXzuserid(),settings.getString(coursewares
-                                                                .get(position).getXzclassid(),""))).equals(
+                                                                .get(position).getClassId(),""),coursewares
+                                                                .get(position)
+                                                                .getTimePoint())).equals(
 												"-1")) {
 									handler.post(new Runnable() {
 

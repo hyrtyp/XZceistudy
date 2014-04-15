@@ -11,7 +11,7 @@
         android:background="@color/pad_study_color1"
         android:baselineAligned="false"
         android:layout_marginTop="2dp"
-        android:weightSum="6"
+        android:weightSum="5"
         android:orientation="horizontal"
         android:gravity="center_vertical">
 
@@ -100,6 +100,7 @@
             style="@style/pad_study_bottom_tv"
             android:layout_weight="1"
             android:gravity="center"
+            android:visibility="gone"
             android:text="关于我们"/>
 
     </LinearLayout>

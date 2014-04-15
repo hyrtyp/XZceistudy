@@ -328,9 +328,7 @@ public class Welcome extends Activity {
 							handler.sendMessage(message);
 							timeOutHelper.uninstallTimerTask(TimeOutHelper.ALDATA_FLAG);
 							return;
-						} else if (XmlUtil.parseReturnCode(result).equals("LF00")
-								&& !settings.getString("LOGINNAME", "").equals(
-										"")) {
+						} else if (XmlUtil.parseReturnCode(result).equals("LF00")) {
 							WriteOrRead.write(result, MyTools.nativeData,
 									INITRESOURCES_FILENAME);
 							XmlUtil.parseInitResources(result, columnEntry);

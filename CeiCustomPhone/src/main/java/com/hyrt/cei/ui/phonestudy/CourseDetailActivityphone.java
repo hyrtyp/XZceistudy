@@ -285,8 +285,14 @@ public class CourseDetailActivityphone extends FoundationActivity {
 				if (courseware.getFullName() != null
 						&& !courseware.getFullName().contains("["))
 					return;
-				String name = courseware.getFullName().substring(0,
-						courseware.getFullName().lastIndexOf("["));
+				String name;
+                try{
+                    name = courseware.getFullName().substring(0,
+                            courseware.getFullName().lastIndexOf("["));
+                }catch (Exception e){
+                    name = courseware.getName();
+                }
+
 				if (((CeiApplication) getApplication()).isNet()) {
 					String result = Service.queryClassName(name,
 							"");
@@ -331,7 +337,7 @@ public class CourseDetailActivityphone extends FoundationActivity {
 				"coursewareInfo");
 		TextView courseDetailTv = (TextView) findViewById(R.id.phone_study_detail_content);
 		((TextView) findViewById(R.id.phone_study_detail_title))
-				.setText(courseware.getFullName());
+				.setText(courseware.getFullName()==null?courseware.getName():courseware.getFullName());
 		((TextView) findViewById(R.id.phone_study_detail_author))
 				.setText("讲师姓名 ： " + courseware.getTeacherName());
 		((TextView) findViewById(R.id.phone_study_detail_protime))

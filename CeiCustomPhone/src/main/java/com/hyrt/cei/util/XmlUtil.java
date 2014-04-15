@@ -655,6 +655,9 @@ public class XmlUtil {
                     if (tag_name.equals("xzclassid")) {
                         coursewares.get(i).setXzclassid(someValue);
                     }
+                    if (tag_name.equals("timepoint")) {
+                        coursewares.get(i).setTimePoint(someValue);
+                    }
 					break;
 				}
 			}
@@ -743,6 +746,8 @@ public class XmlUtil {
 					}
                     if (tag_name.equals("xzclassid")) {
                         coursewares.get(i).setXzclassid(someValue);
+                    }if (tag_name.equals("timepoint")) {
+                        coursewares.get(i).setTimePoint(someValue);
                     }
 					break;
 				}
@@ -835,6 +840,9 @@ public class XmlUtil {
 					if (tag_name.equals("iscompleted")) {
 						coursewares.get(i).setIscompleted(someValue);
 					}
+                    if (tag_name.equals("timepoint")) {
+                        coursewares.get(i).setTimePoint(someValue);
+                    }
 					break;
 				}
 			}
@@ -1519,11 +1527,11 @@ public class XmlUtil {
 					u = new Updata();
 				}
 				if (u != null) {
-					if (parser.getName().equals("ydxxaphoneversion")) {
+					if (parser.getName().equals("aphoneversion")) {
 						u.setAphoneversion(Integer.parseInt(parser.nextText()));
-					} else if (parser.getName().equals("ydxxgkaphonename")) {
+					} else if (parser.getName().equals("aphonename")) {
 						u.setAphonename(parser.nextText());
-					} else if (parser.getName().equals("ydxxgkaphoneurl")) {
+					} else if (parser.getName().equals("aphoneurl")) {
 						u.setAphoneurl(parser.nextText());
 					}
 				}

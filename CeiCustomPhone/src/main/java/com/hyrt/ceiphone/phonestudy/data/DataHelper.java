@@ -486,6 +486,10 @@ public class DataHelper {
 									.getClassId()
 									.equals(beforeCoursewares.get(j)
 											.getClassId())) {
+                                activity.courses.get(i).setTimePoint(
+                                        beforeCoursewares.get(j).getTimePoint());
+                                activity.courses.get(i).setXzclassid(
+                                        beforeCoursewares.get(j).getXzclassid());
 								activity.courses.get(i).setDownPath(
 										beforeCoursewares.get(j).getDownPath());
 								activity.courses.get(i).setLookPath(

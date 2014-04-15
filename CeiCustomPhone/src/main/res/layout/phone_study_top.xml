@@ -17,14 +17,26 @@
         android:text="移动学习"
         style="@style/yangshi_phone_title_small"
         android:layout_alignParentEnd="true"
-        android:visibility="gone" />
+        android:visibility="gone"
+        />
     <ImageView
         android:id="@+id/phone_study_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:src="@drawable/top_search"
+        android:layout_toLeftOf="@+id/phone_study_exit"
+        android:layout_marginRight="8dp"/>
+    <TextView
+        android:id="@+id/phone_study_exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/top_search" />
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:padding="4dp"
+        android:text="退出"/>
     <ImageView
         android:id="@+id/phone_study_icon"
         android:padding="4dp"

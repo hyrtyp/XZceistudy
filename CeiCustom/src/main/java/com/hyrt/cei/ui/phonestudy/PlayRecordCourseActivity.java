@@ -248,6 +248,10 @@ public class PlayRecordCourseActivity extends BaseActivity implements
 										beforeCoursewares.get(j).getPath());
 								courses.get(i).setKey(beforeCoursewares.get(j)
 											.getKey());
+                                courses.get(i).setXzclassid(
+                                        beforeCoursewares.get(j).getXzclassid());
+                                courses.get(i).setTimePoint(
+                                        beforeCoursewares.get(j).getTimePoint());
 							}
 						}
 						courses.get(i).setFree(true);

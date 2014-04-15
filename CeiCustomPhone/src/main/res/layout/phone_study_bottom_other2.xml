@@ -33,12 +33,40 @@
                     style="@style/phone_study_bottom_tv"
                     android:layout_marginLeft="0dp"
                     android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/phone_study_notice_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="通知公告"
+                    android:gravity="center"
+                    style="@style/phone_study_bottom_tv"/>
+
+                <TextView
+                    android:id="@+id/phone_study_self_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="我的课程"
+                    android:gravity="center"
+                    style="@style/phone_study_bottom_tv"/>
+
+                <TextView
+                    android:id="@+id/phone_study_down_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="我的下载"
+                    android:gravity="center"
+                    style="@style/phone_study_bottom_tv"/>
+
                 <TextView
                     android:id="@+id/phone_study_kind_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="课程分类"
+                    android:text="课程中心"
                     android:gravity="center"
                     style="@style/phone_study_bottom_tv"/>
                 <TextView
@@ -46,15 +74,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="课程学习"
-                    android:gravity="center"
-                    style="@style/phone_study_bottom_tv"/>
-                <TextView
-                    android:id="@+id/phone_study_self_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="自选课程"
+                    android:text="学习记录"
                     android:gravity="center"
                     style="@style/phone_study_bottom_tv"/>
 
@@ -67,22 +87,8 @@
                     android:gravity="center"
                     style="@style/phone_study_bottom_tv"
                     android:visibility="gone"/>
-                <TextView
-                    android:id="@+id/phone_study_down_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="下载管理"
-                    android:gravity="center"
-                    style="@style/phone_study_bottom_tv"/>
-                <TextView
-                    android:id="@+id/phone_study_notice_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="通知公告"
-                    android:gravity="center"
-                    style="@style/phone_study_bottom_tv"/>
+
+
                 <TextView
                     android:id="@+id/phone_study_personcenter_tv"
                     android:layout_width="wrap_content"
@@ -98,6 +104,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="关于我们"
+                    android:visibility="gone"
                     android:gravity="center"
                     style="@style/phone_study_bottom_tv"
                     android:layout_marginRight="0dp"/>

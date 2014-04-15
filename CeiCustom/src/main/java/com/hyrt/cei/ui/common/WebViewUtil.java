@@ -2,6 +2,7 @@ package com.hyrt.cei.ui.common;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -47,6 +48,8 @@ public class WebViewUtil extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.webview);
+        final SharedPreferences settings = getSharedPreferences("loginInfo",
+                Activity.MODE_PRIVATE);
 		webView = (WebView) findViewById(R.id.web_view);
 		findViewById(R.id.back_btn).setOnClickListener(new OnClickListener() {
 
@@ -174,8 +177,9 @@ public class WebViewUtil extends Activity {
                         + ((CeiApplication) (this.getApplication())).columnEntry
                         .getUserId() + "&classid=" + classId +"&native=0" +"&location="
                         + courseware.getTimePoint() +
-                        "&xzclassid=" + xzclassid+"&xzuserid"+((CeiApplication) (this.getApplication())).columnEntry
-                        .getXzuserid()+"&totaltime"
+                        "&xzclassid=" + settings.getString(classId,xzclassid)+"&xzuserid="+settings.getString("XZUSERID",
+                        ((CeiApplication) (this.getApplication())).columnEntry
+                        .getXzuserid())+"&totaltime"
                         + courseware.getStudyTime();
 			} else {
 //				path += "?userid="
@@ -186,8 +190,9 @@ public class WebViewUtil extends Activity {
                         + ((CeiApplication) (this.getApplication())).columnEntry
                         .getUserId() + "&classid=" + classId
                         + "&native=0" + "&location=0"+
-                        "&xzclassid=" + xzclassid +"&xzuserid"+((CeiApplication) (this.getApplication())).columnEntry
-                        .getXzuserid()+"&totaltime=0";
+                        "&xzclassid=" + settings.getString(classId,xzclassid) +"&xzuserid="+
+                        settings.getString("XZUSERID",((CeiApplication) (this.getApplication())).columnEntry
+                        .getXzuserid())+"&totaltime=0";
 			}
 			validStatusCode(path);
 		}

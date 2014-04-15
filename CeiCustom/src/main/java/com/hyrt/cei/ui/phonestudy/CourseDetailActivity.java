@@ -275,9 +275,15 @@ public class CourseDetailActivity extends Activity implements OnClickListener {
 
 			@Override
 			public void run() {
-				if(courseware.getName() != null && !courseware.getName().contains("["))
+				if(courseware.getFullName() != null && !courseware.getFullName().contains("["))
 					return;
-				String name = courseware.getName().substring(0, courseware.getName().lastIndexOf("["));
+                String name;
+                try{
+                    name = courseware.getFullName().substring(0,
+                            courseware.getFullName().lastIndexOf("["));
+                }catch (Exception e){
+                    name = courseware.getName();
+                }
 				// 获取该课程相关课程
 				initSendData();
 				if (((CeiApplication) getApplication()).isNet()) {
@@ -322,7 +328,7 @@ public class CourseDetailActivity extends Activity implements OnClickListener {
 				"coursewareInfo");
 		TextView courseDetailTv = (TextView) findViewById(R.id.phone_study_detail_content);
 		((TextView) findViewById(R.id.phone_study_detail_title))
-				.setText(courseware.getFullName());
+				.setText(courseware.getFullName()==null?courseware.getName():courseware.getFullName());
 		((TextView) findViewById(R.id.phone_study_detail_author))
 				.setText("讲师姓名 ： " + courseware.getTeacherName());
 		((TextView) findViewById(R.id.phone_study_detail_protime))

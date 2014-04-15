@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hyrt.cei.application.CeiApplication;
@@ -231,6 +232,12 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
      */
     @Override
     protected void onResume() {
+        findViewById(R.id.phone_study_exit).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertIsSurePopExit();
+            }
+        });
         SharedPreferences settings = getSharedPreferences("loginInfo", Activity.MODE_PRIVATE);
         loginName = settings.getString("LOGINNAME", "");
         ColumnEntry columnEntry = ((CeiApplication) getApplication()).columnEntry;
@@ -294,7 +301,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                 break;
             case PRELOAD_DATA_KEY:
                 ((TextView) findViewById(R.id.phone_study_title))
-                        .setText("下载管理");
+                        .setText("我的下载");
                 ImageviewBackbt();
                 break;
             case DETAIL_DATA_KEY:
@@ -309,7 +316,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                 break;
             case KIND_DATA_KEY:
                 ((TextView) findViewById(R.id.phone_study_title))
-                        .setText("课程分类");
+                        .setText("课程中心");
                 ImageviewBackbt();
                 break;
             case SEARCH_DATA_KEY:
@@ -319,7 +326,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                 break;
             case SELF_DATA_KEY:
                 ((TextView) findViewById(R.id.phone_study_title))
-                        .setText("自选课程");
+                        .setText("我的课程");
                 ImageviewBackbt();
                 break;
             case SAY_DATA_KEY:
@@ -334,7 +341,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                 break;
             case RECORD_DATA_KEY:
                 ((TextView) findViewById(R.id.phone_study_title))
-                        .setText("课程学习");
+                        .setText("学习记录");
                 ImageviewBackbt();
                 break;
             case ABOUT_DATA_KEY:
@@ -780,5 +787,38 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
             textView.setTextColor(getResources().getColor(R.color.phone_bottomandtop_bg));
 //            bottomHorScr.smoothScrollTo(3*textView.getMeasuredHeight(), 0);
         }
+    }
+
+
+    private PopupWindow popWin;
+    private void alertIsSurePopExit() {
+        View popView = this.getLayoutInflater().inflate(
+                R.layout.phone_study_issure, null);
+        ((TextView) popView.findViewById(R.id.issure_title))
+                .setText("确认退出应用吗?");
+        popView.findViewById(R.id.phone_study_issure_sure_btn)
+                .setOnClickListener(new OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        for(int i=0;i<activitys.size();i++){
+                            activitys.get(i).finish();
+                        }
+                        popWin.dismiss();
+                    }
+        });
+        popView.findViewById(R.id.phone_study_issure_cancel_btn)
+                .setOnClickListener(new OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        popWin.dismiss();
+                    }
+                });
+        popWin = new PopupWindow(popView, RelativeLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams.MATCH_PARENT);
+        popWin.setFocusable(true);
+        popWin.showAtLocation(findViewById(R.id.full_view), Gravity.CENTER, 0,
+                0);
     }
 }

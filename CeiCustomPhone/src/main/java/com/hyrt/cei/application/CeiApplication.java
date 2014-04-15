@@ -21,8 +21,10 @@ import com.hyrt.cei.webservice.service.Service;
 import com.hyrt.ceiphone.WelcomeActivity;
 import com.hyrt.ceiphone.exception.CrashHandler;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
@@ -51,6 +53,8 @@ public class CeiApplication extends Application {
 				dataHelper = new DataHelper(this);
 			}
 		}
+        final SharedPreferences settings = getSharedPreferences("loginInfo",
+                Activity.MODE_PRIVATE);
 		initSdCard();
 		new Thread(new Runnable() {
 
@@ -79,9 +83,11 @@ public class CeiApplication extends Application {
 							 List<Courseware> coursewares = dataHelper.getStudyRecord();
 							 for(int i=0;i<coursewares.size();i++){
 								 if(("1").equals(coursewares.get(i).getIscompleted() )
-										 //&& ("-1").equals(coursewares.get(i).getTimePoint())
+										 && ("-1").equals(coursewares.get(i).getTimePoint())
 										 && coursewares.get(i).getUploadTime() > 0){
-									 String rs = Service.saveUserClassTime(columnEntry.getUserId(),coursewares.get(i),columnEntry.getXzuserid());
+                                     coursewares.get(i).setXzclassid(settings.getString(coursewares.get(i).getClassId(),""));
+									 String rs = Service.saveUserClassTime(columnEntry.getUserId(),coursewares.get(i),
+                                             settings.getString("XZUSERID",columnEntry.getXzuserid()));
 									 if(XmlUtil.parseReturnCode(rs).equals("1")){
 										 coursewares.get(i).setTimePoint("0");
 										 coursewares.get(i).setUploadTime(0);
