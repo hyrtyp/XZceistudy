@@ -38,6 +38,7 @@ public class AnnouncementRead extends ContainerActivity implements OnClickListen
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.announcementread);
+        overridePendingTransition(R.anim.push_in, R.anim.push_out);
 		view = (WebView) findViewById(R.id.tzgg_web);
 		view.getSettings().setDefaultTextEncodingName("gbk");
 		WebSettings webSettings = view.getSettings();

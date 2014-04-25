@@ -39,6 +39,8 @@ import com.hyrt.cei.webservice.service.Service;
 import com.hyrt.ceiphone.R;
 import com.hyrt.ceiphone.common.WebViewUtil;
 import com.hyrt.ceiphone.phonestudy.FoundationActivity;
+import com.hyrt.ceiphone.phonestudy.KindsActivity;
+import com.hyrt.ceiphone.phonestudy.PhoneStudyActivity;
 import com.hyrt.ceiphone.phonestudy.PreloadActivity;
 import com.hyrt.ceiphone.phonestudy.SayGroupActivity;
 
@@ -219,7 +221,10 @@ public class PhoneStudyAdapter extends BaseAdapter {
 
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(activity, CourseDetailActivityphone.class);
+                Intent intent = new Intent(activity, CourseDetailActivityphone.class);
+                if(activity instanceof PhoneStudyActivity || activity instanceof KindsActivity){
+                    intent.putExtra("hidePlay",true);
+                }
 				intent.putExtra("coursewareInfo", coursewares.get(position));
 				intent.putExtra("isRecord", isRecord);
 				activity.startActivity(intent);

@@ -49,6 +49,7 @@ public class Announcement extends FoundationActivity{
 		super.onCreate(savedInstanceState);
         CURRENT_KEY = NOTICE_DATA_KEY;
 		setContentView(R.layout.announcement);
+        overridePendingTransition(R.anim.push_in, R.anim.push_out);
 		init();
 		SharedPreferences settings = getSharedPreferences(
 				"announcementCount", Activity.MODE_PRIVATE);
