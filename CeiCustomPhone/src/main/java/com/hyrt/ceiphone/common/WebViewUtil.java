@@ -139,7 +139,7 @@ public class WebViewUtil extends ContainerActivity {
 				MyTools.popExitActivity(this);
 				return;
 			}
-			if (dataHelper.getStudyRecord(courseware)) {
+    			if (dataHelper.getStudyRecord(courseware)) {
 //				path += "?userid="
 //						+ ((CeiApplication) (this.getApplication())).columnEntry
 //								.getUserId() + "&classid=" + classId + "&xzclassid=" + xzclassid
@@ -158,7 +158,7 @@ public class WebViewUtil extends ContainerActivity {
 				path += "?userid="
 						+ ((CeiApplication) (this.getApplication())).columnEntry
 								.getUserId() + "&classid=" + classId
-						+ "&native=0" + "&location=0"+
+						+ "&native=0" + "&location="+(courseware.getTimePoint()==null?0:courseware.getTimePoint())+
                         "&xzclassid=" + xzclassid +"&xzuserid="+settings.getString("XZUSERID",((CeiApplication) (this.getApplication())).columnEntry
                         .getXzuserid())+"&totaltime=0";
 			}
