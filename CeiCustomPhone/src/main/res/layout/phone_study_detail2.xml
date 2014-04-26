@@ -136,6 +136,7 @@
                 <Button
                     android:id="@+id/phone_study_detail_preload"
                     android:text="下载"
+                    android:visibility="invisible"
                     style="@style/phone_study_bt"
                     android:layout_marginRight="15dp"
                     />
@@ -143,6 +144,7 @@
                 <Button
                     android:id="@+id/phone_study_detail_play"
                     android:text="播放"
+                    android:visibility="invisible"
                     style="@style/phone_study_bt"
                     />
             </LinearLayout>

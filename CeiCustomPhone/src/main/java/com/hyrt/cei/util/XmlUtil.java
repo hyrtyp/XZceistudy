@@ -793,6 +793,9 @@ public class XmlUtil {
 					if (tag_name.equals("classid")) {
 						coursewares.get(i).setClassId(someValue);
 					}
+                    if (tag_name.equals("xzclassid")) {
+                        coursewares.get(i).setXzclassid(someValue);
+                    }
 					if (tag_name.equals("name")) {
 						coursewares.get(i).setName(someValue.length()>10?someValue.substring(0
 								,9)+"...":someValue);
@@ -1327,8 +1330,7 @@ public class XmlUtil {
 
 	/**
 	 * 解析报告分类列表
-	 * 
-	 * @param retCord
+	 *
 	 */
 	public static List<ReportpaitElement> parseReportPart(String xml)
 			throws Exception {

@@ -6,7 +6,7 @@
     android:layout_height="48dp"
     android:paddingLeft="16dip"
     android:paddingRight="16dip"
-    android:background="@color/phone_bottomandtop_bg">
+    android:background="@color/xz_activity_top_bg">
 
     <TextView
         android:id="@+id/phone_study_basetitle"
@@ -64,7 +64,7 @@
         android:layout_centerInParent="true"
         android:textColor="#ffffff"
         android:textSize="@dimen/top_text_size"
-        android:text="移动学习"
+        android:text="西藏干部教育网"
         />
 
     <Button

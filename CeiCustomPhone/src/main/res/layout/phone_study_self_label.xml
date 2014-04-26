@@ -3,7 +3,7 @@
     android:id="@+id/phone_study_labelParent"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:background="#3c71ba"
+    android:background="@color/xz_activity_label_bg"
     android:paddingTop="5dip">
 
     <Button

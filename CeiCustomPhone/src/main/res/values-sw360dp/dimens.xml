@@ -6,7 +6,7 @@
 	<dimen name="weibosdk_dialog_bottom_margin">15dp</dimen>
 
     <!--顶部标题的字体大小-->
-    <dimen name="top_text_size">25sp</dimen>
+    <dimen name="top_text_size">20sp</dimen>
     <!--界面外边距-->
     <dimen name="phone_study_view_margin">5dp</dimen>
     <!--二级标题-->

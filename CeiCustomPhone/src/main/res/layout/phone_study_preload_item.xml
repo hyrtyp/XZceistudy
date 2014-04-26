@@ -112,8 +112,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="15.0dip"
-                android:background="@drawable/phone_study_preload_item_play_bg"
                 android:tag="播放"
+                android:background="@color/xz_activity_top_bg"
+                android:text="播放"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:textColor="#FFFFFF"
                 android:visibility="gone" />
 
             <Button
@@ -121,14 +127,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="15.0dip"
-                android:background="@drawable/phone_study_preload_item_start_bg"
+                android:background="@color/xz_activity_top_bg"
+                android:text="开始"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:textColor="#FFFFFF"
                 android:tag="开始" />
 
             <Button
                 android:id="@+id/phone_study_preload_item_btnDelete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/phone_study_preload_item_delete_bg" />
+                android:background="@color/xz_activity_top_bg"
+                android:text="删除"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:textColor="#FFFFFF" />
         </LinearLayout>
     </RelativeLayout>
 

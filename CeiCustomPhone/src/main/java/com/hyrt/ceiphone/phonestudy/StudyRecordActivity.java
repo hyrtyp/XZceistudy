@@ -23,9 +23,12 @@ public class StudyRecordActivity extends FoundationActivity {
 	// 4个操作标志位
 	private final static int ALL_INDEX = 0;
 	private final static int NOSTUDY_INDEX = 1;
-	private final static int NOUPLOAD_INDEX = 2;
-	private final static int UPLOAD_INDEX = 3;
-	private final static int STUDY_INDEX = 4;
+	private final static int NOUPLOAD_INDEX = 3;
+	private final static int UPLOAD_INDEX = 4;
+	private final static int STUDY_INDEX = 2;
+
+
+
 	// 当先显示的列表种类
 	private int currentLookKind = 0;
 

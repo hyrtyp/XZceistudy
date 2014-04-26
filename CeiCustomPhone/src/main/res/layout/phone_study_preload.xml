@@ -4,6 +4,7 @@
     android:id="@+id/full_view"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@color/xz_activity_bg"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <include layout="@layout/phone_study_top" android:id="@+id/ex_top" />
@@ -11,7 +12,7 @@
     <include layout="@layout/phone_study_bottom2" android:id="@+id/ex_bot"/>
 
     <LinearLayout
-        android:background="#f0f4f6"
+
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical"
@@ -23,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/phone_study_preload_scrollView"
             android:paddingTop="5dip"
-            android:background="#3c71ba">
+            android:background="@color/xz_activity_label_bg">
 
             <Button
                 style="@style/phone_study_Tab"
@@ -51,8 +52,7 @@
             android:paddingTop="1dp"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:fillViewport="false"
-            android:background="@color/phone_study_color_White">
+            android:fillViewport="false">
 
             <LinearLayout
                 android:orientation="vertical"

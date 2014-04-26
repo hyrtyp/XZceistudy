@@ -20,4 +20,11 @@
     <color name="phone_study_h1_color">#054b93</color>
     <color name="phone_study_h1_small_color">#b5b5b5</color>
     <color name="phone_study_kinds_bg">#5dadf2</color>
+
+    <color name="xz_activity_bg">#eeeeee</color>
+    <color name="xz_activity_label_bg">#ffffff</color>
+
+    <color name="xz_activity_top_bg">#4e9de8</color>
+
+
 </resources>

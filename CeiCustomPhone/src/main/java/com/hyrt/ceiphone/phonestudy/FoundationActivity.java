@@ -292,7 +292,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
         switch (CURRENT_KEY) {
             case NEW_DATA_KEY:
                 ((TextView) findViewById(R.id.phone_study_title))
-                        .setText("移动学习");
+                        .setText("西藏干部教育网");
                 ((ImageView) findViewById(R.id.phone_study_icon)).setVisibility(View.INVISIBLE);
                 break;
             case FREE_DATA_KEY:
@@ -407,7 +407,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
-        modifyBottombg();//修改底部导航
+        //modifyBottombg();//修改底部导航
 
     }
 

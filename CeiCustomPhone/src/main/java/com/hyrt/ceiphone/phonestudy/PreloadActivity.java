@@ -350,23 +350,20 @@ public class PreloadActivity extends FoundationActivity {
 				preloadcontolgroup.getLblPercent().setText(String.valueOf(s));
 				final Button controlBtn = preloadcontolgroup.getBtnControl();
 				controlBtn.setTag("暂停");
-				controlBtn
-						.setBackgroundResource(R.drawable.phone_study_preload_item_pause_bg);
+                controlBtn.setText("暂停");
 				controlBtn.setOnClickListener(new OnClickListener() {
 
 					@Override
 					public void onClick(View view) {
 						if (controlBtn.getTag().equals("暂停")) {
 							controlBtn.setTag("开始");
-							controlBtn
-									.setBackgroundResource(R.drawable.phone_study_preload_item_start_bg);
+                            controlBtn.setText("暂停");
 							preload.setLoading(0);
 							dataHelper.updatePreload(preload);
 							startDownNext();
 						} else {
 							controlBtn.setTag("暂停");
-							controlBtn
-									.setBackgroundResource(R.drawable.phone_study_preload_item_pause_bg);
+                            controlBtn.setText("开始");
 							preload.setLoading(1);
 							dataHelper.updatePreload(preload);
 							download(preload);
@@ -396,13 +393,11 @@ public class PreloadActivity extends FoundationActivity {
 					public void onClick(View view) {
 						if (controlBtn.getTag().equals("暂停")) {
 							controlBtn.setTag("开始");
-							controlBtn
-									.setBackgroundResource(R.drawable.phone_study_preload_item_start_bg);
+							controlBtn.setText("暂停");
 							preload.setLoading(0);
 						} else {
 							controlBtn.setTag("暂停");
-							controlBtn
-									.setBackgroundResource(R.drawable.phone_study_preload_item_pause_bg);
+                            controlBtn.setText("开始");
 							preload.setLoading(1);
 							download(preload);
 						}

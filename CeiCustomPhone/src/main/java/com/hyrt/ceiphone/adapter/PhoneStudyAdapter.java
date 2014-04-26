@@ -43,6 +43,7 @@ import com.hyrt.ceiphone.phonestudy.KindsActivity;
 import com.hyrt.ceiphone.phonestudy.PhoneStudyActivity;
 import com.hyrt.ceiphone.phonestudy.PreloadActivity;
 import com.hyrt.ceiphone.phonestudy.SayGroupActivity;
+import com.hyrt.ceiphone.phonestudy.SelfActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -222,7 +223,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
 			@Override
 			public void onClick(View v) {
                 Intent intent = new Intent(activity, CourseDetailActivityphone.class);
-                if(activity instanceof PhoneStudyActivity || activity instanceof KindsActivity){
+                if(activity instanceof SelfActivity){
                     intent.putExtra("hidePlay",true);
                 }
 				intent.putExtra("coursewareInfo", coursewares.get(position));

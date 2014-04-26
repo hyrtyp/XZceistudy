@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Gallery;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -113,6 +114,8 @@ public class PhoneStudyActivity extends FoundationActivity {
 		super.onCreate(savedInstanceState);
 		this.CURRENT_KEY = FoundationActivity.NEW_DATA_KEY;
 		setContentView(R.layout.phone_study);
+        ListView phoneStudyListViewAddHeader = (ListView) findViewById(R.id.phone_study_listview);
+        phoneStudyListViewAddHeader.addHeaderView(getLayoutInflater().inflate(R.layout.phone_study_main_top,null));
         findViewById(R.id.main_login).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -201,7 +204,7 @@ public class PhoneStudyActivity extends FoundationActivity {
 			return;
 		Intent intent = new Intent(this, CourseDetailActivityphone.class);// OpenBookActivity
 		intent.putExtra("coursewareInfo", report);
-//		startActivity(intent);
+		startActivity(intent);
 	}
 
 	/**

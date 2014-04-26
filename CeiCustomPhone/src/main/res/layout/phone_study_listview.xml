@@ -8,5 +8,4 @@
     android:dividerHeight="1dip"
     android:layout_marginRight="3dp"
     android:layout_marginLeft="3dp"
-    android:background="@color/phone_listview_bg"
     android:listSelector="@drawable/phone_study_listview_selector" />

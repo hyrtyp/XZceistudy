@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:scrollbars="none"
-    android:background="#3c71ba">
+    android:background="@color/xz_activity_label_bg">
 
     <LinearLayout
         android:id="@+id/phone_study_labelParent"
@@ -33,21 +33,21 @@
             style="@style/phone_study_Tab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="未上传"
+            android:text="已学完"
              />
 
         <Button
             style="@style/phone_study_Tab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="已上传"
+            android:text="未上传"
             />
 
         <Button
             style="@style/phone_study_Tab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="已学完"
+            android:text="已上传"
             />
     </LinearLayout>
 

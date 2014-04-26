@@ -3,7 +3,7 @@
     android:id="@+id/full_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f0f4f6" >
+    android:background="@color/xz_activity_bg">
 
     <include layout="@layout/phone_study_nominate_main"/>
 

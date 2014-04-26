@@ -12,7 +12,7 @@
         android:layout_height="wrap_content" >
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="70dp"
             android:orientation="vertical"
             android:background="@color/phone_bottomandtop_bg">
             <LinearLayout
@@ -21,7 +21,6 @@
                 android:layout_height="match_parent"
                 android:background="@color/phone_study_color1"
                 android:baselineAligned="false"
-                android:layout_marginTop="2dp"
                 >
                 <TextView
                     android:id="@+id/phone_study_nominate_tv"
@@ -41,6 +40,7 @@
                     android:layout_weight="1"
                     android:text="通知公告"
                     android:gravity="center"
+                    android:drawableTop="@drawable/my_notice"
                     style="@style/phone_study_bottom_tv"/>
 
                 <TextView
@@ -49,6 +49,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="我的课程"
+                    android:drawableTop="@drawable/my_class"
                     android:gravity="center"
                     style="@style/phone_study_bottom_tv"/>
 
@@ -58,6 +59,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="我的下载"
+                    android:drawableTop="@drawable/my_down"
                     android:gravity="center"
                     style="@style/phone_study_bottom_tv"/>
 
@@ -68,12 +70,14 @@
                     android:layout_weight="1"
                     android:text="课程中心"
                     android:gravity="center"
+                    android:drawableTop="@drawable/my_center"
                     style="@style/phone_study_bottom_tv"/>
                 <TextView
                     android:id="@+id/phone_study_mymore_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:drawableTop="@drawable/my_record"
                     android:text="学习记录"
                     android:gravity="center"
                     style="@style/phone_study_bottom_tv"/>

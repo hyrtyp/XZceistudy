@@ -678,7 +678,6 @@ public class DataHelper {
 			newCourseware.setClassId(courseware.getClassId());
 			// 根据课件id，查出学习时间点和需要上传的学习时长
 			if (getStudyRecord(newCourseware)) {
-				courseware.setTimePoint(newCourseware.getTimePoint());
 				courseware.setUploadTime(newCourseware.getUploadTime());
 				if(!"1".equals(courseware.getIscompleted()))
 					courseware.setIscompleted(newCourseware.getIscompleted());

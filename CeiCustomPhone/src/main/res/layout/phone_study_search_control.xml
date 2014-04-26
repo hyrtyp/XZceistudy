@@ -1,29 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/search_rl"
     android:layout_width="fill_parent"
-    android:layout_height="45dip"
-    android:background="@drawable/phone_study_searchbg"
+    android:layout_height="50dip"
     android:gravity="center_vertical"
-    android:paddingLeft="16dip"
-    android:paddingRight="25dip" >
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp">
 
     <EditText
         android:id="@+id/search_edit"
         android:layout_width="wrap_content"
         android:layout_height="35dip"
-        android:background="@drawable/search_editbg"
+        android:background="#FFFFFF"
         android:gravity="center_vertical"
         android:hint="请输入课件名字搜索"
+        android:minWidth="200dp"
+        android:layout_weight="1"
         android:paddingLeft="6dip"
         android:singleLine="true"
         android:textSize="15sp" />
 
-    <ImageView
+    <TextView
+        android:layout_width="70dp"
+        android:layout_height="35dp"
+        android:text="搜索"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:gravity="center"
         android:id="@+id/search_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="35dip"
-        android:layout_alignParentRight="true"
-        android:src="@drawable/phone_study_searchbtnbg" />
+        android:background="@color/xz_activity_top_bg"/>
 
-</RelativeLayout>
+</LinearLayout>

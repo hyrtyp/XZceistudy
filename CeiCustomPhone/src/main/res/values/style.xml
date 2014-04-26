@@ -41,7 +41,7 @@
 	<style name="AppTheme" parent="android:Theme.Light" />
     <style name="phone_study_bottom_tv">
         <item name="android:textColor">#ffffff</item>
-        <item name="android:background">@drawable/phone_study_bottom_tv_bg</item>
+        <item name="android:background">#4e9de8</item>
         <item name="android:paddingRight">@dimen/phone_study_bottom_tv_pad_right</item>
         <item name="android:paddingLeft">@dimen/phone_study_bottom_tv_pad_left</item>
         <item name="android:layout_marginRight">0.5dp</item>
@@ -54,7 +54,7 @@
         <item name="android:textSize">@dimen/phone_study_bt_textSize</item>
         <item name="android:layout_width">@dimen/phone_study_bt_width</item>
         <item name="android:layout_height">@dimen/phone_study_bt_height</item>
-        <item name="android:background">@drawable/phone_study_bt_bg</item>
+        <item name="android:background">@color/xz_activity_top_bg</item>
     </style>
     
     <style name="phone_study_Tab">
