@@ -5,6 +5,8 @@
     android:layout_height="match_parent"
     android:background="@color/xz_activity_bg" >
 
+    <include layout="@layout/phone_study_top"/>
+
     <include layout="@layout/phone_study_main"/>
    
    <include layout="@layout/phone_study_bottom2" />

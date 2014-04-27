@@ -4,8 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
     
-   <include layout="@layout/phone_study_top"/>
-   
    <include layout="@layout/phone_study_gallery"/>
 
 </LinearLayout>

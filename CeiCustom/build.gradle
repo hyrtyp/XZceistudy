@@ -33,7 +33,7 @@ android {
     signingConfigs {
 
         myConfig {
-            storeFile file("C:\\Users\\peng\\.ssh\\hyrt.store")
+            storeFile file("/home/yepeng.ssh/hyrt.store")
             storePassword "hyrt.store"
             keyAlias "hyrt.store"
             keyPassword "hyrt.store"
