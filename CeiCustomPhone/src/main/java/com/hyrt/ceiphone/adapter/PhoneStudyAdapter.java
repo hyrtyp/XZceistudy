@@ -296,22 +296,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
 											((FoundationActivity)activity).courses.add(0,((FoundationActivity)activity).courses.remove(position));
 											((FoundationActivity)activity).allCoursewares.add(0,((FoundationActivity)activity).allCoursewares.remove(position));
 											PhoneStudyAdapter.this.notifyDataSetChanged();
-											AlertDialog.Builder builder = new Builder(
-													activity);
-											builder.setMessage("上传学习记录成功 ！");
-											builder.setPositiveButton(
-													"确认",
-													new DialogInterface.OnClickListener() {
-
-														@Override
-														public void onClick(
-																DialogInterface dialog,
-																int which) {
-															dialog.dismiss();
-														}
-													});
-
-											builder.create().show();
+                                            MyTools.exitShow(activity, activity.getWindow().getDecorView(), "上传学习记录成功 ！");
 										}
 									});
 								}

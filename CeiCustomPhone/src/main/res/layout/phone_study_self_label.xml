@@ -19,6 +19,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="下载自选课"
+        android:background="@drawable/phone_study_tab_bg"
+        android:textColor="@color/phone_study_color_black"
         style="@style/phone_study_Tab"
         />
 

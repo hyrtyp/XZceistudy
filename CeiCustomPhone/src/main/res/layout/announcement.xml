@@ -41,16 +41,13 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content" />
 
-        <TextView
-            android:id="@+id/phone_study_exit"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/phone_study_more"
+            android:layout_width="32dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:padding="4dp"
-            android:text="退出"/>
+            android:src="@drawable/xz_more"/>
 	</RelativeLayout>
 
 	<RelativeLayout

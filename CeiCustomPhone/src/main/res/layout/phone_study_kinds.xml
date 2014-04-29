@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/top"
+        android:paddingTop="2dp"
         android:background="@drawable/menu_scrollviewbg"
         android:scrollbars="none" >
 
@@ -32,6 +33,7 @@
         android:layout_below="@+id/phone_study_gridviewparent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:background="@drawable/menu_scrollviewbg"
         android:scrollbars="none" >
 
@@ -51,6 +53,7 @@
         android:id="@+id/phone_study_gridviewparent2"
         android:layout_below="@+id/phone_study_gridviewparent1"
         android:layout_width="match_parent"
+        android:visibility="gone"
         android:layout_height="wrap_content"
         android:background="@drawable/menu_scrollviewbg"
         android:scrollbars="none" >

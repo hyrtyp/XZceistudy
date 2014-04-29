@@ -1,131 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/bottoms_Ll"
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_alignParentBottom="true"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <include layout="@layout/phone_study_listview_bottom" />
 
-    <HorizontalScrollView
-        android:id="@+id/bottom_horscr"
-        android:scrollbars="none"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="70dp"
-            android:orientation="vertical"
-            android:background="@color/phone_bottomandtop_bg">
-            <LinearLayout
-                android:id="@+id/bottoms_parent"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="@color/phone_study_color1"
-                android:baselineAligned="false"
-                >
-                <TextView
-                    android:id="@+id/phone_study_nominate_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="推荐课程"
-                    android:gravity="center"
-                    style="@style/phone_study_bottom_tv"
-                    android:layout_marginLeft="0dp"
-                    android:visibility="gone"
-                    />
+    <LinearLayout
+        android:id="@+id/bottoms_parent"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/phone_study_color1"
+        android:orientation="horizontal"
+        android:weightSum="5">
 
-                <TextView
-                    android:id="@+id/phone_study_notice_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="通知公告"
-                    android:drawableTop="@drawable/my_notice"
-                    android:gravity="center"
-                    style="@style/phone_study_bottom_tv"
-                    />
+        <TextView
+            android:id="@+id/phone_study_notice_tv"
+            style="@style/phone_study_bottom_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/my_notice"
+            android:gravity="center"
+            android:text="通知公告" />
 
-                <TextView
-                    android:id="@+id/phone_study_self_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:drawableTop="@drawable/my_class"
-                    android:text="我的课程"
-                    android:gravity="center"
-                    style="@style/phone_study_bottom_tv"/>
+        <TextView
+            android:id="@+id/phone_study_self_tv"
+            style="@style/phone_study_bottom_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/my_class"
+            android:gravity="center"
+            android:text="我的课程" />
 
-                <TextView
-                    android:id="@+id/phone_study_down_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="我的下载"
-                    android:drawableTop="@drawable/my_down"
-                    android:gravity="center"
-                    style="@style/phone_study_bottom_tv"/>
+        <TextView
+            android:id="@+id/phone_study_down_tv"
+            style="@style/phone_study_bottom_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/my_down"
+            android:gravity="center"
+            android:text="我的下载" />
 
 
-                <TextView
-                    android:id="@+id/phone_study_kind_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="课程中心"
-                    android:gravity="center"
-                    android:drawableTop="@drawable/my_center"
-                    style="@style/phone_study_bottom_tv"
-                    />
-                <TextView
-                    android:id="@+id/phone_study_mymore_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="学习记录"
-                    android:drawableTop="@drawable/my_record"
-                    android:gravity="center"
-                    style="@style/phone_study_bottom_tv"/>
+        <TextView
+            android:id="@+id/phone_study_kind_tv"
+            style="@style/phone_study_bottom_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/my_center"
+            android:gravity="center"
+            android:text="课程中心" />
 
-                <TextView
-                    android:id="@+id/phone_study_say_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="课程讨论"
-                    android:gravity="center"
-                    style="@style/phone_study_bottom_tv"
-                    android:visibility="gone"
-                    />
+        <TextView
+            android:id="@+id/phone_study_mymore_tv"
+            style="@style/phone_study_bottom_tv"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/my_record"
+            android:gravity="center"
+            android:text="学习记录" />
 
-
-                <TextView
-                    android:id="@+id/phone_study_personcenter_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="个人中心"
-                    android:gravity="center"
-                    style="@style/phone_study_bottom_tv"
-                    android:visibility="gone"
-                    />
-                <TextView
-                    android:id="@+id/phone_study_about_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="关于我们"
-                    android:visibility="gone"
-                    android:gravity="center"
-                    style="@style/phone_study_bottom_tv"
-                    android:layout_marginRight="0dp"
-                    />
-            </LinearLayout>
-        </LinearLayout>
-
-
-    </HorizontalScrollView>
+        />
+    </LinearLayout>
 
 </LinearLayout>

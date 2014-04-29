@@ -14,9 +14,9 @@
     <dimen name="phone_study_h2_padding">3dp</dimen>
     <dimen name="phone_study_h2_textSize">16sp</dimen>
     <!--底部导航-->
-    <dimen name="phone_study_bottom_tv_pad_left">10dp</dimen>
-    <dimen name="phone_study_bottom_tv_pad_right">10dp</dimen>
-    <dimen name="phone_study_bottom_tv_textSize">15sp</dimen>
+    <dimen name="phone_study_bottom_tv_pad_left">4.5dp</dimen>
+    <dimen name="phone_study_bottom_tv_pad_right">5dp</dimen>
+    <dimen name="phone_study_bottom_tv_textSize">13sp</dimen>
     <!--按钮-->
     <dimen name="phone_study_bt_textSize">17sp</dimen>
     <dimen name="phone_study_bt_width">57dp</dimen>
@@ -29,8 +29,8 @@
     <dimen name="phone_study_Tab_textSize">17sp</dimen>
 
     <!--一级标题-->
-    <dimen name="phone_study_h1_textSize">18sp</dimen>
-    <dimen name="phone_study_h1_small_textSize">16sp</dimen>
+    <dimen name="phone_study_h1_textSize">16sp</dimen>
+    <dimen name="phone_study_h1_small_textSize">13sp</dimen>
 
     <!--字体-->
     <dimen name="phone_study_text_textSize">15sp</dimen>

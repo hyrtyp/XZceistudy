@@ -16,6 +16,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
@@ -23,6 +24,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.hyrt.cei.application.CeiApplication;
@@ -34,6 +36,7 @@ import com.hyrt.cei.vo.AnnouncementNews;
 import com.hyrt.cei.vo.ColumnEntry;
 import com.hyrt.cei.vo.Courseware;
 import com.hyrt.cei.vo.ImageResourse;
+import com.hyrt.cei.vo.Preload;
 import com.hyrt.cei.webservice.service.Service;
 import com.hyrt.ceiphone.R;
 import com.hyrt.ceiphone.adapter.PhoneStudyAdapter;
@@ -100,10 +103,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
     // 当前课件列表所对应的课件种类id
     public String currentFunctionId;
 
-    //滚动视图
-    private HorizontalScrollView bottomHorScr;
-    //滚动长度
-    private int horLen;
+    protected  boolean isDown = true;
 
     public static final String WELLCLASS_NAME = "置顶课件";
     public static String MODEL_NAME = "移动学习";
@@ -166,6 +166,23 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                                         phoneStudyListView, false);
                                 break;
                             case SELF_DATA_KEY:
+                                if(isDown) {
+                                    courses.clear();
+                                    com.hyrt.cei.db.DataHelper dataHelper = ((CeiApplication) getApplication()).dataHelper;
+                                    List<Preload> preloadCourseware = dataHelper.getPreloadList();
+                                    //已下载自选课集合
+                                    for(int x=0;x<preloadCourseware.size();x++){
+                                        if(preloadCourseware.get(x).getLoadFinish() == 1){
+                                            for(int y=0;y<allCoursewares.size();y++){
+                                                if(allCoursewares.get(y).getClassId().equals(preloadCourseware.get(x).getLoadPlayId())){
+                                                    courses.add(allCoursewares.get(y));
+                                                }
+                                            }
+                                        }
+                                    }
+                                    coursewares.clear();
+                                    coursewares.addAll(courses);
+                                }
                                 phoneStudyAdapter = new PhoneStudyAdapter(
                                         FoundationActivity.this,
                                         R.layout.phone_study_listivewitem_self, coursewares,
@@ -224,7 +241,9 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activitys.add(this);
+        isDown = getIntent().getBooleanExtra("down",false);
         overridePendingTransition(R.anim.push_in, R.anim.push_out);
+
     }
 
     /**
@@ -232,10 +251,11 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
      */
     @Override
     protected void onResume() {
-        findViewById(R.id.phone_study_exit).setOnClickListener(new OnClickListener() {
+        ImageView spinner = (ImageView)findViewById(R.id.phone_study_more);
+        spinner.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                alertIsSurePopExit();
+                alertPopMore();
             }
         });
         SharedPreferences settings = getSharedPreferences("loginInfo", Activity.MODE_PRIVATE);
@@ -293,7 +313,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
             case NEW_DATA_KEY:
                 ((TextView) findViewById(R.id.phone_study_title))
                         .setText("西藏干部教育网");
-                ((ImageView) findViewById(R.id.phone_study_icon)).setVisibility(View.INVISIBLE);
+                ((ImageView) findViewById(R.id.phone_study_back_bt)).setVisibility(View.VISIBLE);
                 break;
             case FREE_DATA_KEY:
                 ((TextView) findViewById(R.id.phone_study_title))
@@ -301,7 +321,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                 break;
             case PRELOAD_DATA_KEY:
                 ((TextView) findViewById(R.id.phone_study_title))
-                        .setText("我的下载");
+                        .setText("下载管理");
                 ImageviewBackbt();
                 break;
             case DETAIL_DATA_KEY:
@@ -326,7 +346,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                 break;
             case SELF_DATA_KEY:
                 ((TextView) findViewById(R.id.phone_study_title))
-                        .setText("我的课程");
+                        .setText(isDown?"我的下载":"我的课程");
                 ImageviewBackbt();
                 break;
             case SAY_DATA_KEY:
@@ -394,8 +414,6 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
      */
     private void registCommonEvent() {
         LinearLayout bottomParent = (LinearLayout) findViewById(R.id.bottoms_parent);
-
-        bottomHorScr = (HorizontalScrollView) findViewById(R.id.bottom_horscr);
         for (int i = 0; bottomParent != null
                 && i < bottomParent.getChildCount(); i++) {
             bottomParent.getChildAt(i).setOnClickListener(this);
@@ -498,23 +516,13 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                 else
                     MyTools.exitShow(FoundationActivity.this, ((Activity) FoundationActivity.this).getWindow().getDecorView(), "请登陆后查看！");
                 break;
-            case R.id.phone_study_say_tv:
-                if (CURRENT_KEY == SAY_DATA_KEY)
-                    return;
-                Intent intent12 = new Intent(this, SayActivity.class);
-                if (!loginName.equals("")){
-                    clearActivitys();
-                    startActivity(intent12);
-                }
 
-                else
-                    MyTools.exitShow(FoundationActivity.this, ((Activity) FoundationActivity.this).getWindow().getDecorView(), "请登陆后查看！");
-                break;
             case R.id.phone_study_down_tv:
-                if (CURRENT_KEY == PRELOAD_DATA_KEY)
+                if (CURRENT_KEY == SELF_DATA_KEY && isDown)
                     return;
-                Intent intent22 = new Intent(this, PreloadActivity.class);
+                Intent intent22 = new Intent(this, SelfActivity.class);
                 clearActivitys();
+                intent22.putExtra("down",true);
                 startActivity(intent22);
                 break;
             case R.id.phone_study_kind_tv:
@@ -524,20 +532,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                 clearActivitys();
                 startActivity(intent1);
                 break;
-            case R.id.phone_study_free:
-                if (CURRENT_KEY == FREE_DATA_KEY)
-                    return;
-                Intent intent3 = new Intent(this, FreeActivity.class);
-                clearActivitys();
-                startActivity(intent3);
-                break;
-            case R.id.phone_study_nominate_tv:
-                if (CURRENT_KEY == SERVICE_DATA_KEY)
-                    return;
-                Intent intent = new Intent(this, NominateActivity.class);
-                clearActivitys();
-                startActivity(intent);
-                break;
+
             case R.id.phone_study_mymore_tv:
                 if (CURRENT_KEY == RECORD_DATA_KEY)
                     return;
@@ -566,23 +561,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                 else
                     MyTools.exitShow(FoundationActivity.this, ((Activity) FoundationActivity.this).getWindow().getDecorView(), "请登陆后查看！");
                 break;
-            case R.id.phone_study_personcenter_tv:
-                if (CURRENT_KEY == PERSON_DATA_KEY)
-                    return;
-                if (!loginName.equals("")){
-                    clearActivitys();
-                    startActivity(new Intent(this, PersonCenter.class));
-                }
-                else
-                    MyTools.exitShow(FoundationActivity.this, ((Activity) FoundationActivity.this).getWindow().getDecorView(), "请登陆后查看！");
 
-                break;
-            case R.id.phone_study_about_tv:
-                if (CURRENT_KEY == ABOUT_DATA_KEY)
-                    return;
-                clearActivitys();
-                startActivity(new Intent(this, Disclaimer.class));
-                break;
             case R.id.phone_study_morebtn:
                 if (phoneStudyAdapter == null)
                     return;
@@ -737,31 +716,16 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
 
     private void modifyBottombg() {
         TextView textView;
-        if (this instanceof Disclaimer) {
-            textView = (TextView) findViewById(R.id.phone_study_about_tv);
-            textView.setBackgroundResource(R.drawable.bg_bottom_textview_focused);
-            textView.setTextColor(getResources().getColor(R.color.phone_bottomandtop_bg));
-            bottomHorScr.smoothScrollTo(5*textView.getMeasuredHeight(), 0);
-        } else if (this instanceof PersonCenter) {
-            textView = (TextView) findViewById(R.id.phone_study_personcenter_tv);
-            textView.setBackgroundResource(R.drawable.bg_bottom_textview_focused);
-            textView.setTextColor(getResources().getColor(R.color.phone_bottomandtop_bg));
-            bottomHorScr.smoothScrollTo(4*textView.getMeasuredHeight(), 0);
-        } else if (this instanceof Announcement) {
+      if (this instanceof Announcement) {
             textView = (TextView) findViewById(R.id.phone_study_notice_tv);
             textView.setBackgroundResource(R.drawable.bg_bottom_textview_focused);
             textView.setTextColor(getResources().getColor(R.color.phone_bottomandtop_bg));
-            bottomHorScr.smoothScrollTo(3*textView.getMeasuredHeight(), 0);
         } else if (this instanceof SearchActivity) {
 //            textView=(TextView)findViewById(R.id.phone_study_search);
 //            textView.setBackgroundResource(R.drawable.bg_bottom_textview_focused);
 //            textView.setTextColor(R.color.phone_bottomandtop_bg);
         } else if (this instanceof StudyRecordActivity) {
             textView = (TextView) findViewById(R.id.phone_study_mymore_tv);
-            textView.setBackgroundResource(R.drawable.bg_bottom_textview_focused);
-            textView.setTextColor(getResources().getColor(R.color.phone_bottomandtop_bg));
-        } else if (this instanceof NominateActivity) {
-            textView = (TextView) findViewById(R.id.phone_study_nominate_tv);
             textView.setBackgroundResource(R.drawable.bg_bottom_textview_focused);
             textView.setTextColor(getResources().getColor(R.color.phone_bottomandtop_bg));
         } else if (this instanceof FreeActivity) {
@@ -776,11 +740,6 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
             textView = (TextView) findViewById(R.id.phone_study_down_tv );
             textView.setBackgroundResource(R.drawable.bg_bottom_textview_focused);
             textView.setTextColor(getResources().getColor(R.color.phone_bottomandtop_bg));
-        } else if (this instanceof SayActivity) {
-            textView = (TextView) findViewById(R.id.phone_study_say_tv);
-            textView.setBackgroundResource(R.drawable.bg_bottom_textview_focused);
-            textView.setTextColor(getResources().getColor(R.color.phone_bottomandtop_bg));
-//            bottomHorScr.smoothScrollTo(4*textView.getMeasuredHeight(), 0);
         } else if (this instanceof SelfActivity) {
             textView = (TextView) findViewById(R.id.phone_study_self_tv);
             textView.setBackgroundResource(R.drawable.bg_bottom_textview_focused);
@@ -795,7 +754,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
         View popView = this.getLayoutInflater().inflate(
                 R.layout.phone_study_issure, null);
         ((TextView) popView.findViewById(R.id.issure_title))
-                .setText("确认退出应用吗?");
+                .setText("确认注销帐号吗?");
         popView.findViewById(R.id.phone_study_issure_sure_btn)
                 .setOnClickListener(new OnClickListener() {
 
@@ -804,6 +763,12 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                         for(int i=0;i<activitys.size();i++){
                             activitys.get(i).finish();
                         }
+                        SharedPreferences settings = getSharedPreferences(
+                                "loginInfo", Activity.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = settings.edit();
+                        editor.putString("LOGINNAME","");
+                        editor.putString("PASSWORD", "");
+                        editor.commit();
                         popWin.dismiss();
                     }
         });
@@ -820,5 +785,30 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
         popWin.setFocusable(true);
         popWin.showAtLocation(findViewById(R.id.full_view), Gravity.CENTER, 0,
                 0);
+    }
+
+
+    private PopupWindow popWinMore;
+    private void alertPopMore() {
+        View popView = this.getLayoutInflater().inflate(
+                R.layout.more_ll, null);
+        popView.findViewById(R.id.login_out).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertIsSurePopExit();
+                popWinMore.dismiss();
+            }
+        });
+        popView.findViewById(R.id.my_down).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FoundationActivity.this,PreloadActivity.class));
+                popWinMore.dismiss();
+            }
+        });
+        popWinMore = new PopupWindow(popView, RelativeLayout.LayoutParams.WRAP_CONTENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT);
+        popWinMore.showAtLocation(findViewById(R.id.phone_study_more), Gravity.TOP|Gravity.RIGHT,0,
+                (int)getResources().getDimension(R.dimen.top_height));
     }
 }

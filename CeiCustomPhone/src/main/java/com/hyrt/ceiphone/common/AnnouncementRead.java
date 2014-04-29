@@ -2,6 +2,7 @@ package com.hyrt.ceiphone.common;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebViewClient;
 import android.webkit.WebSettings.LayoutAlgorithm;
 import android.webkit.WebView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
@@ -21,6 +23,7 @@ import com.hyrt.cei.util.MyTools;
 import com.hyrt.ceiphone.ContainerActivity;
 import com.hyrt.ceiphone.R;
 import com.hyrt.ceiphone.phonestudy.FoundationActivity;
+import com.hyrt.ceiphone.phonestudy.SelfActivity;
 
 /**
  * 通知公告
@@ -58,10 +61,11 @@ public class AnnouncementRead extends ContainerActivity implements OnClickListen
 			((RelativeLayout) (bottomsLl.getChildAt(i))).getChildAt(0)
 					.setOnClickListener(this);
 		}
-        findViewById(R.id.phone_study_exit).setOnClickListener(new OnClickListener() {
+        ImageView spinner = (ImageView)findViewById(R.id.phone_study_more);
+        spinner.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                alertIsSurePopExit();
+                alertPopMore();
             }
         });
 	}
@@ -71,18 +75,21 @@ public class AnnouncementRead extends ContainerActivity implements OnClickListen
         View popView = this.getLayoutInflater().inflate(
                 R.layout.phone_study_issure, null);
         ((TextView) popView.findViewById(R.id.issure_title))
-                .setText("确认退出应用吗?");
+                .setText("确认注销帐号吗?");
         popView.findViewById(R.id.phone_study_issure_sure_btn)
                 .setOnClickListener(new OnClickListener() {
 
                     @Override
                     public void onClick(View v) {
-                        for(int i=0;i<ContainerActivity.activities.size();i++){
-                            ContainerActivity.activities.get(i).finish();
-                        }
                         for(int i=0;i<FoundationActivity.activitys.size();i++){
                             FoundationActivity.activitys.get(i).finish();
                         }
+                        SharedPreferences settings = getSharedPreferences(
+                                "loginInfo", Activity.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = settings.edit();
+                        editor.putString("LOGINNAME","");
+                        editor.putString("PASSWORD", "");
+                        editor.commit();
                         popWin.dismiss();
                     }
                 });
@@ -99,6 +106,31 @@ public class AnnouncementRead extends ContainerActivity implements OnClickListen
         popWin.setFocusable(true);
         popWin.showAtLocation(findViewById(R.id.full_view), Gravity.CENTER, 0,
                 0);
+    }
+
+
+    private PopupWindow popWinMore;
+    private void alertPopMore() {
+        View popView = this.getLayoutInflater().inflate(
+                R.layout.more_ll, null);
+        popView.findViewById(R.id.login_out).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertIsSurePopExit();
+                popWinMore.dismiss();
+            }
+        });
+        popView.findViewById(R.id.my_down).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AnnouncementRead.this,SelfActivity.class));
+                popWinMore.dismiss();
+            }
+        });
+        popWinMore = new PopupWindow(popView, RelativeLayout.LayoutParams.WRAP_CONTENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT);
+        popWinMore.showAtLocation(findViewById(R.id.phone_study_more), Gravity.TOP|Gravity.RIGHT,0,
+                (int)getResources().getDimension(R.dimen.top_height));
     }
 
 	protected void onPause() {

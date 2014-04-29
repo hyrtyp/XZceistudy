@@ -194,12 +194,12 @@ public class CourseDetailActivityphone extends FoundationActivity {
 				break;
 			case ABOUT_CLASS:
                 for(int i=0;i<aboutCourseware.size();i++){
-                    if(aboutCourseware.get(i).getClassLevel().equals(courseware.getClassLevel())){
+                    if(aboutCourseware.get(i).getFullName().equals(courseware.getFullName())){
                         aboutCourseware.remove(i);
                     }else{
                         int isrepeat = 0;
                         for(int j=0;j<aboutCourseware.size();j++){
-                            if(aboutCourseware.get(j).getClassLevel().equals(aboutCourseware.get(i).getClassLevel())){
+                            if(aboutCourseware.get(j).getFullName().equals(aboutCourseware.get(i).getFullName())){
                                 isrepeat++;
                                 if(isrepeat == 2)
                                     aboutCourseware.remove(j);
@@ -263,20 +263,6 @@ public class CourseDetailActivityphone extends FoundationActivity {
 
 			// 初始化请求数据
 			private void initSendData() {
-				/*ColumnEntry columnEntry = ((CeiApplication) (CourseDetailActivityphone.this
-						.getApplication())).columnEntry;
-				ColumnEntry phoneStudyCol = columnEntry
-						.getColByName(FoundationActivity.MODEL_NAME);
-				functionIds = new StringBuilder(phoneStudyCol.getId());
-				for (int i = 0; i < columnEntry.getColumnEntryChilds().size(); i++) {
-					ColumnEntry entryChild = columnEntry.getColumnEntryChilds()
-							.get(i);
-					if (entryChild.getPath() != null
-							&& entryChild.getPath().contains(
-									phoneStudyCol.getId())) {
-						functionIds.append("," + entryChild.getId());
-					}
-				}*/
 			}
 
 			@Override
@@ -778,46 +764,18 @@ public class CourseDetailActivityphone extends FoundationActivity {
 						+ courseware.getProTime());
 				preload.setPassKey(courseware.getKey());
 				preload.setClassLength(courseware.getClassLength());
+                Intent intent;
 				if (!dataHelper.hasPreload(preload.getLoadPlayId())) {
 					dataHelper.savePreload(preload);
-					AlertDialog.Builder builder = new Builder(
-							CourseDetailActivityphone.this);
-					builder.setMessage("成功加入下载队列 ！");
-					builder.setPositiveButton("确认",
-							new DialogInterface.OnClickListener() {
-
-								@Override
-								public void onClick(DialogInterface dialog,
-										int which) {
-									dialog.dismiss();
-									Intent intent = new Intent(
-											CourseDetailActivityphone.this,
-											PreloadActivity.class);
-									CourseDetailActivityphone.this
-											.startActivity(intent);
-								}
-							});
-					builder.create().show();
+                    intent = new Intent(
+                            CourseDetailActivityphone.this,
+                            PreloadActivity.class);
 				} else {
-					AlertDialog.Builder builder = new Builder(
-							CourseDetailActivityphone.this);
-					builder.setMessage("下载队列已存在该剧集 ！");
-					builder.setPositiveButton("确认",
-							new DialogInterface.OnClickListener() {
-
-								@Override
-								public void onClick(DialogInterface dialog,
-										int which) {
-									dialog.dismiss();
-									Intent intent = new Intent(
-											CourseDetailActivityphone.this,
-											PreloadActivity.class);
-									CourseDetailActivityphone.this
-											.startActivity(intent);
-								}
-							});
-					builder.create().show();
+                    intent = new Intent(
+                            CourseDetailActivityphone.this,
+                            PreloadActivity.class);
 				}
+                startActivity(intent);
 
 			}
 		}, false);

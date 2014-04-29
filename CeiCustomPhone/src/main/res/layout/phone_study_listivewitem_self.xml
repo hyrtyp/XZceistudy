@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="100dip"
+    android:layout_height="120dip"
     style="@style/phone_study_listview"
     android:background="@color/phone_study_color_White"
   >
@@ -53,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:layout_alignParentLeft="true"
-                android:layout_marginTop="5dip"
+                android:layout_marginTop="2dip"
                 android:orientation="vertical" >
 
                 <TextView
@@ -67,7 +67,7 @@
                     android:id="@+id/phone_study_listviewitem_protime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dip"
+                    android:layout_marginTop="2dip"
                     android:text="@string/phone_study_protime"
                     style="@style/phone_study_h1_small" />
             </LinearLayout>

@@ -611,8 +611,8 @@ public class XmlUtil {
 						coursewares.get(i).setClassId(someValue);
 					}
 					if (tag_name.equals("name")) {
-						coursewares.get(i).setName(someValue.length()>10?someValue.substring(0
-								,9)+"...":someValue);
+						coursewares.get(i).setName(someValue.length()>28?someValue.substring(0
+								,27)+"...":someValue);
 						coursewares.get(i).setFullName(someValue);
 					}
 					if (tag_name.equals("path")) {
@@ -703,8 +703,8 @@ public class XmlUtil {
 						coursewares.get(i).setClassId(someValue);
 					}
 					if (tag_name.equals("name")) {
-						coursewares.get(i).setName(someValue.length()>10?someValue.substring(0
-								,9)+"...":someValue);
+						coursewares.get(i).setName(someValue.length()>28?someValue.substring(0
+								,27)+"...":someValue);
 						coursewares.get(i).setFullName(someValue);
 					}
 					if (tag_name.equals("path")) {
@@ -797,8 +797,8 @@ public class XmlUtil {
                         coursewares.get(i).setXzclassid(someValue);
                     }
 					if (tag_name.equals("name")) {
-						coursewares.get(i).setName(someValue.length()>10?someValue.substring(0
-								,9)+"...":someValue);
+						coursewares.get(i).setName(someValue.length()>28?someValue.substring(0
+								,27)+"...":someValue);
 						coursewares.get(i).setFullName(someValue);
 					}
 					if (tag_name.equals("path")) {
