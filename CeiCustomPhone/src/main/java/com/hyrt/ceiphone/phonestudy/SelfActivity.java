@@ -81,9 +81,7 @@ public class SelfActivity extends FoundationActivity {
 					}
 				}
 			});
-            if(isDown)
              labelParent.getChildAt(0).setVisibility(View.GONE);
-            else
              labelParent.getChildAt(1).setVisibility(View.GONE);
 		}
 	}
