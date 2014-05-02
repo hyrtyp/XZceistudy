@@ -506,7 +506,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.phone_study_self_tv:
-                if (CURRENT_KEY == SELF_DATA_KEY)
+                if (CURRENT_KEY == SELF_DATA_KEY && !isDown)
                     return;
                 Intent intent11 = new Intent(this, SelfActivity.class);
                 if (!loginName.equals("")){
