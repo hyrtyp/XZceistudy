@@ -90,13 +90,13 @@
 	</LinearLayout>
 	<ListView
 		android:cacheColorHint="@null"
-		android:dividerHeight="1dip"
-		android:divider="@drawable/zjzx_line"
 		android:id="@+id/tzgg_list"
 		android:layout_below="@+id/top"
 		android:layout_above="@+id/bottoms_Ll"
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"
+        android:divider="#c8c8c8"
+        android:dividerHeight="1dip"
         android:layout_marginRight="@dimen/phone_study_view_margin"
         android:layout_marginLeft="@dimen/phone_study_view_margin"
 	></ListView>

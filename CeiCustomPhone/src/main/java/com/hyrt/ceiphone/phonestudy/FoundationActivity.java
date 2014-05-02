@@ -514,7 +514,8 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                     startActivity(intent11);
                 }
                 else
-                    MyTools.exitShow(FoundationActivity.this, ((Activity) FoundationActivity.this).getWindow().getDecorView(), "请登陆后查看！");
+                    MyTools.exitShow(FoundationActivity.this, ((Activity) FoundationActivity.this).getWindow().getDecorView()
+                            ,((CeiApplication) getApplication()).isNet()?"请登陆后查看！":"您处于离线状态，无法进行该操作");
                 break;
 
             case R.id.phone_study_down_tv:
@@ -542,7 +543,8 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                     startActivity(intent4);
                 }
                 else
-                    MyTools.exitShow(FoundationActivity.this, ((Activity) FoundationActivity.this).getWindow().getDecorView(), "请登陆后查看！");
+                    MyTools.exitShow(FoundationActivity.this, ((Activity) FoundationActivity.this).getWindow().getDecorView()
+                            , ((CeiApplication) getApplication()).isNet()?"请登陆后查看！":"您处于离线状态，无法进行该操作");
                 break;
             case R.id.phone_study_search:
                 if (CURRENT_KEY == SEARCH_DATA_KEY)
@@ -559,7 +561,8 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                     startActivity(new Intent(this, Announcement.class));
                 }
                 else
-                    MyTools.exitShow(FoundationActivity.this, ((Activity) FoundationActivity.this).getWindow().getDecorView(), "请登陆后查看！");
+                    MyTools.exitShow(FoundationActivity.this, ((Activity) FoundationActivity.this).getWindow().getDecorView()
+                            ,((CeiApplication) getApplication()).isNet()?"请登陆后查看！":"您处于离线状态，无法进行该操作");
                 break;
 
             case R.id.phone_study_morebtn:
@@ -806,9 +809,10 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                 popWinMore.dismiss();
             }
         });
-        popWinMore = new PopupWindow(popView, RelativeLayout.LayoutParams.WRAP_CONTENT,
+
+        popWinMore = new PopupWindow(popView, RelativeLayout.LayoutParams.MATCH_PARENT,
                 RelativeLayout.LayoutParams.WRAP_CONTENT);
-        popWinMore.showAtLocation(findViewById(R.id.phone_study_more), Gravity.TOP|Gravity.RIGHT,0,
-                (int)getResources().getDimension(R.dimen.top_height));
+        popWinMore.showAtLocation(findViewById(R.id.phone_study_more), Gravity.BOTTOM|Gravity.LEFT,0,0);
+        popWinMore.setFocusable(false);
     }
 }

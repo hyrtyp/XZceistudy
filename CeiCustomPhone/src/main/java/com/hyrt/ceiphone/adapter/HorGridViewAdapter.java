@@ -69,10 +69,11 @@ public class HorGridViewAdapter extends BaseAdapter {
         item.setBackgroundResource(R.drawable.phone_study_tab_bg);
 		TextView tv = (TextView) item.getChildAt(0);
 		if(position == 0 && isFristBlue){
-			 item.setBackgroundResource(R.drawable.phone_study_tab_bg2);
-			 tv.setTextColor(Color.WHITE);
+            tv.setTextColor(Color.BLACK);
 		}else{
-			tv.setTextColor(Color.BLUE);
+            item.setBackgroundResource(R.drawable.phone_study_tab_bg2);
+            tv.setTextColor(Color.WHITE);
+
 		}
 		tv.setText(columnEntries.get(position).getName());
 		return item;

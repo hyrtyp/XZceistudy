@@ -65,6 +65,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
 	private static final int CANCEL_SUCCESS = 3;
 	private boolean isRecord;
     private BitmapManager bmpManager;
+    private DataHelper dataHelper;
 
 	public PhoneStudyAdapter(Activity activity, int itemLayout,
 			List<Courseware> coursewares, ListView lv,boolean isRecord) {
@@ -78,6 +79,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
 		asyncImageLoader = ((CeiApplication) (activity.getApplication())).asyncImageLoader;
 		columnEntry = ((CeiApplication) (activity.getApplication())).columnEntry;
         this.bmpManager = new BitmapManager(BitmapFactory.decodeResource(activity.getResources(), R.drawable.courseware_default_icon));
+        dataHelper = ((CeiApplication) activity.getApplication()).dataHelper;
 	}
 
 	public PhoneStudyAdapter(Activity activity, int itemLayout,
@@ -94,6 +96,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
 		asyncImageLoader = ((CeiApplication) (activity.getApplication())).asyncImageLoader;
 		columnEntry = ((CeiApplication) (activity.getApplication())).columnEntry;
         this.bmpManager = new BitmapManager(BitmapFactory.decodeResource(activity.getResources(), R.drawable.courseware_default_icon));
+        dataHelper = ((CeiApplication) activity.getApplication()).dataHelper;
 	}
 
 	Handler handler = new Handler() {
@@ -202,6 +205,33 @@ public class PhoneStudyAdapter extends BaseAdapter {
 		holder.studystatus = (TextView) convertView
 				.findViewById(R.id.phone_study_listviewitem_status);
 		convertView.setTag(holder);
+        View view = convertView.findViewById(R.id.newplay_icon);
+        if(view != null){
+            view.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(
+                            activity,
+                            WebViewUtil.class);
+                    if (coursewares.get(position).getLookPath() == null)
+                        coursewares.get(position).setLookPath("file:///" +
+                                dataHelper.getPreload(coursewares.get(position).getClassId()).getLoadLocalPath()
+                                        .replace(
+                                                FoundationActivity.FLASH_POSTFIX,
+                                                FoundationActivity.FLASH_GATE));
+                    if (coursewares.get(position).getLookPath() != null) {
+                        intent.putExtra(
+                                "path",
+                                coursewares.get(position).getLookPath()
+                                        .replace("/i2/", "/an2/")
+                                        .replace("an1", "an2"));
+                        intent.putExtra("class", coursewares.get(position));
+                        intent.putExtra("isRecord", true);
+                        activity.startActivity(intent);
+                    }
+                }
+            });
+        }
 		if (holder.uploadStudyBtn != null) {
 			if (coursewares.get(position).getUploadTime() != 0 && !"1".equals(coursewares.get(position).getIscompleted()))
 				holder.uploadStudyBtn
@@ -212,13 +242,13 @@ public class PhoneStudyAdapter extends BaseAdapter {
 		}
 		holder.tv1.setText(coursewares.get(position).getName());
 		if(coursewares.get(position).getClassLevel() != null)
-		holder.tv2.setText("讲师姓名 ： "
+		holder.tv2.setText("讲师 ： "
 				+ coursewares.get(position).getTeacherName());
 		else
-			holder.tv2.setText("讲师姓名 ： "
+			holder.tv2.setText("讲师 ： "
 					+ coursewares.get(position).getTeacherName());
-		holder.tv3.setText("发布时间 ： " + coursewares.get(position).getProTime());
-		holder.courseIcon.setOnClickListener(new OnClickListener() {
+		holder.tv3.setText("时间 ： " + coursewares.get(position).getProTime());
+		holder.tv1.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -580,8 +610,8 @@ public class PhoneStudyAdapter extends BaseAdapter {
 								courseware.getDownPath().lastIndexOf("/"))
 						+ ".zip");
 				preload.setLoadPlayTitle(courseware.getName());
-				preload.setLoadPlayTitleBelow("讲师姓名 ： "
-						+ courseware.getTeacherName() + "    发布时间 ： "
+				preload.setLoadPlayTitleBelow("讲师 ： "
+						+ courseware.getTeacherName() + "    时间 ： "
 						+ courseware.getProTime());
 				preload.setPassKey(courseware.getKey());
 				preload.setClassLength(courseware.getClassLength());

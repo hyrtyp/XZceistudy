@@ -324,13 +324,13 @@ public class WebViewUtil extends ContainerActivity {
 							+ courseware.getUploadTime());
 					String str = WebViewUtil.this.getIntent().getStringExtra(
 							"bdclass");
-					if (str != null && str.contains("讲师姓名")
-							&& str.contains("发布时间") && str.contains("|")) {
+					if (str != null && str.contains("讲师")
+							&& str.contains("时间") && str.contains("|")) {
 						courseware.setName(str.substring(str.indexOf("|") + 1));
 						courseware.setTeacherName(str.substring(
-								str.indexOf("讲师姓名") + 7, str.indexOf("发布时间")));
+								str.indexOf("讲师") + 7, str.indexOf("时间")));
 						courseware.setProTime(str.substring(
-								str.indexOf("发布时间") + 7, str.indexOf("|")));
+								str.indexOf("时间") + 7, str.indexOf("|")));
 						courseware.setClassLength(getIntent().getStringExtra(
 								"classLength"));
 					}

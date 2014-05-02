@@ -31,6 +31,7 @@ import com.hyrt.cei.util.XmlUtil;
 import com.hyrt.cei.vo.ColumnEntry;
 import com.hyrt.cei.webservice.service.Service;
 import com.hyrt.ceiphone.common.HomePageDZB;
+import com.hyrt.ceiphone.phonestudy.SelfActivity;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -118,10 +119,17 @@ public class WelcomeActivity extends ContainerActivity {
 				tv.setText(str);
 				break;
 			case GO_MAIN:
-				Intent intent = new Intent(WelcomeActivity.this,
-						HomePageDZB.class);
-				startActivity(intent);
-				WelcomeActivity.this.finish();
+                if(((CeiApplication) getApplication()).isNet()){
+                    Intent intent = new Intent(WelcomeActivity.this,
+                            HomePageDZB.class);
+                    startActivity(intent);
+                    WelcomeActivity.this.finish();
+                }else{
+                    Intent intent = new Intent(WelcomeActivity.this,
+                            SelfActivity.class);
+                    startActivity(intent);
+                    WelcomeActivity.this.finish();
+                }
 				break;
 			case IS_NET:
 				isNotice = true;
@@ -414,7 +422,10 @@ public class WelcomeActivity extends ContainerActivity {
 					message.arg2 = 100;
 					handler.sendMessage(message);
 
-				} else {
+				} else{
+                    SharedPreferences settings1 = getSharedPreferences("loginInfo",Activity.MODE_PRIVATE);
+                    if(settings1.getString("LOGINNAME", "").equals(""))
+                           return;
 					// 请求初始化资源 50%
 					String result = WriteOrRead.read(MyTools.nativeData,
                             INITRESOURCES_FILENAME);

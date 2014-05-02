@@ -21,6 +21,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout.LayoutParams;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.hyrt.cei.application.CeiApplication;
@@ -222,6 +223,34 @@ public class CourseDetailActivityphone extends FoundationActivity {
         if(getIntent().getBooleanExtra("hidePlay",false)){
             findViewById(R.id.phone_study_detail_play).setVisibility(View.VISIBLE);
             findViewById(R.id.phone_study_detail_preload).setVisibility(View.VISIBLE);
+            findViewById(R.id.detail_note).setVisibility(View.GONE);
+            View view = findViewById(R.id.newplay_icon);
+            view.setVisibility(View.VISIBLE);
+            view.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(
+                            CourseDetailActivityphone.this,
+                            WebViewUtil.class);
+                    if (courseware.getLookPath() == null)
+                        courseware.setLookPath("file:///" +
+                                dataHelper.getPreload(courseware.getClassId()).getLoadLocalPath()
+                                        .replace(
+                                                FLASH_POSTFIX,
+                                                FLASH_GATE));
+                    if (courseware.getLookPath() != null) {
+                        intent.putExtra(
+                                "path",
+                                courseware.getLookPath()
+                                        .replace("/i2/", "/an2/")
+                                        .replace("an1", "an2"));
+                        intent.putExtra("class", courseware);
+                        intent.putExtra("isRecord", getIntent()
+                                .getBooleanExtra("isRecord", false));
+                        startActivity(intent);
+                    }
+                }
+            });
         }
 		this.CURRENT_KEY = FoundationActivity.DETAIL_DATA_KEY;
 		getWindow().setSoftInputMode(
@@ -311,6 +340,8 @@ public class CourseDetailActivityphone extends FoundationActivity {
 		}).start();
 	}
 
+    private TextView courseDetailTv;
+
 	private void loadDataForView() {
 		// 检查sd卡是否存在不存在的话，则退出
 		if (!Environment.getExternalStorageState().equals(
@@ -322,15 +353,15 @@ public class CourseDetailActivityphone extends FoundationActivity {
 		}
 		courseware = (Courseware) getIntent().getSerializableExtra(
 				"coursewareInfo");
-		TextView courseDetailTv = (TextView) findViewById(R.id.phone_study_detail_content);
+		courseDetailTv = (TextView) findViewById(R.id.phone_study_detail_content);
 		((TextView) findViewById(R.id.phone_study_detail_title))
 				.setText(courseware.getFullName()==null?courseware.getName():courseware.getFullName());
 		((TextView) findViewById(R.id.phone_study_detail_author))
-				.setText("讲师姓名 ： " + courseware.getTeacherName());
+				.setText("讲师 ： " + courseware.getTeacherName());
 		((TextView) findViewById(R.id.phone_study_detail_protime))
-				.setText("发布时间 ： " + courseware.getProTime());
+				.setText("时间 ： " + courseware.getProTime());
 		((TextView) findViewById(R.id.phone_study_detail_timelength))
-				.setText("课件时长 ： " + courseware.getClassLength());
+				.setText("时长 ： " + courseware.getClassLength());
 		if (courseware.getIntro() != null)
 			courseDetailTv.setText("        "
 					+ courseware.getIntro().replace("\n", ""));
@@ -759,8 +790,8 @@ public class CourseDetailActivityphone extends FoundationActivity {
 					e.printStackTrace();
 				}
 				preload.setLoadPlayTitle(courseware.getFullName());
-				preload.setLoadPlayTitleBelow("讲师姓名 ： "
-						+ courseware.getTeacherName() + "    发布时间 ： "
+				preload.setLoadPlayTitleBelow("姓名 ： "
+						+ courseware.getTeacherName() + "    时间 ： "
 						+ courseware.getProTime());
 				preload.setPassKey(courseware.getKey());
 				preload.setClassLength(courseware.getClassLength());

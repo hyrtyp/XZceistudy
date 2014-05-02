@@ -14,7 +14,7 @@ public class PreloadContolGroup implements Serializable {
 	private Button btnAddCourse;
 	private TextView lblPercent;
 	private TextView lblContent;
-	private LinearLayout linearLayProcess;
+	private RelativeLayout linearLayProcess;
 	private LinearLayout linearLayProcessStatus;
 	private String playId;
 
@@ -53,7 +53,7 @@ public class PreloadContolGroup implements Serializable {
 		return lblPercent;
 	}
 
-	public LinearLayout getLinearLayProcess() {
+	public RelativeLayout getLinearLayProcess() {
 		return linearLayProcess;
 	}
 
@@ -89,7 +89,7 @@ public class PreloadContolGroup implements Serializable {
 		lblPercent = textview;
 	}
 
-	public void setLinearLayProcess(LinearLayout linearlayout) {
+	public void setLinearLayProcess(RelativeLayout linearlayout) {
 		linearLayProcess = linearlayout;
 	}
 

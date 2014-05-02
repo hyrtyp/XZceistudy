@@ -23,6 +23,7 @@ import com.hyrt.cei.util.MyTools;
 import com.hyrt.ceiphone.ContainerActivity;
 import com.hyrt.ceiphone.R;
 import com.hyrt.ceiphone.phonestudy.FoundationActivity;
+import com.hyrt.ceiphone.phonestudy.PhoneStudyActivity;
 import com.hyrt.ceiphone.phonestudy.SelfActivity;
 
 /**
@@ -54,7 +55,7 @@ public class AnnouncementRead extends ContainerActivity implements OnClickListen
 			}// 重写点击动作,用webview载入
 		});
 		intent = getIntent();
-		url = intent.getStringExtra("extra");
+		url = intent.getStringExtra("extra")+"?t="+System.currentTimeMillis();
 		view.loadUrl(htmlHade + url);
 		LinearLayout bottomsLl = (LinearLayout) findViewById(R.id.bottoms_Ll);
 		for (int i = 0; i < bottomsLl.getChildCount(); i++) {
@@ -66,6 +67,15 @@ public class AnnouncementRead extends ContainerActivity implements OnClickListen
             @Override
             public void onClick(View v) {
                 alertPopMore();
+            }
+        });
+        findViewById(R.id.phone_study_back_bt).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(AnnouncementRead.this, PhoneStudyActivity.class));
+                for (int i = 1; i < FoundationActivity.activitys.size(); i++) {
+                    FoundationActivity.activitys.get(i).finish();
+                }
             }
         });
 	}
@@ -127,10 +137,9 @@ public class AnnouncementRead extends ContainerActivity implements OnClickListen
                 popWinMore.dismiss();
             }
         });
-        popWinMore = new PopupWindow(popView, RelativeLayout.LayoutParams.WRAP_CONTENT,
+        popWinMore = new PopupWindow(popView, RelativeLayout.LayoutParams.MATCH_PARENT,
                 RelativeLayout.LayoutParams.WRAP_CONTENT);
-        popWinMore.showAtLocation(findViewById(R.id.phone_study_more), Gravity.TOP|Gravity.RIGHT,0,
-                (int)getResources().getDimension(R.dimen.top_height));
+        popWinMore.showAtLocation(findViewById(R.id.phone_study_more), Gravity.BOTTOM|Gravity.LEFT,0,0);
     }
 
 	protected void onPause() {

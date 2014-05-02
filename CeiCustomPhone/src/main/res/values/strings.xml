@@ -2,7 +2,7 @@
 <resources>
 
     <string name="hello">Hello World, WelcomeActivity!</string>
-    <string name="app_name">西藏干部教育网</string>
+    <string name="app_name">移动学习</string>
     <string name="not_exist_sd">sd卡不存在，请插卡即将退出！</string>
     <string name="phone_study_title">主题 ：环保与经济</string>
     <string name="phone_study_teachername">主讲人 ：范先生</string>

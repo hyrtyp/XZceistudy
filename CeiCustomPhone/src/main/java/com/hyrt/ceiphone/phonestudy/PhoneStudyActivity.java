@@ -51,6 +51,7 @@ public class PhoneStudyActivity extends FoundationActivity {
 	public static final String NEWCLASS_FILENAME = "NEW_CLASS.xml";
 	// 精彩课件更新视图标志
 	private static final int TOP_KEY = 10;
+    public static boolean isCheckUpdate;
 
 	private Handler handler = new Handler() {
 		@Override
@@ -125,7 +126,10 @@ public class PhoneStudyActivity extends FoundationActivity {
         });
         UpdateManager manager = new UpdateManager(this);
         // 检查软件更新
-        manager.isUpdate();
+        if(!isCheckUpdate) {
+            isCheckUpdate = true;
+            manager.isUpdate();
+        }
 		goodReport = (Gallery) findViewById(R.id.read_report_main_ga);
 		point1 = (ImageView) findViewById(R.id.read_report_point1);
 		point2 = (ImageView) findViewById(R.id.read_report_point2);
@@ -143,8 +147,8 @@ public class PhoneStudyActivity extends FoundationActivity {
 						.getItem(arg2);
 				if (report.getName() != null) {
 					title.setText(report.getName() == null ? "" : report
-							.getName().length() > 10 ? report.getName()
-							.substring(0, 9) + "..." : report.getName());
+							.getName().length() > 18 ? report.getName()
+							.substring(0, 17) + "..." : report.getName());
 				} else {
 					title.setText("");
 				}

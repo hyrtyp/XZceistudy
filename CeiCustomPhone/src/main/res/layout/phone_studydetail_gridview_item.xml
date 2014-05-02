@@ -8,8 +8,7 @@
     android:padding="2dip" >
 
     <ImageView
-        android:layout_width="100dip"
-        android:layout_height="80dip"
+        style="@style/phone_study_image_list"
         android:src="@drawable/courseware_default_icon" />
 
     <TextView

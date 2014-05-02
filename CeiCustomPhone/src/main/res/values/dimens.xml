@@ -19,13 +19,13 @@
     <!--按钮-->
     <dimen name="phone_study_bt_textSize">17sp</dimen>
     <dimen name="phone_study_bt_width">57dp</dimen>
-    <dimen name="phone_study_bt_height">33dp</dimen>
+    <dimen name="phone_study_bt_height">28dp</dimen>
     <!--选项卡-->
     <dimen name="phone_study_Tab_mar_left">2dp</dimen>
     <dimen name="phone_study_Tab_mar_right">2dp</dimen>
     <dimen name="phone_study_Tab_pad_right_left">10dp</dimen>
     <dimen name="phone_study_Tab_pad_top_bot">5dp</dimen>
-    <dimen name="phone_study_Tab_textSize">17sp</dimen>
+    <dimen name="phone_study_Tab_textSize">15sp</dimen>
 
     <!--一级标题-->
     <dimen name="phone_study_h1_textSize">16sp</dimen>

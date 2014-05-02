@@ -202,21 +202,21 @@ public class PreloadActivity extends FoundationActivity {
 		setContentView(R.layout.phone_study_preload);
         findViewById(R.id.phone_study_morebtn).setVisibility(View.GONE);
 		this.CURRENT_KEY = FoundationActivity.PRELOAD_DATA_KEY;
-		// 检查sd卡是否存在不存在的话，则退出
+		/*// 检查sd卡是否存在不存在的话，则退出
 		if (!Environment.getExternalStorageState().equals(
 				Environment.MEDIA_MOUNTED)) {
 			MyTools.exitShow(this,
 					((Activity) this).getWindow().getDecorView(), "sd卡不存在！");
 			this.finish();
 			return;
-		}
+		}*/
 		ConnectivityManager cManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo info = cManager.getActiveNetworkInfo();
-		if (info != null && ConnectivityManager.TYPE_WIFI != info.getType()) {
+		/*if (info != null && ConnectivityManager.TYPE_WIFI != info.getType()) {
 			MyTools.exitShow(this,
 					((Activity) this).getWindow().getDecorView(),
 					"非wifi模式下载，会产生额外流量资费请注意！");
-		}
+		}*/
 		columnEntry = ((CeiApplication) getApplication()).columnEntry;
 		myformat = new DecimalFormat("#0.00");
 		layoutInflater = getLayoutInflater();
@@ -357,13 +357,13 @@ public class PreloadActivity extends FoundationActivity {
 					public void onClick(View view) {
 						if (controlBtn.getTag().equals("暂停")) {
 							controlBtn.setTag("开始");
-                            controlBtn.setText("暂停");
+                            controlBtn.setText("继续");
 							preload.setLoading(0);
 							dataHelper.updatePreload(preload);
 							startDownNext();
 						} else {
 							controlBtn.setTag("暂停");
-                            controlBtn.setText("开始");
+                            controlBtn.setText("暂停");
 							preload.setLoading(1);
 							dataHelper.updatePreload(preload);
 							download(preload);
@@ -393,11 +393,11 @@ public class PreloadActivity extends FoundationActivity {
 					public void onClick(View view) {
 						if (controlBtn.getTag().equals("暂停")) {
 							controlBtn.setTag("开始");
-							controlBtn.setText("暂停");
+							controlBtn.setText("继续");
 							preload.setLoading(0);
 						} else {
 							controlBtn.setTag("暂停");
-                            controlBtn.setText("开始");
+                            controlBtn.setText("暂停");
 							preload.setLoading(1);
 							download(preload);
 						}
@@ -566,7 +566,7 @@ public class PreloadActivity extends FoundationActivity {
 				.findViewById(R.id.phone_study_preload_item_lblPercent));
 		preloadcontolgroup.setLblContent((TextView) relativelayout
 				.findViewById(R.id.phone_study_preload_item_content));
-		preloadcontolgroup.setLinearLayProcess((LinearLayout) relativelayout
+		preloadcontolgroup.setLinearLayProcess((RelativeLayout) relativelayout
 				.findViewById(R.id.phone_study_preload_item_process));
 		preloadcontolgroup
 				.setLinearLayProcessStatus((LinearLayout) relativelayout
@@ -737,9 +737,9 @@ public class PreloadActivity extends FoundationActivity {
 					if (dataHelper.hasPreload(preload.getLoadPlayId()))
 						continue;
 					preload.setLoadPlayTitle(coursewares.get(i).getName());
-					preload.setLoadPlayTitleBelow("讲师姓名 ： "
+					preload.setLoadPlayTitleBelow("讲师 ： "
 							+ coursewares.get(i).getTeacherName()
-							+ "    发布时间 ： " + coursewares.get(i).getProTime());
+							+ "    时间 ： " + coursewares.get(i).getProTime());
 					preload.setClassLength(coursewares.get(i).getClassLength());
 					if (coursewares.get(i).getDownPath().contains("/"))
 						preload.setLoadLocalPath(MyTools.RESOURCE_PATH

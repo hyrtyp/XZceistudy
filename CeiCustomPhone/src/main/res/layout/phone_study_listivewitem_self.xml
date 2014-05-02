@@ -6,13 +6,29 @@
     android:background="@color/phone_study_color_White"
   >
 
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/phone_study_listviewitem_icon"
+            android:src="@drawable/courseware_default_icon"
+            android:layout_gravity="center"
+            android:contentDescription="@string/hello"
+            android:scaleType="fitXY"
+            style="@style/phone_study_image_list"/>
+
     <ImageView
-        android:id="@+id/phone_study_listviewitem_icon"
-        android:src="@drawable/courseware_default_icon"
-        android:layout_gravity="center_vertical"
-        android:contentDescription="@string/hello"
-        android:scaleType="fitXY"
-        style="@style/phone_study_image_list"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/newplay_icon"
+        android:src="@drawable/windowplay_icon__normal"/>
+
+
+    </FrameLayout>
+
+
 
     <LinearLayout
         android:layout_width="fill_parent"

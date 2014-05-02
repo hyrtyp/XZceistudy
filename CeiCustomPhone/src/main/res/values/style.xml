@@ -2,7 +2,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 	<style name="yangshi_1">
 		<item name="android:textSize">28px</item>
-		<item name="android:textColor">#054b93</item>
+		<item name="android:textColor">@color/phone_study_color_black</item>
 		<item name="android:maxLines">1</item>
 		<item name="android:maxWidth">235px</item>
 	</style>
@@ -70,7 +70,7 @@
     </style>
     
     <style name="phone_study_h1">
-        <item name="android:textColor">@color/phone_study_h1_color</item>
+        <item name="android:textColor">@color/phone_study_color_black</item>
         <item name="android:textSize">@dimen/phone_study_h1_textSize</item>
         <item name="android:maxLines">2</item>
     </style>
@@ -80,10 +80,9 @@
         <item name="android:singleLine">true</item>
     </style>
     <style name="phone_study_h2">
-        <item name="android:background">@drawable/phone_study_det_h2_bg</item>
+        <item name="android:background">#4e9de8</item>
         <item name="android:textColor">@color/phone_study_color_White</item>
         <item name="android:padding">@dimen/phone_study_h2_padding</item>
-        <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/phone_study_h2_textSize</item>
     </style>
     <style name="phone_study_text">
@@ -125,7 +124,6 @@
     <style name="phone_study_prload_h1">
         <item name="android:textSize">@dimen/phone_study_prload_h1_textSize</item>
         <item name="android:textColor">#054b93</item>
-        <item name="android:paddingRight">@dimen/phone_study_prload_h1_paddingRight</item>
     </style>
 
     <style name="phone_study_prload_h2">

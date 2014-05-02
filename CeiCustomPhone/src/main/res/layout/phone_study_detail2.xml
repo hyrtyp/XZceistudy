@@ -26,13 +26,29 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_margin="@dimen/phone_study_view_margin">
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/phone_study_detail_icon"
-                    android:layout_gravity="center_vertical"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/courseware_default_icon"
-                    style="@style/phone_study_image_detail"/>
+                    <ImageView
+                        android:id="@+id/phone_study_detail_icon"
+                        android:layout_gravity="center_vertical"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/courseware_default_icon"
+                        style="@style/phone_study_image_list"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:id="@+id/newplay_icon"
+                        android:visibility="invisible"
+                        android:src="@drawable/windowplay_icon__normal"/>
+
+
+                </FrameLayout>
+
+
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -62,13 +78,14 @@
 
                     <RelativeLayout
                         android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="fill_parent"
                         android:layout_marginTop="5dip" >
 
                         <RelativeLayout
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
-                            android:orientation="horizontal" >
+                            android:orientation="horizontal"
+                            android:layout_alignParentRight="true">
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -79,7 +96,7 @@
                                     android:id="@+id/phone_study_detail_author"
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="主讲人 ：范先生/张先生"
+                                    android:text="主讲人 ：范先生"
                                     style="@style/phone_study_h1_small"
                                     android:ellipsize="marquee"
                                     />
@@ -89,7 +106,7 @@
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="2dip"
-                                    android:text="发布时间 ：2012-12-31 15:23:50"
+                                    android:text="时间 ：2012-12-31"
                                     style="@style/phone_study_h1_small"/>
 
                                 <TextView
@@ -97,8 +114,32 @@
                                     android:layout_width="fill_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="2dip"
-                                    android:text="课件时长 ：1500"
+                                    android:text="时长 ：1500"
                                     style="@style/phone_study_h1_small"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="65dp"
+                                android:orientation="horizontal"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentBottom="true"
+                                android:gravity="bottom"
+                                >
+                                <Button
+                                    android:id="@+id/phone_study_detail_preload"
+                                    android:text="下载"
+                                    android:visibility="gone"
+                                    style="@style/phone_study_bt"
+                                    android:layout_marginRight="15dp"
+                                    />
+
+                                <Button
+                                    android:id="@+id/phone_study_detail_play"
+                                    android:text="播放"
+                                    android:visibility="gone"
+                                    style="@style/phone_study_bt"
+                                    />
                             </LinearLayout>
 
 
@@ -126,28 +167,17 @@
 
                 </LinearLayout>
             </LinearLayout>
-            <LinearLayout
+
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="right"
-                android:layout_marginRight="@dimen/phone_study_view_margin"
-                android:layout_marginBottom="@dimen/phone_study_view_margin">
-                <Button
-                    android:id="@+id/phone_study_detail_preload"
-                    android:text="下载"
-                    android:visibility="invisible"
-                    style="@style/phone_study_bt"
-                    android:layout_marginRight="15dp"
-                    />
+                android:src="@drawable/detail_note"
+                android:id="@+id/detail_note"
+                android:visibility="gone"
 
-                <Button
-                    android:id="@+id/phone_study_detail_play"
-                    android:text="播放"
-                    android:visibility="invisible"
-                    style="@style/phone_study_bt"
-                    />
-            </LinearLayout>
+                android:paddingLeft="3dp"/>
+
+
             <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="2dip"
@@ -168,15 +198,47 @@
                     style="@style/phone_study_h2"
                     />
 
-                <TextView
-                    android:id="@+id/phone_study_detail_content"
+                <ScrollView
                     android:layout_width="wrap_content"
+                    android:layout_height="102dp"
+                    android:id="@+id/more_scroll">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="60dp"
+                            android:id="@+id/more_icon"
+                            android:src="@drawable/more_icon"/>
+
+                        <TextView
+                            android:id="@+id/phone_study_detail_content"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minHeight="102dip"
+                            style="@style/phone_study_text"
+                            android:layout_marginTop="@dimen/phone_study_view_h2_margin_top"
+                            android:layout_marginBottom="@dimen/phone_study_view_h2_margin_top"/>
+
+
+
+                     </RelativeLayout>
+
+
+                </ScrollView>
+
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:minHeight="90dip"
-                    android:text="课件内容"
-                    style="@style/phone_study_text"
-                    android:layout_marginTop="@dimen/phone_study_view_h2_margin_top"
-                    android:layout_marginBottom="@dimen/phone_study_view_h2_margin_top"/>
+                    android:minHeight="102dp"
+                    android:visibility="gone"
+                    android:id="@+id/full_des"/>
+
+
             </LinearLayout>
 
             <ImageView
@@ -223,11 +285,6 @@
                     </LinearLayout>
                 </HorizontalScrollView>
             </LinearLayout>
-
-            <ImageView
-                android:layout_width="fill_parent"
-                android:layout_height="2dip"
-                android:background="#d6e1e5"/>
 
             <LinearLayout
                 android:layout_width="fill_parent"

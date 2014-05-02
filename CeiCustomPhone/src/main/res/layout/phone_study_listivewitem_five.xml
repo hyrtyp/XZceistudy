@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="120dip"
     style="@style/phone_study_listview"
@@ -11,12 +11,14 @@
         android:src="@drawable/courseware_default_icon"
         android:contentDescription="@string/hello"
         android:scaleType="fitXY"
-        style="@style/phone_study_image_list"/>
+        style="@style/phone_study_image_list"
+        />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_toRightOf="@+id/phone_study_listviewitem_icon"
         android:paddingLeft="8dip"
         android:paddingTop="1dip" >
 
@@ -55,16 +57,19 @@
     </LinearLayout>
     
     <RelativeLayout android:layout_width="match_parent"
-        android:layout_height="match_parent" android:gravity="center_vertical">
+        android:layout_height="match_parent" android:gravity="center_vertical"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/phone_study_listviewitem_upload_parent"
+        android:layout_alignParentRight="true">
     
-    <ImageView
-        android:id="@+id/phone_study_listviewitem_upload"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/hello"
-        android:layout_alignParentRight="true"
-        android:src="@drawable/phone_study_uploadcourse_btn"
-        android:visibility="visible"/>
+        <ImageView
+            android:id="@+id/phone_study_listviewitem_upload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/hello"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/phone_study_uploadcourse_btn"
+            android:visibility="visible"/>
    </RelativeLayout>
 
-</LinearLayout>
+</RelativeLayout>
