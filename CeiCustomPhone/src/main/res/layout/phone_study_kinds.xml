@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/top"
-        android:paddingTop="2dp"
-        android:background="@drawable/menu_scrollviewbg"
+        android:paddingTop="5dp"
+        android:paddingLeft="2dp"
         android:scrollbars="none" >
 
         <LinearLayout
@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        android:background="@drawable/menu_scrollviewbg"
+        android:paddingLeft="2dp"
         android:scrollbars="none" >
 
         <LinearLayout
@@ -54,8 +54,8 @@
         android:layout_below="@+id/phone_study_gridviewparent1"
         android:layout_width="match_parent"
         android:visibility="gone"
+        android:paddingLeft="2dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/menu_scrollviewbg"
         android:scrollbars="none" >
 
         <LinearLayout

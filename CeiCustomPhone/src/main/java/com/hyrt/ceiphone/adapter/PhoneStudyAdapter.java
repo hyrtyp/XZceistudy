@@ -106,7 +106,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
 			switch (msg.arg1) {
 			case NO_NET:
 				popWin.dismiss();
-				builder.setMessage("请登录后再进行此操作！");
+				builder.setMessage("您处于离线状态，无法进行该操作");
 				builder.setPositiveButton("确认",
 						new DialogInterface.OnClickListener() {
 
@@ -188,8 +188,12 @@ public class PhoneStudyAdapter extends BaseAdapter {
 				.findViewById(R.id.phone_study_listviewitem_icon);
 		holder.coursePlayBtn = (Button) convertView
 				.findViewById(R.id.phone_study_listviewitem_playbtn);
-		holder.downloadBtn = (ImageView) convertView
-				.findViewById(R.id.phone_study_listviewitem_downbtn);
+        try {
+            holder.downloadBtn = (Button) convertView
+                    .findViewById(R.id.phone_study_listviewitem_downbtn);
+        }catch (Exception e){
+
+        }
 		holder.controCourse = (ImageView) convertView
 				.findViewById(R.id.phone_study_controllcourse);
 		holder.sayBtn = (Button) convertView
@@ -214,6 +218,10 @@ public class PhoneStudyAdapter extends BaseAdapter {
                             activity,
                             WebViewUtil.class);
                     if (coursewares.get(position).getLookPath() == null)
+                        if( dataHelper.getPreload(coursewares.get(position).getClassId()) ==null) {
+                            MyTools.exitShow(activity,activity.getWindow().getDecorView(),"您处于离线状态，无法进行该操作");
+                            return;
+                        }
                         coursewares.get(position).setLookPath("file:///" +
                                 dataHelper.getPreload(coursewares.get(position).getClassId()).getLoadLocalPath()
                                         .replace(
@@ -384,7 +392,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
 							if(((CeiApplication)activity.getApplication()).isNet())
 								MyTools.exitShow(activity, activity.getWindow().getDecorView(), "未购买该课件！");
 							else
-								MyTools.exitShow(activity, activity.getWindow().getDecorView(), "请联网查看！");
+								MyTools.exitShow(activity, activity.getWindow().getDecorView(), "您处于离线状态，无法进行该操作");
 							break;
 						case AL_BUY:
 							Intent intent = new Intent(activity,
@@ -406,8 +414,19 @@ public class PhoneStudyAdapter extends BaseAdapter {
 				}
 			});
 		}
-		if (holder.downloadBtn != null) {
-			holder.downloadBtn.setOnClickListener(new OnClickListener() {
+		if (holder.downloadBtn != null && !((FoundationActivity)activity).isDown) {
+
+            holder.downloadBtn.setVisibility(View.VISIBLE);
+            convertView
+                    .findViewById(R.id.phone_study_listviewitem_downbtn).setBackgroundColor(activity.getResources().getColor(R.color.xz_activity_top_bg));
+            if (dataHelper.hasPreload(coursewares.get(position).getClassId()) || !((CeiApplication)activity.getApplication()).isNet()) {
+                convertView
+                        .findViewById(R.id.phone_study_listviewitem_downbtn).setBackgroundColor(activity.getResources().getColor(R.color.xz_activity_top_bg_dis));
+                convertView
+                        .findViewById(R.id.phone_study_listviewitem_downbtn).setOnClickListener(null);
+            }else
+                convertView
+                        .findViewById(R.id.phone_study_listviewitem_downbtn).setOnClickListener(new OnClickListener() {
 
 				// 没有购买的
 				private static final int NO_BUY = 0;
@@ -453,7 +472,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
 							if(((CeiApplication)activity.getApplication()).isNet())
 								MyTools.exitShow(activity, activity.getWindow().getDecorView(), "未购买该课件！");
 							else
-								MyTools.exitShow(activity, activity.getWindow().getDecorView(), "请联网查看！");
+								MyTools.exitShow(activity, activity.getWindow().getDecorView(), "您处于离线状态，无法进行该操作");
 							break;
 						case AL_BUY:
 							downloadThisCourse(coursewares.get(position));
@@ -467,6 +486,8 @@ public class PhoneStudyAdapter extends BaseAdapter {
 					checkBuy();
 				}
 			});
+
+
 		}
 		if (holder.controCourse != null) {
             holder.controCourse.setVisibility(View.INVISIBLE);
@@ -570,7 +591,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
 
 	class ViewHolder {
 		ImageView courseIcon;
-		ImageView downloadBtn;
+		Button downloadBtn;
         Button coursePlayBtn;
 		ImageView controCourse;
 		Button sayBtn;
@@ -581,87 +602,13 @@ public class PhoneStudyAdapter extends BaseAdapter {
 		TextView studystatus;
 	}
 
-	private void downloadThisCourse(final Courseware courseware) {
-		alertIsSurePop(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				popWin.dismiss();
-
-				DataHelper dataHelper = ((CeiApplication) (activity
-						.getApplication())).dataHelper;
-				Preload preload = new Preload();
-				preload.setLoadPlayId(courseware.getClassId());
-                preload.setXzClassId(courseware.getXzclassid());
-				preload.setLoadCurrentByte(0);
-				preload.setLoading(1);
-				preload.setLoadFinish(0);
-                preload.setXzClassId(courseware.getXzclassid());
-				preload.setLoadUrl(courseware.getDownPath());
-				preload.setLoadLocalPath(MyTools.RESOURCE_PATH
-						+ MyTools.KJ_PARTPATH
-						+ courseware.getDownPath().substring(
-								courseware.getDownPath()
-										.lastIndexOf(
-												"/",
-												(courseware.getDownPath()
-														.length() - 10)) + 1,
-								courseware.getDownPath().lastIndexOf("/"))
-						+ ".zip");
-				preload.setLoadPlayTitle(courseware.getName());
-				preload.setLoadPlayTitleBelow("讲师 ： "
-						+ courseware.getTeacherName() + "    时间 ： "
-						+ courseware.getProTime());
-				preload.setPassKey(courseware.getKey());
-				preload.setClassLength(courseware.getClassLength());
-				if (!dataHelper.hasPreload(preload.getLoadPlayId())) {
-					dataHelper.savePreload(preload);
-					AlertDialog.Builder builder = new Builder(activity);
-					builder.setMessage("成功加入下载队列 ！");
-					builder.setPositiveButton("确认",
-							new DialogInterface.OnClickListener() {
-
-								@Override
-								public void onClick(DialogInterface dialog,
-										int which) {
-									dialog.dismiss();
-									Intent intent = new Intent(activity,
-											PreloadActivity.class);
-									activity.startActivity(intent);
-								}
-							});
-					builder.create().show();
-				} else {
-					AlertDialog.Builder builder = new Builder(activity);
-					builder.setMessage("下载队列已存在该剧集 ！");
-					builder.setPositiveButton("确认",
-							new DialogInterface.OnClickListener() {
-
-								@Override
-								public void onClick(DialogInterface dialog,
-										int which) {
-									dialog.dismiss();
-									Intent intent = new Intent(activity,
-											PreloadActivity.class);
-									activity.startActivity(intent);
-								}
-							});
-
-					builder.create().show();
-				}
-			}
-		},true);
-
-	}
-
 	private PopupWindow popWin;
 
 	private void alertIsSurePop(OnClickListener clickListener,boolean isCheckLogin) {
 		View popView = activity.getLayoutInflater().inflate(
 				R.layout.phone_study_issure, null);
 		if(isCheckLogin &&!((CeiApplication)activity.getApplication()).isNet()){
-			((TextView)popView.findViewById(R.id.issure_title)).setText("请联网操作！");
+			((TextView)popView.findViewById(R.id.issure_title)).setText("您处于离线状态，无法进行该操作");
 			clickListener = new OnClickListener() {
 
 				@Override
@@ -670,7 +617,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
 				}
 			};
 		}else if(isCheckLogin && columnEntry.getUserId() == null){
-			((TextView)popView.findViewById(R.id.issure_title)).setText("请登录操作！");
+			((TextView)popView.findViewById(R.id.issure_title)).setText("您处于离线状态，无法进行该操作");
 		}
 		popView.findViewById(R.id.phone_study_issure_sure_btn)
 				.setOnClickListener(clickListener);
@@ -688,5 +635,67 @@ public class PhoneStudyAdapter extends BaseAdapter {
 		popWin.showAtLocation(activity.findViewById(R.id.full_view),
 				Gravity.CENTER, 0, 0);
 	}
+
+    /**
+     * 下载课件
+     *
+     * @param courseware
+     */
+    private void downloadThisCourse(final Courseware courseware) {
+        alertIsSurePop(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                popWin.dismiss();
+                DataHelper dataHelper = ((CeiApplication) (activity.getApplication())).dataHelper;
+                Preload preload = new Preload();
+                preload.setLoadPlayId(courseware.getClassId());
+                preload.setLoadCurrentByte(0);
+                preload.setLoading(1);
+                preload.setLoadFinish(0);
+                preload.setXzClassId(courseware.getXzclassid());
+                if (courseware.getDownPath() != null)
+                    preload.setLoadUrl(courseware.getDownPath().replace("an1",
+                            "an2"));
+                try {
+                    preload.setLoadLocalPath(MyTools.RESOURCE_PATH
+                            + MyTools.KJ_PARTPATH
+                            + courseware
+                            .getDownPath()
+                            .substring(
+                                    courseware
+                                            .getDownPath()
+                                            .lastIndexOf(
+                                                    "/",
+                                                    (courseware
+                                                            .getDownPath()
+                                                            .length() - 10)) + 1,
+                                    courseware.getDownPath()
+                                            .lastIndexOf("/")) + ".zip");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                preload.setLoadPlayTitle(courseware.getFullName());
+                preload.setLoadPlayTitleBelow("姓名 ： "
+                        + courseware.getTeacherName() + "    时间 ： "
+                        + courseware.getProTime());
+                preload.setPassKey(courseware.getKey());
+                preload.setClassLength(courseware.getClassLength());
+                Intent intent;
+                if (!dataHelper.hasPreload(preload.getLoadPlayId())) {
+                    dataHelper.savePreload(preload);
+                    intent = new Intent(
+                            activity,
+                            PreloadActivity.class);
+                } else {
+                    intent = new Intent(
+                            activity,
+                            PreloadActivity.class);
+                }
+                activity.startActivity(intent);
+
+            }
+        }, false);
+    }
 
 }

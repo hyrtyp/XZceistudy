@@ -29,19 +29,20 @@
             <Button
                 style="@style/phone_study_Tab"
                 android:text="正下载"
-                android:background="@drawable/phone_study_tab_bg"
-                android:textColor="@color/phone_study_color_black"
+
                 android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/phone_study_preload_loadingBtn"
-                android:layout_marginLeft="20dp" />
+                android:layout_marginLeft="2dp" />
 
             <Button
                 style="@style/phone_study_Tab"
                 android:text="已下载"
                 android:gravity="center"
                 android:layout_width="wrap_content"
+                android:background="@drawable/phone_study_tab_bg"
+                android:textColor="@color/phone_study_color_black"
                 android:layout_height="wrap_content"
                 android:id="@+id/phone_study_preload_alreLoadBtn" />
         </LinearLayout>

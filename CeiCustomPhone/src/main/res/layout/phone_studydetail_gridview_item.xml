@@ -3,17 +3,37 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="2dip" >
+    android:gravity="center_horizontal">
 
     <ImageView
         style="@style/phone_study_image_list"
+        android:scaleType="fitXY"
         android:src="@drawable/courseware_default_icon" />
 
-    <TextView
-        style="@style/yangshi_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+        <TextView
+            style="@style/yangshi_1"
+            android:layout_width="match_parent"
+            android:gravity="center_horizontal"
+            android:id="@+id/about_tv"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            style="@style/yangshi_1"
+            android:text="56"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
 
 </LinearLayout>

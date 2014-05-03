@@ -207,7 +207,7 @@ public class DataHelper {
 						}
 						Message msg = activity.dataHandler.obtainMessage();
 						WriteOrRead.write(result, MyTools.nativeData,
-								KindsActivity.KIND_DATA + functionId);
+								KindsActivity.KIND_DATA);
 						msg.arg1 = FoundationActivity.LVDATA_KEY;
 						if (!currentFunctionId.equals(functionId))
 							return;
@@ -221,7 +221,7 @@ public class DataHelper {
 					}
 				} else {
 					String result = WriteOrRead.read(MyTools.nativeData,
-							KindsActivity.KIND_DATA + functionId);
+							KindsActivity.KIND_DATA);
 					if (XmlUtil.parseReturnCode(result).equals("")) {
 						XmlUtil.parseCoursewares(result, activity.courses);
 						Message msg = activity.dataHandler.obtainMessage();

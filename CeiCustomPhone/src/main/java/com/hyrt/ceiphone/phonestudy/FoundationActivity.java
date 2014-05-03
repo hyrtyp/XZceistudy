@@ -103,7 +103,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
     // 当前课件列表所对应的课件种类id
     public String currentFunctionId;
 
-    protected  boolean isDown = true;
+    public  boolean isDown = true;
 
     public static final String WELLCLASS_NAME = "置顶课件";
     public static String MODEL_NAME = "移动学习";
@@ -255,7 +255,10 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
         spinner.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                alertPopMore();
+                if(popWinMore!=null && popWinMore.isShowing())
+                    popWinMore.dismiss();
+                else
+                    alertPopMore();
             }
         });
         SharedPreferences settings = getSharedPreferences("loginInfo", Activity.MODE_PRIVATE);
@@ -751,13 +754,41 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
         }
     }
 
+    private PopupWindow popWin1;
+    protected void alertIsNoNet() {
+        View popView = this.getLayoutInflater().inflate(
+                R.layout.phone_study_issure, null);
+        ((TextView) popView.findViewById(R.id.issure_title))
+                .setText("您处于离线状态，无法进行该操作");
+        popView.findViewById(R.id.phone_study_issure_sure_btn)
+                .setOnClickListener(new OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        popWin1.dismiss();
+                    }
+                });
+        popView.findViewById(R.id.phone_study_issure_cancel_btn)
+                .setOnClickListener(new OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        popWin1.dismiss();
+                    }
+                });
+        popWin1 = new PopupWindow(popView, RelativeLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams.MATCH_PARENT);
+        popWin1.showAtLocation(findViewById(R.id.full_view), Gravity.CENTER, 0,
+                0);
+    }
+
 
     private PopupWindow popWin;
     private void alertIsSurePopExit() {
         View popView = this.getLayoutInflater().inflate(
                 R.layout.phone_study_issure, null);
         ((TextView) popView.findViewById(R.id.issure_title))
-                .setText("确认注销帐号吗?");
+                .setText("确认注销帐户吗?");
         popView.findViewById(R.id.phone_study_issure_sure_btn)
                 .setOnClickListener(new OnClickListener() {
 
@@ -795,6 +826,13 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
     private void alertPopMore() {
         View popView = this.getLayoutInflater().inflate(
                 R.layout.more_ll, null);
+        popView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(popWinMore != null)
+                    popWinMore.dismiss();
+            }
+        });
         popView.findViewById(R.id.login_out).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -802,6 +840,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                 popWinMore.dismiss();
             }
         });
+
         popView.findViewById(R.id.my_down).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -811,8 +850,10 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
         });
 
         popWinMore = new PopupWindow(popView, RelativeLayout.LayoutParams.MATCH_PARENT,
-                RelativeLayout.LayoutParams.WRAP_CONTENT);
-        popWinMore.showAtLocation(findViewById(R.id.phone_study_more), Gravity.BOTTOM|Gravity.LEFT,0,0);
-        popWinMore.setFocusable(false);
+                RelativeLayout.LayoutParams.MATCH_PARENT);
+        popWinMore.setFocusable(true);
+        popWinMore.setTouchable(true);
+        popWinMore.setOutsideTouchable(true);
+        popWinMore.showAtLocation(findViewById(R.id.phone_study_more), Gravity.BOTTOM | Gravity.LEFT, 0, 0);
     }
 }

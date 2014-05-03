@@ -12,7 +12,7 @@
         android:id="@+id/search_edit"
         android:layout_width="wrap_content"
         android:layout_height="35dip"
-        android:background="#FFFFFF"
+        android:background="#cccccc"
         android:gravity="center_vertical"
         android:hint="请输入课件名字搜索"
         android:minWidth="200dp"

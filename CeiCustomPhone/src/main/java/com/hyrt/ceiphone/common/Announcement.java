@@ -24,6 +24,8 @@ import com.hyrt.cei.adapter.AnnouncementListAdapter;
 import com.hyrt.cei.application.CeiApplication;
 import com.hyrt.cei.ui.personcenter.PersonCenter;
 import com.hyrt.cei.ui.witsea.WitSeaActivity;
+import com.hyrt.cei.util.MyTools;
+import com.hyrt.cei.util.WriteOrRead;
 import com.hyrt.cei.util.XmlUtil;
 import com.hyrt.cei.vo.AnnouncementNews;
 import com.hyrt.cei.vo.ColumnEntry;
@@ -66,10 +68,15 @@ public class Announcement extends FoundationActivity{
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1,
 					int position, long arg3) {
-				intent = new Intent();
-				intent.putExtra("extra", announcementNews.get(position).getId());
-				intent.setClass(Announcement.this, AnnouncementRead.class);
-				Announcement.this.startActivity(intent);
+                if (!((CeiApplication) getApplication()).isNet()){
+                    alertIsNoNet();
+                }else{
+                    intent = new Intent();
+                    intent.putExtra("extra", announcementNews.get(position).getId());
+                    intent.setClass(Announcement.this, AnnouncementRead.class);
+                    Announcement.this.startActivity(intent);
+                }
+
 			}
 		});
 	}
@@ -83,14 +90,23 @@ public class Announcement extends FoundationActivity{
 		}
 	};
 
+    private static final String WELLCLASS_FILENAME = "announcement";
+
 	private void refreshListData() {
 		executorService.submit(new Runnable() {
 			@Override
 			public void run() {
 				announcementNews = new ArrayList<AnnouncementNews>();
-				String rs = "";
+				String rs;
 				ColumnEntry columnEntry = ((CeiApplication) getApplication()).columnEntry;
-				rs = Service.queryNotice(columnEntry.getUserId());
+                if (!((CeiApplication) getApplication()).isNet()) {
+                    rs = WriteOrRead.read(MyTools.nativeData,
+                            WELLCLASS_FILENAME);
+                }else{
+                    rs = Service.queryNotice(columnEntry.getUserId());
+                    WriteOrRead.write(rs, MyTools.nativeData,
+                            WELLCLASS_FILENAME);
+                }
 				try {
 					announcementNews = XmlUtil.getAnnouncement(rs);
 				} catch (Exception e) {

@@ -5,34 +5,47 @@
 	android:layout_height="fill_parent"
 	android:background="#40838d9b">
 	<LinearLayout
-		android:layout_width="wrap_content"
+        android:layout_width="240dp"
 		android:layout_height="wrap_content"
 		android:layout_centerInParent="true"
 		android:orientation="vertical"
-		android:background="@drawable/phone_study_issure_bg">
-		<LinearLayout
-			android:layout_width="wrap_content"
-			android:gravity="center_vertical"
-			android:layout_height="wrap_content"
-			android:padding="20dip">
-			<ImageView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:background="@drawable/phone_study_issure_icon" />
-			<TextView
-				android:id="@+id/pop_exit_show_title"
-				android:layout_width="wrap_content"
-				android:text="确认此次操作?"
-				android:layout_height="wrap_content"
-				android:textStyle="bold"
-				android:textSize="20sp"
-				android:textColor="#003380"
-				android:layout_marginLeft="8dip" />
-		</LinearLayout>
-		<ImageView
-			android:layout_width="fill_parent"
-			android:layout_height="1dip"
-			android:src="#000000" />
+        android:background="#FFFFFF">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:background="@color/xz_activity_top_bg"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:text="提示信息"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:layout_marginLeft="8dip" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:src="#33B5E5"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="确认此次操作?"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:textColor="@color/xz_activity_top_bg"
+            android:id="@+id/issure_title"
+            android:layout_marginLeft="8dip" />
+
 		<RelativeLayout
 			android:layout_width="fill_parent"
 			android:paddingRight="30dip"

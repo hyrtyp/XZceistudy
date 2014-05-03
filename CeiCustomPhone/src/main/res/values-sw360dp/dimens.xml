@@ -18,9 +18,9 @@
     <dimen name="phone_study_bottom_tv_pad_right">10dp</dimen>
     <dimen name="phone_study_bottom_tv_textSize">13sp</dimen>
     <!--按钮-->
-    <dimen name="phone_study_bt_textSize">17sp</dimen>
-    <dimen name="phone_study_bt_width">57dp</dimen>
-    <dimen name="phone_study_bt_height">28dp</dimen>
+    <dimen name="phone_study_bt_textSize">14sp</dimen>
+    <dimen name="phone_study_bt_width">62dp</dimen>
+    <dimen name="phone_study_bt_height">24dp</dimen>
     <!--选项卡-->
     <dimen name="phone_study_Tab_mar_left">2dp</dimen>
     <dimen name="phone_study_Tab_mar_right">2dp</dimen>
@@ -48,9 +48,9 @@
     <dimen name="phone_study_listview_paddingleft">15dp</dimen>
 
     <!--pop窗口-->
-    <dimen name="phone_study_pop_tv_textSize">17sp</dimen>
-    <dimen name="phone_study_pop_tv_width">60dp</dimen>
-    <dimen name="phone_study_pop_tv_height">33dp</dimen>
+    <dimen name="phone_study_pop_tv_textSize">14sp</dimen>
+    <dimen name="phone_study_pop_tv_width">80dp</dimen>
+    <dimen name="phone_study_pop_tv_height">24dp</dimen>
 
     <!--gallery-->
     <dimen name="phone_study_gallery_tv">15sp</dimen>

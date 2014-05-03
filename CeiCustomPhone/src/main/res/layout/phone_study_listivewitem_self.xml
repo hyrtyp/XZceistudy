@@ -48,17 +48,6 @@
                 android:layout_alignParentLeft="true"
                 android:text="@string/phone_study_title"
                 style="@style/phone_study_h1" />
-
-            <ImageView
-                android:id="@+id/phone_study_listviewitem_downbtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="12dip"
-                android:contentDescription="@string/hello"
-                android:visibility="gone"
-                android:src="@drawable/phone_study_download_btn" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -87,6 +76,16 @@
                     android:text="@string/phone_study_protime"
                     style="@style/phone_study_h1_small" />
             </LinearLayout>
+
+            <Button
+                android:id="@+id/phone_study_listviewitem_downbtn"
+                android:text="下载"
+                android:layout_alignParentRight="true"
+                style="@style/phone_study_bt"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="4dp"
+                />
+
 
             <ImageView
                 android:id="@+id/phone_study_controllcourse"

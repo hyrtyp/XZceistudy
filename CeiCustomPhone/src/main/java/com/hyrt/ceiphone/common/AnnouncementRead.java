@@ -130,6 +130,14 @@ public class AnnouncementRead extends ContainerActivity implements OnClickListen
                 popWinMore.dismiss();
             }
         });
+
+        popView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                popWinMore.dismiss();
+            }
+        });
+
         popView.findViewById(R.id.my_down).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,6 +147,9 @@ public class AnnouncementRead extends ContainerActivity implements OnClickListen
         });
         popWinMore = new PopupWindow(popView, RelativeLayout.LayoutParams.MATCH_PARENT,
                 RelativeLayout.LayoutParams.WRAP_CONTENT);
+        popWinMore.setFocusable(true);
+        popWinMore.setTouchable(true);
+        popWinMore.setOutsideTouchable(true);
         popWinMore.showAtLocation(findViewById(R.id.phone_study_more), Gravity.BOTTOM|Gravity.LEFT,0,0);
     }
 

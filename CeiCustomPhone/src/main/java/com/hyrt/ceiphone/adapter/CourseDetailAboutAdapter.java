@@ -58,7 +58,7 @@ public class CourseDetailAboutAdapter extends BaseAdapter {
 			holder = new ViewHolder();
 			convertView = inflater.inflate(R.layout.phone_studydetail_gridview_item, null);
 			holder.classIcon = (ImageView) ((LinearLayout)convertView).getChildAt(0);
-			holder.title = (TextView) ((LinearLayout)convertView).getChildAt(1);
+			holder.title = (TextView) ((LinearLayout)convertView).findViewById(R.id.about_tv);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();

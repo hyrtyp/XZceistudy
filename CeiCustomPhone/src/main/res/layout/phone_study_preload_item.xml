@@ -123,26 +123,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="15.0dip"
-                android:background="@color/xz_activity_top_bg"
                 android:text="开始"
+                style="@style/phone_study_bt"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
                 android:paddingLeft="6dp"
                 android:paddingRight="6dp"
-                android:textColor="#FFFFFF"
                 android:tag="开始" />
 
             <Button
                 android:id="@+id/phone_study_preload_item_btnDelete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/xz_activity_top_bg"
                 android:text="删除"
+                style="@style/phone_study_bt"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
                 android:paddingLeft="6dp"
-                android:paddingRight="6dp"
-                android:textColor="#FFFFFF" />
+                android:paddingRight="6dp"/>
         </LinearLayout>
     </RelativeLayout>
 

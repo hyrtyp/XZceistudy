@@ -24,8 +24,10 @@ public class HorGridViewAdapter extends BaseAdapter {
 	private LayoutInflater inflater;
 	private int width;
 	private boolean isFristBlue = true;
+    private Context context;
 
 	public HorGridViewAdapter(Context context, List<ColumnEntry> columnEntries) {
+        this.context = context;
 		this.columnEntries = columnEntries;
 		inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -36,6 +38,7 @@ public class HorGridViewAdapter extends BaseAdapter {
 	}
 	
 	public HorGridViewAdapter(Context context, List<ColumnEntry> columnEntries,boolean isFristBlue) {
+        this.context = context;
 		this.columnEntries = columnEntries;
 		this.isFristBlue = isFristBlue;
 		inflater = (LayoutInflater) context
@@ -64,15 +67,17 @@ public class HorGridViewAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		RelativeLayout item = (RelativeLayout) inflater.inflate(R.layout.phone_study_gridview_item2, null);
-		item.setLayoutParams(new GridView.LayoutParams(width / 4, ViewGroup.LayoutParams.MATCH_PARENT));
+		item.setLayoutParams(new GridView.LayoutParams(width / 4,(int)context.getResources().getDimension(R.dimen.phone_study_custom_tabheight)));
         item.setGravity(Gravity.CENTER_VERTICAL);
         item.setBackgroundResource(R.drawable.phone_study_tab_bg);
 		TextView tv = (TextView) item.getChildAt(0);
+        tv.setTextSize(15);
 		if(position == 0 && isFristBlue){
-            tv.setTextColor(Color.BLACK);
-		}else{
             item.setBackgroundResource(R.drawable.phone_study_tab_bg2);
             tv.setTextColor(Color.WHITE);
+		}else{
+            tv.setTextColor(Color.BLACK);
+
 
 		}
 		tv.setText(columnEntries.get(position).getName());

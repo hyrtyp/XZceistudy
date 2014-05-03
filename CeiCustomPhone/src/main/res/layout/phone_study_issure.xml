@@ -11,17 +11,19 @@
         android:orientation="vertical"
         android:background="#FFFFFF">
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:gravity="center_vertical"
             android:layout_height="wrap_content"
+            android:background="@color/xz_activity_top_bg"
             android:padding="10dp">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:text="提示"
+                android:layout_width="match_parent"
+                android:text="提示信息"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
-                android:textColor="#33B5E5"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
                 android:layout_marginLeft="8dip" />
 
         </LinearLayout>
@@ -33,29 +35,28 @@
             />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:text="确认此次操作?"
             android:padding="10dp"
             android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="15sp"
-            android:textColor="#000000"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:textColor="@color/xz_activity_top_bg"
             android:id="@+id/issure_title"
             android:layout_marginLeft="8dip" />
 
         <RelativeLayout
             android:layout_width="fill_parent"
+            android:paddingRight="30dip"
             android:padding="20dip"
             android:layout_height="fill_parent"
             android:gravity="center_vertical">
-
             <Button
-                android:text="确定"
                 android:layout_alignParentLeft="true"
                 android:id="@+id/phone_study_issure_sure_btn"
+                android:text="确定"
                 style="@style/phone_study_pop_tv"/>
-
             <Button
                 android:layout_alignParentRight="true"
                 android:id="@+id/phone_study_issure_cancel_btn"

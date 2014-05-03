@@ -87,7 +87,7 @@ public class MyTools {
 			mPopupWindow.setOutsideTouchable(true);
 			mPopupWindow.setBackgroundDrawable(new BitmapDrawable());
 			TextView textTitle = (TextView) view
-					.findViewById(R.id.pop_exit_show_title);
+					.findViewById(R.id.issure_title);
 			textTitle.setText(title);
 			view.findViewById(R.id.pop_exit_show_yes).setOnClickListener(
 					new OnClickListener() {
@@ -133,7 +133,7 @@ public class MyTools {
 					mPopupWindow.setOutsideTouchable(true);
 					mPopupWindow.setBackgroundDrawable(new BitmapDrawable());
 					TextView textTitle = (TextView) view
-							.findViewById(R.id.pop_exit_show_title);
+							.findViewById(R.id.issure_title);
 					textTitle.setText("网络不通，无法查看此内容！");
 					view.findViewById(R.id.pop_exit_show_yes)
 							.setOnClickListener(new OnClickListener() {

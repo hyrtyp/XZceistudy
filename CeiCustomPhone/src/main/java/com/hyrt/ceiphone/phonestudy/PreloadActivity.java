@@ -226,12 +226,15 @@ public class PreloadActivity extends FoundationActivity {
 
 			@Override
 			public void onClick(View v) {
+
+
                 //换底色
-                alreLoadBtn.setBackgroundResource(R.drawable.phone_study_tab_bg);
-                loadBtn.setBackgroundResource(R.drawable.phone_study_tab_bg2);
+                alreLoadBtn.setBackgroundResource(R.drawable.phone_study_tab_bg2);
+                loadBtn.setBackgroundResource(R.drawable.phone_study_tab_bg);
                 //换字
-                alreLoadBtn.setTextColor(getResources().getColor(R.color.phone_study_color_black));
-                loadBtn.setTextColor(getResources().getColor(R.color.phone_study_color_White));
+                alreLoadBtn.setTextColor(getResources().getColor(R.color.phone_study_color_White));
+                loadBtn.setTextColor(getResources().getColor(R.color.phone_study_color_black));
+
 				for (int i = 0; i < linearLayList.getChildCount(); i++) {
 					if (linearLayList
 							.getChildAt(i)
@@ -248,12 +251,14 @@ public class PreloadActivity extends FoundationActivity {
 
 			@Override
 			public void onClick(View v) {
+
                 //换底色
-                alreLoadBtn.setBackgroundResource(R.drawable.phone_study_tab_bg2);
-                loadBtn.setBackgroundResource(R.drawable.phone_study_tab_bg);
+                alreLoadBtn.setBackgroundResource(R.drawable.phone_study_tab_bg);
+                loadBtn.setBackgroundResource(R.drawable.phone_study_tab_bg2);
                 //换字
-                alreLoadBtn.setTextColor(getResources().getColor(R.color.phone_study_color_White));
-                loadBtn.setTextColor(getResources().getColor(R.color.phone_study_color_black));
+                alreLoadBtn.setTextColor(getResources().getColor(R.color.phone_study_color_black));
+                loadBtn.setTextColor(getResources().getColor(R.color.phone_study_color_White));
+
 				for (int i = 0; i < linearLayList.getChildCount(); i++) {
 					if (linearLayList
 							.getChildAt(i)

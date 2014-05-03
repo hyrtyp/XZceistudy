@@ -33,7 +33,6 @@
                     <ImageView
                         android:id="@+id/phone_study_detail_icon"
                         android:layout_gravity="center_vertical"
-                        android:scaleType="fitXY"
                         android:src="@drawable/courseware_default_icon"
                         style="@style/phone_study_image_list"/>
 
@@ -66,13 +65,7 @@
                             android:id="@+id/phone_study_detail_title"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:ellipsize="marquee"
-                            android:focusable="true"
-                            android:focusableInTouchMode="true"
-                            android:marqueeRepeatLimit="marquee_forever"
-                            android:scrollHorizontally="true"
-                            android:singleLine="true"
-                            android:text="主题 ：美国决定对中国输美荧光增白剂征收高额反倾销关税"
+                            android:maxLines="2"
                             style="@style/phone_study_h1"/>
                     </RelativeLayout>
 
@@ -120,7 +113,7 @@
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
-                                android:layout_height="65dp"
+                                android:layout_height="35dp"
                                 android:orientation="horizontal"
                                 android:layout_alignParentRight="true"
                                 android:layout_alignParentBottom="true"
@@ -131,7 +124,7 @@
                                     android:text="下载"
                                     android:visibility="gone"
                                     style="@style/phone_study_bt"
-                                    android:layout_marginRight="15dp"
+                                    android:layout_marginRight="4dp"
                                     />
 
                                 <Button
@@ -173,14 +166,13 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/detail_note"
                 android:id="@+id/detail_note"
-                android:visibility="gone"
-
-                android:paddingLeft="3dp"/>
+                android:paddingLeft="3dp"
+                android:paddingBottom="3dp"/>
 
 
             <ImageView
                 android:layout_width="fill_parent"
-                android:layout_height="2dip"
+                android:layout_height="0.5dip"
                 android:background="#d6e1e5" />
 
             <LinearLayout
@@ -191,11 +183,9 @@
                 >
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:maxLines="1"
                     android:text="课件详情"
-                    style="@style/phone_study_h2"
+                    style="@style/phone_study_bt"
                     />
 
                 <ScrollView
@@ -213,6 +203,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_marginTop="60dp"
                             android:id="@+id/more_icon"
+                            android:visibility="gone"
                             android:src="@drawable/more_icon"/>
 
                         <TextView
@@ -243,7 +234,7 @@
 
             <ImageView
                 android:layout_width="fill_parent"
-                android:layout_height="2dip"
+                android:layout_height="0.5dip"
                 android:background="#d6e1e5" />
 
             <LinearLayout
@@ -259,10 +250,8 @@
                     >
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:text="相关课程"
-                        style="@style/phone_study_h2"/>
+                        style="@style/phone_study_bt"/>
                 </RelativeLayout>
 
                 <HorizontalScrollView

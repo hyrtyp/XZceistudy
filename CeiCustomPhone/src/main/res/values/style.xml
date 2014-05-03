@@ -55,6 +55,7 @@
         <item name="android:layout_width">@dimen/phone_study_bt_width</item>
         <item name="android:layout_height">@dimen/phone_study_bt_height</item>
         <item name="android:background">@color/xz_activity_top_bg</item>
+        <item name="android:gravity">center</item>
     </style>
     
     <style name="phone_study_Tab">
@@ -111,7 +112,7 @@
 
     <style name="phone_study_pop_tv">
         <item name="android:textColor">@color/phone_study_color_White</item>
-        <item name="android:background">@drawable/phone_study_pop_bt_bg</item>
+        <item name="android:background">@color/xz_activity_top_bg</item>
         <item name="android:textSize">@dimen/phone_study_pop_tv_textSize</item>
         <item name="android:layout_width">@dimen/phone_study_pop_tv_width</item>
         <item name="android:layout_height">@dimen/phone_study_pop_tv_height</item>

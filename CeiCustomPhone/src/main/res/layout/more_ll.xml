@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" >
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+
+<LinearLayout
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#d4d3d3"
+    android:layout_alignParentBottom="true"
+
    >
 
     <ImageView
@@ -13,11 +21,12 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:drawableLeft="@drawable/down_smallicon"
         android:text="   下载管理"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
+        android:background="#d4d3d3"
         android:gravity="center_vertical"
         android:textColor="#000000"
         android:id="@+id/my_down"/>
@@ -28,14 +37,16 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
+
         android:src="#9e9c9c"/>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
+        android:background="#d4d3d3"
         android:drawableLeft="@drawable/exit_smallicon"
 
-        android:text="   用户注销"
+        android:text="   注销账户"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:gravity="center_vertical"
@@ -43,3 +54,5 @@
         android:id="@+id/login_out"/>
 
 </LinearLayout>
+
+</RelativeLayout>

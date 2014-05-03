@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.hyrt.cei.application.CeiApplication;
 import com.hyrt.cei.ui.phonestudy.view.MenuGridView;
+import com.hyrt.cei.util.MyTools;
+import com.hyrt.cei.util.WriteOrRead;
 import com.hyrt.cei.util.XmlUtil;
 import com.hyrt.cei.vo.ClassType;
 import com.hyrt.cei.vo.ColumnEntry;
@@ -57,12 +59,13 @@ public class KindsActivity extends FoundationActivity{
 			for (int i = 0; i < adapter.getChildCount(); i++) {
 				RelativeLayout rl = (RelativeLayout) adapter.getChildAt(i);
 				if (i == position) {
-                    ((TextView) rl.getChildAt(1)).setBackgroundResource(R.color.phone_study_color_White);
-                    ((TextView) rl.getChildAt(1)).setTextColor(Color.BLACK);
-				} else {
+
                     ((TextView) rl.getChildAt(1)).setBackgroundResource(R.color.phone_study_kinds_bg);
                     ((TextView) rl.getChildAt(1)).setTextColor(Color.WHITE);
+				} else {
 
+                    ((TextView) rl.getChildAt(1)).setBackgroundResource(R.color.phone_study_color_White);
+                    ((TextView) rl.getChildAt(1)).setTextColor(Color.BLACK);
 				}
 			}
 
@@ -92,11 +95,12 @@ public class KindsActivity extends FoundationActivity{
 			for (int i = 0; i < adapter.getChildCount(); i++) {
 				RelativeLayout rl = (RelativeLayout) adapter.getChildAt(i);
 				if (i == position) {
-                    ((TextView) rl.getChildAt(1)).setBackgroundResource(R.color.phone_study_color_White);
-                    ((TextView) rl.getChildAt(1)).setTextColor(Color.BLACK);
-				} else {
                     ((TextView) rl.getChildAt(1)).setBackgroundResource(R.color.phone_study_kinds_bg);
                     ((TextView) rl.getChildAt(1)).setTextColor(Color.WHITE);
+				} else {
+                    ((TextView) rl.getChildAt(1)).setBackgroundResource(R.color.phone_study_color_White);
+                    ((TextView) rl.getChildAt(1)).setTextColor(Color.BLACK);
+
 
 				}
 			}
@@ -124,12 +128,13 @@ public class KindsActivity extends FoundationActivity{
 			for (int i = 0; i < adapter.getChildCount(); i++) {
 				RelativeLayout rl = (RelativeLayout) adapter.getChildAt(i);
 				if (i == position) {
-                    ((TextView) rl.getChildAt(1)).setBackgroundResource(R.color.phone_study_color_White);
-                    ((TextView) rl.getChildAt(1)).setTextColor(Color.BLACK);
-
-				} else {
                     ((TextView) rl.getChildAt(1)).setBackgroundResource(R.color.phone_study_kinds_bg);
                     ((TextView) rl.getChildAt(1)).setTextColor(Color.WHITE);
+
+
+				} else {
+                    ((TextView) rl.getChildAt(1)).setBackgroundResource(R.color.phone_study_color_White);
+                    ((TextView) rl.getChildAt(1)).setTextColor(Color.BLACK);
 				}
 			}
 			phoneStudyListView.setVisibility(View.VISIBLE);
@@ -169,23 +174,18 @@ public class KindsActivity extends FoundationActivity{
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
+                String result;
 				if (((CeiApplication) getApplication()).isNet()) {
-					/*ColumnEntry columnEntry = ((CeiApplication) (KindsActivity.this.getApplication())).columnEntry;
-					ColumnEntry phoneStudyCol = columnEntry.getColByName(FoundationActivity.MODEL_NAME);
-					StringBuilder functionIds = new StringBuilder(phoneStudyCol.getId());
-					for (int i = 0; i < columnEntry.getColumnEntryChilds().size(); i++) {
-						ColumnEntry entryChild = columnEntry.getColumnEntryChilds().get(i);
-						if (entryChild.getPath() != null && entryChild.getPath().contains(phoneStudyCol.getId())) {
-							functionIds.append("," + entryChild.getId());
-						}
-					}*/
                     String functionIds = "";
-					String result = Service.queryClassByType(functionIds.toString());
-					XmlUtil.parseClassType(result, classTypes);
+					result = Service.queryClassByType(functionIds.toString());
+                    WriteOrRead.write(result, MyTools.nativeData,"class_types");
+
 					((CeiApplication) (KindsActivity.this.getApplication())).dataHelper.saveClassType(classTypes);
 				} else {
-					classTypes = ((CeiApplication) (KindsActivity.this.getApplication())).dataHelper.getClassTypes();
+                    result = WriteOrRead.read(MyTools.nativeData,"class_types");
+
 				}
+                XmlUtil.parseClassType(result, classTypes);
 				handler.sendMessage(handler.obtainMessage());
 			}
 		}).start();

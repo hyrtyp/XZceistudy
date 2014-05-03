@@ -220,8 +220,14 @@ public class CourseDetailActivityphone extends FoundationActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.phone_study_detail2);
+        asyncImageLoader = ((CeiApplication) (getApplication())).asyncImageLoader;
+        columnEntry = ((CeiApplication) getApplication()).columnEntry;
+        dataHelper = ((CeiApplication) getApplication()).dataHelper;
+        courseware = (Courseware) getIntent().getSerializableExtra("coursewareInfo");
+        registEvent();
         if(getIntent().getBooleanExtra("hidePlay",false)){
-            findViewById(R.id.phone_study_detail_play).setVisibility(View.VISIBLE);
+            //findViewById(R.id.phone_study_detail_play).setVisibility(View.VISIBLE);
+
             findViewById(R.id.phone_study_detail_preload).setVisibility(View.VISIBLE);
             findViewById(R.id.detail_note).setVisibility(View.GONE);
             View view = findViewById(R.id.newplay_icon);
@@ -251,16 +257,18 @@ public class CourseDetailActivityphone extends FoundationActivity {
                     }
                 }
             });
+            if (dataHelper.hasPreload(courseware.getClassId()) || !((CeiApplication)getApplication()).isNet()) {
+                findViewById(R.id.phone_study_detail_preload).setBackgroundColor(getResources().getColor(R.color.xz_activity_top_bg_dis));
+                view.setOnClickListener(null);
+            }
         }
 		this.CURRENT_KEY = FoundationActivity.DETAIL_DATA_KEY;
 		getWindow().setSoftInputMode(
 				WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-		asyncImageLoader = ((CeiApplication) (getApplication())).asyncImageLoader;
-		columnEntry = ((CeiApplication) getApplication()).columnEntry;
-		dataHelper = ((CeiApplication) getApplication()).dataHelper;
+
 		loadDataForView();
 		loadAboutClass();
-		registEvent();
+
 	}
 
 	// 相关课程列表
@@ -351,8 +359,6 @@ public class CourseDetailActivityphone extends FoundationActivity {
 			this.finish();
 			return;
 		}
-		courseware = (Courseware) getIntent().getSerializableExtra(
-				"coursewareInfo");
 		courseDetailTv = (TextView) findViewById(R.id.phone_study_detail_content);
 		((TextView) findViewById(R.id.phone_study_detail_title))
 				.setText(courseware.getFullName()==null?courseware.getName():courseware.getFullName());
@@ -362,9 +368,12 @@ public class CourseDetailActivityphone extends FoundationActivity {
 				.setText("时间 ： " + courseware.getProTime());
 		((TextView) findViewById(R.id.phone_study_detail_timelength))
 				.setText("时长 ： " + courseware.getClassLength());
-		if (courseware.getIntro() != null)
-			courseDetailTv.setText("        "
-					+ courseware.getIntro().replace("\n", ""));
+		if (courseware.getIntro() != null) {
+            courseDetailTv.setText("        "
+                    + courseware.getIntro().replace("\n", ""));
+            if(courseware.getIntro().length() > 80)
+                findViewById(R.id.more_icon).setVisibility(View.VISIBLE);
+        }
 		ImageResourse imageResource = new ImageResourse();
 		imageResource.setIconUrl(courseware.getSmallPath());
 		imageResource.setIconId(courseware.getClassId());
@@ -505,7 +514,7 @@ public class CourseDetailActivityphone extends FoundationActivity {
 											CourseDetailActivityphone.this,
 											CourseDetailActivityphone.this
 													.getWindow().getDecorView(),
-											"请联网查看！");
+                                            "您处于离线状态，无法进行该操作");
 								break;
 							case AL_BUY:
 								Intent intent = new Intent(
@@ -538,6 +547,7 @@ public class CourseDetailActivityphone extends FoundationActivity {
 						checkBuy();
 					}
 				});
+        if (!dataHelper.hasPreload(courseware.getClassId()) && ((CeiApplication)getApplication()).isNet())
 		findViewById(R.id.phone_study_detail_preload).setOnClickListener(
 				new OnClickListener() {
 					// 没有购买的
@@ -594,7 +604,7 @@ public class CourseDetailActivityphone extends FoundationActivity {
 											CourseDetailActivityphone.this,
 											CourseDetailActivityphone.this
 													.getWindow().getDecorView(),
-											"请联网查看！");
+                                            "您处于离线状态，无法进行该操作");
 								break;
 							case AL_BUY:
 								downloadThisCourse(courseware);
@@ -721,7 +731,7 @@ public class CourseDetailActivityphone extends FoundationActivity {
 				R.layout.phone_study_issure, null);
 		if (isCheckLogin && !((CeiApplication) this.getApplication()).isNet()) {
 			((TextView) popView.findViewById(R.id.issure_title))
-					.setText("请联网操作！");
+					.setText("您处于离线状态，无法进行该操作");
 			clickListener = new OnClickListener() {
 
 				@Override

@@ -94,11 +94,12 @@ public class StudyRecordActivity extends FoundationActivity {
 					for (int i = 0; i < labelParent.getChildCount(); i++) {
 						Button iv = (Button) labelParent.getChildAt(i);
 						if (i == x) {
-							iv.setBackgroundResource(R.drawable.phone_study_tab_bg);
-							iv.setTextColor(Color.BLACK);
+                            iv.setBackgroundResource(R.drawable.phone_study_tab_bg2);
+                            iv.setTextColor(Color.WHITE);
 						} else {
-							iv.setBackgroundResource(R.drawable.phone_study_tab_bg2);
-							iv.setTextColor(Color.WHITE);
+
+                            iv.setBackgroundResource(R.drawable.phone_study_tab_bg);
+                            iv.setTextColor(Color.BLACK);
 						}
 					}
 					}catch(Exception e){

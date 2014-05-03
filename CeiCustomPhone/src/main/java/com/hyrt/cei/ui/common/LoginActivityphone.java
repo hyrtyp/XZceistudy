@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hyrt.cei.application.CeiApplication;
+import com.hyrt.cei.util.MyTools;
 import com.hyrt.ceiphone.ContainerActivity;
 import com.hyrt.ceiphone.R;
 import com.hyrt.ceiphone.common.HomePageDZB;
@@ -62,6 +64,10 @@ public class LoginActivityphone extends ContainerActivity implements OnClickList
 
 					@Override
 					public void onClick(View v) {
+                        if(!((CeiApplication)getApplication()).isNet()){
+                            MyTools.exitShow(LoginActivityphone.this, getWindow().getDecorView(), "您处于离线状态，无法进行该操作");
+                            return;
+                        }
 						Intent intent = new Intent(LoginActivityphone.this,
 								RegistActivity.class);
 						startActivity(intent);
@@ -78,6 +84,10 @@ public class LoginActivityphone extends ContainerActivity implements OnClickList
 
                     @Override
                     public void onClick(View v) {
+                        if(!((CeiApplication)getApplication()).isNet()){
+                            MyTools.exitShow(LoginActivityphone.this, getWindow().getDecorView(), "您处于离线状态，无法进行该操作");
+                            return;
+                        }
                         Intent intent = new Intent(LoginActivityphone.this,
                                 GetpasswordActivity.class);
                         startActivity(intent);
@@ -98,6 +108,10 @@ public class LoginActivityphone extends ContainerActivity implements OnClickList
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.ui_login_login_bt:
+                if(!((CeiApplication)getApplication()).isNet()){
+                    MyTools.exitShow(LoginActivityphone.this, getWindow().getDecorView(), "您处于离线状态，无法进行该操作");
+                    return;
+                }
                 SharedPreferences settings = getSharedPreferences(
                         "loginInfo", Activity.MODE_PRIVATE);
                 SharedPreferences.Editor editor = settings.edit();
