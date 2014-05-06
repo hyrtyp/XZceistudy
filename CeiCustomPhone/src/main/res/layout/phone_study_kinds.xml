@@ -66,6 +66,7 @@
                 android:id="@+id/phone_study_gridview2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:horizontalSpacing="4dp"
                 android:listSelector="@drawable/nodrawable" />
         </LinearLayout>
     </HorizontalScrollView>

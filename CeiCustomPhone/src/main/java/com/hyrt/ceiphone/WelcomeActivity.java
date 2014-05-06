@@ -136,7 +136,7 @@ public class WelcomeActivity extends ContainerActivity {
 				break;
 			case IS_NET:
 				isNotice = true;
-                alertIsSurePop("网络不通，是否进入离线模式！",new View.OnClickListener() {
+                alertIsSurePop("网络不通 \n 是否进入离线模式！",new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         popWin.dismiss();
@@ -153,7 +153,7 @@ public class WelcomeActivity extends ContainerActivity {
                 handler.sendMessage(message);
 				break;
 			case DEVICE_ERROR:
-                alertIsSurePop("设备号与用户不匹配,请点确认进入默认版！", new View.OnClickListener() {
+                alertIsSurePop("设备号与用户不匹配 \n 请点确认进入默认版！", new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         popWin.dismiss();
@@ -168,7 +168,7 @@ public class WelcomeActivity extends ContainerActivity {
 				editor1.commit();
 				break;
 			case USER_ERROR:
-                alertIsSurePop("用户名密码错误,请重新登录!",new View.OnClickListener() {
+                alertIsSurePop("用户名密码错误 \n 请重新登录!",new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         popWin.dismiss();
@@ -183,7 +183,7 @@ public class WelcomeActivity extends ContainerActivity {
                     editor.commit();
                     break;
                 case BE00:
-                    alertIsSurePop("登录失败，请重新登录!",new View.OnClickListener() {
+                    alertIsSurePop("登录失败 \n 请重新登录!",new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             popWin.dismiss();
@@ -204,7 +204,7 @@ public class WelcomeActivity extends ContainerActivity {
                     editorbeLS01.putString("PASSWORD", "");
                     editorbeLS01.commit();
 
-                    alertIsSurePop("用户已停用，请重新登录!",new View.OnClickListener() {
+                    alertIsSurePop("用户已停用 \n 请重新登录!",new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             popWin.dismiss();
@@ -218,7 +218,7 @@ public class WelcomeActivity extends ContainerActivity {
                     editorbeBE08.putString("LOGINNAME", "");
                     editorbeBE08.putString("PASSWORD", "");
                     editorbeBE08.commit();
-                    alertIsSurePop("网络平台发生异常，请重新登录!", new View.OnClickListener() {
+                    alertIsSurePop("网络平台发生异常 \n 请重新登录!", new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             popWin.dismiss();

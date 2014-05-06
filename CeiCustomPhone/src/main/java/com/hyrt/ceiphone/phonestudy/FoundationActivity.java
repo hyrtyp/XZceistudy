@@ -329,7 +329,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                 break;
             case DETAIL_DATA_KEY:
                 ((TextView) findViewById(R.id.phone_study_title))
-                        .setText("课件详细");
+                        .setText("课程详细");
                 ImageviewBackbt();
                 break;
             case SERVICE_DATA_KEY:

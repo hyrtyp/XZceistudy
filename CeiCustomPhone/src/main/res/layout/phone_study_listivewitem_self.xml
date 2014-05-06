@@ -80,6 +80,7 @@
             <Button
                 android:id="@+id/phone_study_listviewitem_downbtn"
                 android:text="下载"
+                android:visibility="gone"
                 android:layout_alignParentRight="true"
                 style="@style/phone_study_bt"
                 android:layout_marginTop="15dp"

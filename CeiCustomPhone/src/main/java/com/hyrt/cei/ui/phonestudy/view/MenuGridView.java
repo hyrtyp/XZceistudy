@@ -29,9 +29,7 @@ public class MenuGridView extends GridView {
 			((Activity) getContext()).getWindowManager().getDefaultDisplay()
 					.getMetrics(displaymetrics);
 			int itemWidth = displaymetrics.widthPixels/currentShowNum;
-			setLayoutParams(new android.widget.LinearLayout.LayoutParams(
-					itemWidth * baseAdapter.getCount()>displaymetrics.widthPixels?itemWidth * baseAdapter.getCount():
-						displaymetrics.widthPixels,LayoutParams.MATCH_PARENT));
+			setLayoutParams(new android.widget.LinearLayout.LayoutParams(itemWidth * baseAdapter.getCount(),LayoutParams.MATCH_PARENT));
 		}
 	}
 	

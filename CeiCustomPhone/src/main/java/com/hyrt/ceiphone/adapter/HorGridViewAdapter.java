@@ -68,7 +68,7 @@ public class HorGridViewAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		RelativeLayout item = (RelativeLayout) inflater.inflate(R.layout.phone_study_gridview_item2, null);
 		item.setLayoutParams(new GridView.LayoutParams(width / 4,(int)context.getResources().getDimension(R.dimen.phone_study_custom_tabheight)));
-        item.setGravity(Gravity.CENTER_VERTICAL);
+        item.setGravity(Gravity.CENTER);
         item.setBackgroundResource(R.drawable.phone_study_tab_bg);
 		TextView tv = (TextView) item.getChildAt(0);
         tv.setTextSize(15);

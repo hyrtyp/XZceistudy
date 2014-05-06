@@ -106,7 +106,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
 			switch (msg.arg1) {
 			case NO_NET:
 				popWin.dismiss();
-				builder.setMessage("您处于离线状态，无法进行该操作");
+				builder.setMessage("您处于离线状态 \n 无法进行该操作");
 				builder.setPositiveButton("确认",
 						new DialogInterface.OnClickListener() {
 
@@ -180,17 +180,17 @@ public class PhoneStudyAdapter extends BaseAdapter {
         SharedPreferences settings = activity.getSharedPreferences(
                 "loginInfo", Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = settings.edit();
-        if(coursewares.get(position).getXzclassid() != null)
-        editor.putString(coursewares.get(position).getClassId(),coursewares.get(position).getXzclassid());
-        editor.commit();
+        if(coursewares.get(position).getXzclassid() != null) {
+            editor.putString(coursewares.get(position).getClassId(), coursewares.get(position).getXzclassid());
+            editor.commit();
+        }
 		convertView = inflater.inflate(itemLayout, null);
 		holder.courseIcon = (ImageView) convertView
 				.findViewById(R.id.phone_study_listviewitem_icon);
 		holder.coursePlayBtn = (Button) convertView
 				.findViewById(R.id.phone_study_listviewitem_playbtn);
         try {
-            holder.downloadBtn = (Button) convertView
-                    .findViewById(R.id.phone_study_listviewitem_downbtn);
+            holder.downloadBtn = (Button)convertView.findViewById(R.id.phone_study_listviewitem_downbtn);
         }catch (Exception e){
 
         }
@@ -217,9 +217,9 @@ public class PhoneStudyAdapter extends BaseAdapter {
                     Intent intent = new Intent(
                             activity,
                             WebViewUtil.class);
-                    if (coursewares.get(position).getLookPath() == null)
-                        if( dataHelper.getPreload(coursewares.get(position).getClassId()) ==null) {
-                            MyTools.exitShow(activity,activity.getWindow().getDecorView(),"您处于离线状态，无法进行该操作");
+                    if (coursewares.get(position).getLookPath() == null) {
+                        if (dataHelper.getPreload(coursewares.get(position).getClassId()) == null) {
+                            MyTools.exitShow(activity, activity.getWindow().getDecorView(), "您处于离线状态 \n 无法进行该操作");
                             return;
                         }
                         coursewares.get(position).setLookPath("file:///" +
@@ -227,6 +227,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
                                         .replace(
                                                 FoundationActivity.FLASH_POSTFIX,
                                                 FoundationActivity.FLASH_GATE));
+                    }
                     if (coursewares.get(position).getLookPath() != null) {
                         intent.putExtra(
                                 "path",
@@ -392,7 +393,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
 							if(((CeiApplication)activity.getApplication()).isNet())
 								MyTools.exitShow(activity, activity.getWindow().getDecorView(), "未购买该课件！");
 							else
-								MyTools.exitShow(activity, activity.getWindow().getDecorView(), "您处于离线状态，无法进行该操作");
+								MyTools.exitShow(activity, activity.getWindow().getDecorView(), "您处于离线状态 \n 无法进行该操作");
 							break;
 						case AL_BUY:
 							Intent intent = new Intent(activity,
@@ -472,7 +473,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
 							if(((CeiApplication)activity.getApplication()).isNet())
 								MyTools.exitShow(activity, activity.getWindow().getDecorView(), "未购买该课件！");
 							else
-								MyTools.exitShow(activity, activity.getWindow().getDecorView(), "您处于离线状态，无法进行该操作");
+								MyTools.exitShow(activity, activity.getWindow().getDecorView(), "您处于离线状态 \n 无法进行该操作");
 							break;
 						case AL_BUY:
 							downloadThisCourse(coursewares.get(position));
@@ -591,7 +592,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
 
 	class ViewHolder {
 		ImageView courseIcon;
-		Button downloadBtn;
+		View downloadBtn;
         Button coursePlayBtn;
 		ImageView controCourse;
 		Button sayBtn;
@@ -608,7 +609,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
 		View popView = activity.getLayoutInflater().inflate(
 				R.layout.phone_study_issure, null);
 		if(isCheckLogin &&!((CeiApplication)activity.getApplication()).isNet()){
-			((TextView)popView.findViewById(R.id.issure_title)).setText("您处于离线状态，无法进行该操作");
+			((TextView)popView.findViewById(R.id.issure_title)).setText("您处于离线状态 \n 无法进行该操作");
 			clickListener = new OnClickListener() {
 
 				@Override
@@ -617,7 +618,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
 				}
 			};
 		}else if(isCheckLogin && columnEntry.getUserId() == null){
-			((TextView)popView.findViewById(R.id.issure_title)).setText("您处于离线状态，无法进行该操作");
+			((TextView)popView.findViewById(R.id.issure_title)).setText("您处于离线状态 \n 无法进行该操作");
 		}
 		popView.findViewById(R.id.phone_study_issure_sure_btn)
 				.setOnClickListener(clickListener);

@@ -55,7 +55,7 @@ public class AnnouncementRead extends ContainerActivity implements OnClickListen
 			}// 重写点击动作,用webview载入
 		});
 		intent = getIntent();
-		url = intent.getStringExtra("extra")+"?t="+System.currentTimeMillis();
+		url = intent.getStringExtra("extra")+"&t="+System.currentTimeMillis();
 		view.loadUrl(htmlHade + url);
 		LinearLayout bottomsLl = (LinearLayout) findViewById(R.id.bottoms_Ll);
 		for (int i = 0; i < bottomsLl.getChildCount(); i++) {

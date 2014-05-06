@@ -60,12 +60,12 @@ public class KindsActivity extends FoundationActivity{
 				RelativeLayout rl = (RelativeLayout) adapter.getChildAt(i);
 				if (i == position) {
 
-                    ((TextView) rl.getChildAt(1)).setBackgroundResource(R.color.phone_study_kinds_bg);
-                    ((TextView) rl.getChildAt(1)).setTextColor(Color.WHITE);
+                    rl.setBackgroundResource(R.color.phone_study_kinds_bg);
+                    ((TextView) rl.getChildAt(0)).setTextColor(Color.WHITE);
 				} else {
 
-                    ((TextView) rl.getChildAt(1)).setBackgroundResource(R.color.phone_study_color_White);
-                    ((TextView) rl.getChildAt(1)).setTextColor(Color.BLACK);
+                    rl.setBackgroundResource(R.color.phone_study_color_White);
+                    ((TextView) rl.getChildAt(0)).setTextColor(Color.BLACK);
 				}
 			}
 
@@ -95,11 +95,11 @@ public class KindsActivity extends FoundationActivity{
 			for (int i = 0; i < adapter.getChildCount(); i++) {
 				RelativeLayout rl = (RelativeLayout) adapter.getChildAt(i);
 				if (i == position) {
-                    ((TextView) rl.getChildAt(1)).setBackgroundResource(R.color.phone_study_kinds_bg);
-                    ((TextView) rl.getChildAt(1)).setTextColor(Color.WHITE);
+                    rl.setBackgroundResource(R.color.phone_study_kinds_bg);
+                    ((TextView) rl.getChildAt(0)).setTextColor(Color.WHITE);
 				} else {
-                    ((TextView) rl.getChildAt(1)).setBackgroundResource(R.color.phone_study_color_White);
-                    ((TextView) rl.getChildAt(1)).setTextColor(Color.BLACK);
+                    rl.setBackgroundResource(R.color.phone_study_color_White);
+                    ((TextView) rl.getChildAt(0)).setTextColor(Color.BLACK);
 
 
 				}
@@ -128,13 +128,13 @@ public class KindsActivity extends FoundationActivity{
 			for (int i = 0; i < adapter.getChildCount(); i++) {
 				RelativeLayout rl = (RelativeLayout) adapter.getChildAt(i);
 				if (i == position) {
-                    ((TextView) rl.getChildAt(1)).setBackgroundResource(R.color.phone_study_kinds_bg);
-                    ((TextView) rl.getChildAt(1)).setTextColor(Color.WHITE);
+                    rl.setBackgroundResource(R.color.phone_study_kinds_bg);
+                    ((TextView) rl.getChildAt(0)).setTextColor(Color.WHITE);
 
 
 				} else {
-                    ((TextView) rl.getChildAt(1)).setBackgroundResource(R.color.phone_study_color_White);
-                    ((TextView) rl.getChildAt(1)).setTextColor(Color.BLACK);
+                    rl.setBackgroundResource(R.color.phone_study_color_White);
+                    ((TextView) rl.getChildAt(0)).setTextColor(Color.BLACK);
 				}
 			}
 			phoneStudyListView.setVisibility(View.VISIBLE);

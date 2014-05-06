@@ -514,7 +514,7 @@ public class CourseDetailActivityphone extends FoundationActivity {
 											CourseDetailActivityphone.this,
 											CourseDetailActivityphone.this
 													.getWindow().getDecorView(),
-                                            "您处于离线状态，无法进行该操作");
+                                            "您处于离线状态 \n 无法进行该操作");
 								break;
 							case AL_BUY:
 								Intent intent = new Intent(
@@ -604,7 +604,7 @@ public class CourseDetailActivityphone extends FoundationActivity {
 											CourseDetailActivityphone.this,
 											CourseDetailActivityphone.this
 													.getWindow().getDecorView(),
-                                            "您处于离线状态，无法进行该操作");
+                                            "您处于离线状态 \n 无法进行该操作");
 								break;
 							case AL_BUY:
 								downloadThisCourse(courseware);
@@ -731,7 +731,7 @@ public class CourseDetailActivityphone extends FoundationActivity {
 				R.layout.phone_study_issure, null);
 		if (isCheckLogin && !((CeiApplication) this.getApplication()).isNet()) {
 			((TextView) popView.findViewById(R.id.issure_title))
-					.setText("您处于离线状态，无法进行该操作");
+					.setText("您处于离线状态 \n 无法进行该操作");
 			clickListener = new OnClickListener() {
 
 				@Override
