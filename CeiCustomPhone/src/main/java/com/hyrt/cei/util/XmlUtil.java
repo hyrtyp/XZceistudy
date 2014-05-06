@@ -631,14 +631,9 @@ public class XmlUtil {
 						coursewares.get(i).setProTime(someValue.length()>5?someValue.substring(0
 								,someValue.indexOf(" ")):someValue);
 					}
-					if (tag_name.equals("classlength")) {
-						try{
-							coursewares.get(i).setClassLength((Integer.parseInt(someValue)*60)+"");
-						}catch(Exception e){
-							coursewares.get(i).setClassLength("0");
-							e.printStackTrace();
-						}
-					}
+                    if (tag_name.equals("classlength")) {
+                        coursewares.get(i).setClassLength(someValue);
+                    }
 					if (tag_name.equals("intro")) {
 						coursewares.get(i).setIntro(someValue);
 					}
@@ -723,14 +718,9 @@ public class XmlUtil {
 						coursewares.get(i).setProTime(someValue.length()>5?someValue.substring(0
 								,someValue.indexOf(" ")):someValue);
 					}
-					if (tag_name.equals("classlength")) {
-						try{
-							coursewares.get(i).setClassLength((Integer.parseInt(someValue)*60)+"");
-						}catch(Exception e){
-							coursewares.get(i).setClassLength("0");
-							e.printStackTrace();
-						}
-					}
+                    if (tag_name.equals("classlength")) {
+                        coursewares.get(i).setClassLength(someValue);
+                    }
 					if (tag_name.equals("intro")) {
 						coursewares.get(i).setIntro(someValue);
 					}
@@ -818,12 +808,7 @@ public class XmlUtil {
 								,someValue.indexOf(" ")):someValue);
 					}
 					if (tag_name.equals("classlength")) {
-						try{
-							coursewares.get(i).setClassLength((Integer.parseInt(someValue)*60)+"");
-						}catch(Exception e){
-							coursewares.get(i).setClassLength("0");
-							e.printStackTrace();
-						}
+							coursewares.get(i).setClassLength(someValue);
 					}
 					if (tag_name.equals("intro")) {
 						coursewares.get(i).setIntro(someValue);
