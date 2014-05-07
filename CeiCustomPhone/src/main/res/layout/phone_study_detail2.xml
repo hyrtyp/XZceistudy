@@ -32,6 +32,7 @@
 
                     <ImageView
                         android:id="@+id/phone_study_detail_icon"
+                        android:scaleType="fitXY"
                         android:layout_gravity="center_vertical"
                         android:src="@drawable/courseware_default_icon"
                         style="@style/phone_study_image_list"/>
@@ -270,7 +271,7 @@
                             android:id="@+id/phone_study_gridview"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:listSelector="@drawable/nodrawable" />
+                            android:listSelector="@drawable/nodrawable"/>
                     </LinearLayout>
                 </HorizontalScrollView>
             </LinearLayout>
