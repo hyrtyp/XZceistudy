@@ -86,6 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:maxWidth="140dip"
+            android:visibility="gone"
             android:text="主讲人：范先生/张先生            发布时间:2012-12-31 15:23:50" />
 
         <LinearLayout
@@ -128,6 +129,14 @@
             <Button
                 android:id="@+id/phone_study_preload_item_btnDelete"
                 android:text="删除"
+                style="@style/phone_study_bt"/>
+
+            <Button
+                android:id="@+id/phone_study_preload_item_reload"
+                android:text="重新下载"
+                android:visibility="gone"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 style="@style/phone_study_bt"/>
         </LinearLayout>
     </RelativeLayout>

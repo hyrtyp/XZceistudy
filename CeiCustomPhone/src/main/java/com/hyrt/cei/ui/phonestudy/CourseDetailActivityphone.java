@@ -259,7 +259,6 @@ public class CourseDetailActivityphone extends FoundationActivity {
             });
             if (dataHelper.hasPreload(courseware.getClassId()) || !((CeiApplication)getApplication()).isNet()) {
                 findViewById(R.id.phone_study_detail_preload).setBackgroundColor(getResources().getColor(R.color.xz_activity_top_bg_dis));
-                view.setOnClickListener(null);
             }
         }
 		this.CURRENT_KEY = FoundationActivity.DETAIL_DATA_KEY;

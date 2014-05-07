@@ -1,5 +1,6 @@
 package com.hyrt.cei.vo;
 
+import android.view.View;
 import android.widget.*;
 import java.io.Serializable;
 
@@ -12,13 +13,22 @@ public class PreloadContolGroup implements Serializable {
 	private Button btnDelete;
 	private Button btnPlay;
 	private Button btnAddCourse;
+    private View reloadView;
 	private TextView lblPercent;
 	private TextView lblContent;
 	private RelativeLayout linearLayProcess;
 	private LinearLayout linearLayProcessStatus;
 	private String playId;
 
-	public Button getBtnAddCourse() {
+    public View getReloadView() {
+        return reloadView;
+    }
+
+    public void setReloadView(View reloadView) {
+        this.reloadView = reloadView;
+    }
+
+    public Button getBtnAddCourse() {
 		return btnAddCourse;
 	}
 

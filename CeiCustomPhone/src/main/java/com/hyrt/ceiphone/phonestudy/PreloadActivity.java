@@ -313,6 +313,18 @@ public class PreloadActivity extends FoundationActivity {
 						View.GONE);
 				preloadcontolgroup.getLinearLayProcess().setVisibility(
 						View.GONE);
+                preloadcontolgroup.getReloadView().setVisibility(View.VISIBLE);
+                preloadcontolgroup.getReloadView().setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        preload.setLoadFinish(0);
+                        preload.setLoadCurrentByte(0);
+                        preload.setLoading(1);
+                        dataHelper.updatePreload(preload);
+                        startActivity(new Intent(PreloadActivity.this,PreloadActivity.class));
+                        finish();
+                    }
+                });
 				preloadcontolgroup.getBtnControl().setVisibility(View.GONE);
 				//preloadcontolgroup.getBtnPlay().setVisibility(View.VISIBLE);
 				preloadcontolgroup.getBtnPlay().setOnClickListener(
@@ -581,6 +593,7 @@ public class PreloadActivity extends FoundationActivity {
 				.findViewById(R.id.phone_study_preload_item_progressBarDown));
 		preloadcontolgroup.setBtnAddCourse((Button) relativelayout
 				.findViewById(R.id.phone_study_preload_item_addcourse));
+        preloadcontolgroup.setReloadView(relativelayout.findViewById(R.id.phone_study_preload_item_reload));
 		return relativelayout;
 	}
 
