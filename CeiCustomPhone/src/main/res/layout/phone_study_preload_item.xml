@@ -124,12 +124,14 @@
                 android:text="开始"
                 style="@style/phone_study_bt"
                 android:layout_marginRight="8dp"
+                android:background="#5daafa"
                 android:tag="开始" />
 
             <Button
                 android:id="@+id/phone_study_preload_item_btnDelete"
                 android:text="删除"
-                style="@style/phone_study_bt"/>
+                style="@style/phone_study_bt"
+                android:background="#5daafa"/>
 
             <Button
                 android:id="@+id/phone_study_preload_item_reload"
@@ -137,7 +139,8 @@
                 android:visibility="gone"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                style="@style/phone_study_bt"/>
+                style="@style/phone_study_bt"
+                android:background="#5daafa"/>
         </LinearLayout>
     </RelativeLayout>
 
