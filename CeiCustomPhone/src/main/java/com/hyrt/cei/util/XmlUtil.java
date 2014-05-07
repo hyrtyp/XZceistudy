@@ -611,8 +611,10 @@ public class XmlUtil {
 						coursewares.get(i).setClassId(someValue);
 					}
 					if (tag_name.equals("name")) {
-						coursewares.get(i).setName(someValue.length()>28?someValue.substring(0
-								,27)+"...":someValue);
+                        //android系统可以自动截取，无需手动截取 曾嵘修改于2014-05-07
+                        coursewares.get(i).setName(someValue);
+//						coursewares.get(i).setName(someValue.length()>28?someValue.substring(0
+//								,27)+"...":someValue);
 						coursewares.get(i).setFullName(someValue);
 					}
 					if (tag_name.equals("path")) {
@@ -698,8 +700,10 @@ public class XmlUtil {
 						coursewares.get(i).setClassId(someValue);
 					}
 					if (tag_name.equals("name")) {
-						coursewares.get(i).setName(someValue.length()>28?someValue.substring(0
-								,27)+"...":someValue);
+                        //android系统可以自动截取，无需手动截取 曾嵘修改于2014-05-07
+                        coursewares.get(i).setName(someValue);
+//						coursewares.get(i).setName(someValue.length()>28?someValue.substring(0
+//								,27)+"...":someValue);
 						coursewares.get(i).setFullName(someValue);
 					}
 					if (tag_name.equals("path")) {
@@ -787,8 +791,10 @@ public class XmlUtil {
                         coursewares.get(i).setXzclassid(someValue);
                     }
 					if (tag_name.equals("name")) {
-						coursewares.get(i).setName(someValue.length()>28?someValue.substring(0
-								,27)+"...":someValue);
+                        //android系统可以自动截取，无需手动截取 曾嵘修改于2014-05-07
+                        coursewares.get(i).setName(someValue);
+//						coursewares.get(i).setName(someValue.length()>28?someValue.substring(0
+//								,27)+"...":someValue);
 						coursewares.get(i).setFullName(someValue);
 					}
 					if (tag_name.equals("path")) {

@@ -73,10 +73,12 @@ public class PhoneStudyActivity extends FoundationActivity {
 				point1.setBackgroundResource(R.drawable.read_report_index_select);
 				if (topCoursewares.size() >= 5)
 					if (topCoursewares.get(0).getName() != null) {
-						title.setText(topCoursewares.get(0).getName().length() > 10 ? topCoursewares
-								.get(0).getName().substring(0, 9)
-								+ "..."
-								: topCoursewares.get(0).getName());
+                        //android原生支持，无需手动截取  曾嵘修改2014-05-07
+                        title.setText(topCoursewares.get(0).getName());
+//						title.setText(topCoursewares.get(0).getName().length() > 10 ? topCoursewares
+//								.get(0).getName().substring(0, 9)
+//								+ "..."
+//								: topCoursewares.get(0).getName());
 					}
 				break;
 			case NO_NET:
@@ -95,10 +97,12 @@ public class PhoneStudyActivity extends FoundationActivity {
 				point1.setBackgroundResource(R.drawable.read_report_index_select);
 				if (topCoursewares.size() >= 5)
 					if (topCoursewares.get(0).getName() != null) {
-						title.setText(topCoursewares.get(0).getName().length() > 10 ? topCoursewares
+                        //android原生支持，无需手动截取  曾嵘修改2014-05-07
+                        title.setText(topCoursewares.get(0).getName());
+						/*title.setText(topCoursewares.get(0).getName().length() > 10 ? topCoursewares
 								.get(0).getName().substring(0, 9)
 								+ "..."
-								: topCoursewares.get(0).getName());
+								: topCoursewares.get(0).getName());*/
 
 					}
 				/*
@@ -146,9 +150,11 @@ public class PhoneStudyActivity extends FoundationActivity {
 				Courseware report = (Courseware) arg0.getAdapter()
 						.getItem(arg2);
 				if (report.getName() != null) {
-					title.setText(report.getName() == null ? "" : report
+                    //android原生支持，无需手动截取  曾嵘修改2014-05-07
+                    title.setText(report.getName());
+					/*title.setText(report.getName() == null ? "" : report
 							.getName().length() > 18 ? report.getName()
-							.substring(0, 17) + "..." : report.getName());
+							.substring(0, 17) + "..." : report.getName());*/
 				} else {
 					title.setText("");
 				}

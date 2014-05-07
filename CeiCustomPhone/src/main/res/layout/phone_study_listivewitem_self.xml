@@ -41,13 +41,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 
+            <!-- 添加ellipsize属性，自动截取字符 曾嵘修改于2014-05-07 -->
             <TextView
                 android:id="@+id/phone_study_listviewitem_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:text="@string/phone_study_title"
-                style="@style/phone_study_h1" />
+                style="@style/phone_study_h1"
+                android:ellipsize="end"/>
         </RelativeLayout>
 
         <RelativeLayout

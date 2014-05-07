@@ -329,7 +329,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                 break;
             case DETAIL_DATA_KEY:
                 ((TextView) findViewById(R.id.phone_study_title))
-                        .setText("课程详细");
+                        .setText("课程详情");
                 ImageviewBackbt();
                 break;
             case SERVICE_DATA_KEY:
@@ -856,4 +856,12 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
         popWinMore.setOutsideTouchable(true);
         popWinMore.showAtLocation(findViewById(R.id.phone_study_more), Gravity.BOTTOM | Gravity.LEFT, 0, 0);
     }
+
+    @Override
+    public void finish() {
+        super.finish();
+        //finish时添加动画 曾嵘修改于2014-05-07
+        overridePendingTransition(R.anim.push_in, R.anim.push_out);
+    }
+
 }

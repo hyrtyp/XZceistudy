@@ -44,6 +44,7 @@ import com.hyrt.ceiphone.phonestudy.PhoneStudyActivity;
 import com.hyrt.ceiphone.phonestudy.PreloadActivity;
 import com.hyrt.ceiphone.phonestudy.SayGroupActivity;
 import com.hyrt.ceiphone.phonestudy.SelfActivity;
+import com.hyrt.ceiphone.phonestudy.StudyRecordActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -262,7 +263,8 @@ public class PhoneStudyAdapter extends BaseAdapter {
 			@Override
 			public void onClick(View v) {
                 Intent intent = new Intent(activity, CourseDetailActivityphone.class);
-                if(activity instanceof SelfActivity){
+                //学习记录进入不需要提示选课 曾嵘修改于2014-05-07
+                if(activity instanceof SelfActivity || activity instanceof StudyRecordActivity){
                     intent.putExtra("hidePlay",true);
                 }
 				intent.putExtra("coursewareInfo", coursewares.get(position));
@@ -425,7 +427,13 @@ public class PhoneStudyAdapter extends BaseAdapter {
                         .findViewById(R.id.phone_study_listviewitem_downbtn).setBackgroundColor(activity.getResources().getColor(R.color.xz_activity_top_bg_dis));
                 convertView
                         .findViewById(R.id.phone_study_listviewitem_downbtn).setOnClickListener(null);
+                //曾嵘修改于2014-05-07
+                ((Button) convertView
+                        .findViewById(R.id.phone_study_listviewitem_downbtn)).setText("已下载");
             }else
+                //曾嵘修改于2014-05-07
+                ((Button) convertView
+                        .findViewById(R.id.phone_study_listviewitem_downbtn)).setText("下载");
                 convertView
                         .findViewById(R.id.phone_study_listviewitem_downbtn).setOnClickListener(new OnClickListener() {
 

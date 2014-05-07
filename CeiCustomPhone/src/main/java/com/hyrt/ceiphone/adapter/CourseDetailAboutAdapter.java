@@ -65,7 +65,7 @@ public class CourseDetailAboutAdapter extends BaseAdapter {
 		}
 		String imageUrl = coursewares.get(position).getSmallPath();
 		holder.classIcon.setTag(imageUrl);
-		holder.title.setText("第"+ coursewares.get(position).getClassLevel()+"集");
+		holder.title.setText("第"+ (coursewares.get(position).getClassLevel()+1)+"集");
 		if (drawables.containsKey(imageUrl) && drawables.get(imageUrl) != null) {
 			holder.classIcon.setImageDrawable(drawables.get(imageUrl));
 		} else {

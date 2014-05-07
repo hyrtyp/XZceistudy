@@ -259,6 +259,8 @@ public class CourseDetailActivityphone extends FoundationActivity {
             });
             if (dataHelper.hasPreload(courseware.getClassId()) || !((CeiApplication)getApplication()).isNet()) {
                 findViewById(R.id.phone_study_detail_preload).setBackgroundColor(getResources().getColor(R.color.xz_activity_top_bg_dis));
+                //曾嵘修改于2014-05-07
+                ((Button)findViewById(R.id.phone_study_detail_preload)).setText("已下载");
             }
         }
 		this.CURRENT_KEY = FoundationActivity.DETAIL_DATA_KEY;

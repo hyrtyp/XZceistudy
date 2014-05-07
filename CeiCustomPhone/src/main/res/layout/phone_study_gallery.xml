@@ -19,13 +19,16 @@
         android:gravity="center_vertical"
         android:background="#90ffffff" >
 
+        <!-- 添加ellipsize属性，自动截取字符 曾嵘修改于2014-05-07 -->
         <TextView
             android:id="@+id/read_report_title"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:paddingLeft="20dp"
             android:textColor="#000000"
             android:gravity="center_vertical"
+            android:ellipsize="end"
+            android:singleLine="true"
             style="@style/phone_study_gallery"
             android:text="西藏党校综合楼"
             />

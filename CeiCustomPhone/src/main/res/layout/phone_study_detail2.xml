@@ -7,7 +7,11 @@
 
     <include layout="@layout/phone_study_top" />
 
-    <ScrollView
+    <!-- 由于外层scrollview把触摸事件消费掉了，
+    导致有些手机课程简介无法滑动，
+    外层scrollview修改为不能滑动的
+    曾嵘修改于2014-05-07 -->
+    <com.hyrt.readreport.view.VerticalScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="#f0f4f6"
@@ -32,8 +36,8 @@
 
                     <ImageView
                         android:id="@+id/phone_study_detail_icon"
-                        android:scaleType="fitXY"
                         android:layout_gravity="center_vertical"
+                        android:scaleType="fitXY"
                         android:src="@drawable/courseware_default_icon"
                         style="@style/phone_study_image_list"/>
 
@@ -62,11 +66,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" >
 
+                        <!-- 添加ellipsize属性，自动截取字符 曾嵘修改于2014-05-07 -->
                         <com.hyrt.cei.ui.phonestudy.view.AlwaysMarqueeTextView
                             android:id="@+id/phone_study_detail_title"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:maxLines="2"
+                            android:ellipsize="end"
                             style="@style/phone_study_h1"/>
                     </RelativeLayout>
 
@@ -189,24 +195,17 @@
                     style="@style/phone_study_bt"
                     />
 
+                <!-- 修改height 曾嵘修改于2014-05-07 -->
                 <ScrollView
                     android:layout_width="wrap_content"
-                    android:layout_height="162dp"
+                    android:layout_height="155dp"
                     android:id="@+id/more_scroll">
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginTop="60dp"
-                            android:id="@+id/more_icon"
-                            android:visibility="gone"
-                            android:focusable="false"
-                            android:src="@drawable/more_icon"/>
+
 
                         <TextView
                             android:id="@+id/phone_study_detail_content"
@@ -219,7 +218,7 @@
 
 
 
-                     </RelativeLayout>
+                    </RelativeLayout>
 
 
                 </ScrollView>
@@ -230,6 +229,14 @@
                     android:minHeight="102dp"
                     android:visibility="gone"
                     android:id="@+id/full_des"/>
+                <!-- 修改更多提示图标位置 曾嵘修改于2014-05-07 -->
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:id="@+id/more_icon"
+                    android:focusable="false"
+                    android:src="@drawable/more_icon"/>
 
 
             </LinearLayout>
@@ -272,7 +279,7 @@
                             android:id="@+id/phone_study_gridview"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:listSelector="@drawable/nodrawable"/>
+                            android:listSelector="@drawable/nodrawable" />
                     </LinearLayout>
                 </HorizontalScrollView>
             </LinearLayout>
@@ -283,7 +290,7 @@
                 android:orientation="vertical"
                 android:layout_margin="@dimen/phone_study_view_margin"
                 android:visibility="gone"
-               >
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -330,6 +337,6 @@
                 </RelativeLayout>
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+    </com.hyrt.readreport.view.VerticalScrollView>
 
 </LinearLayout>
