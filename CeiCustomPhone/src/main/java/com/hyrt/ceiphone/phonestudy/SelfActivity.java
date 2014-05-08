@@ -32,6 +32,9 @@ public class SelfActivity extends FoundationActivity {
 		super.onCreate(savedInstanceState);
 		this.CURRENT_KEY = FoundationActivity.SELF_DATA_KEY;
 		setContentView(R.layout.phone_study_self);
+        if(!isDown){
+            findViewById(R.id.layout_load).setVisibility(View.VISIBLE);
+        }
 		dataHelper = ((CeiApplication) getApplication()).dataHelper;
 		final LinearLayout labelParent = (LinearLayout) findViewById(R.id.phone_study_labelParent);
 		for (int i = 0; i < labelParent.getChildCount(); i++) {

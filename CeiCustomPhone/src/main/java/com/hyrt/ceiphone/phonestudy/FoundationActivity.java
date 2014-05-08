@@ -346,7 +346,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                 break;
             case SEARCH_DATA_KEY:
                 ((TextView) findViewById(R.id.phone_study_title))
-                        .setText("课件搜索");
+                        .setText("课程搜索");
                 ImageviewBackbt();
                 break;
             case SELF_DATA_KEY:
