@@ -264,7 +264,8 @@ public class PhoneStudyAdapter extends BaseAdapter {
 			public void onClick(View v) {
                 Intent intent = new Intent(activity, CourseDetailActivityphone.class);
                 //学习记录进入不需要提示选课 曾嵘修改于2014-05-07
-                if(activity instanceof SelfActivity || activity instanceof StudyRecordActivity){
+                if(activity instanceof SelfActivity || activity instanceof StudyRecordActivity
+                        || "mykc".equals(((FoundationActivity)activity).type)){
                     intent.putExtra("hidePlay",true);
                 }
 				intent.putExtra("coursewareInfo", coursewares.get(position));

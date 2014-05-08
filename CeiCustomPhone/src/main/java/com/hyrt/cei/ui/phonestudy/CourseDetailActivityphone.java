@@ -320,7 +320,7 @@ public class CourseDetailActivityphone extends FoundationActivity {
 
 				if (((CeiApplication) getApplication()).isNet()) {
 					String result = Service.queryClassName(name,
-							"");
+							"","",null);
 					XmlUtil.parseCoursewares(result, aboutCourseware);
 					for (int i = 0; i < aboutCourseware.size(); i++) {
 						if (aboutCourseware.get(i).getClassId()

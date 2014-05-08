@@ -14,6 +14,7 @@ import com.hyrt.cei.vo.Forum;
 import com.hyrt.cei.vo.UserInfo;
 import com.hyrt.cei.webservice.wsdl.AgentServiceSoapBindingImpl;
 import com.hyrt.cei.webservice.wsdl.Configuration;
+import com.hyrt.ceiphone.phonestudy.KindsActivity;
 
 /**
  * 调用webservice
@@ -457,13 +458,19 @@ public class Service {
 		return rs;
 	}
 
-	public static String queryClassName(String name, String functionids) {
+	public static String queryClassName(String name, String functionids,String type,String userid) {
 		String rs = "";
 		try {
 			String xmlStr = "<?xml version='1.0' encoding='UTF-8'?>" + "<ROOT>"
-					+ "<classname>" + name + "</classname>" + "<functionids>"
-					+ functionids + "</functionids>" + "<imagetype>"
-					+ "androidpad" + "</imagetype>" + "</ROOT>";
+					+ "<classname>" + name + "</classname>"
+                    + "<type>" + type + "</type>"
+                    + "<functionids>" + functionids + "</functionids>" + "<imagetype>"
+					+ "androidpad" + "</imagetype>";
+            if(userid != null && userid.length() > 0 && "mykc".equals(type))
+                xmlStr += "<userid>" + userid + "</userid>";
+            if("kczx".equals(type))
+                xmlStr += "<classtypeid>" + KindsActivity.oldFunctionId + "</classtypeid>";
+            xmlStr += "</ROOT>";
 			rs = agent.queryClassName(xmlStr);
 		} catch (Exception e) {
 			e.printStackTrace();

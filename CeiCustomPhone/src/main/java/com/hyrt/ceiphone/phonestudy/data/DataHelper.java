@@ -24,9 +24,13 @@ public class DataHelper {
 
 	private FoundationActivity activity;
 	private String currentFunctionId;
+    private String userId;
 
 	public DataHelper(FoundationActivity activity) {
-		this.activity = activity;
+        this.activity = activity;
+        userId = ((CeiApplication) (activity
+                .getApplication())).columnEntry
+                .getUserId();
 	}
 
 	/**
@@ -237,8 +241,12 @@ public class DataHelper {
 		}).start();
 	}
 
-	// 搜索课件列表
-	public void loadClassesBySearch(final String className) {
+    /*
+      * *搜索课件列表
+       * <type>查询类型</ type >sy（首页）mykc(我的课程)kczx(课程中心)
+      */
+
+	public void loadClassesBySearch(final String className,final String type) {
 		new Thread(new Runnable() {
 
 			private StringBuilder functionIds;
@@ -268,7 +276,7 @@ public class DataHelper {
 				initSendData();
 				if (((CeiApplication) activity.getApplication()).isNet()) {
 					String result = Service.queryClassName(className,
-							"");
+							"",type,userId);
 					XmlUtil.parseCoursewares(result, activity.courses);
 					result = Service.queryCourse(((CeiApplication) (activity
 							.getApplication())).columnEntry.getXzuserid());

@@ -32,12 +32,13 @@ public class KindsActivity extends FoundationActivity{
 	private MenuGridView gridView1;
 	private MenuGridView gridView2;
 	private List<ClassType> classTypes = new ArrayList<ClassType>();
-	private String oldFunctionId = "";
+	public static String oldFunctionId = "";
 	public static final String KIND_DATA = "KIND_DATA";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+        oldFunctionId = "";
 		setContentView(R.layout.phone_study_kinds);
 		CURRENT_KEY = KIND_DATA_KEY;
 		initMenuData();

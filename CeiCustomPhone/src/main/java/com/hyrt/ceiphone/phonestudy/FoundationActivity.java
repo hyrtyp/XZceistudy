@@ -123,6 +123,8 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
     private int announcementCount;
     // 用户名
     private String loginName;
+    //类型
+    public String type;
 
     // 数据视图附加handler
     public Handler dataHandler = new Handler() {
@@ -209,10 +211,17 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                                         phoneStudyListView, false);
                                 break;
                             case SEARCH_DATA_KEY:
-                                phoneStudyAdapter = new PhoneStudyAdapter(
-                                        FoundationActivity.this,
-                                        R.layout.phone_study_listivewitem_three,
-                                        coursewares, phoneStudyListView, false);
+                                if("mykc".equals(type)) {
+                                    phoneStudyAdapter = new PhoneStudyAdapter(
+                                            FoundationActivity.this,
+                                            R.layout.phone_study_listivewitem_self,
+                                            coursewares, phoneStudyListView, true);
+                                }else{
+                                    phoneStudyAdapter = new PhoneStudyAdapter(
+                                            FoundationActivity.this,
+                                            R.layout.phone_study_listivewitem_three,
+                                            coursewares, phoneStudyListView, false);
+                                }
                                 break;
                             case SAY_DATA_KEY:
                                 phoneStudyAdapter = new PhoneStudyAdapter(
@@ -244,6 +253,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
         super.onCreate(savedInstanceState);
         activitys.add(this);
         isDown = getIntent().getBooleanExtra("down",false);
+        type = getIntent().getStringExtra("type");
         overridePendingTransition(R.anim.push_in, R.anim.push_out);
 
     }
@@ -494,11 +504,11 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
         dataHelper.loadClassesByKind(kindId);
     }
 
-    public void getServiceDataByClassName(String className) {
+    public void getServiceDataByClassName(String className,String type) {
         index = 0;
         if (dataHelper == null)
             dataHelper = new DataHelper(this);
-        dataHelper.loadClassesBySearch(className);
+        dataHelper.loadClassesBySearch(className,type);
     }
 
     @Override
@@ -555,6 +565,14 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                 if (CURRENT_KEY == SEARCH_DATA_KEY)
                     return;
                 Intent intent2 = new Intent(this, SearchActivity.class);
+                if(this instanceof SelfActivity){
+                    intent2.putExtra("type","mykc");
+                }else if(this instanceof PhoneStudyActivity){
+                    intent2.putExtra("type","sy");
+                }else if(this instanceof KindsActivity){
+                    intent2.putExtra("type","kczx");
+                 }
+
                 clearActivitys();
                 startActivity(intent2);
                 break;

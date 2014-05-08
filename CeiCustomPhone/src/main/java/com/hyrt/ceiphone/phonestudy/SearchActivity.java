@@ -43,7 +43,7 @@ public class SearchActivity extends FoundationActivity {
 				coursewares.clear();
 				oldStr = className;
 				if(!className.trim().equals("")){
-					getServiceDataByClassName(className);
+					getServiceDataByClassName(className,type);
 					Editor editor = settings.edit();
 					editor.putString("history", className);
 					editor.commit();
