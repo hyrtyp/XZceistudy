@@ -29,6 +29,7 @@ import android.widget.TextView;
 
 import com.hyrt.cei.application.CeiApplication;
 import com.hyrt.cei.ui.personcenter.PersonCenter;
+import com.hyrt.cei.ui.phonestudy.CourseDetailActivityphone;
 import com.hyrt.cei.util.AsyncImageLoader;
 import com.hyrt.cei.util.MyTools;
 import com.hyrt.cei.util.XmlUtil;
@@ -42,6 +43,7 @@ import com.hyrt.ceiphone.R;
 import com.hyrt.ceiphone.adapter.PhoneStudyAdapter;
 import com.hyrt.ceiphone.common.Announcement;
 import com.hyrt.ceiphone.common.Disclaimer;
+import com.hyrt.ceiphone.common.WebViewUtil;
 import com.hyrt.ceiphone.phonestudy.data.DataHelper;
 
 import java.util.ArrayList;
@@ -705,7 +707,8 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
 
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
-        if(event.getAction() == KeyEvent.KEYCODE_BACK){
+        if(keyCode == KeyEvent.KEYCODE_BACK
+                && !(this instanceof CourseDetailActivityphone)){
             if(!(this instanceof PhoneStudyActivity))
                 startActivity(new Intent(FoundationActivity.this, PhoneStudyActivity.class));
             for (int i = 0; i < activitys.size(); i++) {
