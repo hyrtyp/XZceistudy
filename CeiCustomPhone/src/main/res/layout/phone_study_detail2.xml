@@ -236,7 +236,8 @@
                     android:layout_gravity="right"
                     android:id="@+id/more_icon"
                     android:focusable="false"
-                    android:src="@drawable/more_icon"/>
+                    android:src="@drawable/more_icon"
+                    android:visibility="gone"/>
 
 
             </LinearLayout>
