@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Environment;
 import android.os.Message;
+import android.view.View;
 
 import com.hyrt.cei.application.CeiApplication;
 import com.hyrt.cei.util.MyTools;
@@ -12,6 +13,7 @@ import com.hyrt.cei.util.XmlUtil;
 import com.hyrt.cei.vo.ColumnEntry;
 import com.hyrt.cei.vo.Courseware;
 import com.hyrt.cei.webservice.service.Service;
+import com.hyrt.ceiphone.R;
 import com.hyrt.ceiphone.phonestudy.FoundationActivity;
 import com.hyrt.ceiphone.phonestudy.KindsActivity;
 import com.hyrt.ceiphone.phonestudy.NominateActivity;
@@ -24,7 +26,7 @@ public class DataHelper {
 
 	private FoundationActivity activity;
 	private String currentFunctionId;
-    private String userId;
+    public String userId;
 
 	public DataHelper(FoundationActivity activity) {
         this.activity = activity;
@@ -185,6 +187,7 @@ public class DataHelper {
 		if (functionId.equals(currentFunctionId))
 			return;
 		currentFunctionId = functionId;
+        activity.findViewById(R.id.layout_load).setVisibility(View.VISIBLE);
 		new Thread(new Runnable() {
 			public void run() {
 				List<Courseware> selfselCourseware = new ArrayList<Courseware>();
@@ -211,7 +214,7 @@ public class DataHelper {
 						}
 						Message msg = activity.dataHandler.obtainMessage();
 						WriteOrRead.write(result, MyTools.nativeData,
-								KindsActivity.KIND_DATA);
+								KindsActivity.KIND_DATA+functionId);
 						msg.arg1 = FoundationActivity.LVDATA_KEY;
 						if (!currentFunctionId.equals(functionId))
 							return;
@@ -225,7 +228,7 @@ public class DataHelper {
 					}
 				} else {
 					String result = WriteOrRead.read(MyTools.nativeData,
-							KindsActivity.KIND_DATA);
+							KindsActivity.KIND_DATA+functionId);
 					if (XmlUtil.parseReturnCode(result).equals("")) {
 						XmlUtil.parseCoursewares(result, activity.courses);
 						Message msg = activity.dataHandler.obtainMessage();
@@ -276,11 +279,11 @@ public class DataHelper {
 				initSendData();
 				if (((CeiApplication) activity.getApplication()).isNet()) {
 					String result = Service.queryClassName(className,
-							"",type,userId);
-					XmlUtil.parseCoursewares(result, activity.courses);
+							"",type,userId,1);
+					XmlUtil.parseErrorCoursewares(result, activity.courses);
 					result = Service.queryCourse(((CeiApplication) (activity
 							.getApplication())).columnEntry.getXzuserid());
-					XmlUtil.parseCoursewares(result, selfselCoursewares);
+					XmlUtil.parseErrorCoursewares(result, selfselCoursewares);
 					for (int i = 0; i < activity.courses.size(); i++) {
 						for (int j = 0; j < selfselCoursewares.size(); j++) {
 							if (activity.courses

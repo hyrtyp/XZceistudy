@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="C:\Users\peng\Documents\GitHub\XZceistudy\CeiCustomPhone\build\pre-dexed\flavor1\debug\classes-153adbb8f22dc8f0b6744c9fb14ba5d1ec6028b2.jar"
+        jar="C:\Users\peng\Documents\GitHub\XZceistudy\build\exploded-aar\XZceistudy\WeiboApi\unspecified\classes.jar"
+        jumboMode="false"
+        revision="19.0.3"
+        sha1="752b0b29256dfa802ad69e2a9f88b9cac50d2e32"/>
+    <item
+        dex="C:\Users\peng\Documents\GitHub\XZceistudy\CeiCustomPhone\build\pre-dexed\flavor1\debug\dom4j-1.6.1-f91f00e6210e11634bffd1b1eac16fcb83dc149c.jar"
+        jar="C:\Users\peng\Documents\GitHub\XZceistudy\CeiCustomPhone\libs\dom4j-1.6.1.jar"
+        jumboMode="false"
+        revision="19.0.3"
+        sha1="5d3ccc056b6f056dbf0dddfdf43894b9065a8f94"/>
+    <item
+        dex="C:\Users\peng\Documents\GitHub\XZceistudy\CeiCustomPhone\build\pre-dexed\flavor1\debug\classes-981e74562ef7f59490afd22a312c8f3301c904e9.jar"
+        jar="C:\Users\peng\Documents\GitHub\XZceistudy\build\exploded-aar\XZceistudy\Weibo\unspecified\classes.jar"
+        jumboMode="false"
+        revision="19.0.3"
+        sha1="a2c79487c61fdc4003bc436efb8cb96872d94901"/>
+    <item
+        dex="C:\Users\peng\Documents\GitHub\XZceistudy\CeiCustomPhone\build\pre-dexed\flavor1\debug\ksoap2-android-assembly-2.4-jar-with-dependencies (1)-4d52ccba3fb679e23f4efeb71dd91cac78e8f4c2.jar"
+        jar="C:\Users\peng\Documents\GitHub\XZceistudy\CeiCustomPhone\libs\ksoap2-android-assembly-2.4-jar-with-dependencies (1).jar"
+        jumboMode="false"
+        revision="19.0.3"
+        sha1="e8796346a9191a019e936210a2dc50662c57594b"/>
+    <item
+        dex="C:\Users\peng\Documents\GitHub\XZceistudy\CeiCustomPhone\build\pre-dexed\flavor1\debug\j4lChartAndroid-544a247f437c1c82343d1543af99909f4df42549.jar"
+        jar="C:\Users\peng\Documents\GitHub\XZceistudy\CeiCustomPhone\libs\j4lChartAndroid.jar"
+        jumboMode="false"
+        revision="19.0.3"
+        sha1="f64c2af802329b453f271ee496554be30ff17139"/>
+    <item
+        dex="C:\Users\peng\Documents\GitHub\XZceistudy\CeiCustomPhone\build\pre-dexed\flavor1\debug\commons-httpclient-3.1-feca4cbc59445684c0f145b4d72d6a83664fa67c.jar"
+        jar="C:\Users\peng\Documents\GitHub\XZceistudy\CeiCustomPhone\libs\commons-httpclient-3.1.jar"
+        jumboMode="false"
+        revision="19.0.3"
+        sha1="964cd74171f427720480efdec40a7c7f6e58426a"/>
+    <item
+        dex="C:\Users\peng\Documents\GitHub\XZceistudy\CeiCustomPhone\build\pre-dexed\flavor1\debug\ant-627b9f1dcfc038812d596b7c979c18e1387b8a2c.jar"
+        jar="C:\Users\peng\Documents\GitHub\XZceistudy\CeiCustomPhone\libs\ant.jar"
+        jumboMode="false"
+        revision="19.0.3"
+        sha1="9746af1a485e50cf18dcb232489032a847067066"/>
+    <item
+        dex="C:\Users\peng\Documents\GitHub\XZceistudy\CeiCustomPhone\build\pre-dexed\flavor1\debug\support-v4-13.0.0-59ac4d61515a62da42bd3180e9fe171b27523a66.jar"
+        jar="C:\Program Files (x86)\Android\android-studio\sdk\extras\android\m2repository\com\android\support\support-v4\13.0.0\support-v4-13.0.0.jar"
+        jumboMode="false"
+        revision="19.0.3"
+        sha1="3fe75433da602500cc71fcc1c46e5550291dd45d"/>
+
+</pre-dex-items>

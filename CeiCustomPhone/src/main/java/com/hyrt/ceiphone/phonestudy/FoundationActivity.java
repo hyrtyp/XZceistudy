@@ -132,13 +132,15 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
         public void dispatchMessage(Message msg) {
             switch (msg.arg1) {
                 case LVDATA_KEY:
-                    coursewares.clear();
+                    footer.setVisibility(View.VISIBLE);
+
                     if (courses.size() == 0) {
                         footer.setVisibility(View.GONE);
                         MyTools.exitShow(FoundationActivity.this,
                                 FoundationActivity.this.getWindow().getDecorView(), "没有查到您需要的信息!");
                     }
                     if (CURRENT_KEY == SELF_DATA_KEY || CURRENT_KEY == RECORD_DATA_KEY) {
+                        coursewares.clear();
                         for (int i = index * 888; i < (index + 1) * 888
                                 && i < courses.size(); i++) {
                             if (i == courses.size() - 1) {
@@ -150,14 +152,8 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                             coursewares.add(courses.get(i));
                         }
                     } else {
-                        for (int i = index * 20; i < (index + 1) * 20
+                        for (int i = index * 8; i < (index + 1) * 8
                                 && i < courses.size(); i++) {
-                            if (i == courses.size() - 1) {
-                                footer.setVisibility(View.GONE);
-                            } else {
-                                if (footer.getVisibility() == View.GONE)
-                                    footer.setVisibility(View.VISIBLE);
-                            }
                             coursewares.add(courses.get(i));
                         }
                     }
@@ -209,6 +205,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                                         FoundationActivity.this,
                                         R.layout.phone_study_listivewitem_two, coursewares,
                                         phoneStudyListView, false);
+                                findViewById(R.id.layout_load).setVisibility(View.GONE);
                                 break;
                             case SEARCH_DATA_KEY:
                                 if("mykc".equals(type)) {
@@ -238,6 +235,8 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                         }
                         phoneStudyListView.setAdapter(phoneStudyAdapter);
                     } else {
+                        if(findViewById(R.id.layout_load) != null)
+                            findViewById(R.id.layout_load).setVisibility(View.GONE);
                         phoneStudyAdapter.notifyDataSetChanged();
                     }
                     break;
@@ -472,7 +471,6 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                     dataHelper.getNewData();
                     break;
                 case SELF_DATA_KEY:
-                    footer.setVisibility(View.GONE);
                     dataHelper.getSelCourseData();
                     break;
                 case SAY_DATA_KEY:
@@ -481,10 +479,8 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                 case RECORD_DATA_KEY:
                     dataHelper.getStudyRecords();
                 case KIND_DATA_KEY:
-                    footer.setVisibility(View.GONE);
                     break;
                 case SEARCH_DATA_KEY:
-                    footer.setVisibility(View.GONE);
                     break;
             }
         }
@@ -504,10 +500,12 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
         dataHelper.loadClassesByKind(kindId);
     }
 
+    private String className;
     public void getServiceDataByClassName(String className,String type) {
         index = 0;
         if (dataHelper == null)
             dataHelper = new DataHelper(this);
+        this.className = className;
         dataHelper.loadClassesBySearch(className,type);
     }
 
@@ -592,7 +590,24 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                 if (phoneStudyAdapter == null)
                     return;
                 index++;
+                if(findViewById(R.id.layout_load) != null)
+                    findViewById(R.id.layout_load).setVisibility(View.VISIBLE);
                 switch (CURRENT_KEY) {
+                    case SEARCH_DATA_KEY:
+                        List<Courseware> moreCoursewares = new ArrayList<Courseware>();
+                        String result = Service.queryClassName(className,KindsActivity.oldFunctionId,type,dataHelper.userId,index+1);
+                        if (XmlUtil.parseReturnCode(result).equals("")) {
+                            XmlUtil.parseErrorCoursewares(result, moreCoursewares);
+                            courses.addAll(moreCoursewares);
+                            Message msg = dataHandler.obtainMessage();
+                            msg.arg1 = LVDATA_KEY;
+                            dataHandler.sendMessage(msg);
+                        } else {
+                            Message msg = dataHandler.obtainMessage();
+                            msg.arg1 = NO_NET;
+                            dataHandler.sendMessage(msg);
+                        }
+                        break;
                     case KIND_DATA_KEY:
                         new Thread(new Runnable() {
 
@@ -601,7 +616,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                                 List<Courseware> selfselCourseware = new ArrayList<Courseware>();
                                 List<Courseware> moreCoursewares = new ArrayList<Courseware>();
                                 String result = Service.queryClassTypeByClass(
-                                        currentFunctionId, index + 1);
+                                        currentFunctionId, index+1);
                                 if (XmlUtil.parseReturnCode(result).equals("")) {
                                     XmlUtil.parseCoursewares(result, moreCoursewares);
                                     result = Service
@@ -645,7 +660,7 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                                 coursewares.add(courses.get(i));
                             }
                         } else {
-                            for (int i = index * 20; i < (index + 1) * 20
+                            for (int i = index * 8; i < (index + 1) * 8
                                     && i < courses.size(); i++) {
                                 if (i == courses.size() - 1)
                                     footer.setVisibility(View.GONE);

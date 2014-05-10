@@ -40,6 +40,7 @@ public class KindsActivity extends FoundationActivity{
 		super.onCreate(savedInstanceState);
         oldFunctionId = "";
 		setContentView(R.layout.phone_study_kinds);
+
 		CURRENT_KEY = KIND_DATA_KEY;
 		initMenuData();
 	}
@@ -48,7 +49,9 @@ public class KindsActivity extends FoundationActivity{
 		currentFunctionId = functionId;
 		if (oldFunctionId.equals(currentFunctionId))
 			return;
+        index = 0;
 		oldFunctionId = currentFunctionId;
+        coursewares.clear();
 		getServiceDataByKindId(currentFunctionId);
 	}
 	
