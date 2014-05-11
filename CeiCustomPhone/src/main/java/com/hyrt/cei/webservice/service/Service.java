@@ -304,6 +304,7 @@ public class Service {
 		try {
 			String xmlStr = "<?xml version='1.0' encoding='UTF-8'?>" + "<ROOT>"
 					+ "<userid>" + userid + "</userid>"
+                    + "<index>" + "1" + "</index>"
 					+ "<buytype>kj</buytype>"
 					+ "<imagetype>androidpad</imagetype>" + "</ROOT>";
 			rs = agent.queryCourse(xmlStr);
@@ -481,11 +482,13 @@ public class Service {
 		return rs;
 	}
 
-	public static String queryClassByTime(String versionId, String functionids) {
+	public static String queryClassByTime(String versionId, String functionids,int index) {
 		String rs = "";
 		try {
 			String xmlStr = "<?xml version='1.0' encoding='UTF-8'?>" + "<ROOT>"
-					+ "<funid>" + versionId + "</funid>" + "<functionids>"
+					+ "<funid>" + versionId + "</funid>"
+                    + "<index>" + index + "</index>"
+                    + "<functionids>"
 					+ functionids + "</functionids>" + "<imagetype>"
 					+ "androidpad" + "</imagetype>" + "</ROOT>";
 			rs = agent.queryClassByTime(xmlStr);

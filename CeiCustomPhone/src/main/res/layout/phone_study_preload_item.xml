@@ -46,6 +46,7 @@
             android:max="100"
             android:maxHeight="8.0dip"
             android:minHeight="5.0dip"
+            android:background="@drawable/progress_style"
             android:progressDrawable="@drawable/phone_study_preload_item_progress_style_play" />
 
         <LinearLayout
