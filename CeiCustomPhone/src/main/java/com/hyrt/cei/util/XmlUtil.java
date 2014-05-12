@@ -740,8 +740,12 @@ public class XmlUtil {
 					}
                     if (tag_name.equals("xzclassid")) {
                         coursewares.get(i).setXzclassid(someValue);
-                    }if (tag_name.equals("timepoint")) {
+                    }
+                    if (tag_name.equals("timepoint")) {
                         coursewares.get(i).setTimePoint(someValue);
+                    }
+                    if (tag_name.equals("time")) {
+                        coursewares.get(i).setStudyTime(someValue);
                     }
 					break;
 				}
