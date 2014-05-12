@@ -12,7 +12,7 @@ apply plugin: 'signing'
 
 
 group  = 'com.hyrt.ceicustom'
-version  = '4'
+version  = '6'
 def artifact = 'cei-phonestudy-custom'
 project.ext.set('artifact', artifact)
 def isReleaseVersion = !version.endsWith('SNAPSHOT')
@@ -51,7 +51,7 @@ android {
     productFlavors {
         flavor1 {
             packageName "com.example.flavorxzphone1"
-            versionCode 4
+            versionCode 6
         }
     }
 
