@@ -429,12 +429,21 @@ public class PhoneStudyAdapter extends BaseAdapter {
                 convertView
                         .findViewById(R.id.phone_study_listviewitem_downbtn).setOnClickListener(null);
                 //曾嵘修改于2014-05-07
-                ((Button) convertView
-                        .findViewById(R.id.phone_study_listviewitem_downbtn)).setText("已下载");
-            }else
+                int isLoaded=0;
+                try {
+                    isLoaded = dataHelper.getPreload(coursewares.get(position).getClassId()).getLoadFinish();
+                    ((Button) convertView
+                            .findViewById(R.id.phone_study_listviewitem_downbtn)).setText(isLoaded==1?"已下载":"下载中");
+                }catch (Exception e){
+                    ((Button) convertView
+                            .findViewById(R.id.phone_study_listviewitem_downbtn)).setText("下载");
+                }
+
+            }else {
                 //曾嵘修改于2014-05-07
                 ((Button) convertView
                         .findViewById(R.id.phone_study_listviewitem_downbtn)).setText("下载");
+            }
                 convertView
                         .findViewById(R.id.phone_study_listviewitem_downbtn).setOnClickListener(new OnClickListener() {
 

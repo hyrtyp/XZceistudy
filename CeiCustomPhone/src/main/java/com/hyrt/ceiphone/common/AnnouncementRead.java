@@ -32,7 +32,7 @@ import com.hyrt.ceiphone.phonestudy.SelfActivity;
  * @author Administrator
  * 
  */
-public class AnnouncementRead extends ContainerActivity implements OnClickListener {
+public class AnnouncementRead extends FoundationActivity{
 	private WebView view;
 	private Intent intent;
 	private String url;
@@ -42,6 +42,7 @@ public class AnnouncementRead extends ContainerActivity implements OnClickListen
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.announcementread);
+        findViewById(R.id.phone_study_morebtn).setVisibility(View.GONE);
         overridePendingTransition(R.anim.push_in, R.anim.push_out);
 		view = (WebView) findViewById(R.id.tzgg_web);
 		view.getSettings().setDefaultTextEncodingName("gbk");
@@ -57,11 +58,6 @@ public class AnnouncementRead extends ContainerActivity implements OnClickListen
 		intent = getIntent();
 		url = intent.getStringExtra("extra")+"&t="+System.currentTimeMillis();
 		view.loadUrl(htmlHade + url);
-		LinearLayout bottomsLl = (LinearLayout) findViewById(R.id.bottoms_Ll);
-		for (int i = 0; i < bottomsLl.getChildCount(); i++) {
-			((RelativeLayout) (bottomsLl.getChildAt(i))).getChildAt(0)
-					.setOnClickListener(this);
-		}
         ImageView spinner = (ImageView)findViewById(R.id.phone_study_more);
         spinner.setOnClickListener(new OnClickListener() {
             @Override
@@ -69,6 +65,7 @@ public class AnnouncementRead extends ContainerActivity implements OnClickListen
                 alertPopMore();
             }
         });
+
         findViewById(R.id.phone_study_back_bt).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -158,26 +155,5 @@ public class AnnouncementRead extends ContainerActivity implements OnClickListen
 		AnnouncementRead.this.finish();
 	}
 
-	@Override
-	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.main_rl:
-			intent = new Intent(this, HomePageDZB.class);
-			startActivity(intent);
-			break;
-		case R.id.notice_rl:
-			intent = new Intent(this, Announcement.class);
-			startActivity(intent);
-			break;
-		case R.id.collect_rl:
-			intent = new Intent(this, WitSeaActivity.class);
-			startActivity(intent);
-			break;
-		case R.id.psc_rl:
-			intent = new Intent(this, PersonCenter.class);
-			startActivity(intent);
-			break;
-		}
-	}
 
 }

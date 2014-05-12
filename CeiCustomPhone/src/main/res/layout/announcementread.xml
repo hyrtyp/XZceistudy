@@ -150,4 +150,6 @@
         android:layout_marginRight="@dimen/phone_study_view_margin"
         android:layout_marginLeft="@dimen/phone_study_view_margin"
 	></WebView>
+
+    <include layout="@layout/phone_study_bottom2" />
 </RelativeLayout>

@@ -238,12 +238,21 @@ public class CourseDetailActivityphone extends FoundationActivity {
                     Intent intent = new Intent(
                             CourseDetailActivityphone.this,
                             WebViewUtil.class);
-                    if (courseware.getLookPath() == null)
-                        courseware.setLookPath("file:///" +
-                                dataHelper.getPreload(courseware.getClassId()).getLoadLocalPath()
-                                        .replace(
-                                                FLASH_POSTFIX,
-                                                FLASH_GATE));
+                    if (courseware.getLookPath() == null) {
+                        try {
+                            courseware.setLookPath("file:///" +
+                                    dataHelper.getPreload(courseware.getClassId()).getLoadLocalPath()
+                                            .replace(
+                                                    FLASH_POSTFIX,
+                                                    FLASH_GATE));
+                        }catch (Exception e){
+                            MyTools.exitShow(
+                                    CourseDetailActivityphone.this,
+                                    CourseDetailActivityphone.this
+                                            .getWindow().getDecorView(),
+                                    "您处于离线状态 \n 无法进行该操作");
+                        }
+                    }
                     if (courseware.getLookPath() != null) {
                         intent.putExtra(
                                 "path",
@@ -260,7 +269,12 @@ public class CourseDetailActivityphone extends FoundationActivity {
             if (dataHelper.hasPreload(courseware.getClassId()) || !((CeiApplication)getApplication()).isNet()) {
                 findViewById(R.id.phone_study_detail_preload).setBackgroundColor(getResources().getColor(R.color.xz_activity_top_bg_dis));
                 //曾嵘修改于2014-05-07
-                ((Button)findViewById(R.id.phone_study_detail_preload)).setText("已下载");
+                try {
+                    int isLoaded = dataHelper.getPreload(courseware.getClassId()).getLoadFinish();
+                    ((Button) findViewById(R.id.phone_study_detail_preload)).setText(isLoaded == 1 ? "已下载" : "下载中");
+                }catch (Exception e){
+                    ((Button) findViewById(R.id.phone_study_detail_preload)).setText("下载");
+                }
             }
         }
 		this.CURRENT_KEY = FoundationActivity.DETAIL_DATA_KEY;
@@ -320,7 +334,7 @@ public class CourseDetailActivityphone extends FoundationActivity {
 
 				if (((CeiApplication) getApplication()).isNet()) {
 					String result = Service.queryClassName(name,
-							"","",null);
+							"","",null,1);
 					XmlUtil.parseCoursewares(result, aboutCourseware);
 					for (int i = 0; i < aboutCourseware.size(); i++) {
 						if (aboutCourseware.get(i).getClassId()
