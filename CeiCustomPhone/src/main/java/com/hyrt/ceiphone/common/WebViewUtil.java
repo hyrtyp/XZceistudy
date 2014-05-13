@@ -160,7 +160,7 @@ public class WebViewUtil extends ContainerActivity {
 								.getUserId() + "&classid=" + classId
 						+ "&native=0" + "&location="+(courseware.getTimePoint()==null?0:courseware.getTimePoint())+
                         "&xzclassid=" + xzclassid +"&xzuserid="+settings.getString("XZUSERID",((CeiApplication) (this.getApplication())).columnEntry
-                        .getXzuserid())+"&totaltime=0";
+                        .getXzuserid())+"&totaltime="+courseware.getStudyTime();
 			}
 			validStatusCode(path.replace("/apad.html",
 					FoundationActivity.FLASH_GATE));

@@ -220,69 +220,75 @@ public class CourseDetailActivityphone extends FoundationActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.phone_study_detail2);
-        asyncImageLoader = ((CeiApplication) (getApplication())).asyncImageLoader;
-        columnEntry = ((CeiApplication) getApplication()).columnEntry;
-        dataHelper = ((CeiApplication) getApplication()).dataHelper;
-        courseware = (Courseware) getIntent().getSerializableExtra("coursewareInfo");
-        registEvent();
-        if(getIntent().getBooleanExtra("hidePlay",false)){
-            //findViewById(R.id.phone_study_detail_play).setVisibility(View.VISIBLE);
+        try {
+            asyncImageLoader = ((CeiApplication) (getApplication())).asyncImageLoader;
+            columnEntry = ((CeiApplication) getApplication()).columnEntry;
+            dataHelper = ((CeiApplication) getApplication()).dataHelper;
+            courseware = (Courseware) getIntent().getSerializableExtra("coursewareInfo");
+            registEvent();
+            if (getIntent().getBooleanExtra("hidePlay", false)) {
+                //findViewById(R.id.phone_study_detail_play).setVisibility(View.VISIBLE);
 
-            findViewById(R.id.phone_study_detail_preload).setVisibility(View.VISIBLE);
-            findViewById(R.id.detail_note).setVisibility(View.GONE);
-            View view = findViewById(R.id.newplay_icon);
-            view.setVisibility(View.VISIBLE);
-            view.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(
-                            CourseDetailActivityphone.this,
-                            WebViewUtil.class);
-                    if (courseware.getLookPath() == null) {
-                        try {
-                            courseware.setLookPath("file:///" +
-                                    dataHelper.getPreload(courseware.getClassId()).getLoadLocalPath()
-                                            .replace(
-                                                    FLASH_POSTFIX,
-                                                    FLASH_GATE));
-                        }catch (Exception e){
-                            MyTools.exitShow(
-                                    CourseDetailActivityphone.this,
-                                    CourseDetailActivityphone.this
-                                            .getWindow().getDecorView(),
-                                    "您处于离线状态 \n 无法进行该操作");
+                findViewById(R.id.phone_study_detail_preload).setVisibility(View.VISIBLE);
+                findViewById(R.id.detail_note).setVisibility(View.GONE);
+                View view = findViewById(R.id.newplay_icon);
+                view.setVisibility(View.VISIBLE);
+                view.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(
+                                CourseDetailActivityphone.this,
+                                WebViewUtil.class);
+                        if (courseware.getLookPath() == null) {
+                            try {
+                                courseware.setLookPath("file:///" +
+                                        dataHelper.getPreload(courseware.getClassId()).getLoadLocalPath()
+                                                .replace(
+                                                        FLASH_POSTFIX,
+                                                        FLASH_GATE));
+                            } catch (Exception e) {
+                                MyTools.exitShow(
+                                        CourseDetailActivityphone.this,
+                                        CourseDetailActivityphone.this
+                                                .getWindow().getDecorView(),
+                                        "您处于离线状态 \n 无法进行该操作"
+                                );
+                            }
+                        }
+                        if (courseware.getLookPath() != null) {
+                            intent.putExtra(
+                                    "path",
+                                    courseware.getLookPath()
+                                            .replace("/i2/", "/an2/")
+                                            .replace("an1", "an2")
+                            );
+                            intent.putExtra("class", courseware);
+                            intent.putExtra("isRecord", getIntent()
+                                    .getBooleanExtra("isRecord", false));
+                            startActivity(intent);
                         }
                     }
-                    if (courseware.getLookPath() != null) {
-                        intent.putExtra(
-                                "path",
-                                courseware.getLookPath()
-                                        .replace("/i2/", "/an2/")
-                                        .replace("an1", "an2"));
-                        intent.putExtra("class", courseware);
-                        intent.putExtra("isRecord", getIntent()
-                                .getBooleanExtra("isRecord", false));
-                        startActivity(intent);
+                });
+                if (dataHelper.hasPreload(courseware.getClassId()) || !((CeiApplication) getApplication()).isNet()) {
+                    findViewById(R.id.phone_study_detail_preload).setBackgroundColor(getResources().getColor(R.color.xz_activity_top_bg_dis));
+                    //曾嵘修改于2014-05-07
+                    try {
+                        int isLoaded = dataHelper.getPreload(courseware.getClassId()).getLoadFinish();
+                        ((Button) findViewById(R.id.phone_study_detail_preload)).setText(isLoaded == 1 ? "已下载" : "下载中");
+                    } catch (Exception e) {
+                        ((Button) findViewById(R.id.phone_study_detail_preload)).setText("下载");
                     }
                 }
-            });
-            if (dataHelper.hasPreload(courseware.getClassId()) || !((CeiApplication)getApplication()).isNet()) {
-                findViewById(R.id.phone_study_detail_preload).setBackgroundColor(getResources().getColor(R.color.xz_activity_top_bg_dis));
-                //曾嵘修改于2014-05-07
-                try {
-                    int isLoaded = dataHelper.getPreload(courseware.getClassId()).getLoadFinish();
-                    ((Button) findViewById(R.id.phone_study_detail_preload)).setText(isLoaded == 1 ? "已下载" : "下载中");
-                }catch (Exception e){
-                    ((Button) findViewById(R.id.phone_study_detail_preload)).setText("下载");
-                }
             }
-        }
-		this.CURRENT_KEY = FoundationActivity.DETAIL_DATA_KEY;
-		getWindow().setSoftInputMode(
-				WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+            this.CURRENT_KEY = FoundationActivity.DETAIL_DATA_KEY;
+            getWindow().setSoftInputMode(
+                    WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
-		loadDataForView();
-		loadAboutClass();
+            loadDataForView();
+            loadAboutClass();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
 	}
 

@@ -309,16 +309,10 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
 		}*/
         if (dataHelper == null)
             dataHelper = new DataHelper(this);
-        if (coursewares.size() == 0 || CURRENT_KEY == RECORD_DATA_KEY) {
+        if (coursewares.size() == 0) {
             initChangedElements();
             registCommonEvent();
             getDataForListView();
-			/*
-			 * new Handler().postDelayed(new Runnable() {
-			 * 
-			 * @Override public void run() { new Progresser().alertProgress(); }
-			 * }, 200);
-			 */
 
         }
         super.onResume();
