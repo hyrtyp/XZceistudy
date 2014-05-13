@@ -473,7 +473,11 @@ public class Service {
             if("kczx".equals(type))
                 xmlStr += "<classtypeid>" + KindsActivity.oldFunctionId + "</classtypeid>";
             xmlStr += "</ROOT>";
-			rs = agent.queryClassName(xmlStr);
+            if("".equals(type)){
+                rs = agent.queryClassName1(xmlStr);
+            }else {
+                rs = agent.queryClassName(xmlStr);
+            }
 		} catch (Exception e) {
 			e.printStackTrace();
 			rs = "<?xml version='1.0' encoding='UTF-8'?>" + "<ROOT>"

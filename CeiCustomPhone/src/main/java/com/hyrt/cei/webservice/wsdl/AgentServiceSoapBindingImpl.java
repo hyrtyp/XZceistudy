@@ -362,7 +362,23 @@ public final class AgentServiceSoapBindingImpl {
 		return (java.lang.String) _envelope.getResponse();
 	}
 
-	/**
+    /**
+     * 搜索课件
+     */
+    public String queryClassName1(String xmlStr) throws Exception {
+        SoapObject _client = new SoapObject("", "queryClassName");
+        SoapSerializationEnvelope _envelope = new SoapSerializationEnvelope(
+                SoapEnvelope.VER11);
+        _envelope.bodyOut = _client;
+        _client.addProperty("xmlStr", xmlStr);
+        MyAndroidHttpTransport _ht = new MyAndroidHttpTransport(
+                Configuration.getWsUrl());
+        _ht.call("", _envelope);
+        return (java.lang.String) _envelope.getResponse();
+    }
+
+
+    /**
 	 * 搜索课件分类
 	 */
 	public String queryClassByType(String xmlStr) throws Exception {
