@@ -46,6 +46,7 @@ import com.weibo.sdk.android.demo.MainActivity;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class CourseDetailActivityphone extends FoundationActivity {
@@ -362,6 +363,8 @@ public class CourseDetailActivityphone extends FoundationActivity {
 							aboutCourseware.remove(i);
 					}
 				}
+                Courseware courseware1 = new Courseware();
+                Collections.sort(aboutCourseware,courseware1);
 				Message message = handler.obtainMessage();
 				message.arg1 = ABOUT_CLASS;
 				handler.sendMessage(message);
