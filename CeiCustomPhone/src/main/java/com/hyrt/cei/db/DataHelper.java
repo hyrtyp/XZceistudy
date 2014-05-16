@@ -827,7 +827,8 @@ public class DataHelper {
 			courseware.setClassLength(cursor.getString(5));
 			courseware.setProTime(cursor.getString(6));
 			courseware.setStudyTime(cursor.getString(7));
-			courseware.setTimePoint(cursor.getString(8));
+			courseware.setTimePoint("-1".equals(cursor.getString(8))?cursor.getString(8)
+                    :courseware.getTimePoint());
 			courseware.setUploadTime(cursor.getInt(9));
 			courseware.setIscompleted(cursor.getString(10));
 			cursor.moveToNext();
