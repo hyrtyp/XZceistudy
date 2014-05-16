@@ -1,13 +1,14 @@
 package com.hyrt.cei.vo;
 
 import java.io.Serializable;
+import java.util.Comparator;
 
 /**
  * 
  * 视频课件实体
  *
  */
-public class Courseware implements Serializable{
+public class Courseware implements Serializable,Comparator {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -274,8 +275,13 @@ public class Courseware implements Serializable{
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
-	
-	
-	
-	
+
+
+    @Override
+    public int compare(Object arg0, Object arg1) {
+        Courseware user0=(Courseware)arg0;
+        Courseware user1=(Courseware)arg1;
+        //按照集数排序
+        return user0.getClassLevel().compareTo(user1.getClassLevel());
+    }
 }
