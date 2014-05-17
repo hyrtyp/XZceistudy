@@ -54,6 +54,7 @@
                     android:layout_height="30dp"
                     android:background="@drawable/login_bg_edittext"
                     android:textCursorDrawable="@null"
+                    android:text="1000101"
                     android:paddingLeft="5dp"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -70,6 +71,8 @@
                     android:layout_height="30dp"
                     android:background="@drawable/login_bg_edittext"
                     android:textCursorDrawable="@null"
+                    android:text="888888"
+
                     android:paddingLeft="5dp"
                     android:password="true"/>
             </LinearLayout>

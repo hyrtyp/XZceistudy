@@ -227,7 +227,9 @@ public class CourseDetailActivityphone extends FoundationActivity {
             dataHelper = ((CeiApplication) getApplication()).dataHelper;
             courseware = (Courseware) getIntent().getSerializableExtra("coursewareInfo");
             registEvent();
-            if (getIntent().getBooleanExtra("hidePlay", false)) {
+            if (getIntent().getBooleanExtra("hidePlay", false) &&
+                    (getIntent().getStringExtra("currentClassId") == null
+                            || courseware.getName().equals(getIntent().getStringExtra("currentClassId")))) {
                 //findViewById(R.id.phone_study_detail_play).setVisibility(View.VISIBLE);
 
                 findViewById(R.id.phone_study_detail_preload).setVisibility(View.VISIBLE);
@@ -312,6 +314,13 @@ public class CourseDetailActivityphone extends FoundationActivity {
 				CourseDetailActivityphone.this.finish();
 				Intent intent = new Intent(CourseDetailActivityphone.this,
 						CourseDetailActivityphone.class);
+                intent.putExtra("hidePlay",getIntent().getBooleanExtra("hidePlay", false));
+                intent.putExtra("isRecord", getIntent()
+                        .getBooleanExtra("isRecord", false));
+                if(getIntent().getStringExtra("currentClassId") == null)
+                    intent.putExtra("currentClassId",courseware.getName());
+                else
+                    intent.putExtra("currentClassId",getIntent().getStringExtra("currentClassId"));
 				intent.putExtra("coursewareInfo", aboutCourseware.get(position));
 				startActivity(intent);
 			}
