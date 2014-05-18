@@ -16,6 +16,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebSettings.PluginState;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import com.hyrt.cei.application.CeiApplication;
 import com.hyrt.cei.db.DataHelper;
@@ -100,6 +101,8 @@ public class WebViewUtil extends ContainerActivity {
 			classId = courseware.getClassId();
             xzclassid = courseware.getXzclassid();
 		}
+        String xzUserId = ((CeiApplication)
+                (this.getApplication())).columnEntry.getXzuserid();
 		DataHelper dataHelper = ((CeiApplication) (WebViewUtil.this
 				.getApplication())).dataHelper;
 		if (!path.contains("ftp") && !path.contains("file:///")) {
@@ -150,17 +153,15 @@ public class WebViewUtil extends ContainerActivity {
                         + ((CeiApplication) (this.getApplication())).columnEntry
                         .getUserId() + "&classid=" + classId +"&native=0" +"&location="
                         + courseware.getTimePoint() +
-                        "&xzclassid=" + settings.getString(classId,xzclassid)+"&xzuserid="+
-                        settings.getString("XZUSERID",((CeiApplication) (this.getApplication())).columnEntry
-                        .getXzuserid())+"&totaltime="
+                        "&xzclassid=" + settings.getString(classId,xzclassid)+"&xzuserid="+(xzUserId==null?settings.getString("XZUSERID",""):xzUserId)+"&totaltime="
                         + courseware.getStudyTime();
             } else {
+
 				path += "?userid="
 						+ ((CeiApplication) (this.getApplication())).columnEntry
 								.getUserId() + "&classid=" + classId
 						+ "&native=0" + "&location="+(courseware.getTimePoint()==null?0:courseware.getTimePoint())+
-                        "&xzclassid=" + xzclassid +"&xzuserid="+settings.getString("XZUSERID",((CeiApplication) (this.getApplication())).columnEntry
-                        .getXzuserid())+"&totaltime="+courseware.getStudyTime();
+                            "&xzclassid=" + xzclassid +"&xzuserid="+(xzUserId==null?settings.getString("XZUSERID",""):xzUserId)+"&totaltime="+courseware.getStudyTime();
 			}
 			validStatusCode(path.replace("/apad.html",
 					FoundationActivity.FLASH_GATE));

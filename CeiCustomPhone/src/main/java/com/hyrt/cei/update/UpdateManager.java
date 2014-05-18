@@ -7,7 +7,6 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashMap;
 
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -56,7 +55,7 @@ public class UpdateManager {
 	private ProgressBar mProgress;
 	private Dialog mDownloadDialog;
 
-	Updata u;
+	Updata updata;
 
 	private Handler mHandler = new Handler() {
 		public void handleMessage(Message msg) {
@@ -93,7 +92,7 @@ public class UpdateManager {
 	public void isUpdate() {
 		// 获取当前软件版本
 		
-		u = new Updata();
+		updata = new Updata();
 		new Thread(new Runnable() {
 
 			@Override
@@ -101,9 +100,9 @@ public class UpdateManager {
 				// TODO Auto-generated method stub
 				String s = Service.queryApkList("");
 				try {
-					u = XmlUtil.queryApkList(s);
+					updata = XmlUtil.queryApkList(s);
 					int versionCode = getVersionCode(mContext);
-					if (u.getAphoneversion() > versionCode) {
+					if (updata.getAphoneversion() > versionCode) {
 						mHandler.sendEmptyMessage(SHOWNOTICIDILOG);;
 					}else{
 						Toast.makeText(mContext, R.string.soft_update_no, Toast.LENGTH_LONG)
@@ -220,7 +219,7 @@ public class UpdateManager {
 					String sdpath = Environment.getExternalStorageDirectory()
 							+ "/";
 					mSavePath = sdpath + "download";
-					URL url = new URL(u.getAphoneurl());
+					URL url = new URL(updata.getAphoneurl());
 //					URL url = new URL("http://192.168.10.248:8091/HBT-MWPM/upload/apk/Cei(20130326111802).apk");
 					// 创建连接
 					HttpURLConnection conn = (HttpURLConnection) url
@@ -236,7 +235,7 @@ public class UpdateManager {
 					if (!file.exists()) {
 						file.mkdir();
 					}
-					File apkFile = new File(mSavePath, u.getAphonename());
+					File apkFile = new File(mSavePath, updata.getAphonename());
 					FileOutputStream fos = new FileOutputStream(apkFile);
 					int count = 0;
 					// 缓存
@@ -274,7 +273,7 @@ public class UpdateManager {
 	 * 安装APK文件
 	 */
 	private void installApk() {
-		File apkfile = new File(mSavePath, u.getAphonename());
+		File apkfile = new File(mSavePath, updata.getAphonename());
 		if (!apkfile.exists()) {
 			return;
 		}
