@@ -125,7 +125,6 @@ public class WebViewUtil extends ContainerActivity {
 			webView.setWebChromeClient(new MyWebChromeClient());
 		} else if (dataHelper.getPreload(classId) != null
 				&& dataHelper.getPreload(classId).getLoadFinish() == 1) {
-			DownloadThreadManager.clearThread();
 			Preload preload = dataHelper.getPreload(classId);
 			path = "file:///"
 					+ preload.getLoadLocalPath().replace(
@@ -137,7 +136,6 @@ public class WebViewUtil extends ContainerActivity {
 			webView.setWebChromeClient(new MyWebChromeClient());
 		} else if (classId != null && !classId.equals("") && path != null
 				&& path.contains("http://")) {
-			DownloadThreadManager.clearThread();
 			if (!((CeiApplication) this.getApplication()).isNet()) {
 				MyTools.popExitActivity(this);
 				return;
@@ -153,16 +151,16 @@ public class WebViewUtil extends ContainerActivity {
                         + ((CeiApplication) (this.getApplication())).columnEntry
                         .getUserId() + "&classid=" + classId +"&native=0" +"&location="
                         + courseware.getTimePoint() +
-                        "&xzclassid=" + settings.getString(classId,xzclassid)+"&xzuserid="+(xzUserId==null?settings.getString("XZUSERID",""):xzUserId)+"&totaltime="
+                        "&xzclassid=" + settings.getString(classId,xzclassid)+"&xzuserid="+settings.getString("XZUSERID",xzUserId)+"&totaltime="
                         + courseware.getStudyTime();
             } else {
-
 				path += "?userid="
 						+ ((CeiApplication) (this.getApplication())).columnEntry
 								.getUserId() + "&classid=" + classId
 						+ "&native=0" + "&location="+(courseware.getTimePoint()==null?0:courseware.getTimePoint())+
-                            "&xzclassid=" + xzclassid +"&xzuserid="+(xzUserId==null?settings.getString("XZUSERID",""):xzUserId)+"&totaltime="+courseware.getStudyTime();
+                            "&xzclassid=" + xzclassid +"&xzuserid="+settings.getString("XZUSERID",xzUserId)+"&totaltime="+courseware.getStudyTime();
 			}
+            Toast.makeText(this,settings.getString("XZUSERID",xzUserId),Toast.LENGTH_LONG).show();
 			validStatusCode(path.replace("/apad.html",
 					FoundationActivity.FLASH_GATE));
 		}
@@ -233,10 +231,13 @@ public class WebViewUtil extends ContainerActivity {
 	Handler handler = new Handler() {
 		@Override
 		public void dispatchMessage(Message msg) {
+
 			DataHelper dataHelper = ((CeiApplication) (WebViewUtil.this
 					.getApplication())).dataHelper;
             SharedPreferences settings = getSharedPreferences("loginInfo",
                     Activity.MODE_PRIVATE);
+            String xzUserId = ((CeiApplication)
+                    (getApplication())).columnEntry.getXzuserid();
 			if (dataHelper.getStudyRecord(courseware)) {
 //				path += "?userid="
 //						+ ((CeiApplication) (WebViewUtil.this.getApplication())).columnEntry
@@ -248,8 +249,7 @@ public class WebViewUtil extends ContainerActivity {
                         + ((CeiApplication) (WebViewUtil.this.getApplication())).columnEntry
                         .getUserId() + "&classid=" + classId +"&native=0" +"&location="
                         + courseware.getTimePoint() +
-                        "&xzclassid=" + xzclassid+"&xzuserid"+((CeiApplication) (WebViewUtil.this.getApplication())).columnEntry
-                        .getXzuserid()+"&totaltime"
+                        "&xzclassid=" + xzclassid+"&xzuserid"+settings.getString("XZUSERID",xzUserId)+"&totaltime"
                         + courseware.getStudyTime();
 			} else {
 //				path += "?userid="
@@ -260,8 +260,7 @@ public class WebViewUtil extends ContainerActivity {
                         + ((CeiApplication) (WebViewUtil.this.getApplication())).columnEntry
                         .getUserId() + "&classid=" + classId
                         + "&native=0" + "&location=0"+
-                        "&xzclassid=" + xzclassid +"&xzuserid"+((CeiApplication) (WebViewUtil.this.getApplication())).columnEntry
-                        .getXzuserid()+"&totaltime=0";
+                        "&xzclassid=" + xzclassid +"&xzuserid"+settings.getString("XZUSERID",xzUserId)+"&totaltime=0";
 			}
 			findViewById(R.id.webview_progress).setVisibility(View.GONE);
 			findViewById(R.id.web_view).setVisibility(View.VISIBLE);

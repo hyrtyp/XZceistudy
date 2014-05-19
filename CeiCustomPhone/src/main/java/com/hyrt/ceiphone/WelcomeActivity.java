@@ -327,7 +327,8 @@ public class WelcomeActivity extends ContainerActivity {
 					// 请求个人资源100%
 					result = Service.initSelfResources(columnEntry);
                     SharedPreferences.Editor editor = settings.edit();
-                    editor.putString("XZUSERID",columnEntry.getXzuserid());
+                    if(columnEntry.getXzuserid() != null && !"".equals(columnEntry.getXzuserid()))
+                        editor.putString("XZUSERID",columnEntry.getXzuserid());
                     editor.commit();
 					WriteOrRead.write(result, MyTools.nativeData,
 							INITSELFRESOURCES_FILENAME);
@@ -400,7 +401,8 @@ public class WelcomeActivity extends ContainerActivity {
 					}
 					XmlUtil.parseInitResources(result, columnEntry);
                     SharedPreferences.Editor editor = settings.edit();
-                    editor.putString("XZUSERID",columnEntry.getXzuserid());
+                    if(columnEntry.getXzuserid() != null && !"".equals(columnEntry.getXzuserid()))
+                        editor.putString("XZUSERID",columnEntry.getXzuserid());
                     editor.commit();
 					Message message = handler.obtainMessage();
 					message.arg1 = UPDATE_CENT;
