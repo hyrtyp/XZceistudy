@@ -43,6 +43,8 @@ public class UpdateManager {
 	private static final int DOWNLOAD_FINISH = 2;
 	/*通知弹出对话框*/
 	private static final int SHOWNOTICIDILOG = 3;
+    /*通知弹出无更新对话框*/
+    private static final int NOUPDATE = 4;
 	/* 下载保存路径 */
 	private String mSavePath;
 	/* 记录进度条数量 */
@@ -54,6 +56,9 @@ public class UpdateManager {
 	/* 更新进度条 */
 	private ProgressBar mProgress;
 	private Dialog mDownloadDialog;
+
+    //更新无效是否提示
+    private boolean isNotice = true;
 
 	Updata updata;
 
@@ -73,6 +78,10 @@ public class UpdateManager {
 				// 安装文件
 				showNoticeDialog();
 				break;
+                case NOUPDATE:
+                    Toast.makeText(mContext, R.string.soft_update_no, Toast.LENGTH_LONG)
+                            .show();
+                    break;
 			default:
 				break;
 			}
@@ -82,6 +91,10 @@ public class UpdateManager {
 	public UpdateManager(Context context) {
 		this.mContext = context;
 	}
+    public UpdateManager(Context context,boolean isNotice) {
+        this.isNotice = isNotice;
+        this.mContext = context;
+    }
 
 
 	/**
@@ -105,8 +118,8 @@ public class UpdateManager {
 					if (updata.getAphoneversion() > versionCode) {
 						mHandler.sendEmptyMessage(SHOWNOTICIDILOG);;
 					}else{
-						Toast.makeText(mContext, R.string.soft_update_no, Toast.LENGTH_LONG)
-						.show();
+                        if(isNotice)
+                            mHandler.sendEmptyMessage(NOUPDATE);
 					}
 				} catch (Exception e) {
 					// TODO Auto-generated catch block

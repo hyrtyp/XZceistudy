@@ -504,6 +504,24 @@ public class Service {
 		return rs;
 	}
 
+    public static String delClassByTime(String xzuserid, String xzclassid) {
+        String rs;
+        try {
+            String xmlStr = "<?xml version='1.0' encoding='UTF-8'?>"
+                    + "<ROOT>"
+                    + "<xzuserid>" + xzuserid + "</xzuserid>"
+                    + "<xzclassid>" + xzclassid + "</xzclassid>"
+                    + "<isdel>" + "y" + "</isdel>"
+                    + "</ROOT>";
+            rs = agent.delCourseClass(xmlStr);
+        } catch (Exception e) {
+            e.printStackTrace();
+            rs = "<?xml version='1.0' encoding='UTF-8'?>" + "<ROOT>"
+                    + "<RETURNCODE>-1</RETURNCODE> " + "</ROOT>";
+        }
+        return rs;
+    }
+
 	public static String queryClassByType(String functionids) {
 		String rs = "";
 		try {

@@ -76,9 +76,10 @@ public class MyTools {
 
 	}
 
-	public static void exitShow(final Context context, View showView, final String title) {
-		try {
-			View view = LayoutInflater.from(context).inflate(
+	public static View exitShow(final Context context, View showView, final String title) {
+        View view = null;
+        try {
+			view = LayoutInflater.from(context).inflate(
 					R.layout.pop_exit_show, null);
 			final PopupWindow mPopupWindow = new PopupWindow(view,
 					LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
@@ -112,10 +113,14 @@ public class MyTools {
 						}
 					});
 			mPopupWindow.showAtLocation(showView, Gravity.CENTER, 0, 0);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+        return view.findViewById(R.id.pop_exit_show_yes);
 	}
+
+
 
 	public static void popExitActivity(final Context context) {
 		new Handler().postDelayed(new Runnable() {

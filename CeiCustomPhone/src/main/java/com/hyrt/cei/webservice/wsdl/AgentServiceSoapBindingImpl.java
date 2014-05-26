@@ -17,6 +17,20 @@ public final class AgentServiceSoapBindingImpl {
 		return (java.lang.String) _envelope.getResponse();
 	}
 
+    public java.lang.String delCourseClass(String xmlStr) throws Exception {
+        SoapObject _client = new SoapObject("", "delCourseClass");
+        _client.addProperty("xmlStr", xmlStr);
+        SoapSerializationEnvelope _envelope = new SoapSerializationEnvelope(
+                SoapEnvelope.VER11);
+        _envelope.bodyOut = _client;
+        MyAndroidHttpTransport _ht = new MyAndroidHttpTransport(
+                Configuration.getWsUrl());
+        _ht.call("", _envelope);
+        return (java.lang.String) _envelope.getResponse();
+    }
+
+
+
 	/**
 	 * 终端首次登陆
 	 * 

@@ -30,6 +30,7 @@ import android.widget.TextView;
 import com.hyrt.cei.application.CeiApplication;
 import com.hyrt.cei.ui.personcenter.PersonCenter;
 import com.hyrt.cei.ui.phonestudy.CourseDetailActivityphone;
+import com.hyrt.cei.update.UpdateManager;
 import com.hyrt.cei.util.AsyncImageLoader;
 import com.hyrt.cei.util.MyTools;
 import com.hyrt.cei.util.XmlUtil;
@@ -935,6 +936,17 @@ public class FoundationActivity extends ActivityGroup implements OnClickListener
                 popWinMore.dismiss();
             }
         });
+
+        popView.findViewById(R.id.my_update).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UpdateManager manager = new UpdateManager(FoundationActivity.this);
+                manager.isUpdate();
+                popWinMore.dismiss();
+            }
+        });
+
+
 
         popWinMore = new PopupWindow(popView, RelativeLayout.LayoutParams.MATCH_PARENT,
                 RelativeLayout.LayoutParams.MATCH_PARENT);

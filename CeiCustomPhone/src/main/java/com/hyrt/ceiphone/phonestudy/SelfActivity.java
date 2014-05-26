@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Message;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
@@ -35,6 +36,7 @@ public class SelfActivity extends FoundationActivity {
         if(!isDown){
             findViewById(R.id.layout_load).setVisibility(View.VISIBLE);
         }
+
 		dataHelper = ((CeiApplication) getApplication()).dataHelper;
 		final LinearLayout labelParent = (LinearLayout) findViewById(R.id.phone_study_labelParent);
 		for (int i = 0; i < labelParent.getChildCount(); i++) {
@@ -88,4 +90,5 @@ public class SelfActivity extends FoundationActivity {
              labelParent.getChildAt(1).setVisibility(View.GONE);
 		}
 	}
+
 }

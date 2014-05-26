@@ -128,7 +128,7 @@ public class PhoneStudyActivity extends FoundationActivity {
                 startActivity(intent);
             }
         });
-        UpdateManager manager = new UpdateManager(this);
+        UpdateManager manager = new UpdateManager(this,false);
         // 检查软件更新
         if(!isCheckUpdate) {
             isCheckUpdate = true;

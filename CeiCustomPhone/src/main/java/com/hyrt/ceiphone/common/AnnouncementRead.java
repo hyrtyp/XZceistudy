@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.hyrt.cei.ui.personcenter.PersonCenter;
 import com.hyrt.cei.ui.witsea.WitSeaActivity;
+import com.hyrt.cei.update.UpdateManager;
 import com.hyrt.cei.util.MyTools;
 import com.hyrt.ceiphone.ContainerActivity;
 import com.hyrt.ceiphone.R;
@@ -124,6 +125,15 @@ public class AnnouncementRead extends FoundationActivity{
             @Override
             public void onClick(View v) {
                 alertIsSurePopExit();
+                popWinMore.dismiss();
+            }
+        });
+
+        popView.findViewById(R.id.my_update).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UpdateManager manager = new UpdateManager(AnnouncementRead.this);
+                manager.isUpdate();
                 popWinMore.dismiss();
             }
         });
