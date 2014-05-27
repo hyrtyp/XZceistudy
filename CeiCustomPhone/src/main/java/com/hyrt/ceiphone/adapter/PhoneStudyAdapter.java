@@ -618,7 +618,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
                             .getApplication())).columnEntry
                             .getXzuserid();
                     String xzclassid = coursewares.get(position).getXzclassid();
-                    exitShow(activity, activity.getWindow().getDecorView(), "确认取消该课件?", xzuserid, xzclassid);
+                    exitShow(activity, activity.getWindow().getDecorView(), "确认取消该课件?", xzuserid, xzclassid, coursewares.get(position).getClassId());
                     return false;
                 }
             });
@@ -629,7 +629,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
                             .getApplication())).columnEntry
                             .getXzuserid();
                     String xzclassid = coursewares.get(position).getXzclassid();
-                    exitShow(activity, activity.getWindow().getDecorView(), "确认取消该课件?", xzuserid, xzclassid);
+                    exitShow(activity, activity.getWindow().getDecorView(), "确认取消该课件?", xzuserid, xzclassid, coursewares.get(position).getClassId());
                     return false;
                 }
             });
@@ -640,7 +640,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
                             .getApplication())).columnEntry
                             .getXzuserid();
                     String xzclassid = coursewares.get(position).getXzclassid();
-                    exitShow(activity, activity.getWindow().getDecorView(), "确认取消该课件?", xzuserid, xzclassid);
+                    exitShow(activity, activity.getWindow().getDecorView(), "确认取消该课件?", xzuserid, xzclassid, coursewares.get(position).getClassId());
                     return false;
                 }
             });
@@ -649,7 +649,8 @@ public class PhoneStudyAdapter extends BaseAdapter {
         return convertView;
     }
 
-    public View exitShow(final Context context, View showView, final String title,final String xzuserid,final String xzclassid) {
+    public View exitShow(final Context context, View showView, final String title,final String xzuserid
+            ,final String xzclassid,final String classid) {
         View view = null;
         try {
             view = LayoutInflater.from(context).inflate(
@@ -674,6 +675,7 @@ public class PhoneStudyAdapter extends BaseAdapter {
                                 @Override
                                 public void run() {
                                     Service.delClassByTime(xzuserid,xzclassid);
+                                    dataHelper.deletePreload(classid);
                                     activity.startActivity(new Intent(activity,SelfActivity.class));
                                 }
                             }).start();
